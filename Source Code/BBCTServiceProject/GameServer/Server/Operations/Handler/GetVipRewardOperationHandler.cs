@@ -21,7 +21,7 @@ namespace GameServer.Server.Operations.Handler
             VipRewardRequestData requestData = new VipRewardRequestData();
             requestData.Deserialize(operationRequest.Parameters);
 
-            MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.id);
+            MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.info._id);
 
             if (userInfo == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.Error);

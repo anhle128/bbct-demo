@@ -25,7 +25,7 @@ namespace GameServer.Server.Operations.Handler
             requestData.Deserialize(operationRequest.Parameters);
 
 
-            MNhiemVuHangNgayLog log = MongoController.LogSubDB.NhiemVuHangNgay.GetData(player.cacheData.id);
+            MNhiemVuHangNgayLog log = MongoController.LogSubDB.NhiemVuHangNgay.GetData(player.cacheData.info._id);
             if (log == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 

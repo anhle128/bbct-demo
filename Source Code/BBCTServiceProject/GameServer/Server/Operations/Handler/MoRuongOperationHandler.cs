@@ -40,7 +40,7 @@ namespace GameServer.Server.Operations.Handler
 
             userRuong.quantity -= requestData.quantity;
 
-            MMoRuongLog moRuongLog = MongoController.LogSubDB.MoRuong.GetData(player.cacheData.id,
+            MMoRuongLog moRuongLog = MongoController.LogSubDB.MoRuong.GetData(player.cacheData.info._id,
                 userRuong.static_id);
 
             bool isCreate = false;
@@ -48,7 +48,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 moRuongLog = new MMoRuongLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     static_id = userRuong.static_id,
                     bonus_proc = 0,
                     total_times_opends = 0,

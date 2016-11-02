@@ -18,7 +18,7 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters,
             OperationController controller)
         {
-            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.id);
+            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.info._id);
 
             if (member == null)
             {
@@ -49,7 +49,7 @@ namespace GameServer.Server.Operations.Handler
             MLuaTraiRewardLog log = new MLuaTraiRewardLog()
             {
                 guild_id = member.guild_id,
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
                 hash_code_time = CommonFunc.GetHashCodeTime(),
             };
             MongoController.LogSubDB.LuaTraiRewardLog.Create(log);

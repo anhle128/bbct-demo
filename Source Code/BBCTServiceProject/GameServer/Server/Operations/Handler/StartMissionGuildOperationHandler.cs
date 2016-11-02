@@ -23,14 +23,14 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.id);
+            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.info._id);
 
             if (member == null)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.IsNotMemberInGuild);
             }
 
-            int countMissionLog = MongoController.LogSubDB.MissionGuildLog.Count(member.guild_id, player.cacheData.id,
+            int countMissionLog = MongoController.LogSubDB.MissionGuildLog.Count(member.guild_id, player.cacheData.info._id,
                 requestData.indexMission);
 
 
@@ -44,7 +44,7 @@ namespace GameServer.Server.Operations.Handler
                 guild_id = member.guild_id,
                 index_mission = requestData.indexMission,
                 is_finish = false,
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
                 hash_code_time = CommonFunc.GetHashCodeTime(),
             };
             MongoController.LogSubDB.MissionGuildLog.Create(missionLog);

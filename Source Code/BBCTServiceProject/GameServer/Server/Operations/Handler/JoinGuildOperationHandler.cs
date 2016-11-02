@@ -28,7 +28,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
             }
 
-            var lockLog = MongoController.GuildDb.LockLog.GetData(player.cacheData.id);
+            var lockLog = MongoController.GuildDb.LockLog.GetData(player.cacheData.info._id);
 
             if (lockLog != null)
             {
@@ -42,7 +42,7 @@ namespace GameServer.Server.Operations.Handler
                 }
             }
 
-            bool checkMemberInGuild = MongoController.GuildDb.GuildMember.CheckMemberInGuild(player.cacheData.id);
+            bool checkMemberInGuild = MongoController.GuildDb.GuildMember.CheckMemberInGuild(player.cacheData.info._id);
 
             if (checkMemberInGuild)
             {
@@ -57,7 +57,7 @@ namespace GameServer.Server.Operations.Handler
 
             bool checkExistRequest =
                 MongoController.GuildDb.RequestJoin.CheckExistRequest((requestData.guild_id),
-                    player.cacheData.id);
+                    player.cacheData.info._id);
 
             if (checkExistRequest)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.RequestedJoinThisGuild);
@@ -65,7 +65,7 @@ namespace GameServer.Server.Operations.Handler
             MGuildRequestJoin mRqJoin = new MGuildRequestJoin()
             {
                 guild_id = (requestData.guild_id),
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
             };
 
             MongoController.GuildDb.RequestJoin.Create(mRqJoin);

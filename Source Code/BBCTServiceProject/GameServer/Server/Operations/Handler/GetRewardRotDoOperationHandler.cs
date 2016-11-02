@@ -26,7 +26,7 @@ namespace GameServer.Server.Operations.Handler
             if (config == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
 
-            MSKRotDoLog log = MongoController.LogSubDB.SkRotDo.GetData(player.cacheData.id, config._id);
+            MSKRotDoLog log = MongoController.LogSubDB.SkRotDo.GetData(player.cacheData.info._id, config._id);
 
             if (log == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);

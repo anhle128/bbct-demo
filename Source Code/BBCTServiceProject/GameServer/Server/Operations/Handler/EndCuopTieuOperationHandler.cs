@@ -22,7 +22,7 @@ namespace GameServer.Server.Operations.Handler
             OperationController controller)
         {
             MUserCuopTieu userCuopTieu =
-                MongoController.UserDb.CuopTieu.GetData(player.cacheData.id);
+                MongoController.UserDb.CuopTieu.GetData(player.cacheData.info._id);
 
             if (userCuopTieu == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
@@ -52,7 +52,7 @@ namespace GameServer.Server.Operations.Handler
             int silverReward =
                 StaticDatabase.entities.configs.GetSilverCuopTieuReward(userVanTieu.current_vehicle.type);
             player.cacheData.silver += (int)silverReward;
-            userVanTieu.users_cuop_tieu.Add(player.cacheData.id);
+            userVanTieu.users_cuop_tieu.Add(player.cacheData.info._id);
 
             // update
             MongoController.UserDb.VanTieu.UpdateCurrentVehidle_UsersCuopTieu(userVanTieu);

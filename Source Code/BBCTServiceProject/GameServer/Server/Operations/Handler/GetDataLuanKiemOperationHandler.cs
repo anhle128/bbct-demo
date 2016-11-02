@@ -25,9 +25,9 @@ namespace GameServer.Server.Operations.Handler
             if (player.cacheData.level < config.levelRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
-            currentUserId = player.cacheData.id.ToString();
+            currentUserId = player.cacheData.info._id;
 
-            int countAttackTimes = MongoController.LogSubDB.LuanKiem.CountAttackTimes(player.cacheData.id);
+            int countAttackTimes = MongoController.LogSubDB.LuanKiem.CountAttackTimes(player.cacheData.info._id);
 
             List<PlayerLuanKiem> listPlayers = GetLuanKiemPlayers(player);
             List<LuanKiemLog> listLogs = GetDataChienBao(player);

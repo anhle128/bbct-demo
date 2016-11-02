@@ -22,7 +22,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 if (player.cacheData.guildId == null)
                 {
-                    var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.id);
+                    var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.info._id);
 
                     if (member == null)
                     {

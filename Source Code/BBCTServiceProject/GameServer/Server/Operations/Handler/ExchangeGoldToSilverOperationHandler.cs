@@ -24,7 +24,7 @@ namespace GameServer.Server.Operations.Handler
             requestData.Deserialize(operationRequest.Parameters);
 
             MExchangeGoldToSilverLog log =
-                MongoController.LogSubDB.ExchangeGoldToSilver.GetData(player.cacheData.id,
+                MongoController.LogSubDB.ExchangeGoldToSilver.GetData(player.cacheData.info._id,
                     CommonFunc.GetHashCodeTime());
 
             bool isCreate = false;
@@ -32,7 +32,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 log = new MExchangeGoldToSilverLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     hash_code_time = CommonFunc.GetHashCodeTime(),
                     times = 0
                 };

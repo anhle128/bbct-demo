@@ -37,7 +37,7 @@ namespace GameServer.Server.Operations.Handler
                 int.Parse(MongoController.LogSubDB.BuyShopItem.GetSumData
                 (
                     filter =>
-                        filter.user_id == player.cacheData.id &&
+                        filter.user_id == player.cacheData.info._id &&
                         filter.server_id == Settings.Instance.server_id &&
                         filter.item_id == requestData.id &&
                         filter.hash_code_time == CommonFunc.GetHashCodeTime(),
@@ -59,7 +59,7 @@ namespace GameServer.Server.Operations.Handler
 
             MBuyShopItemLog log = new MBuyShopItemLog()
             {
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
                 hash_code_time = CommonFunc.GetHashCodeTime(),
                 item_id = requestData.id,
                 quantity = requestData.quantity,

@@ -32,7 +32,7 @@ namespace GameServer.Server.Operations.Handler
             requestData.Deserialize(operationRequest.Parameters);
 
 
-            int countTimesAttack = MongoController.LogSubDB.LuanKiem.CountAttackTimes(player.cacheData.id);
+            int countTimesAttack = MongoController.LogSubDB.LuanKiem.CountAttackTimes(player.cacheData.info._id);
             VipConfig vip = StaticDatabase.entities.configs.vipConfigs[player.cacheData.vip];
             if (countTimesAttack >= vip.arenaTimes)
             {
@@ -63,7 +63,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 user = new UserLuanKiem()
                 {
-                    userid = player.cacheData.id.ToString(),
+                    userid = player.cacheData.info._id.ToString(),
                     nickname = player.cacheData.nickname,
                     old_rank = player.cacheData.rankLuanKiem,
                     new_rank = player.cacheData.rankLuanKiem
@@ -79,7 +79,7 @@ namespace GameServer.Server.Operations.Handler
                 }
             };
 
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.AttackLuanKiem);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.AttackLuanKiem);
 
             BattleProcessor processor = new BattleProcessor();
             BattleSimulator.Battle battleSim = processor.BattlePvp
@@ -97,7 +97,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 lock (lockObject)
                 {
-                    MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.id);
+                    MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.info._id);
                     if (userInfo.rank_luan_kiem != player.cacheData.rankLuanKiem)
                         return CommonFunc.SimpleResponse(operationRequest, ReturnCode.RankChanged);
 

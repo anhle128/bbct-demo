@@ -43,8 +43,8 @@ namespace GameServer.Server.Operations.Handler
             bool isCreate = false;
             MSKTichLuyNapLog log = MongoController.LogSubDB.SkTichLuyNap.GetData
                 (
-                    player.cacheData.id,
-                    sk._id.ToString(),
+                    player.cacheData.info._id,
+                    sk._id,
                     CommonFunc.GetHashCodeTime()
                 );
 
@@ -53,8 +53,8 @@ namespace GameServer.Server.Operations.Handler
                 isCreate = true;
                 log = new MSKTichLuyNapLog()
                 {
-                    user_id = player.cacheData.id,
-                    su_kien_id = sk._id.ToString(),
+                    user_id = player.cacheData.info._id,
+                    su_kien_id = sk._id,
                     index_received = new List<int>(),
                     hash_code_time = CommonFunc.GetHashCodeTime()
                 };
@@ -70,7 +70,7 @@ namespace GameServer.Server.Operations.Handler
 
             double totalTransGold = MongoController.LogDb.Trans.GetTotalRuby
                 (
-                    player.cacheData.id,
+                    player.cacheData.info._id,
                     CommonFunc.GetStartTimeInDay(),
                     CommonFunc.GetEndTimeInDay()
                 );
@@ -113,8 +113,8 @@ namespace GameServer.Server.Operations.Handler
 
             MSKTichLuyNapLog log = MongoController.LogSubDB.SkTichLuyNap.GetData
                 (
-                    player.cacheData.id,
-                    sk._id.ToString()
+                    player.cacheData.info._id,
+                    sk._id
                 );
 
             if (log == null)
@@ -122,8 +122,8 @@ namespace GameServer.Server.Operations.Handler
                 isCreate = true;
                 log = new MSKTichLuyNapLog()
                 {
-                    user_id = player.cacheData.id,
-                    su_kien_id = sk._id.ToString(),
+                    user_id = player.cacheData.info._id,
+                    su_kien_id = sk._id,
                     index_received = new List<int>()
                 };
             }
@@ -138,7 +138,7 @@ namespace GameServer.Server.Operations.Handler
 
             double totalTransGold = MongoController.LogDb.Trans.GetTotalRuby
                 (
-                    player.cacheData.id,
+                    player.cacheData.info._id,
                     sk.start,
                     DateTime.Now
                 );

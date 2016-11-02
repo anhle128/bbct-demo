@@ -27,12 +27,12 @@ namespace GameServer.Server.Operations.Handler
             double currentIndex = StaticDatabase.entities.configs.hoatDongDiemDanhConfig.GetCurrentIndex();
 
             MUserDienDanhThang userDiemDanh =
-                MongoController.UserDb.DiemDanhThang.GetData(player.cacheData.id, monthReward.month);
+                MongoController.UserDb.DiemDanhThang.GetData(player.cacheData.info._id, monthReward.month);
             if (userDiemDanh == null)
             {
                 userDiemDanh = new MUserDienDanhThang()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     month = monthReward.month,
                     year = DateTime.Now.Year
                 };

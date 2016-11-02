@@ -22,12 +22,12 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            if (requestData.userid.Equals(player.cacheData.id.ToString()))
+            if (requestData.userid.Equals(player.cacheData.info._id))
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            var guild = MongoController.GuildDb.Guild.GetDataByUserId(player.cacheData.id);
+            var guild = MongoController.GuildDb.Guild.GetDataByUserId(player.cacheData.info._id);
 
             if (guild == null)
             {

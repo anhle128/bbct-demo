@@ -43,7 +43,7 @@ namespace GameServer.Server.Operations.Handler
 
             MongoController.UserDb.Item.UpdateQuantity(userItem);
             MongoController.UserDb.Info.UpdateStamina(player.cacheData);
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.GetFreeStamina);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.GetFreeStamina);
 
             return CommonFunc.SimpleResponse(operationRequest, ReturnCode.OK);
 

@@ -34,15 +34,13 @@ namespace GameServer.Server.Operations.Handler
             MUserCharacter userCharacter = new MUserCharacter()
             {
                 static_id = int.Parse(requestData.char_id),
-                user_id = player.cacheData.id
+                user_id = player.cacheData.info._id
             };
 
             player.cacheData.CreateUserChar(userCharacter);
 
-            //PlayerCacheData userInfo = player.cacheData;
-
-            player.cacheData.avatar = userCharacter.static_id;
-            player.cacheData.formation[1].columns[1] = userCharacter._id.ToString();
+            player.cacheData.info.avatar = userCharacter.static_id;
+            player.cacheData.info.formations[0].main[1].columns[1] = userCharacter._id.ToString();
 
             MongoController.UserDb.Info.UpdateAvatar_Formation(player.cacheData);
 
@@ -57,7 +55,7 @@ namespace GameServer.Server.Operations.Handler
             ChonTuongBanDauResponseData response = new ChonTuongBanDauResponseData()
             {
                 char_reward = reward,
-                formation = player.cacheData.formation
+                formation = player.cacheData.info.formations[0]
             };
 
             return new OperationResponse()

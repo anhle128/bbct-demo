@@ -28,7 +28,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DoesNotEnoughStamina);
 
             //Get UserState
-            MUserStage userStage = MongoController.UserDb.Stage.GetData(player.cacheData.id,
+            MUserStage userStage = MongoController.UserDb.Stage.GetData(player.cacheData.info._id,
                 requestData.stage_info);
 
             bool isNull = false;
@@ -37,7 +37,7 @@ namespace GameServer.Server.Operations.Handler
                 isNull = true;
                 userStage = new MUserStage()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     stage_info = new UserStage()
                     {
                         stage = new StageMode()
@@ -75,7 +75,7 @@ namespace GameServer.Server.Operations.Handler
                 MongoController.UserDb.Stage.Update(userStage);
 
             MongoController.UserDb.Info.Update_Stamina_StageAttacked(userInfo);
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.AttackStage);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.AttackStage);
 
             userInfo.stageAttacked = userStage;
 
@@ -91,7 +91,7 @@ namespace GameServer.Server.Operations.Handler
                 return true;
 
             StageMode prevStage = GetPrevStage(uStage.stage_info.stage);
-            MUserStage userStage = MongoController.UserDb.Stage.GetData(userInfo.id, prevStage);
+            MUserStage userStage = MongoController.UserDb.Stage.GetData(userInfo.info._id, prevStage);
 
 
             if (userStage == null)

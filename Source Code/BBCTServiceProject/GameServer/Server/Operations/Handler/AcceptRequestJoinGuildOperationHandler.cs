@@ -41,7 +41,7 @@ namespace GameServer.Server.Operations.Handler
             if (checkIsMemberInGuild)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.IsMemberInGuild);
 
-            var guild = MongoController.GuildDb.Guild.GetDataByUserId(player.cacheData.id);
+            var guild = MongoController.GuildDb.Guild.GetDataByUserId(player.cacheData.info._id);
 
             if (guild == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotHavePermission);

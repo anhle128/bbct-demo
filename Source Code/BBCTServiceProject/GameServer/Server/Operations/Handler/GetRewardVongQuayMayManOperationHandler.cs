@@ -28,13 +28,13 @@ namespace GameServer.Server.Operations.Handler
             bool isCreate = false;
 
 
-            MSKVongQuayMayManLog log = MongoController.LogSubDB.SkVongQuayMayMan.GetData(player.cacheData.id, config._id);
+            MSKVongQuayMayManLog log = MongoController.LogSubDB.SkVongQuayMayMan.GetData(player.cacheData.info._id, config._id);
             if (log == null)
             {
                 isCreate = true;
                 log = new MSKVongQuayMayManLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     count_times_quay_free = 0,
                     server_id = Settings.Instance.server_id,
                     su_kien_id = config._id,

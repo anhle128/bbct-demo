@@ -1,10 +1,10 @@
 ﻿using DynamicDBModel.Enum;
 using GameServer.Common;
 using GameServer.Common.Enum;
+using GameServer.Database.Controller;
 using GameServer.GlobalInfo;
 using GameServer.NapThe;
 using GameServer.Server.Operations.Core;
-using GameServer.Database.Controller;
 using MongoDBModel.MainDatabaseModels;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
@@ -18,7 +18,7 @@ namespace GameServer.Server.Operations.Handler
             OperationController controller)
         {
             // check payment
-            List<MTransaction> listNewTrans = MongoController.LogDb.Trans.GetCheckTrans(player.cacheData.id);
+            List<MTransaction> listNewTrans = MongoController.LogDb.Trans.GetCheckTrans(player.cacheData.info._id);
 
             MSKx2NapConfig x2Config = MongoController.ConfigDb.Skx2Nap.GetData();
             if (x2Config == null)

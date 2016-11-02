@@ -27,14 +27,14 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
             }
 
-            MSKDoiDoLog log = MongoController.LogSubDB.SkDoiDo.GetData(player.cacheData.id, config._id);
+            MSKDoiDoLog log = MongoController.LogSubDB.SkDoiDo.GetData(player.cacheData.info._id, config._id);
 
             double restTime = 0;
             if (log == null)
             {
                 log = new MSKDoiDoLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     nickname = player.cacheData.nickname,
                     su_kien_id = config._id,
                     last_time_get_item = DateTime.Now,

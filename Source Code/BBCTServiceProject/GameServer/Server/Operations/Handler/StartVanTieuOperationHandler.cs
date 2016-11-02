@@ -17,14 +17,14 @@ namespace GameServer.Server.Operations.Handler
         {
 
             int countVanTieuDone =
-                MongoController.UserDb.VanTieu.CountStartVanTieu(player.cacheData.id);
+                MongoController.UserDb.VanTieu.CountStartVanTieu(player.cacheData.info._id);
 
             if (countVanTieuDone >= StaticDatabase.entities.configs.vipConfigs[player.cacheData.vip].vanTieuTimes)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxVanTieuTimes);
 
 
             MUserVanTieu userVantieu =
-                MongoController.UserDb.VanTieu.GetDataByUserId(player.cacheData.id);
+                MongoController.UserDb.VanTieu.GetDataByUserId(player.cacheData.info._id);
 
 
 
@@ -42,7 +42,7 @@ namespace GameServer.Server.Operations.Handler
             userVantieu.current_vehicle.start = DateTime.Now;
             userVantieu.start = true;
 
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.VanTieu);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.VanTieu);
             MongoController.UserDb.VanTieu.UpdateCurrentVehidle(userVantieu);
 
             return CommonFunc.SimpleResponse(operationRequest, ReturnCode.OK);

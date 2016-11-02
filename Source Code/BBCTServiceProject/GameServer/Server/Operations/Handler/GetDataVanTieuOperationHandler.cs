@@ -23,20 +23,20 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             int countVanTieuDone =
-                MongoController.UserDb.VanTieu.CountStartVanTieu(player.cacheData.id);
+                MongoController.UserDb.VanTieu.CountStartVanTieu(player.cacheData.info._id);
             // vận tiêu còn của ngày hôm trước
             MUserVanTieu currentUserVanTieu =
-                MongoController.UserDb.VanTieu.GetPrevData(player.cacheData.id);
+                MongoController.UserDb.VanTieu.GetPrevData(player.cacheData.info._id);
             // nêu o còn thì lấy vận tiêu mới ngày hôm nay
             if (currentUserVanTieu == null)
-                currentUserVanTieu = MongoController.UserDb.VanTieu.GetDataByUserId(player.cacheData.id);
+                currentUserVanTieu = MongoController.UserDb.VanTieu.GetDataByUserId(player.cacheData.info._id);
 
             VanTieuResponseData responseData = null;
             if (currentUserVanTieu == null)
             {
                 currentUserVanTieu = new MUserVanTieu()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     hash_code_time = CommonFunc.GetHashCodeTime(),
                     level = player.cacheData.level,
                     nickname = player.cacheData.nickname,

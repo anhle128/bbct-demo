@@ -16,7 +16,7 @@ namespace GameServer.Server.Operations.Handler
         {
 
             // process
-            List<MUserFriend> listDataFriends = MongoController.UserDb.Friend.GetDatas(player.cacheData.id);
+            List<MUserFriend> listDataFriends = MongoController.UserDb.Friend.GetDatas(player.cacheData.info._id);
 
             List<MUserInfo> listFriendInfos = listDataFriends.Select
             (

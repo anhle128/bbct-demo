@@ -19,7 +19,7 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters,
             OperationController controller)
         {
-            var userCauCa = MongoController.UserDb.CauCa.GetCurrentCauCa(player.cacheData.id);
+            var userCauCa = MongoController.UserDb.CauCa.GetCurrentCauCa(player.cacheData.info._id);
 
             if (userCauCa != null)
             {

@@ -4,7 +4,6 @@ using GameServer.Common.SerializeData.RequestData;
 using GameServer.Common.SerializeData.ResponseData;
 using GameServer.Database.Controller;
 using GameServer.Server.Operations.Core;
-using MongoDB.Bson;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
 using System.Collections.Generic;
@@ -38,7 +37,7 @@ namespace GameServer.Server.Operations.Handler
             // response
             ViewDetailPlayerResponseData responseData = new ViewDetailPlayerResponseData()
             {
-                formation_rows = userInfo.formation,
+                formations = userInfo.formations,
                 chars = CommonFunc.GetUserChars(listChar),
                 equips = CommonFunc.GetUserEquips(listEquip),
             };

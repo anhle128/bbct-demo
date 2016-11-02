@@ -18,7 +18,7 @@ namespace GameServer.Server.Operations.Handler
             OperationController controller)
         {
 
-            MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.id);
+            MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.info._id);
 
             if (userInfo.hash_code_time_send_facebook == CommonFunc.GetHashCodeTime())
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.AlreadyDone);

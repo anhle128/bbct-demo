@@ -23,7 +23,7 @@ namespace GameServer.Server.Operations.Handler
 
             if (player.cacheData.stageAttacked == null)
             {
-                player.cacheData.stageAttacked = MongoController.UserDb.Stage.GetLastStageAttacked(player.cacheData.id);
+                player.cacheData.stageAttacked = MongoController.UserDb.Stage.GetLastStageAttacked(player.cacheData.info._id);
                 if (player.cacheData.stageAttacked == null)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
@@ -116,7 +116,7 @@ namespace GameServer.Server.Operations.Handler
 
             if (oldLevel != player.cacheData.level)
             {
-                MongoController.LogDb.UserLevelUp.Create(player.cacheData.id, player.cacheData.level);
+                MongoController.LogDb.UserLevelUp.Create(player.cacheData.info._id, player.cacheData.level);
                 if (player.cacheData.stamina < StaticDatabase.entities.configs.maxStamina)
                 {
                     player.cacheData.stamina = StaticDatabase.entities.configs.maxStamina;
