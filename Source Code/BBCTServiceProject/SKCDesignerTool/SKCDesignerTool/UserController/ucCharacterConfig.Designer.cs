@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.UserController
+﻿namespace BBCTDesignerTool.UserController
 {
     partial class ucCharacterConfig
     {
@@ -137,7 +137,7 @@
             // 
             // dbCharSelectionBindingSource
             // 
-            this.dbCharSelectionBindingSource.DataSource = typeof(KDQHDesignerTool.dbCharSelection);
+            this.dbCharSelectionBindingSource.DataSource = typeof(BBCTDesignerTool.dbCharSelection);
             // 
             // gvCharSelection
             // 
@@ -171,7 +171,7 @@
             // 
             // dbCharacterBindingSource
             // 
-            this.dbCharacterBindingSource.DataSource = typeof(KDQHDesignerTool.dbCharacter);
+            this.dbCharacterBindingSource.DataSource = typeof(BBCTDesignerTool.dbCharacter);
             // 
             // repositoryItemSearchLookUpEdit1View
             // 
@@ -203,7 +203,7 @@
             // 
             // btnDelete2
             // 
-            this.btnDelete2.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDelete2.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDelete2.Location = new System.Drawing.Point(206, 50);
             this.btnDelete2.Name = "btnDelete2";
             this.btnDelete2.Size = new System.Drawing.Size(23, 23);
@@ -212,7 +212,7 @@
             // 
             // btnAdd2
             // 
-            this.btnAdd2.Image = global::KDQHDesignerTool.Properties.Resources.compose16x16;
+            this.btnAdd2.Image = global::BBCTDesignerTool.Properties.Resources.compose16x16;
             this.btnAdd2.Location = new System.Drawing.Point(206, 21);
             this.btnAdd2.Name = "btnAdd2";
             this.btnAdd2.Size = new System.Drawing.Size(23, 23);
@@ -234,7 +234,7 @@
             // 
             // dbCharacterLevelExpBindingSource
             // 
-            this.dbCharacterLevelExpBindingSource.DataSource = typeof(KDQHDesignerTool.dbCharacterLevelExp);
+            this.dbCharacterLevelExpBindingSource.DataSource = typeof(BBCTDesignerTool.dbCharacterLevelExp);
             // 
             // gvLevelEXP
             // 
@@ -303,7 +303,7 @@
             // 
             // dbCharacterConfigBindingSource1
             // 
-            this.dbCharacterConfigBindingSource1.DataSource = typeof(KDQHDesignerTool.dbCharacterConfig);
+            this.dbCharacterConfigBindingSource1.DataSource = typeof(BBCTDesignerTool.dbCharacterConfig);
             // 
             // gvConfig
             // 
@@ -403,7 +403,7 @@
             // 
             // dbCharDefaultConfigBindingSource
             // 
-            this.dbCharDefaultConfigBindingSource.DataSource = typeof(KDQHDesignerTool.dbCharDefaultConfig);
+            this.dbCharDefaultConfigBindingSource.DataSource = typeof(BBCTDesignerTool.dbCharDefaultConfig);
             // 
             // gvDefaultConfig
             // 
@@ -456,7 +456,7 @@
             // 
             // dbCharacterConfigBindingSource
             // 
-            this.dbCharacterConfigBindingSource.DataSource = typeof(KDQHDesignerTool.dbCharacterConfig);
+            this.dbCharacterConfigBindingSource.DataSource = typeof(BBCTDesignerTool.dbCharacterConfig);
             // 
             // ucCharacterConfig
             // 

@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmEditReward
     {
@@ -137,7 +137,7 @@
             // 
             // totalRewardBindingSource
             // 
-            this.totalRewardBindingSource.DataSource = typeof(KDQHDesignerTool.Models.TotalReward);
+            this.totalRewardBindingSource.DataSource = typeof(BBCTDesignerTool.Models.TotalReward);
             // 
             // searchLookUpEdit1View
             // 

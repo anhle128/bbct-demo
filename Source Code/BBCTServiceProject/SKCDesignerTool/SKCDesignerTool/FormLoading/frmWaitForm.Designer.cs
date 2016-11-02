@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.FormLoading
+﻿namespace BBCTDesignerTool.FormLoading
 {
     partial class frmWaitForm
     {

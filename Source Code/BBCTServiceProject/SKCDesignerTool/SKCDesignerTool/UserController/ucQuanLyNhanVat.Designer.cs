@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.UserController
+﻿namespace BBCTDesignerTool.UserController
 {
     partial class ucQuanLyNhanVat
     {
@@ -76,7 +76,7 @@
             // 
             // dbCharacterBindingSource
             // 
-            this.dbCharacterBindingSource.DataSource = typeof(KDQHDesignerTool.dbCharacter);
+            this.dbCharacterBindingSource.DataSource = typeof(BBCTDesignerTool.dbCharacter);
             // 
             // gvCharacter
             // 
@@ -152,7 +152,7 @@
             // 
             // dbCTCategoryCharacterBindingSource
             // 
-            this.dbCTCategoryCharacterBindingSource.DataSource = typeof(KDQHDesignerTool.dbCTCategoryCharacter);
+            this.dbCTCategoryCharacterBindingSource.DataSource = typeof(BBCTDesignerTool.dbCTCategoryCharacter);
             // 
             // colpromotion
             // 

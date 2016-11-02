@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmBangChien
     {
@@ -100,7 +100,7 @@
             // 
             // dbGuildConfigBindingSource
             // 
-            this.dbGuildConfigBindingSource.DataSource = typeof(KDQHDesignerTool.dbGuildConfig);
+            this.dbGuildConfigBindingSource.DataSource = typeof(BBCTDesignerTool.dbGuildConfig);
             // 
             // gridView1
             // 
@@ -158,7 +158,7 @@
             // 
             // dbCTAfflictionBindingSource
             // 
-            this.dbCTAfflictionBindingSource.DataSource = typeof(KDQHDesignerTool.dbCTAffliction);
+            this.dbCTAfflictionBindingSource.DataSource = typeof(BBCTDesignerTool.dbCTAffliction);
             // 
             // colminuteDurationBattleBangChien
             // 
@@ -198,7 +198,7 @@
             // 
             // btnDelete1
             // 
-            this.btnDelete1.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDelete1.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDelete1.Location = new System.Drawing.Point(856, 53);
             this.btnDelete1.Name = "btnDelete1";
             this.btnDelete1.Size = new System.Drawing.Size(23, 23);
@@ -207,7 +207,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Image = global::KDQHDesignerTool.Properties.Resources.compose16x16;
+            this.btnAdd.Image = global::BBCTDesignerTool.Properties.Resources.compose16x16;
             this.btnAdd.Location = new System.Drawing.Point(856, 24);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(23, 23);
@@ -232,7 +232,7 @@
             // 
             // dbGuildRewardBangChienBindingSource
             // 
-            this.dbGuildRewardBangChienBindingSource.DataSource = typeof(KDQHDesignerTool.dbGuildRewardBangChien);
+            this.dbGuildRewardBangChienBindingSource.DataSource = typeof(BBCTDesignerTool.dbGuildRewardBangChien);
             // 
             // gvReward
             // 

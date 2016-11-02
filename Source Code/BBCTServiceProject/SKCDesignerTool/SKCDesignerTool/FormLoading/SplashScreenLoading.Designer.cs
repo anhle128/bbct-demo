@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.FormLoading
+﻿namespace BBCTDesignerTool.FormLoading
 {
     partial class SplashScreenLoading
     {
@@ -63,7 +63,7 @@
             // 
             // pictureEdit2
             // 
-            this.pictureEdit2.EditValue = global::KDQHDesignerTool.Properties.Resources.TVL1;
+            this.pictureEdit2.EditValue = global::BBCTDesignerTool.Properties.Resources.TVL1;
             this.pictureEdit2.Location = new System.Drawing.Point(12, 12);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.AllowFocused = false;

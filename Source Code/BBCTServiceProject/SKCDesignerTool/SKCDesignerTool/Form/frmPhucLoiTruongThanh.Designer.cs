@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmPhucLoiTruongThanh
     {
@@ -103,7 +103,7 @@
             // 
             // dbPhucLoiTruongThanhConfigBindingSource
             // 
-            this.dbPhucLoiTruongThanhConfigBindingSource.DataSource = typeof(KDQHDesignerTool.dbPhucLoiTruongThanhConfig);
+            this.dbPhucLoiTruongThanhConfigBindingSource.DataSource = typeof(BBCTDesignerTool.dbPhucLoiTruongThanhConfig);
             // 
             // gridView1
             // 
@@ -149,7 +149,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDelete.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDelete.Location = new System.Drawing.Point(627, 53);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(23, 23);
@@ -158,7 +158,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Image = global::KDQHDesignerTool.Properties.Resources.compose16x161;
+            this.btnAdd.Image = global::BBCTDesignerTool.Properties.Resources.compose16x161;
             this.btnAdd.Location = new System.Drawing.Point(627, 24);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(23, 23);
@@ -183,7 +183,7 @@
             // 
             // dbPhucLoiTruongThanhLevelRewardBindingSource
             // 
-            this.dbPhucLoiTruongThanhLevelRewardBindingSource.DataSource = typeof(KDQHDesignerTool.dbPhucLoiTruongThanhLevelReward);
+            this.dbPhucLoiTruongThanhLevelRewardBindingSource.DataSource = typeof(BBCTDesignerTool.dbPhucLoiTruongThanhLevelReward);
             // 
             // gvReward
             // 
@@ -227,7 +227,7 @@
             // 
             // dbCTAfflictionBindingSource
             // 
-            this.dbCTAfflictionBindingSource.DataSource = typeof(KDQHDesignerTool.dbCTAffliction);
+            this.dbCTAfflictionBindingSource.DataSource = typeof(BBCTDesignerTool.dbCTAffliction);
             // 
             // colstaticID
             // 
@@ -293,7 +293,7 @@
             // 
             // btnDeleteLevel
             // 
-            this.btnDeleteLevel.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDeleteLevel.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDeleteLevel.Location = new System.Drawing.Point(214, 53);
             this.btnDeleteLevel.Name = "btnDeleteLevel";
             this.btnDeleteLevel.Size = new System.Drawing.Size(23, 23);
@@ -315,7 +315,7 @@
             // 
             // dbPhucLoiTruongThanhLevelBindingSource
             // 
-            this.dbPhucLoiTruongThanhLevelBindingSource.DataSource = typeof(KDQHDesignerTool.dbPhucLoiTruongThanhLevel);
+            this.dbPhucLoiTruongThanhLevelBindingSource.DataSource = typeof(BBCTDesignerTool.dbPhucLoiTruongThanhLevel);
             // 
             // gvLevel
             // 
@@ -342,7 +342,7 @@
             // 
             // btnAddLevel
             // 
-            this.btnAddLevel.Image = global::KDQHDesignerTool.Properties.Resources.compose16x161;
+            this.btnAddLevel.Image = global::BBCTDesignerTool.Properties.Resources.compose16x161;
             this.btnAddLevel.Location = new System.Drawing.Point(214, 24);
             this.btnAddLevel.Name = "btnAddLevel";
             this.btnAddLevel.Size = new System.Drawing.Size(23, 23);

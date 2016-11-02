@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.UserController
+﻿namespace BBCTDesignerTool.UserController
 {
     partial class ucQuanLyEquipment
     {
@@ -168,7 +168,7 @@
             // 
             // dbEquipmentReceiptBindingSource
             // 
-            this.dbEquipmentReceiptBindingSource.DataSource = typeof(KDQHDesignerTool.dbEquipmentReceipt);
+            this.dbEquipmentReceiptBindingSource.DataSource = typeof(BBCTDesignerTool.dbEquipmentReceipt);
             // 
             // gvReceipt
             // 
@@ -208,7 +208,7 @@
             // 
             // dbItemBindingSource
             // 
-            this.dbItemBindingSource.DataSource = typeof(KDQHDesignerTool.dbItem);
+            this.dbItemBindingSource.DataSource = typeof(BBCTDesignerTool.dbItem);
             // 
             // colamount
             // 
@@ -221,7 +221,7 @@
             // 
             // btnAdd4
             // 
-            this.btnAdd4.Image = global::KDQHDesignerTool.Properties.Resources.compose16x16;
+            this.btnAdd4.Image = global::BBCTDesignerTool.Properties.Resources.compose16x16;
             this.btnAdd4.Location = new System.Drawing.Point(241, 24);
             this.btnAdd4.Name = "btnAdd4";
             this.btnAdd4.Size = new System.Drawing.Size(23, 23);
@@ -230,7 +230,7 @@
             // 
             // btnDelete4
             // 
-            this.btnDelete4.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDelete4.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDelete4.Location = new System.Drawing.Point(241, 53);
             this.btnDelete4.Name = "btnDelete4";
             this.btnDelete4.Size = new System.Drawing.Size(23, 23);
@@ -262,7 +262,7 @@
             // 
             // dbEquipmentStarUpBindingSource
             // 
-            this.dbEquipmentStarUpBindingSource.DataSource = typeof(KDQHDesignerTool.dbEquipmentStarUp);
+            this.dbEquipmentStarUpBindingSource.DataSource = typeof(BBCTDesignerTool.dbEquipmentStarUp);
             // 
             // gvStarUp
             // 
@@ -289,7 +289,7 @@
             // 
             // btnAdd3
             // 
-            this.btnAdd3.Image = global::KDQHDesignerTool.Properties.Resources.compose16x16;
+            this.btnAdd3.Image = global::BBCTDesignerTool.Properties.Resources.compose16x16;
             this.btnAdd3.Location = new System.Drawing.Point(172, 25);
             this.btnAdd3.Name = "btnAdd3";
             this.btnAdd3.Size = new System.Drawing.Size(23, 23);
@@ -298,7 +298,7 @@
             // 
             // btnDelete3
             // 
-            this.btnDelete3.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDelete3.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDelete3.Location = new System.Drawing.Point(172, 54);
             this.btnDelete3.Name = "btnDelete3";
             this.btnDelete3.Size = new System.Drawing.Size(23, 23);
@@ -332,7 +332,7 @@
             // 
             // dbEquipmentAttributeBindingSource
             // 
-            this.dbEquipmentAttributeBindingSource.DataSource = typeof(KDQHDesignerTool.dbEquipmentAttribute);
+            this.dbEquipmentAttributeBindingSource.DataSource = typeof(BBCTDesignerTool.dbEquipmentAttribute);
             // 
             // gvAttribute
             // 
@@ -373,7 +373,7 @@
             // 
             // dbCTCategoryCharacterBindingSource
             // 
-            this.dbCTCategoryCharacterBindingSource.DataSource = typeof(KDQHDesignerTool.dbCTCategoryCharacter);
+            this.dbCTCategoryCharacterBindingSource.DataSource = typeof(BBCTDesignerTool.dbCTCategoryCharacter);
             // 
             // colmods
             // 
@@ -395,7 +395,7 @@
             // 
             // btnAdd2
             // 
-            this.btnAdd2.Image = global::KDQHDesignerTool.Properties.Resources.compose16x16;
+            this.btnAdd2.Image = global::BBCTDesignerTool.Properties.Resources.compose16x16;
             this.btnAdd2.Location = new System.Drawing.Point(462, 24);
             this.btnAdd2.Name = "btnAdd2";
             this.btnAdd2.Size = new System.Drawing.Size(23, 23);
@@ -404,7 +404,7 @@
             // 
             // btnDelete2
             // 
-            this.btnDelete2.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDelete2.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDelete2.Location = new System.Drawing.Point(462, 53);
             this.btnDelete2.Name = "btnDelete2";
             this.btnDelete2.Size = new System.Drawing.Size(23, 23);
@@ -449,7 +449,7 @@
             // 
             // dbEquipmentBindingSource
             // 
-            this.dbEquipmentBindingSource.DataSource = typeof(KDQHDesignerTool.dbEquipment);
+            this.dbEquipmentBindingSource.DataSource = typeof(BBCTDesignerTool.dbEquipment);
             // 
             // gvEquipment
             // 
@@ -572,7 +572,7 @@
             // 
             // dbCTAfflictionBindingSource
             // 
-            this.dbCTAfflictionBindingSource.DataSource = typeof(KDQHDesignerTool.dbCTAffliction);
+            this.dbCTAfflictionBindingSource.DataSource = typeof(BBCTDesignerTool.dbCTAffliction);
             // 
             // gridColumn3
             // 
@@ -595,7 +595,7 @@
             // 
             // btnDelete1
             // 
-            this.btnDelete1.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDelete1.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDelete1.Location = new System.Drawing.Point(6, 34);
             this.btnDelete1.Name = "btnDelete1";
             this.btnDelete1.Size = new System.Drawing.Size(23, 23);
@@ -604,7 +604,7 @@
             // 
             // btnAdd1
             // 
-            this.btnAdd1.Image = global::KDQHDesignerTool.Properties.Resources.compose16x16;
+            this.btnAdd1.Image = global::BBCTDesignerTool.Properties.Resources.compose16x16;
             this.btnAdd1.Location = new System.Drawing.Point(6, 5);
             this.btnAdd1.Name = "btnAdd1";
             this.btnAdd1.Size = new System.Drawing.Size(23, 23);

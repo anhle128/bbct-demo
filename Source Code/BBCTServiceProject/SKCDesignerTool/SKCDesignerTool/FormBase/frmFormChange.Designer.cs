@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.FormBase
+﻿namespace BBCTDesignerTool.FormBase
 {
     partial class frmFormChange
     {
@@ -59,7 +59,7 @@
             // btnUpload
             // 
             this.btnUpload.Caption = "Upload";
-            this.btnUpload.Glyph = global::KDQHDesignerTool.Properties.Resources.upload32x32;
+            this.btnUpload.Glyph = global::BBCTDesignerTool.Properties.Resources.upload32x32;
             this.btnUpload.Id = 0;
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpload_ItemClick);
@@ -110,7 +110,7 @@
             // btnLuu
             // 
             this.btnLuu.Caption = "Lưu";
-            this.btnLuu.Glyph = global::KDQHDesignerTool.Properties.Resources.upload32x32;
+            this.btnLuu.Glyph = global::BBCTDesignerTool.Properties.Resources.upload32x32;
             this.btnLuu.Id = 1;
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);

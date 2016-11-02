@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmLogin
     {
@@ -78,7 +78,7 @@
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Image = global::KDQHDesignerTool.Properties.Resources.profle;
+            this.btnDangNhap.Image = global::BBCTDesignerTool.Properties.Resources.profle;
             this.btnDangNhap.Location = new System.Drawing.Point(116, 353);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(108, 40);
@@ -89,7 +89,7 @@
             // pictureEdit1
             // 
             this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureEdit1.EditValue = global::KDQHDesignerTool.Properties.Resources.TVL1;
+            this.pictureEdit1.EditValue = global::BBCTDesignerTool.Properties.Resources.TVL1;
             this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Size = new System.Drawing.Size(427, 203);

@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 
-namespace KDQHDesignerTool.Models
+namespace BBCTDesignerTool.Models
 {
     public static class SettingApp
     {
-        /////KDQH
+        /////BBCT
         public static string gameVersion = "1.0.0.4";
         public static string toolVersion = "Release";
 
@@ -24,7 +24,7 @@ namespace KDQHDesignerTool.Models
         public static string mgPort = "27017";
         public static string mgUsername = "admin";
         public static string mgPassword = "lungemine2016";
-        public static string mgDatabase = "kdqh";
+        public static string mgDatabase = "BBCT";
 
         ////upload file
         //public static string accountFPTUploadFile = "dpbb";
@@ -37,7 +37,7 @@ namespace KDQHDesignerTool.Models
         //public static string mgPort = "27017";
         //public static string mgUsername = "admin";
         //public static string mgPassword = "lungemine2016";
-        //public static string mgDatabase = "kdqh";
+        //public static string mgDatabase = "BBCT";
 
         /////BBCT
         //upload file

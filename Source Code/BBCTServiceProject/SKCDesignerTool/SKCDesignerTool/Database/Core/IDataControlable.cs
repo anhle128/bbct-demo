@@ -1,12 +1,12 @@
 ﻿using MongoDB.Bson;
 using MongoDBModel.MainDatabaseModels;
-using KDQHNPHTool.Database.Model;
+using BBCTNPHTool.Database.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace KDQHNPHTool.Database.Core
+namespace BBCTNPHTool.Database.Core
 {
     public interface IDataControlable<T>
     {

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KDQHDesignerTool.Models
+namespace BBCTDesignerTool.Models
 {
     public class Database
     {
-        kdqhdesignertoolv1Entities cs = new kdqhdesignertoolv1Entities();
+        BBCTdesignertoolv1Entities cs = new BBCTdesignertoolv1Entities();
         public List<dbPowerUpItem> lsdbPowerUpItem = new List<dbPowerUpItem>();
         public List<dbPowerUpItemsAttribute> lsdbPowerUpItemsAttribute = new List<dbPowerUpItemsAttribute>();
         public List<dbCharacter> lsdbCharacter = new List<dbCharacter>();

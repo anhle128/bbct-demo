@@ -11,21 +11,21 @@ using DevExpress.XtraBars;
 using ProtoBuf;
 using System.IO;
 using System.Net;
-using KDQHDesignerTool.Common;
+using BBCTDesignerTool.Common;
 using LitJson;
-using KDQHDesignerTool.Models;
+using BBCTDesignerTool.Models;
 using System.Deployment.Application;
 using DevExpress.XtraTab.ViewInfo;
 using DevExpress.XtraTab;
-using KDQHDesignerTool.Form;
+using BBCTDesignerTool.Form;
 using StaticDB;
-using KDQHDesignerTool.UserController;
+using BBCTDesignerTool.UserController;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
-using KDQHNPHTool.Database.Controller;
+using BBCTNPHTool.Database.Controller;
 using MongoDBModel.MainDatabaseModels;
 
-namespace KDQHDesignerTool
+namespace BBCTDesignerTool
 {
     public partial class frmMainMenu : DevExpress.XtraBars.Ribbon.RibbonForm
     {

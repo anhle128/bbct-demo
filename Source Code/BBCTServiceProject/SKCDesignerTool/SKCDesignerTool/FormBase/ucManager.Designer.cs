@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.FormBase
+﻿namespace BBCTDesignerTool.FormBase
 {
     partial class ucManager
     {
@@ -84,7 +84,7 @@
             // btnTaoMoi
             // 
             this.btnTaoMoi.Caption = "Thêm";
-            this.btnTaoMoi.Glyph = global::KDQHDesignerTool.Properties.Resources.pencil32x32;
+            this.btnTaoMoi.Glyph = global::BBCTDesignerTool.Properties.Resources.pencil32x32;
             this.btnTaoMoi.Id = 0;
             this.btnTaoMoi.Name = "btnTaoMoi";
             this.btnTaoMoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoMoi_ItemClick);
@@ -92,7 +92,7 @@
             // btnSua
             // 
             this.btnSua.Caption = "Sửa";
-            this.btnSua.Glyph = global::KDQHDesignerTool.Properties.Resources.compose32x32;
+            this.btnSua.Glyph = global::BBCTDesignerTool.Properties.Resources.compose32x32;
             this.btnSua.Id = 1;
             this.btnSua.Name = "btnSua";
             this.btnSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSua_ItemClick);
@@ -100,7 +100,7 @@
             // btnXoa
             // 
             this.btnXoa.Caption = "Xóa";
-            this.btnXoa.Glyph = global::KDQHDesignerTool.Properties.Resources.rsz_denied;
+            this.btnXoa.Glyph = global::BBCTDesignerTool.Properties.Resources.rsz_denied;
             this.btnXoa.Id = 2;
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
@@ -108,7 +108,7 @@
             // btnLuu
             // 
             this.btnLuu.Caption = "Lưu";
-            this.btnLuu.Glyph = global::KDQHDesignerTool.Properties.Resources.upload32x32;
+            this.btnLuu.Glyph = global::BBCTDesignerTool.Properties.Resources.upload32x32;
             this.btnLuu.Id = 6;
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);
@@ -116,7 +116,7 @@
             // btnRefresh
             // 
             this.btnRefresh.Caption = "Làm mới";
-            this.btnRefresh.Glyph = global::KDQHDesignerTool.Properties.Resources.colorwheel32x32;
+            this.btnRefresh.Glyph = global::BBCTDesignerTool.Properties.Resources.colorwheel32x32;
             this.btnRefresh.Id = 8;
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);

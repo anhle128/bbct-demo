@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.FormLoading
+﻿namespace BBCTDesignerTool.FormLoading
 {
     partial class frmSplashScreenManager
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::KDQHDesignerTool.FormLoading.frmWaitForm), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
+            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::BBCTDesignerTool.FormLoading.frmWaitForm), true, true, DevExpress.XtraSplashScreen.ParentType.UserControl);
             this.SuspendLayout();
             // 
             // frmSplashScreenManager

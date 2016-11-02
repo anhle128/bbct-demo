@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.UserController
+﻿namespace BBCTDesignerTool.UserController
 {
     partial class ucNhiemVuHangNgay
     {
@@ -127,7 +127,7 @@
             // 
             // btnDelete2
             // 
-            this.btnDelete2.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDelete2.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDelete2.Location = new System.Drawing.Point(611, 50);
             this.btnDelete2.Name = "btnDelete2";
             this.btnDelete2.Size = new System.Drawing.Size(23, 23);
@@ -153,7 +153,7 @@
             // 
             // dbNhiemVuHangNgayRewardBindingSource
             // 
-            this.dbNhiemVuHangNgayRewardBindingSource.DataSource = typeof(KDQHDesignerTool.dbNhiemVuHangNgayReward);
+            this.dbNhiemVuHangNgayRewardBindingSource.DataSource = typeof(BBCTDesignerTool.dbNhiemVuHangNgayReward);
             // 
             // gvReward
             // 
@@ -216,7 +216,7 @@
             // 
             // dbCTAfflictionBindingSource
             // 
-            this.dbCTAfflictionBindingSource.DataSource = typeof(KDQHDesignerTool.dbCTAffliction);
+            this.dbCTAfflictionBindingSource.DataSource = typeof(BBCTDesignerTool.dbCTAffliction);
             // 
             // colprocs
             // 
@@ -259,7 +259,7 @@
             // 
             // btnAdd2
             // 
-            this.btnAdd2.Image = global::KDQHDesignerTool.Properties.Resources.compose16x16;
+            this.btnAdd2.Image = global::BBCTDesignerTool.Properties.Resources.compose16x16;
             this.btnAdd2.Location = new System.Drawing.Point(611, 21);
             this.btnAdd2.Name = "btnAdd2";
             this.btnAdd2.Size = new System.Drawing.Size(23, 23);
@@ -291,7 +291,7 @@
             // 
             // dbNhiemVuHangNgayBindingSource
             // 
-            this.dbNhiemVuHangNgayBindingSource.DataSource = typeof(KDQHDesignerTool.dbNhiemVuHangNgay);
+            this.dbNhiemVuHangNgayBindingSource.DataSource = typeof(BBCTDesignerTool.dbNhiemVuHangNgay);
             // 
             // gvNhiemVu
             // 

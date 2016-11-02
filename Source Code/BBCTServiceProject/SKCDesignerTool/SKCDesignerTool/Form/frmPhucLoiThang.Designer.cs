@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmPhucLoiThang
     {
@@ -92,7 +92,7 @@
             // 
             // dbPucLoiThangConfigBindingSource
             // 
-            this.dbPucLoiThangConfigBindingSource.DataSource = typeof(KDQHDesignerTool.dbPucLoiThangConfig);
+            this.dbPucLoiThangConfigBindingSource.DataSource = typeof(BBCTDesignerTool.dbPucLoiThangConfig);
             // 
             // gridView1
             // 
@@ -138,7 +138,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDelete.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDelete.Location = new System.Drawing.Point(644, 53);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(23, 23);
@@ -147,7 +147,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Image = global::KDQHDesignerTool.Properties.Resources.compose16x16;
+            this.btnAdd.Image = global::BBCTDesignerTool.Properties.Resources.compose16x16;
             this.btnAdd.Location = new System.Drawing.Point(644, 24);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(23, 23);
@@ -172,7 +172,7 @@
             // 
             // dbPucLoiThangRewardBindingSource
             // 
-            this.dbPucLoiThangRewardBindingSource.DataSource = typeof(KDQHDesignerTool.dbPucLoiThangReward);
+            this.dbPucLoiThangRewardBindingSource.DataSource = typeof(BBCTDesignerTool.dbPucLoiThangReward);
             // 
             // gvReward
             // 
@@ -216,7 +216,7 @@
             // 
             // dbCTAfflictionBindingSource
             // 
-            this.dbCTAfflictionBindingSource.DataSource = typeof(KDQHDesignerTool.dbCTAffliction);
+            this.dbCTAfflictionBindingSource.DataSource = typeof(BBCTDesignerTool.dbCTAffliction);
             // 
             // colstaticID
             // 

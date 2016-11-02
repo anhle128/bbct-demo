@@ -1,13 +1,13 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
-using KDQHDesignerTool.FormLoading;
+using BBCTDesignerTool.FormLoading;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace KDQHDesignerTool.Common
+namespace BBCTDesignerTool.Common
 {
     class CommonShowDialog
     {

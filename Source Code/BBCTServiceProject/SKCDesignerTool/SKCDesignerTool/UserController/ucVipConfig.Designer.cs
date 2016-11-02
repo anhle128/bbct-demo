@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.UserController
+﻿namespace BBCTDesignerTool.UserController
 {
     partial class ucVipConfig
     {
@@ -66,7 +66,7 @@
             // 
             // dbVipConfigBindingSource
             // 
-            this.dbVipConfigBindingSource.DataSource = typeof(KDQHDesignerTool.dbVipConfig);
+            this.dbVipConfigBindingSource.DataSource = typeof(BBCTDesignerTool.dbVipConfig);
             // 
             // gvVip
             // 

@@ -12,11 +12,11 @@ using BattleSimulator;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace KDQHDesignerTool.Models
+namespace BBCTDesignerTool.Models
 {
     public class ExportStaticData
     {
-        kdqhdesignertoolv1Entities cs = new kdqhdesignertoolv1Entities();
+        BBCTdesignertoolv1Entities cs = new BBCTdesignertoolv1Entities();
         Database css = new Database();
 
         public Entity HandlerExportFile()
