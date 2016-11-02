@@ -31,6 +31,8 @@ namespace BattleSimulator
         private int curAutoTeamB;
         public int curCharSubA;
         public int curCharSubB;
+        public double totalDameCharDieA = 0;
+        public double totalDameCharDieB = 0;
 
         public Battle(Entity staticDB, DataInputBattle inputBattle, bool isGenerateReplay, bool isIgnoreView, IDebugLogger logger, bool isAuto)
         {
@@ -1062,7 +1064,7 @@ namespace BattleSimulator
             {
                 totalDamage += subChar.totalDmg;
             }
-            return totalDamage;
+            return totalDamage + totalDameCharDieA;
         }
 
         public double GetTotalDamageTeamB()
@@ -1077,7 +1079,7 @@ namespace BattleSimulator
             {
                 totalDamage += subChar.totalDmg;
             }
-            return totalDamage;
+            return totalDamage + totalDameCharDieB;
         }
 
         public void AddTurnUltimate(string id, string tagTeam)
@@ -1148,6 +1150,7 @@ namespace BattleSimulator
                     battle.curCharSubA <= (battle.charactersAS.Count - 1))
                 {
                     SetColRow(battle.charactersA[indInListChar], battle.charactersAS[battle.curCharSubA]);
+                    totalDameCharDieA += battle.charactersA[indInListChar].totalDmg;
                     battle.charactersA[indInListChar] = battle.charactersAS[battle.curCharSubA];
                     battle.charactersA[indInListChar].state = BCharacter.State.Alive;
                     battle.charactersA[indInListChar].ProcessInit();
@@ -1166,6 +1169,7 @@ namespace BattleSimulator
                     battle.curCharSubB <= (battle.charactersBS.Count - 1))
                 {
                     SetColRow(charactersB[indInListChar], battle.charactersBS[battle.curCharSubB]);
+                    totalDameCharDieB += battle.charactersB[indInListChar].totalDmg;
                     battle.charactersB[indInListChar] = battle.charactersBS[battle.curCharSubB];
                     battle.charactersB[indInListChar].state = BCharacter.State.Alive;
                     battle.charactersB[indInListChar].ProcessInit();
