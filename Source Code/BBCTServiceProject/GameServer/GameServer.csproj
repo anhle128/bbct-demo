@@ -56,14 +56,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libraries\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Bson">
-      <HintPath>..\packages\MongoDB.Bson.2.2.3\lib\net45\MongoDB.Bson.dll</HintPath>
+    <Reference Include="MongoDB.Bson, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.3.0\lib\net45\MongoDB.Bson.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="MongoDB.Driver">
-      <HintPath>..\packages\MongoDB.Driver.2.2.3\lib\net45\MongoDB.Driver.dll</HintPath>
+    <Reference Include="MongoDB.Driver, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.3.0\lib\net45\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="MongoDB.Driver.Core">
-      <HintPath>..\packages\MongoDB.Driver.Core.2.2.3\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    <Reference Include="MongoDB.Driver.Core, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.3.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Photon.SocketServer, Version=3.4.31.10808, Culture=neutral, PublicKeyToken=48c2fa3b6988090e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -401,7 +404,6 @@
     <Compile Include="Server\Operations\Handler\MoiRuouOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\MoRuongOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\NotifyMessageOperationHandler.cs" />
-    <Compile Include="Server\Operations\Handler\OpendSlotDoiHinhDuBiOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\OutGuildMemberOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\PlushAttributeThanThapOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\PowerupCharOperationHandler.cs" />
@@ -480,6 +482,9 @@
     <Folder Include="bin\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Settings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -58,9 +58,6 @@ namespace GameServer.Common.SerializeData.ResponseData
 
             if (entities.star_rewards == null)
                 entities.star_rewards = new List<UserStarReward>();
-
-            if(entities.doi_hinh_du_bi == null)
-                entities.doi_hinh_du_bi = new List<DuBi>();
         }
     }
 }

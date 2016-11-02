@@ -59,9 +59,9 @@
     <Compile Include="Models\ChieuMo.cs" />
     <Compile Include="Models\ChieuMoPrice.cs" />
     <Compile Include="Models\CurVehicle.cs" />
+    <Compile Include="Models\DataFormation.cs" />
     <Compile Include="Models\DayReward.cs" />
     <Compile Include="Models\DayTranhMua.cs" />
-    <Compile Include="Models\DuBi.cs" />
     <Compile Include="Models\GoldReward.cs" />
     <Compile Include="Models\Guild.cs" />
     <Compile Include="Models\GuildMember.cs" />

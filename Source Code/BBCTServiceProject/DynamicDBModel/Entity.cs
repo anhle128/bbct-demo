@@ -28,8 +28,6 @@ namespace DynamicDBModel
         public List<UserMail> mails { get; set; }
         [ProtoMember(9)]
         public List<SystemMail> system_mails { get; set; }
-        [ProtoMember(10)]
-        public StringArray[] formation_rows { get; set; }
         [ProtoMember(11)]
         public List<UserStage> stages { get; set; }
         [ProtoMember(12)]
@@ -59,7 +57,7 @@ namespace DynamicDBModel
         [ProtoMember(24)]
         public int countTimeBuyPointSkill { get; set; }
         [ProtoMember(25)]
-        public List<DuBi> doi_hinh_du_bi { get; set; }
+        public List<DataFormation> formations { get; set; }
 
         public Entity()
         {

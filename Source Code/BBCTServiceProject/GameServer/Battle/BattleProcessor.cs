@@ -229,14 +229,14 @@ namespace GameServer.Battle
         }
 
         private static TeamParameter GetTeamParameter(List<MUserCharacter> characters, List<MUserEquip> equipments, StringArray[] formation,
-            List<DuBi> doiHinhDuBi)
+            List<Formation> doiHinhDuBi)
         {
             TeamParameter team = new TeamParameter();
             team.mainChars = new List<CharacterParameter>();
             team.subChars = new List<CharacterParameter>();
 
             if (doiHinhDuBi == null)
-                doiHinhDuBi = new List<DuBi>();
+                doiHinhDuBi = new List<Formation>();
 
             // get mainChars from formation
             int[] arrIdChar = new int[characters.Count];
