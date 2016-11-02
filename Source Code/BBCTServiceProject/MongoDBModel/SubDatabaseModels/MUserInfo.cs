@@ -40,7 +40,7 @@ namespace MongoDBModel.SubDatabaseModels
         public StageMode lastest_stage_attacked { get; set; }
         public StageMode highest_stages_attacked { get; set; }
         public DataFormation[] formations { get; set; }
-        public int lastFormationUsed { get; set; }
+        public int last_formation_used { get; set; }
 
         [BsonRepresentation(BsonType.DateTime)]
         [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
