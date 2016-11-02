@@ -81,7 +81,7 @@
     </Reference>
     <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libraries\protobuf-net r668\Full\unity\protobuf-net.dll</HintPath>
+      <HintPath>..\packages\protobuf-net.2.0.0.668\lib\net20\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="Quartz, Version=2.4.1.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
       <HintPath>..\packages\Quartz.2.4.1\lib\net40\Quartz.dll</HintPath>
