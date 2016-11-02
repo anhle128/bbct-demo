@@ -210,8 +210,9 @@ namespace GameServer.Battle
             MUserInfo userInfo = MongoController.UserDb.Info.GetData(userId);
             var characters = MongoController.UserDb.Char.GetDatas(userId);
             var equipments = MongoController.UserDb.Equip.GetDatas(userId);
-            var formation = userInfo.formation;
-            var doiHinhDuBi = userInfo.doi_hinh_du_bi;
+            DataFormation dataFormation = userInfo.formations[userInfo.last_formation_used];
+            var formation = dataFormation.main;
+            var doiHinhDuBi = dataFormation.sub;
 
             var team = GetTeamParameter(characters, equipments, formation, doiHinhDuBi);
             return team;
@@ -221,22 +222,23 @@ namespace GameServer.Battle
         {
             var characters = cacheData.listUserChar;
             var equipments = cacheData.listUserEquip;
-            var formation = cacheData.formation;
-            var doiHinhDuBi = cacheData.doi_hinh_du_bi;
+            DataFormation dataFormation = cacheData.info.formations[cacheData.info.last_formation_used];
+            var formation = dataFormation.main;
+            var doiHinhDuBi = dataFormation.sub;
 
             var team = GetTeamParameter(characters, equipments, formation, doiHinhDuBi);
             return team;
         }
 
         private static TeamParameter GetTeamParameter(List<MUserCharacter> characters, List<MUserEquip> equipments, StringArray[] formation,
-            List<Formation> doiHinhDuBi)
+            List<string> doiHinhDuBi)
         {
             TeamParameter team = new TeamParameter();
             team.mainChars = new List<CharacterParameter>();
             team.subChars = new List<CharacterParameter>();
 
             if (doiHinhDuBi == null)
-                doiHinhDuBi = new List<Formation>();
+                doiHinhDuBi = new List<string>();
 
             // get mainChars from formation
             int[] arrIdChar = new int[characters.Count];
@@ -276,9 +278,9 @@ namespace GameServer.Battle
             // get subChars from doi_hinh_du_bi
             for (int i = 0; i < doiHinhDuBi.Count; i++)
             {
-                if (doiHinhDuBi[i].id_char != "-1")
+                if (doiHinhDuBi[i] != "-1")
                 {
-                    string id = doiHinhDuBi[i].id_char;
+                    string id = doiHinhDuBi[i];
                     var userCharacter = characters.FirstOrDefault(x => x._id.Equals(id));
 
                     if (userCharacter == null)
