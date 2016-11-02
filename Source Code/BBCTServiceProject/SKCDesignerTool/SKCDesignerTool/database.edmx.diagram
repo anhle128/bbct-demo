@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="500b7e34090f455c91e49ede2fa9da79" Name="Diagram1">
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbBadWord" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbBattleConfig" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbBattlePoint2ArrayConfig" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbBattlePoint2Config" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCauCaConfig" Width="1.5" PointX="3" PointY="77" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCauCaMainConfig" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCauCaReward" Width="1.5" PointX="5.25" PointY="77" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharacter" Width="1.5" PointX="16.75" PointY="8.375" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharacterConfig" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharacterLevelExp" Width="1.5" PointX="14.75" PointY="19.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharAttribute" Width="1.5" PointX="19" PointY="16.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharDefaultConfig" Width="1.5" PointX="14.75" PointY="26.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharDetailPowerUpReceipt" Width="1.5" PointX="21.25" PointY="7.875" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharDuyenPhan" Width="1.5" PointX="19" PointY="12" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharDuyenPhanAttribute" Width="1.5" PointX="21.25" PointY="13.625" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharDuyenPhanID" Width="1.5" PointX="21.25" PointY="10.875" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharPowerUpReceipt" Width="1.5" PointX="19" PointY="7.875" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharSelection" Width="1.5" PointX="26.75" PointY="16.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharSkill" Width="1.5" PointX="19" PointY="1.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharSkillAfflictionAttribute" Width="1.5" PointX="21.25" PointY="1.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCharSkillAttribute" Width="1.5" PointX="21.25" PointY="4.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbChucPhucConfig" Width="1.5" PointX="3" PointY="37.125" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbConfig" Width="1.5" PointX="0.75" PointY="37.375" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTAffliction" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTCategoryCharacter" Width="1.5" PointX="7.75" PointY="11.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTChacacterMain" Width="1.5" PointX="9.75" PointY="17.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTCharacterAttribute" Width="1.5" PointX="16.75" PointY="27.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTClassCharacter" Width="1.5" PointX="18.75" PointY="27.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTEffectSkill" Width="1.5" PointX="20.75" PointY="27.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTGiftcode" Width="1.5" PointX="22.75" PointY="27.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTOneorAll" Width="1.5" PointX="24.75" PointY="27.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTPromotionCharacter" Width="1.5" PointX="26.75" PointY="27.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTRangeSkill" Width="1.5" PointX="28.75" PointY="0.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTReasonActionGoldLog" Width="1.5" PointX="28.75" PointY="3.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTReasonSpentGoldLog" Width="1.5" PointX="28.75" PointY="6.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTStatusSuKien" Width="1.5" PointX="28.75" PointY="9.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTargetSkill" Width="1.5" PointX="28.75" PointY="12.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeEquipment" Width="1.5" PointX="28.75" PointY="15.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeItem" Width="1.5" PointX="28.75" PointY="18.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeLeBaoActivationTime" Width="1.5" PointX="28.75" PointY="21.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeLeBaoBuyTime" Width="1.5" PointX="28.75" PointY="27.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeNhiemVuChinhTuyen" Width="1.5" PointX="9.75" PointY="29.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeNhiemVuHangNgay" Width="1.5" PointX="11.75" PointY="29.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeReward" Width="1.5" PointX="30.75" PointY="0.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeRewardNPH" Width="1.5" PointX="30.75" PointY="3.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeSkill" Width="1.5" PointX="30.75" PointY="6.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeSkillCompare" Width="1.5" PointX="30.75" PointY="9.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeSpawnSkill" Width="1.5" PointX="30.75" PointY="12.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeStage" Width="1.5" PointX="13.75" PointY="30.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCTTypeUseGold" Width="1.5" PointX="30.75" PointY="15.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCuopTieuConfig" Width="1.5" PointX="15.75" PointY="30.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCuuCuuTriTonConfig" Width="1.5" PointX="26.75" PointY="24.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbCuuCuuTriTonConfigReward" Width="1.5" PointX="29" PointY="24" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbEquipment" Width="1.5" PointX="21.75" PointY="18.125" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbEquipmentAttribute" Width="1.5" PointX="24" PointY="17.125" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbEquipmentConfig" Width="1.5" PointX="9.75" PointY="23" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbEquipmentReceipt" Width="1.5" PointX="26.25" PointY="20.25" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbEquipmentStarUp" Width="1.5" PointX="24" PointY="20.25" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbEquipStarUpConfig" Width="1.5" PointX="12" PointY="23" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbEquipStarUpDetail" Width="1.5" PointX="14.25" PointY="23.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbExchangeGoldToSilverConfig" Width="1.5" PointX="17.75" PointY="30.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbFreeStaminaConfig" Width="1.5" PointX="30.75" PointY="18.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbGlobalAttackConfig" Width="1.5" PointX="5.25" PointY="34.125" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbGlobalBonusRewardConfig" Width="1.5" PointX="5.25" PointY="30.625" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbGlobalBossConfig" Width="1.5" PointX="3" PointY="31.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbGMMailConfig" Width="1.5" PointX="19.75" PointY="30.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbGuildBoss" Width="1.5" PointX="5.25" PointY="56.875" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbGuildBossReward" Width="1.5" PointX="7.5" PointY="56.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbGuildConfig" Width="1.5" PointX="3" PointY="60.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbGuildLevelContribution" Width="1.5" PointX="5.25" PointY="60.25" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbGuildMission" Width="1.5" PointX="5.25" PointY="66.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbGuildRewardBangChien" Width="1.5" PointX="5.25" PointY="63" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbGuildRewardsLuaTrai" Width="1.5" PointX="5.25" PointY="69.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbHoatDongDiemDanhConfig" Width="1.5" PointX="3" PointY="73.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbHoatDongDiemDanhMonth" Width="1.5" PointX="5.25" PointY="73.625" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbHoatDongDiemDanhMonthReward" Width="1.5" PointX="7.5" PointY="73.25" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbInviteFriendConfig" Width="1.5" PointX="21.75" PointY="24.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbInviteFriendReward" Width="1.5" PointX="24" PointY="24" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbItem" Width="1.5" PointX="23.75" PointY="13" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbItemAttribute" Width="1.5" PointX="26" PointY="13.375" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLevelNumCharInFormation" Width="1.5" PointX="21.75" PointY="30.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLevelReward_Reward" Width="1.5" PointX="26" PointY="9" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLevelRewardConfig" Width="1.5" PointX="23.75" PointY="9.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLevelUnlockMainSkill" Width="1.5" PointX="23.75" PointY="30.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLinkExportStatic" Width="1.5" PointX="25.75" PointY="30.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLogKNBTool" Width="1.5" PointX="30.75" PointY="27.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLuanKiemConfig" Width="1.5" PointX="3" PointY="42.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLuanKiemLoseReward" Width="1.5" PointX="27.75" PointY="30.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLuanKiemPoint" Width="1.5" PointX="5.25" PointY="43.125" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLuanKiemRange" Width="1.5" PointX="5.25" PointY="46.625" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLuanKiemRangeOpponent" Width="1.5" PointX="7.5" PointY="46.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLuanKiemRank" Width="1.5" PointX="5.25" PointY="39.875" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLuanKiemRankReward" Width="1.5" PointX="7.5" PointY="39.625" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbLuanKiemWinReward" Width="1.5" PointX="31.75" PointY="21.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbMap" Width="1.5" PointX="9.75" PointY="9" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbMapStage" Width="1.5" PointX="12" PointY="7.25" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbMapStageMonter" Width="1.5" PointX="14.25" PointY="11.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbMapStageMonterSupper" Width="1.5" PointX="14.25" PointY="1.625" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbMapStagePath" Width="1.5" PointX="14.25" PointY="5.375" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbMapStageReward" Width="1.5" PointX="14.25" PointY="8.25" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbMapStageSupper" Width="1.5" PointX="14.25" PointY="15.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbNhiemVuChinhTuyen" Width="1.5" PointX="5.25" PointY="23.125" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbNhiemVuChinhTuyenConfig" Width="1.5" PointX="3" PointY="23.875" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbNhiemVuChinhTuyenReward" Width="1.5" PointX="7.5" PointY="23.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbNhiemVuHangNgay" Width="1.5" PointX="5.25" PointY="27.125" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbNhiemVuHangNgayConfig" Width="1.5" PointX="3" PointY="27.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbNhiemVuHangNgayReward" Width="1.5" PointX="7.5" PointY="27.125" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbPhucLoiTruongThanhConfig" Width="1.5" PointX="29.75" PointY="31.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbPhucLoiTruongThanhLevel" Width="1.5" PointX="23.75" PointY="5.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbPhucLoiTruongThanhLevelReward" Width="1.5" PointX="26" PointY="5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbpieceExportReceive" Width="1.5" PointX="12" PointY="26.875" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbPieceNeedToImport" Width="1.5" PointX="12" PointY="20.25" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbPlayerDefaultConfig" Width="1.5" PointX="31.75" PointY="31.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbPlayerLevelExp" Width="1.5" PointX="32.75" PointY="0.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbPowerUpItem" Width="1.5" PointX="16.75" PointY="22.375" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbPowerUpItemsAttribute" Width="1.5" PointX="19" PointY="24" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbPowerUpItemsReceipt" Width="1.5" PointX="19" PointY="21.125" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbPowRateByPromotion" Width="1.5" PointX="32.75" PointY="3.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbPucLoiThangConfig" Width="1.5" PointX="23.75" PointY="1.375" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbPucLoiThangReward" Width="1.5" PointX="26" PointY="1" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbRuongBauConfig" Width="1.5" PointX="7.75" PointY="14.375" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbRuongBauReward" Width="1.5" PointX="10" PointY="14" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbShareFacebook" Width="1.5" PointX="32.75" PointY="6.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbStarReward" Width="1.5" PointX="7.75" PointY="1.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbStarRewardReward" Width="1.5" PointX="10" PointY="1" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbTaoNickReward" Width="1.5" PointX="7.75" PointY="32.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbThanThap" Width="1.5" PointX="3" PointY="10.5" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbThanThapAttribute" Width="1.5" PointX="5.25" PointY="10.25" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbThanThapDetailMonster" Width="1.5" PointX="7.5" PointY="19.375" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbThanThapFloorReward" Width="1.5" PointX="5.25" PointY="15.875" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbThanThapMoneyReset" Width="1.5" PointX="5.25" PointY="13" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbThanThapMonster" Width="1.5" PointX="5.25" PointY="19.875" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbThanThapPlusAttributeRequire" Width="1.5" PointX="5.25" PointY="7.375" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbThanThapStarReward" Width="1.5" PointX="5.25" PointY="4.625" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbTip" Width="1.5" PointX="9.75" PointY="32.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbTutorialConfig" Width="1.5" PointX="32.75" PointY="10.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbUser" Width="1.5" PointX="32.75" PointY="13.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbVanTieu" Width="1.5" PointX="3" PointY="51.625" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbVanTieuProtectReward" Width="1.5" PointX="5.25" PointY="53.25" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbVanTieuRobReward" Width="1.5" PointX="5.25" PointY="49.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbVipConfig" Width="1.5" PointX="32.75" PointY="16.75" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbBattleP__idPoi__17C286CF" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbCauCaCo__idCon__18B6AB08" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbCauCaRe__idCau__19AACF41" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbCharAtt__idCha__1A9EF37A" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbCharDuy__idCha__1C873BEC" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbCharPow__idCha__1F63A897" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbCharSki__idCha__2057CCD0" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbCharDet__idRec__1B9317B3" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbCharDuy__idDuy__1D7B6025" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbCharDuy__idDuy__1E6F845E" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbCharSki__idSki__214BF109" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbCharSki__idSki__22401542" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbChucPhu__idCon__2334397B" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbGlobalB__idCon__2BC97F7C" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbGuildCo__idCon__2EA5EC27" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbHoatDon__idCon__336AA144" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbLuanKie__idCon__39237A9A" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbNhiemVu__idCon__4589517F" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbNhiemVu__idCon__4865BE2A" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbThanTha__idCon__51EF2864" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbVanTieu__idCon__59904A2C" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbCuuCuuT__idCuu__24285DB4" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbEquipme__idEqu__251C81ED" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbEquipme__idEqu__2704CA5F" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbEquipSt__idEqu__27F8EE98" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbpieceEx__idEqu__4B422AD5" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbPieceNe__idEqu__4C364F0E" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbEquipme__idSta__2610A626" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbEquipSt__idSta__28ED12D1" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbGlobalA__idGlo__29E1370A" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbGlobalB__idGlo__2AD55B43" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbGuildBo__idBos__2DB1C7EE" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbGuildBo__idGui__2CBDA3B5" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbGuildLe__idGui__2F9A1060" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbGuildMi__idGui__308E3499" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbGuildRe__idGui__318258D2" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbGuildRe__idGui__32767D0B" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbHoatDon__idDie__345EC57D" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbHoatDon__idMon__3552E9B6" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbInviteF__idInv__36470DEF" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbItemAtt__idIte__373B3228" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbLevelRe__idLev__382F5661" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbLuanKie__idLua__3A179ED3" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbLuanKie__idLua__3B0BC30C" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbLuanKie__idLua__3CF40B7E" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbLuanKie__idRan__3BFFE745" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbLuanKie__idRan__3DE82FB7" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbMapStag__idMap__3EDC53F0" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbMapStag__idSta__3FD07829" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbMapStag__idSta__40C49C62" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbMapStag__idSta__41B8C09B" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbMapStag__idSta__42ACE4D4" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbMapStag__idSta__43A1090D" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbNhiemVu__idChi__44952D46" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbNhiemVu__idNhi__467D75B8" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbNhiemVu__idChi__477199F1" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbNhiemVu__idNhi__0169315C" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbPhucLoi__idLev__4A4E069C" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbPowerUp__idPow__4D2A7347" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbPowerUp__idPow__4E1E9780" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbPucLoiT__idPhu__4F12BBB9" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbRuongBa__idRuo__5006DFF2" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbStarRew__idSta__50FB042B" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbThanTha__idTha__52E34C9D" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbThanTha__idTha__54CB950F" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbThanTha__idTha__55BFB948" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbThanTha__idTha__56B3DD81" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbThanTha__idTha__57A801BA" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbThanTha__idTha__589C25F3" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbThanTha__idTha__53D770D6" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbVanTieu__idVan__5A846E65" />
+        <AssociationConnector Association="kdqhdesignertoolv1Model.FK__dbVanTieu__idVan__5B78929E" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbDoiHinhDuBiRequire" Width="1.5" PointX="12.375" PointY="33.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbHuaNguyenConfig" Width="1.5" PointX="14.375" PointY="33.75" />
+        <EntityTypeShape EntityType="kdqhdesignertoolv1Model.dbTimeAttackBoss" Width="1.5" PointX="20.375" PointY="33.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

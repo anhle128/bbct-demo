@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BA30677D-D6D7-4046-BBD5-E7B257AD9A46}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GameServer</RootNamespace>
+    <AssemblyName>GameServer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExitGames.Logging.Log4Net, Version=1.0.1.0, Culture=neutral, PublicKeyToken=eac0edd9746a4aa0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\ExitGames.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="ExitGamesLibs, Version=1.0.1.0, Culture=neutral, PublicKeyToken=eac0edd9746a4aa0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\ExitGamesLibs.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>..\..\..\Libraries\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\MongoDB.Bson.2.2.3\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\MongoDB.Driver.2.2.3\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.2.3\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon.SocketServer, Version=3.4.31.10808, Culture=neutral, PublicKeyToken=48c2fa3b6988090e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\Photon.SocketServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon3DotNet">
+      <HintPath>..\..\..\Libraries\Photon3DotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonHostRuntimeInterfaces">
+      <HintPath>..\..\..\Libraries\PhotonHostRuntimeInterfaces.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\protobuf-net r668\Full\unity\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=2.4.1.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.2.4.1\lib\net40\Quartz.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Battle\BattleLogger.cs" />
+    <Compile Include="Battle\BattleProcessor.cs" />
+    <Compile Include="Common\CommonFunc.cs" />
+    <Compile Include="Common\CommonLog.cs" />
+    <Compile Include="Core\PlayerPeer.cs" />
+    <Compile Include="Database\Controller\ConfigDbController.cs" />
+    <Compile Include="Database\Controller\DBHandler.cs" />
+    <Compile Include="Database\Controller\GiftCodeDbController.cs" />
+    <Compile Include="Database\Controller\GuildDbController.cs" />
+    <Compile Include="Database\Controller\LogDbController.cs" />
+    <Compile Include="Database\Controller\LogSubDbController.cs" />
+    <Compile Include="Database\Controller\MailDbController.cs" />
+    <Compile Include="Database\Controller\MarketDbController.cs" />
+    <Compile Include="Database\Controller\MongoController.cs" />
+    <Compile Include="Database\Controller\ServerDbController.cs" />
+    <Compile Include="Database\Controller\ShopDbController.cs" />
+    <Compile Include="Database\Controller\UserDbController.cs" />
+    <Compile Include="Database\Core\AbsCollectionController.cs" />
+    <Compile Include="Database\Core\AbsDatabaseController.cs" />
+    <Compile Include="Database\Core\IDataControlable.cs" />
+    <Compile Include="Database\MainDatabaseCollection\ActionGoldLogCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\GMMailCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\LoginLogCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\MUserReceivedGlodLogCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\RequestLogCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\RewardedGoldLogCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\UsedGoldLogCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\UsedSilverLogCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\UserLevelUpLogCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\UseSilverLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\BangChienCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\BattleBangChienCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\BossGuildLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\BuyLeBaoLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\BuyPointSkillLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\BuyShopItemLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\ChucPhucConfigCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\ContributeGuildLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\ExchangeGoldToSilverLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\FreeStaminaLogCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\GiftCodeCategoryCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\GiftCodeCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\GiftCodeLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\HuaNguyenLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\ItemOnMarketCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\LuaTraiLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\LuaTraiRewardLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\MissionGuildLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\MoiRuouLogCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\ServerCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\MoRuongLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\NhiemVuHangNgayLogCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\ChieuMoLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\RuongBauConfigCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKien7NgayNhanThuongConfigCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKien7NgayNhanThuongLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienActivateCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienDoiDoConfigCollecion.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienDoiDoLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienDuaTopServerConfigCollecion.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienPhucLoiTruongThanhLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienRotDoConfigCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienRotDoLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienThanTaiConfigCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienThanTaiLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienTichLuyNapLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienTichLuyTieuLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienTickLuyNapConfigCollecion.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienTickLuyTieuConfigCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienTranhMuaServerConfigCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienTranhMuaServerLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienVongQuayMayManLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienVongQuoayMayManConfigCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\SuKienx2NapConfig.cs" />
+    <Compile Include="Database\SubDatataseCollection\TestCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\ThachDauLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\ThuongNapLanDauCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\TopGlobalBossLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\TopThanThapLogCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\TransactionCollection.cs" />
+    <Compile Include="Database\StaticDatabase.cs" />
+    <Compile Include="Database\SubDatataseCollection\BuyLuanKiemShopItemLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\ChieuMoConfigCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\DoPhuongLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\GlobalBossConfigCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\GuildCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\GuildLockLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\GuildMemberCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\GuildRequestJoinCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\LeBaoCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\LuanKiemLogCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\LuanKiemShopItemCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\ShopItemCollection.cs" />
+    <Compile Include="Database\MainDatabaseCollection\SystemMailCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\ThanThapConfigColletion.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserBookPieceCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserCauCaCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserCharCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserCuopTieuCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserCuuCuuTriTonCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserDiemDanhThangCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserEquipCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserFriendCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserGlobalBossCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserInfoCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserItemCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserMailCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserNhiemVuChinhTuyenCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserPhucLoiThangCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserStageCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserStarRewardCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserThanThapCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\UserVanTieuCollection.cs" />
+    <Compile Include="Database\SubDatataseCollection\VipRewardConfigCollection.cs" />
+    <Compile Include="GlobalInfo\BangChienInfo.cs" />
+    <Compile Include="GlobalInfo\BangXepHangInfo.cs" />
+    <Compile Include="GlobalInfo\GlobalBossInfo.cs" />
+    <Compile Include="GlobalInfo\LuanKienInfo.cs" />
+    <Compile Include="GlobalInfo\SuKienDoiDoInfo.cs" />
+    <Compile Include="GlobalInfo\SuKienInfo.cs" />
+    <Compile Include="GlobalInfo\ThanThapInfo.cs" />
+    <Compile Include="MMO\Concepts\InterestArea.cs" />
+    <Compile Include="MMO\Concepts\Item.cs" />
+    <Compile Include="MMO\Concepts\Messages\ChangeAvatarInterestMessage.cs" />
+    <Compile Include="MMO\Concepts\Messages\ChangeAvatarRegionMessage.cs" />
+    <Compile Include="MMO\Concepts\Messages\Core\InterestMessage.cs" />
+    <Compile Include="MMO\Concepts\Messages\Core\RegionMessage.cs" />
+    <Compile Include="MMO\Concepts\Messages\EnterRegionMessage.cs" />
+    <Compile Include="MMO\Concepts\Messages\ExitRegionMessage.cs" />
+    <Compile Include="MMO\Concepts\Messages\MoveInterestMessage.cs" />
+    <Compile Include="MMO\Concepts\Messages\MoveRegionMessage.cs" />
+    <Compile Include="MMO\Concepts\Messages\SubscriptionInterestMessage.cs" />
+    <Compile Include="MMO\Concepts\Messages\UnsubscriptionInterestMessage.cs" />
+    <Compile Include="MMO\Concepts\ObjectCache.cs" />
+    <Compile Include="MMO\Concepts\Region.cs" />
+    <Compile Include="MMO\Concepts\Vector2D.cs" />
+    <Compile Include="MMO\Concepts\World.cs" />
+    <Compile Include="MMO\Concepts\WorldCache.cs" />
+    <Compile Include="MMO\ListCache.cs" />
+    <Compile Include="NapThe\NapTheHandler.cs" />
+    <Compile Include="NotifyMessage\NotifyMessageController.cs" />
+    <Compile Include="Quartz\Job\AttackBangChien.cs" />
+    <Compile Include="Quartz\Job\CalculateBXHJob.cs" />
+    <Compile Include="Quartz\Job\CheckAttackBangChienJob.cs" />
+    <Compile Include="Quartz\Job\CheckSuKienJob.cs" />
+    <Compile Include="Quartz\Job\EndAttackBangChienJob.cs" />
+    <Compile Include="Quartz\Job\EndDoiDoJob.cs" />
+    <Compile Include="Quartz\Job\EndDuaTopServerJob.cs" />
+    <Compile Include="Quartz\Job\EndGlobalBossJob.cs" />
+    <Compile Include="Quartz\Job\EndGuildBossJob.cs" />
+    <Compile Include="Quartz\Job\EndLuanKiemJob.cs" />
+    <Compile Include="Quartz\Job\EndThanThapJob.cs" />
+    <Compile Include="Quartz\Job\EndVongQuayMayManJob.cs" />
+    <Compile Include="Quartz\Job\ReloadStaticDatabaseJob.cs" />
+    <Compile Include="Quartz\Job\SaveLogJob.cs" />
+    <Compile Include="Quartz\Job\SendGiftPhucLoiThangJob.cs" />
+    <Compile Include="Quartz\Job\StartBangChienJob.cs" />
+    <Compile Include="Quartz\Job\TestJob.cs" />
+    <Compile Include="Quartz\Job\WaitBangChienJob.cs" />
+    <Compile Include="Quartz\QuartzManager.cs" />
+    <Compile Include="ServerTimer\Core\AbsTimeCounterHandler.cs" />
+    <Compile Include="ServerTimer\Core\IElapsedHandler.cs" />
+    <Compile Include="ServerTimer\Handler\EndBangChienHandler.cs" />
+    <Compile Include="ServerTimer\Handler\EndLuanKiemHandler.cs" />
+    <Compile Include="ServerTimer\Handler\EndSuKienDoiDoHandler.cs" />
+    <Compile Include="ServerTimer\Handler\EndTimeAttackGlobalBossHandler.cs" />
+    <Compile Include="ServerTimer\Handler\EndTimeAttackThanThapHandler.cs" />
+    <Compile Include="ServerTimer\Handler\EndTimeBossGuildHandler.cs" />
+    <Compile Include="ServerTimer\Handler\EndTimeSkDuaTopServerHandler.cs" />
+    <Compile Include="ServerTimer\Handler\EndTimeVongQuayMayManHandler.cs" />
+    <Compile Include="ServerTimer\Handler\EndWaitTimeBangChien.cs" />
+    <Compile Include="ServerTimer\Handler\SendGiftPhucLoiThangHandler.cs" />
+    <Compile Include="ServerTimer\Handler\StartBangChienHandler.cs" />
+    <Compile Include="ServerTimer\Handler\StartNewDayHandler.cs" />
+    <Compile Include="ServerTimer\Handler\TimeCalculateBXHHandler.cs" />
+    <Compile Include="ServerTimer\Handler\TimeSaveLoghandler.cs" />
+    <Compile Include="ServerTimer\Handler\WaitTimeStartCheckSuKien.cs" />
+    <Compile Include="ServerTimer\TimerController.cs" />
+    <Compile Include="ServerWebClient\WebClientController.cs" />
+    <Compile Include="Server\GameController.cs" />
+    <Compile Include="Server\GamePlayer.cs" />
+    <Compile Include="Server\MMOApplication.cs" />
+    <Compile Include="Server\MMOPeer.cs" />
+    <Compile Include="Server\MyOutboundPeer.cs" />
+    <Compile Include="Server\Operations\Core\HandlerFactory.cs" />
+    <Compile Include="Server\Operations\Core\IOperationHandler.cs" />
+    <Compile Include="Server\Operations\Core\OperationController.cs" />
+    <Compile Include="Server\Operations\Handler\AcceptRequestJoinGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\AddFriendOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\AttackGlobalBossOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\AttackThanThapOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\BuyItemOnMarketOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\BuyItemTranhMuaServerOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\BuyLeBaoOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\BuyLuanKiemShopItemOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\BuyShopItemOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\CanQuetOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ChangeAvatarOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ChangeFormationOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ChangeMasterGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ChangeUsernameOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ChatGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ChatServerOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\CheckGetFreeStaminaOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\CheckTransactionOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ChonTuongBanDauOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ChucPhucOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ContributeGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\CountOnlineUserOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\CreateGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\DisbandGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\DoXucXacDoPhuongOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\EditNoticeGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\EndAttackBossGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\EndAttackStageOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\EndCauCaOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\EndCuopTieuOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ExchangeGoldToSilverOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ExchangeItemOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ExchangeRubyToGoldOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\FindGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\FindItemOnMarketOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\FinishMissionGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\FinishNowMissionGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetData7NgayNhanThuongOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataBangChienOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataBossGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataBXHOperationHander.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataCauCaOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataChienSuBangChienOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataChieuMoOperationHander.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataContributeOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataCuopTieuOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataDoiDoOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataDoPhuongOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataExchangeGoldToSilverOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataGlobalBossOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataHoatDongDiemDanhOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataLuanKiemOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataLuanKiemShopOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataLuaTraiOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataMissionGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataPhucLoiThangOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataPhucLoiTruongThanhOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataRankBossGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataRotDoOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataRuongBauOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataShopOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataSkDuaTopServerOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataThanTaiOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataThanThapOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataThuongNapLanDauOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataTichLuyNapOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataTichLuyTieuOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataTranhMuaServerOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataVanTieuOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDataVongQuayMayManOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetDatax2NapOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetFreeStamineOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetFriendOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetGuildMemberOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetInviteFriendRewardOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetMyItemOnMarketOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetPointSkillOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRequestJoinGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetReward7NgayNhanThuongOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardCharTutorialOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardCuuCuuTriTonOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardHoatDongDiemDanhOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardLevelOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardLuanKiemRankOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardLuaTraiOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardMailOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardNhiemVuChinhTuyenOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardNhiemVuHangNgayOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardPhucLoiTruongThanhOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardPointDoiDoOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardPointVongQuayMayManOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardRotDoOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardRuongBauOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardShareFacebookOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardStarMapOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardThanTaiOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardTichLuyNapOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardTichLuyTieuOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardVanTieuOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetRewardVongQuayMayManOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetStaminaOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetTopDoiDoOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetTopGuildSelectBangChienOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetTopLevelGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetTopUserVongQuayMayManOperationHander.cs" />
+    <Compile Include="Server\Operations\Handler\GetVehicleVanTieuOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetLogVongQuayMayManOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GetVipRewardOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\GoToBattleBangChienOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\HuaNguyenOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\InviteFriendOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\JoinGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\MoiRuouOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\MoRuongOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\NotifyMessageOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\OpendSlotDoiHinhDuBiOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\OutGuildMemberOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\PlushAttributeThanThapOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\PowerupCharOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\QuayTuongOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\QuayVatPhamOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\RefeshDoiDoOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\RefeshMailOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\RejectRequestJoinGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\RemoveFriendRewardOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ResetAttackThanThapOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ResetLuanKiemAttackTimeOperationHander.cs" />
+    <Compile Include="Server\Operations\Handler\SackGuildMemberOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\SendGMMailOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\SetTutorialOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\SignOutOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\StartAttackBossGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\AttackLuanKiemOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\StartAttackStageOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\StartCauCaOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\CuopTieuOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\StartLuaTraiOperationHandler .cs" />
+    <Compile Include="Server\Operations\Handler\StartMissionGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\StartSellOnMarketOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\StartVanTieuOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\StopItemOnMarketOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ThachDauOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\UpMaxLevelCharOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\UpStarEquipOperationHandler.cs.cs" />
+    <Compile Include="Server\Operations\Handler\CreateAccountOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\EnterWorldOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\EquipEquipmentOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ExitWorldOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\MoveToOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\SignInOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\UnequipEquipmentOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\UpStarLevelCharOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\UsedExpItemOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\UsedStaminaItemOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\UseGiftCodeOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ViewDetailPlayerOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\ViewReplayLuanKiemOperationHandler.cs" />
+    <Compile Include="Server\PlayerCacheData.cs" />
+    <Compile Include="Server\ProtoBuf\ServerProtoBufSerializer.cs" />
+    <Compile Include="Server\ServerPeer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\SimulatorApplication.cs" />
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BattleSimulator\BattleSimulator.csproj">
+      <Project>{c2491339-cc54-4ea3-87f0-84b2b835d45e}</Project>
+      <Name>BattleSimulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynamicDBModel\DynamicDBModel.csproj">
+      <Project>{608762d4-9dad-4242-899a-2283bc6411e7}</Project>
+      <Name>DynamicDBModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EncryptLiblary\EncryptLibrary.csproj">
+      <Project>{c5c0b6d9-df2d-4f6f-899b-8c3448c99bb5}</Project>
+      <Name>EncryptLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameServer.Common\GameServer.Common.csproj">
+      <Project>{ab1f7c3f-b59a-4b6c-86bd-c16730e461af}</Project>
+      <Name>GameServer.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MongoDBModel\MongoDBModel.csproj">
+      <Project>{a394ffeb-510a-4f91-9ad0-6f3323de8fcf}</Project>
+      <Name>MongoDBModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StaticDB\StaticDB.csproj">
+      <Project>{6d6b9a53-eef5-4ad2-b607-c1d199f9c854}</Project>
+      <Name>StaticDB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

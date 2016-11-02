@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AB1F7C3F-B59A-4B6C-86BD-C16730E461AF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GameServer.Common</RootNamespace>
+    <AssemblyName>GameServer.Common</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\protobuf-net r668\Full\unity\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\IProtoBufSerializer.cs" />
+    <Compile Include="Core\ISerializeData.cs" />
+    <Compile Include="Core\ProtoBufSerializerHelper.cs" />
+    <Compile Include="Enum\EventCode.cs" />
+    <Compile Include="Enum\FormationType.cs" />
+    <Compile Include="Enum\GetRewardVanTieuType.cs" />
+    <Compile Include="Enum\ItemSelledType.cs" />
+    <Compile Include="Enum\QuayTuongType.cs" />
+    <Compile Include="Enum\OperationCode.cs" />
+    <Compile Include="Enum\ReturnCode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializeData\EventData\ChangeAvatarEventData.cs" />
+    <Compile Include="SerializeData\EventData\ChatServerEventData.cs" />
+    <Compile Include="SerializeData\EventData\ItemMoveEventData.cs" />
+    <Compile Include="SerializeData\EventData\ItemSubscribedEventData.cs" />
+    <Compile Include="SerializeData\EventData\ItemUnsubscribedEventData.cs" />
+    <Compile Include="SerializeData\EventData\MoiRuouEventData.cs" />
+    <Compile Include="SerializeData\EventData\NotifyMessageEventData.cs" />
+    <Compile Include="SerializeData\EventData\UpdateInterestAreaEventData.cs" />
+    <Compile Include="SerializeData\RequestData\ActionCharRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ActionCharSoulRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ActionEquipRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ActionPlayerRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ActionRuongBauRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ActionStageRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\BattleBangChienRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\BuyItemInShopRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\CanQuetRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ChangeFormationRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ChangeUsernameRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ChatServerRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ContributeGuildRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\CreateAccountRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\CreateGuildRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\DoXucXacDoPhuongRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\EditGuildNoticeRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\EndAttackBossGuildRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\EndAttackGlobalBossRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\EndAttackLuanKiemRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ExchangeGoldToSilverRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ExchangeRubyRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\FindMarketRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\FindWithKeyWorkRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\GetRewardMailRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\GetRewardNhiemVuChinhTuyenRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\GetRewardNhiemVuHangNgayRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\GetRewardStarMapRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\GetRewardVanTieuRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\GetRewardVongQuayMayManRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\GoToBattleBangChienRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\IndexRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ItemOnMarketRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\JoinGuildRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\JoinPieceRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\JoinPowerUpItemRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\MissionGuildRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\MoveToRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\NotifyMessageRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\PlusAttributeThanThapRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\PowerupCharRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\QuayTuongRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\QuayVatPhamRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\ReplayRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\RewardRankLuanKiemRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\SendGMMailRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\SignInRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\StartAttackGlobalBossRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\StartAttackThanThapRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\StartCauCaRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\StartCuopTieuRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\StartSellOnMarketRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\TutorialRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\UpdateQuantityRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\UpSkillRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\UpStarEquipRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\UsedItemRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\UsedItemWithCharRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\UseGiftCodeRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\VipRewardRequestData.cs" />
+    <Compile Include="SerializeData\ResponseData\AddFriendResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\AttackLuanKiemResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\AttackPlayerResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\AttackStageResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\BangXepHangResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\BuyItemInShopResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\BuyItemOnMarketResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\BuyItemTranhMuaResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\BuyPointSkillResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\CheckTransResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\ChonTuongBanDauResponseData.cs" />
+    <Compile Include="SerializeData\RequestData\EndAttackStageRequestData.cs" />
+    <Compile Include="SerializeData\ResponseData\ContributeGuildResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\CountOnlineUserResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\DataCauCaResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\DataChieuMoResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\DataCuopTieuResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\DataGlobalBossResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\DataLuanKiemResponse.cs" />
+    <Compile Include="SerializeData\ResponseData\DataPhucLoiThangResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\DataThanThapResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\DoXucXacDoPhuongResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\EndAttackGlobalBossResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\EndAttackThanThapResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\EndCauCaResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\EnterWorldResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\ExchangeGoldToSilverResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\ExportEquipmentResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\FindGuildResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\FreeStaminaResponse.cs" />
+    <Compile Include="SerializeData\ResponseData\FriendResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetCooldownPointResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetDataBangChienResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetDataBossGuildResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetDataChienSuBangChienResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetDataContributeResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetDataDoPhuongResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetDataExchangeGoldResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetDataGuildResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetDataLuaTraiResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetDataMissionGuildResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetDataRankBossGuildResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetGuildMemberResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetItemOnMarketResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetRequestJoinGuildResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GoToBattleBangChienResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\HoatDongDiemDanhThangResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\PaymentResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\RefeshDoiDoResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\RewardMailResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\RewardResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetRewardVongQuayMayManResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\GetVehicleVanTieuResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\LuanKiemShopResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\ReplayResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\RuongBauRewardResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\Sk7NgayNhanThuongResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\SkDoiDoResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\SkDuaTopServerResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\SkPhucLoiTruongThanhResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\SkRotDoResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\SkThanTaiResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\SkThanTaiRewardResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\SkTichLuyNapResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\SkTichLuyTieuResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\SkTranhMuaServerResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\Skx2NapResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\StopItemOnMarketResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\SubRewardResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\TopUserDoiDoResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\TopUserVongQuayMayManResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\UpMaxLevelCharacterResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\UserSilverResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\VanTieuResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\JoinCharSoulResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\JoinEquipPieceResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\JoinPowerUpItemResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\MailResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\PowerUpCharResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\QuayTuongResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\ShopResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\SignInResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\UpStarEquipResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\ThachDauResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\UsedExpItemReponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\ViewDetailPlayerResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\VongQuayMayManLogResponseData.cs" />
+    <Compile Include="SerializeData\ResponseData\VongQuayMayManResponseData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicDBModel\DynamicDBModel.csproj">
+      <Project>{608762d4-9dad-4242-899a-2283bc6411e7}</Project>
+      <Name>DynamicDBModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StaticDB\StaticDB.csproj">
+      <Project>{6d6b9a53-eef5-4ad2-b607-c1d199f9c854}</Project>
+      <Name>StaticDB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

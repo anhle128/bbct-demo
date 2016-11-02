@@ -1,0 +1,20 @@
+﻿{
+	"MaxLockWaitTimeMilliseconds": 1000,
+	"WorldName": "MainWorld",
+	"InterestDistance": 4,
+	"maxSubscription" : 10,
+	"maxConnection":5000,
+	"urlDataVersion": "http://lungemine.com:8095/dataversion/Dataversion/",
+	"game_verion": "1.0.0.1",
+	"server_id": "573ec7eb488df7fb092de2b6",
+	"group_id": "56913b36538e617d710600e7",
+	"maxLengthCacheChat": 10,
+	"mainDatabase":{
+		"username" : "admin",
+		"port" : "27017",
+		"database" : "bbct",
+		"password" : "lungemine",
+		"url" : "103.48.80.234"
+	},
+	"LiveAPIKey": "5a159be11ce9639404a2dcb2a7919347"
+}

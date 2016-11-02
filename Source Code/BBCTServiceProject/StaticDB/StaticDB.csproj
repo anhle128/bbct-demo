@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6D6B9A53-EEF5-4AD2-B607-C1D199F9C854}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StaticDB</RootNamespace>
+    <AssemblyName>StaticDB</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="protobuf-net">
+      <HintPath>..\packages\protobuf-net.2.0.0.668\lib\net20\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net-data-light">
+      <HintPath>..\packages\protobuf-net-data-light.1.0.0\lib\net20\protobuf-net-data-light.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enum\Affliction.cs" />
+    <Compile Include="Enum\CategoryCharacter.cs" />
+    <Compile Include="Enum\CategoryDuyenPhan.cs" />
+    <Compile Include="Enum\CategoryEquipment.cs" />
+    <Compile Include="Enum\CharacterAttribute.cs" />
+    <Compile Include="Enum\ClassCharacter.cs" />
+    <Compile Include="Enum\EffectSkill.cs" />
+    <Compile Include="Enum\RangeSkill.cs" />
+    <Compile Include="Enum\TargetSkill.cs" />
+    <Compile Include="Enum\TypeAttackGlobalBoss.cs" />
+    <Compile Include="Enum\TypeCharacter.cs" />
+    <Compile Include="Enum\TypeElement.cs" />
+    <Compile Include="Enum\TypeItem.cs" />
+    <Compile Include="Enum\TypeNhiemVuChinhTuyen.cs" />
+    <Compile Include="Enum\TypeNhiemVuHangNgay.cs" />
+    <Compile Include="Enum\TypeReward.cs" />
+    <Compile Include="Enum\TypeSkill.cs" />
+    <Compile Include="Enum\TypeSpawnSkill.cs" />
+    <Compile Include="Enum\TypeStage.cs" />
+    <Compile Include="Enum\TypeVehicle.cs" />
+    <Compile Include="Models\AttackGlobalBossConfig.cs" />
+    <Compile Include="Models\BadWord.cs" />
+    <Compile Include="Models\BattleConfig.cs" />
+    <Compile Include="Models\BonusAttribute.cs" />
+    <Compile Include="Models\CanCauConfig.cs" />
+    <Compile Include="Models\CauCaConfig.cs" />
+    <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\CharacterConfig.cs" />
+    <Compile Include="Models\CharacterLevelExp.cs" />
+    <Compile Include="Models\CharDefaultConfig.cs" />
+    <Compile Include="Models\CharSelection.cs" />
+    <Compile Include="Models\ChucPhucConfig.cs" />
+    <Compile Include="Models\CuopTieuConfig.cs" />
+    <Compile Include="Models\CuuCuuTriTonConfig.cs" />
+    <Compile Include="Models\DoiHinhDuBiConfig.cs" />
+    <Compile Include="Models\DoiHinhDuBiRequire.cs" />
+    <Compile Include="Models\Element2Element.cs" />
+    <Compile Include="Models\ElementBonusAttribute.cs" />
+    <Compile Include="Models\Equip2Equip.cs" />
+    <Compile Include="Models\EquipLevelUpConfig.cs" />
+    <Compile Include="Models\SkillStarLevel.cs" />
+    <Compile Include="Models\EquipStarUpConfig.cs" />
+    <Compile Include="Models\ExchangeGoldToSilverConfig.cs" />
+    <Compile Include="Models\FriendConfig.cs" />
+    <Compile Include="Models\GlobalBossConfig.cs" />
+    <Compile Include="Models\GMMailConfig.cs" />
+    <Compile Include="Models\GroupCharacter.cs" />
+    <Compile Include="Models\GuildConfig.cs" />
+    <Compile Include="Models\GuildLevelContribution.cs" />
+    <Compile Include="Models\HoatDongDiemDanhConfig.cs" />
+    <Compile Include="Models\Hour.cs" />
+    <Compile Include="Models\HuaNguyenConfig.cs" />
+    <Compile Include="Models\InviteFriendConfig.cs" />
+    <Compile Include="Models\LevelNumCharInFormation.cs" />
+    <Compile Include="Models\LevelReward.cs" />
+    <Compile Include="Models\LuanKiemConfig.cs" />
+    <Compile Include="Models\Map.cs" />
+    <Compile Include="Models\MissionGuild.cs" />
+    <Compile Include="Models\MoiRuouConfig.cs" />
+    <Compile Include="Models\MoneyResetThanThap.cs" />
+    <Compile Include="Models\MonsterStage.cs" />
+    <Compile Include="Models\MonthReward.cs" />
+    <Compile Include="Models\NhiemVuChinhTuyen.cs" />
+    <Compile Include="Models\NhiemVuChinhTuyenConfig.cs" />
+    <Compile Include="Models\NhiemVuChinhTuyenReward.cs" />
+    <Compile Include="Models\NhiemVuHangNgay.cs" />
+    <Compile Include="Models\NhiemVuHangNgayConfig.cs" />
+    <Compile Include="Models\PhucLoiThangConfig.cs" />
+    <Compile Include="Models\PhucLoiTruongThanhConfig.cs" />
+    <Compile Include="Models\PlayerDefaultConfig.cs" />
+    <Compile Include="Models\PlayerLevelNumberChar.cs" />
+    <Compile Include="Models\PlusAttributeRequire.cs" />
+    <Compile Include="Models\Point3.cs" />
+    <Compile Include="Models\PointSkillConfig.cs" />
+    <Compile Include="Models\Range.cs" />
+    <Compile Include="Models\RangeLuanKiemOpponent.cs" />
+    <Compile Include="Models\RankLuanKiemPoint.cs" />
+    <Compile Include="Models\RankLuanKiemReward.cs" />
+    <Compile Include="Models\Reward.cs" />
+    <Compile Include="Models\RewardBossGuild.cs" />
+    <Compile Include="Models\RuongRewardConfig.cs" />
+    <Compile Include="Models\Stage.cs" />
+    <Compile Include="Models\StarLevelExp.cs" />
+    <Compile Include="Models\StarReward.cs" />
+    <Compile Include="Models\StarUpReceipt.cs" />
+    <Compile Include="Models\Configs.cs" />
+    <Compile Include="Models\DuyenPhan.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="Models\EquipDefaultConfig.cs" />
+    <Compile Include="Models\Equipment.cs" />
+    <Compile Include="Models\EquipmentConfig.cs" />
+    <Compile Include="Models\FreeStaminaConfig.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\MainAttribute.cs" />
+    <Compile Include="Models\PlayerLevelExp.cs" />
+    <Compile Include="Models\Point2.cs" />
+    <Compile Include="Models\Point2Array.cs" />
+    <Compile Include="Models\PowerUpItem.cs" />
+    <Compile Include="Models\PowerUpReceipt.cs" />
+    <Compile Include="Models\Receipt.cs" />
+    <Compile Include="Models\Skill.cs" />
+    <Compile Include="Models\ThanThapConfig.cs" />
+    <Compile Include="Models\ThanThapFormation.cs" />
+    <Compile Include="Models\TimeAttackBoss.cs" />
+    <Compile Include="Models\TutorialConfig.cs" />
+    <Compile Include="Models\VanTieuConfig.cs" />
+    <Compile Include="Models\VehicleConfig.cs" />
+    <Compile Include="Models\VipConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

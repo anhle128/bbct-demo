@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{608762D4-9DAD-4242-899A-2283BC6411E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DynamicDBModel</RootNamespace>
+    <AssemblyName>DynamicDBModel</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\protobuf-net r668\Full\unity\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entity.cs" />
+    <Compile Include="Enum\EquipPowerupItemStatus.cs" />
+    <Compile Include="Enum\TypeLeBaoActivationTime.cs" />
+    <Compile Include="Enum\TypeLeBaoBuyTimes.cs" />
+    <Compile Include="Enum\OutcomeResult.cs" />
+    <Compile Include="Enum\TypeLuanKiemAttack.cs" />
+    <Compile Include="Enum\TypeSuKien.cs" />
+    <Compile Include="Enum\TypeSuKienTichLuyNap.cs" />
+    <Compile Include="Models\BangChien.cs" />
+    <Compile Include="Models\BattleBangChien.cs" />
+    <Compile Include="Models\Battle\ActionReplay.cs" />
+    <Compile Include="Models\Battle\BattleReplay.cs" />
+    <Compile Include="Models\Battle\CharacterReplay.cs" />
+    <Compile Include="Models\Battle\TargetReplay.cs" />
+    <Compile Include="Models\Battle\TurnReplay.cs" />
+    <Compile Include="Models\CharBattleResult.cs" />
+    <Compile Include="Models\ChatData.cs" />
+    <Compile Include="Models\ChieuMo.cs" />
+    <Compile Include="Models\ChieuMoPrice.cs" />
+    <Compile Include="Models\CurVehicle.cs" />
+    <Compile Include="Models\DayReward.cs" />
+    <Compile Include="Models\DayTranhMua.cs" />
+    <Compile Include="Models\DuBi.cs" />
+    <Compile Include="Models\GoldReward.cs" />
+    <Compile Include="Models\Guild.cs" />
+    <Compile Include="Models\GuildMember.cs" />
+    <Compile Include="Models\IndexReceived.cs" />
+    <Compile Include="Models\ItemDoiDo.cs" />
+    <Compile Include="Models\ItemOnMarket.cs" />
+    <Compile Include="Models\ItemTranhMua.cs" />
+    <Compile Include="Models\LeBao.cs" />
+    <Compile Include="Models\LevelSkill.cs" />
+    <Compile Include="Models\LuanKiemLog.cs" />
+    <Compile Include="Models\LuanKiemShopItem.cs" />
+    <Compile Include="Models\NhiemVuChinhTuyenData.cs" />
+    <Compile Include="Models\NhiemVuHangNgayData.cs" />
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\PlayerLuanKiem.cs" />
+    <Compile Include="Models\PointDoiDoReward.cs" />
+    <Compile Include="Models\PointVongQuayMayManReward.cs" />
+    <Compile Include="Models\RequestJoinGuild.cs" />
+    <Compile Include="Models\RewardItem.cs" />
+    <Compile Include="Models\RotDoReward.cs" />
+    <Compile Include="Models\ShopItem.cs" />
+    <Compile Include="Models\StageMode.cs" />
+    <Compile Include="Models\StringArray.cs" />
+    <Compile Include="Models\StringArray2D.cs" />
+    <Compile Include="Models\SubDataPlayer.cs" />
+    <Compile Include="Models\SubRewardItem.cs" />
+    <Compile Include="Models\SystemMail.cs" />
+    <Compile Include="Models\TopReward.cs" />
+    <Compile Include="Models\TopRewardDoiDo.cs" />
+    <Compile Include="Models\TopUser.cs" />
+    <Compile Include="Models\TopUserDoiDo.cs" />
+    <Compile Include="Models\TopUserPrivateBoss.cs" />
+    <Compile Include="Models\TopUsersGlobalBoss.cs" />
+    <Compile Include="Models\TopUserThanThap.cs" />
+    <Compile Include="Models\TopUserVongQuayMayMan.cs" />
+    <Compile Include="Models\UserCharacter.cs" />
+    <Compile Include="Models\UserCharSoul.cs" />
+    <Compile Include="Models\UserEquip.cs" />
+    <Compile Include="Models\UserEquipPiece.cs" />
+    <Compile Include="Models\UserFriend.cs" />
+    <Compile Include="Models\UserInfo.cs" />
+    <Compile Include="Models\UserItem.cs" />
+    <Compile Include="Models\UserLuanKiem.cs" />
+    <Compile Include="Models\UserMail.cs" />
+    <Compile Include="Models\UserPowerUpItem.cs" />
+    <Compile Include="Models\UserStage.cs" />
+    <Compile Include="Models\UserStarReward.cs" />
+    <Compile Include="Models\UserVanTieu.cs" />
+    <Compile Include="Models\VipReward.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StaticDB\StaticDB.csproj">
+      <Project>{6d6b9a53-eef5-4ad2-b607-c1d199f9c854}</Project>
+      <Name>StaticDB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

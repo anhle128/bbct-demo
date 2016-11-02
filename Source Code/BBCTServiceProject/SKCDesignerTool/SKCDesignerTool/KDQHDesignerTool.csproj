@@ -1,0 +1,1506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41CF050C-C973-4E86-B927-DF24437A47F5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KDQHDesignerTool</RootNamespace>
+    <AssemblyName>KDQHDesignerTool</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>ftp://103.48.80.234/KDQHDesignerTool/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://lungemine.com:9192/</InstallUrl>
+    <ProductName>KDQH Designer Tool - Game Version 1.0.0.4</ProductName>
+    <PublisherName>Lunge Mine JSC</PublisherName>
+    <SuiteName>Designer Tool</SuiteName>
+    <MinimumRequiredVersion>1.0.0.41</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>index.html</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>152</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>D64CE0F23033CA8B33673CFE372473D27BA712F1</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SKCDesignerTool_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>computer.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonViewer">
+      <HintPath>..\..\..\..\Libraries\JsonViewer.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>..\..\..\..\Libraries\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\packages\MongoDB.Bson.2.3.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\packages\MongoDB.Driver.2.3.0\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\..\packages\MongoDB.Driver.Core.2.3.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\..\..\Libraries\protobuf-net r668\Full\unity\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CommonDialog.cs" />
+    <Compile Include="Common\CommonShowDialog.cs" />
+    <Compile Include="Common\CommonFunc.cs" />
+    <Compile Include="database.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>database.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="database.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>database.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Controller\DBHandler.cs" />
+    <Compile Include="Database\Controller\MongoController.cs" />
+    <Compile Include="Database\Core\AbsCollectionController.cs" />
+    <Compile Include="Database\Core\IDataControlable.cs" />
+    <Compile Include="Database\MainDatabaseCollection\StaticDBCollection.cs" />
+    <Compile Include="Database\Model\DatabaseManager.cs" />
+    <Compile Include="dbBadWord.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbBattleConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbBattlePoint2ArrayConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbBattlePoint2Config.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCauCaConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCauCaMainConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCauCaReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharacter.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharacterConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharacterLevelExp.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharAttribute.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharDefaultConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharDetailPowerUpReceipt.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharDuyenPhan.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharDuyenPhanAttribute.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharDuyenPhanID.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharPowerUpReceipt.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharSelection.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharSkill.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharSkillAfflictionAttribute.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharSkillAttribute.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbChucPhucConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTAffliction.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTCategoryCharacter.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTChacacterMain.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTCharacterAttribute.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTClassCharacter.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTEffectSkill.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTGiftcode.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTOneorAll.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTPromotionCharacter.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTRangeSkill.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTReasonActionGoldLog.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTReasonSpentGoldLog.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTStatusSuKien.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTargetSkill.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeEquipment.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeItem.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeLeBaoActivationTime.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeLeBaoBuyTime.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeNhiemVuChinhTuyen.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeNhiemVuHangNgay.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeRewardNPH.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeSkill.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeSkillCompare.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeSpawnSkill.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeStage.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCTTypeUseGold.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCuopTieuConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCuuCuuTriTonConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCuuCuuTriTonConfigReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbDoiHinhDuBiRequire.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipment.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipmentAttribute.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipmentConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipmentReceipt.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipmentStarUp.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipStarUpConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipStarUpDetail.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbExchangeGoldToSilverConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbFreeStaminaConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbGlobalAttackConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbGlobalBonusRewardConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbGlobalBossConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbGMMailConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbGuildBoss.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbGuildBossReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbGuildConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbGuildLevelContribution.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbGuildMission.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbGuildRewardBangChien.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbGuildRewardsLuaTrai.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbHoatDongDiemDanhConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbHoatDongDiemDanhMonth.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbHoatDongDiemDanhMonthReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbHuaNguyenConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbInviteFriendConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbInviteFriendReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbItem.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbItemAttribute.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLevelNumCharInFormation.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLevelRewardConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLevelReward_Reward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLevelUnlockMainSkill.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLinkExportStatic.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLogKNBTool.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLuanKiemConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLuanKiemLoseReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLuanKiemPoint.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLuanKiemRange.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLuanKiemRangeOpponent.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLuanKiemRank.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLuanKiemRankReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbLuanKiemWinReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbMap.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbMapStage.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbMapStageMonter.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbMapStageMonterSupper.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbMapStagePath.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbMapStageReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbMapStageSupper.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbNhiemVuChinhTuyen.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbNhiemVuChinhTuyenConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbNhiemVuChinhTuyenReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbNhiemVuHangNgay.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbNhiemVuHangNgayConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbNhiemVuHangNgayReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbPhucLoiTruongThanhConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbPhucLoiTruongThanhLevel.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbPhucLoiTruongThanhLevelReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbpieceExportReceive.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbPieceNeedToImport.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbPlayerDefaultConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbPlayerLevelExp.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbPowerUpItem.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbPowerUpItemsAttribute.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbPowerUpItemsReceipt.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbPowRateByPromotion.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbPucLoiThangConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbPucLoiThangReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbRuongBauConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbRuongBauReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbShareFacebook.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbStarReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbStarRewardReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbTaoNickReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbThanThap.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbThanThapAttribute.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbThanThapDetailMonster.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbThanThapFloorReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbThanThapMoneyReset.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbThanThapMonster.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbThanThapPlusAttributeRequire.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbThanThapStarReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbTimeAttackBoss.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbTip.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbTutorialConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbUser.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbVanTieu.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbVanTieuProtectReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbVanTieuRobReward.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbVipConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormBase\frmFormChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBase\frmFormChange.Designer.cs">
+      <DependentUpon>frmFormChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBase\ucManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormBase\ucManager.Designer.cs">
+      <DependentUpon>ucManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoading\frmSplashScreenManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormLoading\frmSplashScreenManager.Designer.cs">
+      <DependentUpon>frmSplashScreenManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoading\frmWaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoading\frmWaitForm.Designer.cs">
+      <DependentUpon>frmWaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoading\SplashScreenLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoading\SplashScreenLoading.Designer.cs">
+      <DependentUpon>SplashScreenLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoading\UpdateApp.cs" />
+    <Compile Include="Form\frmBadWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmBadWord.Designer.cs">
+      <DependentUpon>frmBadWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmBangChien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmBangChien.Designer.cs">
+      <DependentUpon>frmBangChien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmCuuChiTon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmCuuChiTon.Designer.cs">
+      <DependentUpon>frmCuuChiTon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmDetailCharater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmDetailCharater.Designer.cs">
+      <DependentUpon>frmDetailCharater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmDiemDanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmDiemDanh.Designer.cs">
+      <DependentUpon>frmDiemDanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmDoiHinhDuBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmDoiHinhDuBi.Designer.cs">
+      <DependentUpon>frmDoiHinhDuBi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmEditReward.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmEditReward.Designer.cs">
+      <DependentUpon>frmEditReward.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmEditRewardCT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmEditRewardCT.Designer.cs">
+      <DependentUpon>frmEditRewardCT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmFacebook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmFacebook.Designer.cs">
+      <DependentUpon>frmFacebook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmGuildConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmGuildConfig.Designer.cs">
+      <DependentUpon>frmGuildConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmInviteFacebook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmInviteFacebook.Designer.cs">
+      <DependentUpon>frmInviteFacebook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmLevelReward.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmLevelReward.Designer.cs">
+      <DependentUpon>frmLevelReward.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmLinkExportStaticDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmLinkExportStaticDB.Designer.cs">
+      <DependentUpon>frmLinkExportStaticDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmLuanKiemWinReward.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmLuanKiemWinReward.Designer.cs">
+      <DependentUpon>frmLuanKiemWinReward.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmNhiemVuChinhTuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmNhiemVuChinhTuyen.Designer.cs">
+      <DependentUpon>frmNhiemVuChinhTuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmPhucLoiThang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmPhucLoiThang.Designer.cs">
+      <DependentUpon>frmPhucLoiThang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmPhucLoiTruongThanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmPhucLoiTruongThanh.Designer.cs">
+      <DependentUpon>frmPhucLoiTruongThanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmPlayerDefaultConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmPlayerDefaultConfig.Designer.cs">
+      <DependentUpon>frmPlayerDefaultConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmQuanLyMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmQuanLyMap.Designer.cs">
+      <DependentUpon>frmQuanLyMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmRuongBau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmRuongBau.Designer.cs">
+      <DependentUpon>frmRuongBau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmStarReward.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmStarReward.Designer.cs">
+      <DependentUpon>frmStarReward.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmThanThap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmThanThap.Designer.cs">
+      <DependentUpon>frmThanThap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmThuGuiGM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmThuGuiGM.Designer.cs">
+      <DependentUpon>frmThuGuiGM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmTips.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmTips.Designer.cs">
+      <DependentUpon>frmTips.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmTutorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmTutorial.Designer.cs">
+      <DependentUpon>frmTutorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmUploadBunder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmUploadBunder.Designer.cs">
+      <DependentUpon>frmUploadBunder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmLuanKiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmLuanKiem.Designer.cs">
+      <DependentUpon>frmLuanKiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConectDB.cs" />
+    <Compile Include="Models\Database.cs" />
+    <Compile Include="Models\ExportStaticData.cs" />
+    <Compile Include="Models\FormUpload.cs" />
+    <Compile Include="frmMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainMenu.Designer.cs">
+      <DependentUpon>frmMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ListReward.cs" />
+    <Compile Include="Models\MChooseLinkStaticDB.cs" />
+    <Compile Include="Models\SettingApp.cs" />
+    <Compile Include="Models\TotalReward.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserController\ucBattleConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucBattleConfig.Designer.cs">
+      <DependentUpon>ucBattleConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserController\ucCauCa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucCauCa.Designer.cs">
+      <DependentUpon>ucCauCa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserController\ucCharacterConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucCharacterConfig.Designer.cs">
+      <DependentUpon>ucCharacterConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserController\ucChungConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucChungConfig.Designer.cs">
+      <DependentUpon>ucChungConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserController\ucCuopTieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucCuopTieu.Designer.cs">
+      <DependentUpon>ucCuopTieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmEquipmentConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmEquipmentConfig.Designer.cs">
+      <DependentUpon>frmEquipmentConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserController\ucGlobalBoss.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucGlobalBoss.Designer.cs">
+      <DependentUpon>ucGlobalBoss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserController\ucNhiemVuHangNgay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucNhiemVuHangNgay.Designer.cs">
+      <DependentUpon>ucNhiemVuHangNgay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserController\ucPowerupItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucPowerupItem.Designer.cs">
+      <DependentUpon>ucPowerupItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserController\ucQuanLyEquipment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucQuanLyEquipment.Designer.cs">
+      <DependentUpon>ucQuanLyEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserController\ucQuanLyItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucQuanLyItem.Designer.cs">
+      <DependentUpon>ucQuanLyItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserController\ucQuanLyNhanVat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucQuanLyNhanVat.Designer.cs">
+      <DependentUpon>ucQuanLyNhanVat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserController\ucVanTieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucVanTieu.Designer.cs">
+      <DependentUpon>ucVanTieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserController\ucVipConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserController\ucVipConfig.Designer.cs">
+      <DependentUpon>ucVipConfig.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormBase\frmFormChange.resx">
+      <DependentUpon>frmFormChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBase\ucManager.resx">
+      <DependentUpon>ucManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoading\frmSplashScreenManager.resx">
+      <DependentUpon>frmSplashScreenManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoading\frmWaitForm.resx">
+      <DependentUpon>frmWaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoading\SplashScreenLoading.resx">
+      <DependentUpon>SplashScreenLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmBadWord.resx">
+      <DependentUpon>frmBadWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmBangChien.resx">
+      <DependentUpon>frmBangChien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmCuuChiTon.resx">
+      <DependentUpon>frmCuuChiTon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmDetailCharater.resx">
+      <DependentUpon>frmDetailCharater.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmDiemDanh.resx">
+      <DependentUpon>frmDiemDanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmDoiHinhDuBi.resx">
+      <DependentUpon>frmDoiHinhDuBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmEditReward.resx">
+      <DependentUpon>frmEditReward.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmEditRewardCT.resx">
+      <DependentUpon>frmEditRewardCT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmFacebook.resx">
+      <DependentUpon>frmFacebook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmGuildConfig.resx">
+      <DependentUpon>frmGuildConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmInviteFacebook.resx">
+      <DependentUpon>frmInviteFacebook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmLevelReward.resx">
+      <DependentUpon>frmLevelReward.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmLinkExportStaticDB.resx">
+      <DependentUpon>frmLinkExportStaticDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmLuanKiemWinReward.resx">
+      <DependentUpon>frmLuanKiemWinReward.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmNhiemVuChinhTuyen.resx">
+      <DependentUpon>frmNhiemVuChinhTuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmPhucLoiThang.resx">
+      <DependentUpon>frmPhucLoiThang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmPhucLoiTruongThanh.resx">
+      <DependentUpon>frmPhucLoiTruongThanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmPlayerDefaultConfig.resx">
+      <DependentUpon>frmPlayerDefaultConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmQuanLyMap.resx">
+      <DependentUpon>frmQuanLyMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmRuongBau.resx">
+      <DependentUpon>frmRuongBau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmStarReward.resx">
+      <DependentUpon>frmStarReward.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmThanThap.resx">
+      <DependentUpon>frmThanThap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmThuGuiGM.resx">
+      <DependentUpon>frmThuGuiGM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmTips.resx">
+      <DependentUpon>frmTips.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmTutorial.resx">
+      <DependentUpon>frmTutorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmUploadBunder.resx">
+      <DependentUpon>frmUploadBunder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmLuanKiem.resx">
+      <DependentUpon>frmLuanKiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="frmMainMenu.resx">
+      <DependentUpon>frmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UserController\ucBattleConfig.resx">
+      <DependentUpon>ucBattleConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserController\ucCauCa.resx">
+      <DependentUpon>ucCauCa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserController\ucCharacterConfig.resx">
+      <DependentUpon>ucCharacterConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserController\ucChungConfig.resx">
+      <DependentUpon>ucChungConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserController\ucCuopTieu.resx">
+      <DependentUpon>ucCuopTieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmEquipmentConfig.resx">
+      <DependentUpon>frmEquipmentConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserController\ucGlobalBoss.resx">
+      <DependentUpon>ucGlobalBoss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserController\ucNhiemVuHangNgay.resx">
+      <DependentUpon>ucNhiemVuHangNgay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserController\ucPowerupItem.resx">
+      <DependentUpon>ucPowerupItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserController\ucQuanLyEquipment.resx">
+      <DependentUpon>ucQuanLyEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserController\ucQuanLyItem.resx">
+      <DependentUpon>ucQuanLyItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserController\ucQuanLyNhanVat.resx">
+      <DependentUpon>ucQuanLyNhanVat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserController\ucVanTieu.resx">
+      <DependentUpon>ucVanTieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserController\ucVipConfig.resx">
+      <DependentUpon>ucVipConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="database.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>database.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="database.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>database.edmx</DependentUpon>
+      <LastGenOutput>database.Context.cs</LastGenOutput>
+    </None>
+    <None Include="database.edmx.diagram">
+      <DependentUpon>database.edmx</DependentUpon>
+    </None>
+    <None Include="database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>database.edmx</DependentUpon>
+      <LastGenOutput>database.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Character.datasource" />
+    <None Include="Properties\DataSources\dbAffectionSkillAttribute.datasource" />
+    <None Include="Properties\DataSources\dbAfflictionSkill.datasource" />
+    <None Include="Properties\DataSources\dbAnimation.datasource" />
+    <None Include="Properties\DataSources\dbAnimationEvent.datasource" />
+    <None Include="Properties\DataSources\dbAttributeItem.datasource" />
+    <None Include="Properties\DataSources\dbAttributePlusByClass.datasource" />
+    <None Include="Properties\DataSources\dbBattleConfig.datasource" />
+    <None Include="Properties\DataSources\dbBattlePoint2ArrayConfig.datasource" />
+    <None Include="Properties\DataSources\dbBattlePoint2Config.datasource" />
+    <None Include="Properties\DataSources\dbBigMap.datasource" />
+    <None Include="Properties\DataSources\dbBook.datasource" />
+    <None Include="Properties\DataSources\dbBookAttribute.datasource" />
+    <None Include="Properties\DataSources\dbBookByStar.datasource" />
+    <None Include="Properties\DataSources\dbBookByStarAttribute.datasource" />
+    <None Include="Properties\DataSources\dbBookConfig.datasource" />
+    <None Include="Properties\DataSources\dbBookLevelUpConfig.datasource" />
+    <None Include="Properties\DataSources\dbBookPieceNeedByPromotion.datasource" />
+    <None Include="Properties\DataSources\dbBookRateByPromotion.datasource" />
+    <None Include="Properties\DataSources\dbCauCaConfig.datasource" />
+    <None Include="Properties\DataSources\dbCauCaReward.datasource" />
+    <None Include="Properties\DataSources\dbCharacter.datasource" />
+    <None Include="Properties\DataSources\dbCharacterConfig.datasource" />
+    <None Include="Properties\DataSources\dbCharacterLevelExp.datasource" />
+    <None Include="Properties\DataSources\dbCharacterPowerLevelUp.datasource" />
+    <None Include="Properties\DataSources\dbCharacterPowerLevelUpAttribute.datasource" />
+    <None Include="Properties\DataSources\dbCharacterPowerLevelUpConfig.datasource" />
+    <None Include="Properties\DataSources\dbCharacterPromotionUp.datasource" />
+    <None Include="Properties\DataSources\dbCharacterPromotionUpAttribute.datasource" />
+    <None Include="Properties\DataSources\dbCharacterPromotionUpConfig.datasource" />
+    <None Include="Properties\DataSources\dbCharacterStarUpConfig.datasource" />
+    <None Include="Properties\DataSources\dbCharacterUpPointConfig.datasource" />
+    <None Include="Properties\DataSources\dbCharAttribute.datasource" />
+    <None Include="Properties\DataSources\dbCharDefaultConfig.datasource" />
+    <None Include="Properties\DataSources\dbCharDetailPowerUpReceipt.datasource" />
+    <None Include="Properties\DataSources\dbCharDuyenPhan.datasource" />
+    <None Include="Properties\DataSources\dbCharDuyenPhanAttribute.datasource" />
+    <None Include="Properties\DataSources\dbCharDuyenPhanID.datasource" />
+    <None Include="Properties\DataSources\dbCharPowerUpReceipt.datasource" />
+    <None Include="Properties\DataSources\dbCharSelection.datasource" />
+    <None Include="Properties\DataSources\dbCharSkill.datasource" />
+    <None Include="Properties\DataSources\dbCharSkillAfflictionAttribute.datasource" />
+    <None Include="Properties\DataSources\dbCharSkillAttribute.datasource" />
+    <None Include="Properties\DataSources\dbConfig.datasource" />
+    <None Include="Properties\DataSources\dbConfigAffiction.datasource" />
+    <None Include="Properties\DataSources\dbConfigValue.datasource" />
+    <None Include="Properties\DataSources\dbCTAffliction.datasource" />
+    <None Include="Properties\DataSources\dbCTAffliction1.datasource" />
+    <None Include="Properties\DataSources\dbCTBorder.datasource" />
+    <None Include="Properties\DataSources\dbCTCategoryAffliction.datasource" />
+    <None Include="Properties\DataSources\dbCTCategoryBook.datasource" />
+    <None Include="Properties\DataSources\dbCTCategoryCharacter.datasource" />
+    <None Include="Properties\DataSources\dbCTClassCharacter.datasource" />
+    <None Include="Properties\DataSources\dbCTDuyenPhan.datasource" />
+    <None Include="Properties\DataSources\dbCTEffectSkill.datasource" />
+    <None Include="Properties\DataSources\dbCTElement.datasource" />
+    <None Include="Properties\DataSources\dbCTEquipment.datasource" />
+    <None Include="Properties\DataSources\dbCTExtraAttribute.datasource" />
+    <None Include="Properties\DataSources\dbCTIsOne.datasource" />
+    <None Include="Properties\DataSources\dbCTLevelMode.datasource" />
+    <None Include="Properties\DataSources\dbCTMainAttribute.datasource" />
+    <None Include="Properties\DataSources\dbCTPositionCharacter.datasource" />
+    <None Include="Properties\DataSources\dbCTPositionSkill.datasource" />
+    <None Include="Properties\DataSources\dbCTPromotionCharacter.datasource" />
+    <None Include="Properties\DataSources\dbCTRangeBook.datasource" />
+    <None Include="Properties\DataSources\dbCTTargetSkill.datasource" />
+    <None Include="Properties\DataSources\dbCTTypeAffliction.datasource" />
+    <None Include="Properties\DataSources\dbCTTypeAttribute.datasource" />
+    <None Include="Properties\DataSources\dbCTTypeItem.datasource" />
+    <None Include="Properties\DataSources\dbCTTypeOneSkill.datasource" />
+    <None Include="Properties\DataSources\dbCTTypeRangeSkill.datasource" />
+    <None Include="Properties\DataSources\dbCTTypeReward.datasource" />
+    <None Include="Properties\DataSources\dbCTTypeSkill.datasource" />
+    <None Include="Properties\DataSources\dbCTTypeStage.datasource" />
+    <None Include="Properties\DataSources\dbCTTypeSubSkillEffect.datasource" />
+    <None Include="Properties\DataSources\dbCuopTieuConfig.datasource" />
+    <None Include="Properties\DataSources\dbCuuCuuTriTonConfig.datasource" />
+    <None Include="Properties\DataSources\dbCuuCuuTriTonConfigReward.datasource" />
+    <None Include="Properties\DataSources\dbDoiHinhDuBiRequire.datasource" />
+    <None Include="Properties\DataSources\dbDuyenPhan.datasource" />
+    <None Include="Properties\DataSources\dbDuyenPhanAttribute.datasource" />
+    <None Include="Properties\DataSources\dbEntityConstructionTeamA.datasource" />
+    <None Include="Properties\DataSources\dbEntityConstructionTeamB.datasource" />
+    <None Include="Properties\DataSources\dbEntityDataLevel.datasource" />
+    <None Include="Properties\DataSources\dbEntityDataLevelPath.datasource" />
+    <None Include="Properties\DataSources\dbEntityDataLevelWave.datasource" />
+    <None Include="Properties\DataSources\dbEntityDetailMonsterTeamB.datasource" />
+    <None Include="Properties\DataSources\dbEntityHelperTeamA.datasource" />
+    <None Include="Properties\DataSources\dbEntityMonsterSubTeamB.datasource" />
+    <None Include="Properties\DataSources\dbEntityMonsterTeamB.datasource" />
+    <None Include="Properties\DataSources\dbEntityMonsterTeamB1.datasource" />
+    <None Include="Properties\DataSources\dbEquipment.datasource" />
+    <None Include="Properties\DataSources\dbEquipmentAttribute.datasource" />
+    <None Include="Properties\DataSources\dbEquipmentConfig.datasource" />
+    <None Include="Properties\DataSources\dbEquipmentReceipt.datasource" />
+    <None Include="Properties\DataSources\dbEquipmentStarUp.datasource" />
+    <None Include="Properties\DataSources\dbEquipmentStarUpConfig.datasource" />
+    <None Include="Properties\DataSources\dbEquipStarUpConfig.datasource" />
+    <None Include="Properties\DataSources\dbEquipStarUpDetail.datasource" />
+    <None Include="Properties\DataSources\dbExtraAttribute.datasource" />
+    <None Include="Properties\DataSources\dbExtraEquipmentAttribute.datasource" />
+    <None Include="Properties\DataSources\dbFreeStaminaConfig.datasource" />
+    <None Include="Properties\DataSources\dbGlobalAttackConfig.datasource" />
+    <None Include="Properties\DataSources\dbGlobalBonusRewardConfig.datasource" />
+    <None Include="Properties\DataSources\dbGlobalBossConfig.datasource" />
+    <None Include="Properties\DataSources\dbGMMailConfig.datasource" />
+    <None Include="Properties\DataSources\dbGuildBoss.datasource" />
+    <None Include="Properties\DataSources\dbGuildBossReward.datasource" />
+    <None Include="Properties\DataSources\dbGuildConfig.datasource" />
+    <None Include="Properties\DataSources\dbGuildLevelContribution.datasource" />
+    <None Include="Properties\DataSources\dbGuildMission.datasource" />
+    <None Include="Properties\DataSources\dbGuildRewardBangChien.datasource" />
+    <None Include="Properties\DataSources\dbGuildRewardsLuaTrai.datasource" />
+    <None Include="Properties\DataSources\dbHoatDongDiemDanhMonth.datasource" />
+    <None Include="Properties\DataSources\dbHoatDongDiemDanhMonthReward.datasource" />
+    <None Include="Properties\DataSources\dbIdsDuyenPhan.datasource" />
+    <None Include="Properties\DataSources\dbInviteFriendConfig.datasource" />
+    <None Include="Properties\DataSources\dbInviteFriendReward.datasource" />
+    <None Include="Properties\DataSources\dbItem.datasource" />
+    <None Include="Properties\DataSources\dbItemAttribute.datasource" />
+    <None Include="Properties\DataSources\dbLevelRewardConfig.datasource" />
+    <None Include="Properties\DataSources\dbLevelReward_Reward.datasource" />
+    <None Include="Properties\DataSources\dbLuanKiemConfig.datasource" />
+    <None Include="Properties\DataSources\dbLuanKiemLoseReward.datasource" />
+    <None Include="Properties\DataSources\dbLuanKiemPoint.datasource" />
+    <None Include="Properties\DataSources\dbLuanKiemRange.datasource" />
+    <None Include="Properties\DataSources\dbLuanKiemRangeOpponent.datasource" />
+    <None Include="Properties\DataSources\dbLuanKiemRank.datasource" />
+    <None Include="Properties\DataSources\dbLuanKiemRankReward.datasource" />
+    <None Include="Properties\DataSources\dbLuanKiemWinReward.datasource" />
+    <None Include="Properties\DataSources\dbMainAttribute.datasource" />
+    <None Include="Properties\DataSources\dbMainEquipmentAttribute.datasource" />
+    <None Include="Properties\DataSources\dbMap.datasource" />
+    <None Include="Properties\DataSources\dbMapConfig.datasource" />
+    <None Include="Properties\DataSources\dbMapPath.datasource" />
+    <None Include="Properties\DataSources\dbMapReward3Star.datasource" />
+    <None Include="Properties\DataSources\dbMapStage.datasource" />
+    <None Include="Properties\DataSources\dbMapStageMonter.datasource" />
+    <None Include="Properties\DataSources\dbMapStageMonterSupper.datasource" />
+    <None Include="Properties\DataSources\dbMapStagePath.datasource" />
+    <None Include="Properties\DataSources\dbMapStageReward.datasource" />
+    <None Include="Properties\DataSources\dbMapStageSupper.datasource" />
+    <None Include="Properties\DataSources\dbNameEffect.datasource" />
+    <None Include="Properties\DataSources\dbNameEffectAttacked.datasource" />
+    <None Include="Properties\DataSources\dbNhiemVuChinhTuyen.datasource" />
+    <None Include="Properties\DataSources\dbNhiemVuChinhTuyenConfig.datasource" />
+    <None Include="Properties\DataSources\dbNhiemVuChinhTuyenReward.datasource" />
+    <None Include="Properties\DataSources\dbNhiemVuHangNgay.datasource" />
+    <None Include="Properties\DataSources\dbNhiemVuHangNgayReward.datasource" />
+    <None Include="Properties\DataSources\dbPhucLoiTruongThanhConfig.datasource" />
+    <None Include="Properties\DataSources\dbPhucLoiTruongThanhLevel.datasource" />
+    <None Include="Properties\DataSources\dbPhucLoiTruongThanhLevelReward.datasource" />
+    <None Include="Properties\DataSources\dbpieceExportReceive.datasource" />
+    <None Include="Properties\DataSources\dbPieceNeedToImport.datasource" />
+    <None Include="Properties\DataSources\dbPlayerDefaultConfig.datasource" />
+    <None Include="Properties\DataSources\dbPlayerLevelExp.datasource" />
+    <None Include="Properties\DataSources\dbPowerUpItem.datasource" />
+    <None Include="Properties\DataSources\dbPowerUpItemsAttribute.datasource" />
+    <None Include="Properties\DataSources\dbPowRateByPromotion.datasource" />
+    <None Include="Properties\DataSources\dbPressurePoint.datasource" />
+    <None Include="Properties\DataSources\dbPucLoiThangConfig.datasource" />
+    <None Include="Properties\DataSources\dbPucLoiThangReward.datasource" />
+    <None Include="Properties\DataSources\dbResitAttribute.datasource" />
+    <None Include="Properties\DataSources\dbRuongBauConfig.datasource" />
+    <None Include="Properties\DataSources\dbRuongBauReward.datasource" />
+    <None Include="Properties\DataSources\dbShareFacebook.datasource" />
+    <None Include="Properties\DataSources\dbSilverToPowerLevelUp.datasource" />
+    <None Include="Properties\DataSources\dbSilverToRepair.datasource" />
+    <None Include="Properties\DataSources\dbSkill.datasource" />
+    <None Include="Properties\DataSources\dbStage.datasource" />
+    <None Include="Properties\DataSources\dbStageMonter.datasource" />
+    <None Include="Properties\DataSources\dbStageReward.datasource" />
+    <None Include="Properties\DataSources\dbStageReward3Star.datasource" />
+    <None Include="Properties\DataSources\dbStarReward.datasource" />
+    <None Include="Properties\DataSources\dbStarRewardReward.datasource" />
+    <None Include="Properties\DataSources\dbSubSkill.datasource" />
+    <None Include="Properties\DataSources\dbSubSkillAttribute.datasource" />
+    <None Include="Properties\DataSources\dbSubSkillEffect.datasource" />
+    <None Include="Properties\DataSources\dbTaoNickReward.datasource" />
+    <None Include="Properties\DataSources\dbThanThap.datasource" />
+    <None Include="Properties\DataSources\dbThanThapAttribute.datasource" />
+    <None Include="Properties\DataSources\dbThanThapDetailMonster.datasource" />
+    <None Include="Properties\DataSources\dbThanThapFloorReward.datasource" />
+    <None Include="Properties\DataSources\dbThanThapMoneyReset.datasource" />
+    <None Include="Properties\DataSources\dbThanThapMonster.datasource" />
+    <None Include="Properties\DataSources\dbThanThapPlusAttributeRequire.datasource" />
+    <None Include="Properties\DataSources\dbThanThapStarReward.datasource" />
+    <None Include="Properties\DataSources\dbTip.datasource" />
+    <None Include="Properties\DataSources\dbTutorialConfig.datasource" />
+    <None Include="Properties\DataSources\dbVanTieu.datasource" />
+    <None Include="Properties\DataSources\dbVanTieuProtectReward.datasource" />
+    <None Include="Properties\DataSources\dbVanTieuRobReward.datasource" />
+    <None Include="Properties\DataSources\dbVipConfig.datasource" />
+    <None Include="Properties\DataSources\KDQHDesignerTool.Models.TotalReward.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Common.CommonFunc.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Common.CommonShowDialog.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Form.frmChiTietItem.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Form.frmChiTietNhanVat.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Form.frmDetailCharater.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Form.frmUploadBunder.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Form.ucQuanLyNhanVat.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.FormBase.frmFormChange.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.FormBase.ucManager.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.FormLoading.frmSplashScreenManager.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.FormLoading.frmWaitForm+WaitFormCommand.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.FormLoading.frmWaitForm.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.FormLoading.SplashScreenLoading+SplashScreenCommand.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.FormLoading.SplashScreenLoading.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.FormLoading.UpdateApp.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Models.ConectDB.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Models.ExportStaticData.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Models.FormUpload+FileParameter.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Models.FormUpload.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.UserController.ucQuanLyEquipment.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.UserController.ucQuanLyItem.datasource" />
+    <None Include="Properties\DataSources\SKCDesignerTool.UserController.ucQuanLyNhanVat.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barchart32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\briefcase32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\category32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chat32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clapboard32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colorwheel32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compose32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\creditcard32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\denied32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gamecontroller32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\global32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inviteCode32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\locked32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\megaphone32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pin32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\present32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_denied.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_keyboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_lightbulb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_plane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_power.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\systemMail32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trophy32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\truck32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BattleSimulator\BattleSimulator.csproj">
+      <Project>{c2491339-cc54-4ea3-87f0-84b2b835d45e}</Project>
+      <Name>BattleSimulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MongoDBModel\MongoDBModel.csproj">
+      <Project>{a394ffeb-510a-4f91-9ad0-6f3323de8fcf}</Project>
+      <Name>MongoDBModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StaticDB\StaticDB.csproj">
+      <Project>{6d6b9a53-eef5-4ad2-b607-c1d199f9c854}</Project>
+      <Name>StaticDB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compose16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\denied16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compose16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="DevExpress.Office.v14.1.Core">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.RichEdit.v14.1.Core">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Sparkline.v14.1.Core">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraTreeList.v14.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="computer.ico" />
+    <None Include="Resources\profle.png" />
+    <None Include="Resources\bg_luan_kiem bang.png" />
+    <None Include="Resources\TVL1.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

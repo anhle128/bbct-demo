@@ -1,0 +1,10 @@
+{
+    "main_database": 
+    {
+        "url": "118.107.70.207",
+		"port":"27017",
+        "username": "admin",
+        "password": "lungemine2016",
+        "database": "kdqh"
+    } 
+}

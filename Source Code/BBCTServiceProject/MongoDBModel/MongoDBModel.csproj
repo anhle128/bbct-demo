@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A394FFEB-510A-4F91-9AD0-6F3323DE8FCF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MongoDBModel</RootNamespace>
+    <AssemblyName>MongoDBModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MongoDB.Bson, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MongoDB.Bson.2.3.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\MongoDB.Driver.2.3.0\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.3.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enum\GiftCodeType.cs" />
+    <Compile Include="Enum\MailStatus.cs" />
+    <Compile Include="Enum\Status.cs" />
+    <Compile Include="Enum\TransactionStatus.cs" />
+    <Compile Include="Enum\TransactionType.cs" />
+    <Compile Include="Enum\TypeActionGold.cs" />
+    <Compile Include="Enum\TypeChieuMo.cs" />
+    <Compile Include="Enum\ReasonActionGold.cs" />
+    <Compile Include="Enum\TypeRewardRuong.cs" />
+    <Compile Include="Enum\TypeUseGold.cs" />
+    <Compile Include="Enum\TypeUseSilver.cs" />
+    <Compile Include="Enum\UserMailType.cs" />
+    <Compile Include="Implement\IServerDataModel.cs" />
+    <Compile Include="Implement\IServerTimeDataModel.cs" />
+    <Compile Include="Implement\IStaticObjCountable.cs" />
+    <Compile Include="Implement\IMongoModel.cs" />
+    <Compile Include="Implement\IStaticObj.cs" />
+    <Compile Include="Implement\IUserDataModel.cs" />
+    <Compile Include="Implement\IUserTimeDataModel.cs" />
+    <Compile Include="MainDatabaseModels\MActionGoldLog.cs" />
+    <Compile Include="MainDatabaseModels\MGMMail.cs" />
+    <Compile Include="MainDatabaseModels\MLoginLog.cs" />
+    <Compile Include="MainDatabaseModels\MRequestLog.cs" />
+    <Compile Include="MainDatabaseModels\MRewardedGoldLog.cs" />
+    <Compile Include="MainDatabaseModels\MStaticDB.cs" />
+    <Compile Include="MainDatabaseModels\MUsedGoldLog.cs" />
+    <Compile Include="MainDatabaseModels\MUsedSilverLog.cs" />
+    <Compile Include="MainDatabaseModels\MUserLevelUpLog.cs" />
+    <Compile Include="MainDatabaseModels\MUserProblemGoldLog.cs" />
+    <Compile Include="MainDatabaseModels\MUserReceivedGlodLog.cs" />
+    <Compile Include="SubDatabaseModels\MBangChien.cs" />
+    <Compile Include="SubDatabaseModels\MBattleBangChien.cs" />
+    <Compile Include="SubDatabaseModels\MBossGuildLog.cs" />
+    <Compile Include="SubDatabaseModels\MBuyLeBaoLog.cs" />
+    <Compile Include="SubDatabaseModels\MBuyPointSkillLog.cs" />
+    <Compile Include="SubDatabaseModels\MBuyShopItemLog.cs" />
+    <Compile Include="SubDatabaseModels\MChucPhucConfig.cs" />
+    <Compile Include="SubDatabaseModels\MContributeGuildLog.cs" />
+    <Compile Include="SubDatabaseModels\MExchangeGoldToSilverLog.cs" />
+    <Compile Include="SubDatabaseModels\MFreeStaminaLog.cs" />
+    <Compile Include="MainDatabaseModels\MGiftCode.cs" />
+    <Compile Include="MainDatabaseModels\MGiftCodeCategory.cs" />
+    <Compile Include="MainDatabaseModels\MGiftCodeLog.cs" />
+    <Compile Include="SubDatabaseModels\MGoldReward.cs" />
+    <Compile Include="SubDatabaseModels\MGuild.cs" />
+    <Compile Include="SubDatabaseModels\MGuildLockLog.cs" />
+    <Compile Include="SubDatabaseModels\MGuildMember.cs" />
+    <Compile Include="SubDatabaseModels\MGuildRequestJoin.cs" />
+    <Compile Include="SubDatabaseModels\MHuaNguyenLog.cs" />
+    <Compile Include="SubDatabaseModels\MItemSellingOnMarket.cs" />
+    <Compile Include="SubDatabaseModels\MLuaTraiLog.cs" />
+    <Compile Include="SubDatabaseModels\MLuaTraiRewardLog .cs" />
+    <Compile Include="SubDatabaseModels\MMissionGuildLog.cs" />
+    <Compile Include="SubDatabaseModels\MMoiRuouLog.cs" />
+    <Compile Include="MainDatabaseModels\MMongoConnection.cs" />
+    <Compile Include="MainDatabaseModels\MPhotonConnection.cs" />
+    <Compile Include="MainDatabaseModels\MServer.cs" />
+    <Compile Include="SubDatabaseModels\MMoRuongLog.cs" />
+    <Compile Include="SubDatabaseModels\MNhiemVuHangNgay.cs" />
+    <Compile Include="SubDatabaseModels\MNhiemVuHangNgayLog.cs" />
+    <Compile Include="SubDatabaseModels\MPhucLoiTruongThanhLog.cs" />
+    <Compile Include="MainDatabaseModels\MChieuMoLog.cs" />
+    <Compile Include="SubDatabaseModels\MRefeshDoiDoi.cs" />
+    <Compile Include="SubDatabaseModels\MRuongBauConfig.cs" />
+    <Compile Include="SubDatabaseModels\MSK7NgayNhanThuongConfig.cs" />
+    <Compile Include="SubDatabaseModels\MSK7NgayNhanThuongLog.cs" />
+    <Compile Include="SubDatabaseModels\MSKDoiDoConfig.cs" />
+    <Compile Include="SubDatabaseModels\MSKDoiDoLog.cs" />
+    <Compile Include="SubDatabaseModels\MSKDuaTopServerConfig.cs" />
+    <Compile Include="SubDatabaseModels\MSKRotDoConfig.cs" />
+    <Compile Include="SubDatabaseModels\MSKRotDoLog.cs" />
+    <Compile Include="SubDatabaseModels\MSKThanTaiConfig.cs" />
+    <Compile Include="SubDatabaseModels\MSKThanTaiLog.cs" />
+    <Compile Include="SubDatabaseModels\MSKTichLuyNapConfig.cs" />
+    <Compile Include="SubDatabaseModels\MSKTichLuyNapLog.cs" />
+    <Compile Include="SubDatabaseModels\MSKTichLuyTieuConfig.cs" />
+    <Compile Include="SubDatabaseModels\MSKTichLuyTieuLog.cs" />
+    <Compile Include="SubDatabaseModels\MSKTranhMuaServerConfig.cs" />
+    <Compile Include="SubDatabaseModels\MSkTranhMuaServerLog.cs" />
+    <Compile Include="SubDatabaseModels\MSKVongQuayMayManConfig.cs" />
+    <Compile Include="SubDatabaseModels\MSKVongQuayMayManLog.cs" />
+    <Compile Include="SubDatabaseModels\MSKx2NapConfig.cs" />
+    <Compile Include="SubDatabaseModels\MSuKienActivate.cs" />
+    <Compile Include="SubDatabaseModels\MTest.cs" />
+    <Compile Include="SubDatabaseModels\MThachDauLog.cs" />
+    <Compile Include="SubDatabaseModels\MThanTaiReward.cs" />
+    <Compile Include="SubDatabaseModels\MThanThapConfig.cs" />
+    <Compile Include="SubDatabaseModels\MThuongNapLanDauConfig.cs" />
+    <Compile Include="SubDatabaseModels\MTopThanPhapLog.cs" />
+    <Compile Include="MainDatabaseModels\MTransaction.cs" />
+    <Compile Include="SubDatabaseModels\MBuyShopLuanKiemItemLog.cs" />
+    <Compile Include="SubDatabaseModels\MCauCa.cs" />
+    <Compile Include="SubDatabaseModels\MChieuMoConfig.cs" />
+    <Compile Include="SubDatabaseModels\MCuopTieuData.cs" />
+    <Compile Include="SubDatabaseModels\MDoPhuongLog.cs" />
+    <Compile Include="SubDatabaseModels\MGlobalBossConfig.cs" />
+    <Compile Include="SubDatabaseModels\MLebao.cs" />
+    <Compile Include="SubDatabaseModels\MLuanKiemLog.cs" />
+    <Compile Include="SubDatabaseModels\MLuanKiemShopItem.cs" />
+    <Compile Include="SubDatabaseModels\MQuayVatPhamGroup.cs" />
+    <Compile Include="SubDatabaseModels\MQuayVatPhamPrice.cs" />
+    <Compile Include="SubDatabaseModels\MBonusQuayTuongPrice.cs" />
+    <Compile Include="SubDatabaseModels\MShopItem.cs" />
+    <Compile Include="SubDatabaseModels\MStageMode.cs" />
+    <Compile Include="SubDatabaseModels\MStringArray.cs" />
+    <Compile Include="SubDatabaseModels\MQuayTuongGroup.cs" />
+    <Compile Include="SubDatabaseModels\MGroupChar.cs" />
+    <Compile Include="SubDatabaseModels\MQuayTuongPrice.cs" />
+    <Compile Include="SubDatabaseModels\MLevel.cs" />
+    <Compile Include="MainDatabaseModels\MSystemMail.cs" />
+    <Compile Include="SubDatabaseModels\MTopGlobalBossLog.cs" />
+    <Compile Include="SubDatabaseModels\MUserBookPiece.cs" />
+    <Compile Include="SubDatabaseModels\MUserCharacter.cs" />
+    <Compile Include="SubDatabaseModels\MUserCuopTieu.cs" />
+    <Compile Include="SubDatabaseModels\MUserCuuCuuTriTon.cs" />
+    <Compile Include="SubDatabaseModels\MUserDienDanhThang.cs" />
+    <Compile Include="SubDatabaseModels\MUserEquip.cs" />
+    <Compile Include="SubDatabaseModels\MUserFriend.cs" />
+    <Compile Include="SubDatabaseModels\MUserGlobalBoss.cs" />
+    <Compile Include="SubDatabaseModels\MUserInfo.cs" />
+    <Compile Include="SubDatabaseModels\MUserItem.cs" />
+    <Compile Include="SubDatabaseModels\MUserMail.cs" />
+    <Compile Include="SubDatabaseModels\MUserNhiemVuChinhTuyen.cs" />
+    <Compile Include="SubDatabaseModels\MUserPhucLoiThang.cs" />
+    <Compile Include="SubDatabaseModels\MUserStage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubDatabaseModels\MUserStarReward.cs" />
+    <Compile Include="SubDatabaseModels\MUserThanThap.cs" />
+    <Compile Include="SubDatabaseModels\MUserVanTieu.cs" />
+    <Compile Include="SubDatabaseModels\MVatPham.cs" />
+    <Compile Include="SubDatabaseModels\MVehicle.cs" />
+    <Compile Include="SubDatabaseModels\MVipRewardConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicDBModel\DynamicDBModel.csproj">
+      <Project>{608762d4-9dad-4242-899a-2283bc6411e7}</Project>
+      <Name>DynamicDBModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StaticDB\StaticDB.csproj">
+      <Project>{6d6b9a53-eef5-4ad2-b607-c1d199f9c854}</Project>
+      <Name>StaticDB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
