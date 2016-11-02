@@ -26,7 +26,7 @@ namespace BattleSimulator
 
         public float hp;
         public SkillCalculator normalSkill;
-        public List<SkillCalculator> ultimateSkill;
+        public SkillCalculator[] ultimateSkill;
         public SkillCalculator passiveSkill1;
         public ICharacterViewer viewer;
 
@@ -78,19 +78,22 @@ namespace BattleSimulator
             this.row = characterParameter.rowFormation;
 
             normalSkill = new SkillCalculator(calculator.GetInfo().normalSkill, characterParameter.levelNormalSkill);
-            for (int i = 0; i < ultimateSkill.Count; i++)
+            for (int i = 0; i < ultimateSkill.Length; i++)
             {
                 int levelSkill = i > 0 ? characterParameter.levelUltimateSkill2 : characterParameter.levelUltimateSkill;
-                ultimateSkill[i] = new SkillCalculator(calculator.GetInfo().ultimateSkill[characterParameter.indexSkillUltimate][i], levelSkill);
+                ultimateSkill[i] = new SkillCalculator(calculator.GetInfo().ultimateSkill[characterParameter.indexSkillUltimate], levelSkill);
             }
-            passiveSkill1 = new SkillCalculator(calculator.GetInfo().passiveSkill[characterParameter.indexSkillPassive1], characterParameter.levelPassiveSkill1);
+            passiveSkill1 = new SkillCalculator(calculator.GetInfo().passiveSkill, characterParameter.levelPassiveSkill1);
 
             normalSkill.Calculate();
-            ultimateSkill.ForEach(a => a.Calculate());
+            for (int i = 0; i < ultimateSkill.Length; i++)
+            {
+                ultimateSkill[i].Calculate();
+            }
             passiveSkill1.Calculate();
 
             affController = new BAfflictionController(this);
-            for (int i = 0; i < ultimateSkill.Count; i++)
+            for (int i = 0; i < ultimateSkill.Length; i++)
             {
                 coolDown[i] = ultimateSkill[i].info.cooldown;
             }
