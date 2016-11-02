@@ -37,6 +37,7 @@ namespace StaticDB
         public GroupCharacter[] groupCharacters { get; set; }
 
 
+
         public Entity()
         {
 

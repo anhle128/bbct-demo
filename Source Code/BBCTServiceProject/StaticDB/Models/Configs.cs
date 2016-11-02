@@ -155,6 +155,8 @@ namespace StaticDB.Models
         public DoiHinhDuBiConfig doiHinhDuBiConfig { get; set; }
         [ProtoMember(52)]
         public PlayerLevelNumberChar[] playerLevelNumberChars { get; set; }
+        [ProtoMember(53)]
+        public FormationConfig formationConfig { get; set; }
 
         public Configs()
         {

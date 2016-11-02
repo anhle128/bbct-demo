@@ -172,7 +172,6 @@ namespace GameServer.Database.SubDatataseCollection
                 stage_index = 0,
                 map_index = 0
             };
-            //data.avatar_star = StaticDatabase.entities.configs.characterConfig.defaultConfig.st;
             data.posX = CommonFunc.RandomNumber(-1500, 1500);
             data.posY = CommonFunc.RandomNumber(-250, -25);
         }
