@@ -8,12 +8,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using KDQHDesignerTool.FormBase;
-using KDQHDesignerTool.Models;
-using KDQHDesignerTool.Common;
-using KDQHDesignerTool.Form;
+using BBCTDesignerTool.FormBase;
+using BBCTDesignerTool.Models;
+using BBCTDesignerTool.Common;
+using BBCTDesignerTool.Form;
 
-namespace KDQHDesignerTool.UserController
+namespace BBCTDesignerTool.UserController
 {
     public partial class ucGlobalBoss : ucManager
     {

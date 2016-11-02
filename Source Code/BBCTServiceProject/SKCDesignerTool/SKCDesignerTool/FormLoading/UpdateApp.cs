@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Deployment.Application;
-using KDQHDesignerTool.Common;
+using BBCTDesignerTool.Common;
 using System.Windows.Forms;
 
-namespace KDQHDesignerTool.FormLoading
+namespace BBCTDesignerTool.FormLoading
 {
     public class UpdateApp
     {

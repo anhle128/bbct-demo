@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmDiemDanh
     {
@@ -109,7 +109,7 @@
             // 
             // dbHoatDongDiemDanhMonthBindingSource
             // 
-            this.dbHoatDongDiemDanhMonthBindingSource.DataSource = typeof(KDQHDesignerTool.dbHoatDongDiemDanhMonth);
+            this.dbHoatDongDiemDanhMonthBindingSource.DataSource = typeof(BBCTDesignerTool.dbHoatDongDiemDanhMonth);
             // 
             // gvThang
             // 
@@ -163,7 +163,7 @@
             // 
             // dbHoatDongDiemDanhMonthRewardBindingSource
             // 
-            this.dbHoatDongDiemDanhMonthRewardBindingSource.DataSource = typeof(KDQHDesignerTool.dbHoatDongDiemDanhMonthReward);
+            this.dbHoatDongDiemDanhMonthRewardBindingSource.DataSource = typeof(BBCTDesignerTool.dbHoatDongDiemDanhMonthReward);
             // 
             // gvReward
             // 
@@ -207,7 +207,7 @@
             // 
             // dbCTAfflictionBindingSource
             // 
-            this.dbCTAfflictionBindingSource.DataSource = typeof(KDQHDesignerTool.dbCTAffliction);
+            this.dbCTAfflictionBindingSource.DataSource = typeof(BBCTDesignerTool.dbCTAffliction);
             // 
             // colstaticID
             // 

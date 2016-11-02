@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool
+﻿namespace BBCTDesignerTool
 {
     partial class frmMainMenu
     {
@@ -190,7 +190,7 @@
             // btnDangXuat
             // 
             this.btnDangXuat.Caption = "Đăng Xuất";
-            this.btnDangXuat.Glyph = global::KDQHDesignerTool.Properties.Resources.rsz_power;
+            this.btnDangXuat.Glyph = global::BBCTDesignerTool.Properties.Resources.rsz_power;
             this.btnDangXuat.Id = 2;
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -199,7 +199,7 @@
             // btnXuatfile
             // 
             this.btnXuatfile.Caption = "Xuất file";
-            this.btnXuatfile.Glyph = global::KDQHDesignerTool.Properties.Resources.upload32x32;
+            this.btnXuatfile.Glyph = global::BBCTDesignerTool.Properties.Resources.upload32x32;
             this.btnXuatfile.Id = 3;
             this.btnXuatfile.Name = "btnXuatfile";
             this.btnXuatfile.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -209,7 +209,7 @@
             // 
             this.btnUploadBunder.Caption = "Upload Asset";
             this.btnUploadBunder.Enabled = false;
-            this.btnUploadBunder.Glyph = global::KDQHDesignerTool.Properties.Resources.truck32x32;
+            this.btnUploadBunder.Glyph = global::BBCTDesignerTool.Properties.Resources.truck32x32;
             this.btnUploadBunder.Id = 4;
             this.btnUploadBunder.Name = "btnUploadBunder";
             this.btnUploadBunder.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
@@ -219,7 +219,7 @@
             // 
             this.btnDeleteAsset.Caption = "Remove Asset";
             this.btnDeleteAsset.Enabled = false;
-            this.btnDeleteAsset.Glyph = global::KDQHDesignerTool.Properties.Resources.denied32x32;
+            this.btnDeleteAsset.Glyph = global::BBCTDesignerTool.Properties.Resources.denied32x32;
             this.btnDeleteAsset.Id = 6;
             this.btnDeleteAsset.Name = "btnDeleteAsset";
             this.btnDeleteAsset.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
@@ -234,7 +234,7 @@
             // btnQuanLyItem
             // 
             this.btnQuanLyItem.Caption = "Quản lý Vật phẩm";
-            this.btnQuanLyItem.Glyph = global::KDQHDesignerTool.Properties.Resources.creditcard32x32;
+            this.btnQuanLyItem.Glyph = global::BBCTDesignerTool.Properties.Resources.creditcard32x32;
             this.btnQuanLyItem.Id = 8;
             this.btnQuanLyItem.Name = "btnQuanLyItem";
             this.btnQuanLyItem.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -243,7 +243,7 @@
             // btnQuanlyEquipment
             // 
             this.btnQuanlyEquipment.Caption = "Quản lý Trang bị";
-            this.btnQuanlyEquipment.Glyph = global::KDQHDesignerTool.Properties.Resources.money32x32;
+            this.btnQuanlyEquipment.Glyph = global::BBCTDesignerTool.Properties.Resources.money32x32;
             this.btnQuanlyEquipment.Id = 9;
             this.btnQuanlyEquipment.Name = "btnQuanlyEquipment";
             this.btnQuanlyEquipment.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -253,7 +253,7 @@
             // 
             this.btnQuanLyBook.Caption = "Quản lý Bí kíp";
             this.btnQuanLyBook.Enabled = false;
-            this.btnQuanLyBook.Glyph = global::KDQHDesignerTool.Properties.Resources.briefcase32x32;
+            this.btnQuanLyBook.Glyph = global::BBCTDesignerTool.Properties.Resources.briefcase32x32;
             this.btnQuanLyBook.Id = 10;
             this.btnQuanLyBook.Name = "btnQuanLyBook";
             this.btnQuanLyBook.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -262,7 +262,7 @@
             // btnQuanLyMap
             // 
             this.btnQuanLyMap.Caption = "Quản lý Bản đồ";
-            this.btnQuanLyMap.Glyph = global::KDQHDesignerTool.Properties.Resources.global32x32;
+            this.btnQuanLyMap.Glyph = global::BBCTDesignerTool.Properties.Resources.global32x32;
             this.btnQuanLyMap.Id = 11;
             this.btnQuanLyMap.Name = "btnQuanLyMap";
             this.btnQuanLyMap.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -271,7 +271,7 @@
             // btnCharacterConfig
             // 
             this.btnCharacterConfig.Caption = "Nhân vật";
-            this.btnCharacterConfig.Glyph = global::KDQHDesignerTool.Properties.Resources.barchart32x32;
+            this.btnCharacterConfig.Glyph = global::BBCTDesignerTool.Properties.Resources.barchart32x32;
             this.btnCharacterConfig.Id = 12;
             this.btnCharacterConfig.Name = "btnCharacterConfig";
             this.btnCharacterConfig.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -280,7 +280,7 @@
             // btnEquipmentConfig
             // 
             this.btnEquipmentConfig.Caption = "Trang bị";
-            this.btnEquipmentConfig.Glyph = global::KDQHDesignerTool.Properties.Resources.briefcase32x32;
+            this.btnEquipmentConfig.Glyph = global::BBCTDesignerTool.Properties.Resources.briefcase32x32;
             this.btnEquipmentConfig.Id = 14;
             this.btnEquipmentConfig.Name = "btnEquipmentConfig";
             this.btnEquipmentConfig.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -289,7 +289,7 @@
             // btnBattleConfig
             // 
             this.btnBattleConfig.Caption = "Trận đấu";
-            this.btnBattleConfig.Glyph = global::KDQHDesignerTool.Properties.Resources.colorwheel32x32;
+            this.btnBattleConfig.Glyph = global::BBCTDesignerTool.Properties.Resources.colorwheel32x32;
             this.btnBattleConfig.Id = 18;
             this.btnBattleConfig.Name = "btnBattleConfig";
             this.btnBattleConfig.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -298,7 +298,7 @@
             // btnVipConfig
             // 
             this.btnVipConfig.Caption = "VIP";
-            this.btnVipConfig.Glyph = global::KDQHDesignerTool.Properties.Resources.gamecontroller32x32;
+            this.btnVipConfig.Glyph = global::BBCTDesignerTool.Properties.Resources.gamecontroller32x32;
             this.btnVipConfig.Id = 21;
             this.btnVipConfig.Name = "btnVipConfig";
             this.btnVipConfig.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -307,7 +307,7 @@
             // btnPlayerLevelEXP
             // 
             this.btnPlayerLevelEXP.Caption = "Cấu hình chung";
-            this.btnPlayerLevelEXP.Glyph = global::KDQHDesignerTool.Properties.Resources.global32x32;
+            this.btnPlayerLevelEXP.Glyph = global::BBCTDesignerTool.Properties.Resources.global32x32;
             this.btnPlayerLevelEXP.Id = 22;
             this.btnPlayerLevelEXP.Name = "btnPlayerLevelEXP";
             this.btnPlayerLevelEXP.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -317,7 +317,7 @@
             // 
             this.btnMoneyConfig.Caption = "Silver Sell Common";
             this.btnMoneyConfig.Enabled = false;
-            this.btnMoneyConfig.Glyph = global::KDQHDesignerTool.Properties.Resources.money32x32;
+            this.btnMoneyConfig.Glyph = global::BBCTDesignerTool.Properties.Resources.money32x32;
             this.btnMoneyConfig.Id = 23;
             this.btnMoneyConfig.Name = "btnMoneyConfig";
             this.btnMoneyConfig.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -326,7 +326,7 @@
             // btnPowerUpItem
             // 
             this.btnPowerUpItem.Caption = "Quản lý Vật phẩm C.Hóa";
-            this.btnPowerUpItem.Glyph = global::KDQHDesignerTool.Properties.Resources.clapboard32x32;
+            this.btnPowerUpItem.Glyph = global::BBCTDesignerTool.Properties.Resources.clapboard32x32;
             this.btnPowerUpItem.Id = 25;
             this.btnPowerUpItem.Name = "btnPowerUpItem";
             this.btnPowerUpItem.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -335,7 +335,7 @@
             // btnVanTieuConfig
             // 
             this.btnVanTieuConfig.Caption = "Vận tiêu";
-            this.btnVanTieuConfig.Glyph = global::KDQHDesignerTool.Properties.Resources.inviteCode32x32;
+            this.btnVanTieuConfig.Glyph = global::BBCTDesignerTool.Properties.Resources.inviteCode32x32;
             this.btnVanTieuConfig.Id = 26;
             this.btnVanTieuConfig.Name = "btnVanTieuConfig";
             this.btnVanTieuConfig.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -344,7 +344,7 @@
             // btnCuopTieu
             // 
             this.btnCuopTieu.Caption = "Cướp tiêu";
-            this.btnCuopTieu.Glyph = global::KDQHDesignerTool.Properties.Resources.item32x32;
+            this.btnCuopTieu.Glyph = global::BBCTDesignerTool.Properties.Resources.item32x32;
             this.btnCuopTieu.Id = 27;
             this.btnCuopTieu.Name = "btnCuopTieu";
             this.btnCuopTieu.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -353,7 +353,7 @@
             // btnThanThap
             // 
             this.btnThanThap.Caption = "Thần tháp";
-            this.btnThanThap.Glyph = global::KDQHDesignerTool.Properties.Resources.barchart32x32;
+            this.btnThanThap.Glyph = global::BBCTDesignerTool.Properties.Resources.barchart32x32;
             this.btnThanThap.Id = 29;
             this.btnThanThap.Name = "btnThanThap";
             this.btnThanThap.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -362,7 +362,7 @@
             // btnBossTheGioi
             // 
             this.btnBossTheGioi.Caption = "Boss";
-            this.btnBossTheGioi.Glyph = global::KDQHDesignerTool.Properties.Resources.global32x32;
+            this.btnBossTheGioi.Glyph = global::BBCTDesignerTool.Properties.Resources.global32x32;
             this.btnBossTheGioi.Id = 30;
             this.btnBossTheGioi.Name = "btnBossTheGioi";
             this.btnBossTheGioi.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -371,7 +371,7 @@
             // btnCauCa
             // 
             this.btnCauCa.Caption = "Câu cá";
-            this.btnCauCa.Glyph = global::KDQHDesignerTool.Properties.Resources.rsz_keyboard;
+            this.btnCauCa.Glyph = global::BBCTDesignerTool.Properties.Resources.rsz_keyboard;
             this.btnCauCa.Id = 31;
             this.btnCauCa.Name = "btnCauCa";
             this.btnCauCa.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -380,7 +380,7 @@
             // btnLuanKiem
             // 
             this.btnLuanKiem.Caption = "Luận kiếm";
-            this.btnLuanKiem.Glyph = global::KDQHDesignerTool.Properties.Resources.gamecontroller32x32;
+            this.btnLuanKiem.Glyph = global::BBCTDesignerTool.Properties.Resources.gamecontroller32x32;
             this.btnLuanKiem.Id = 32;
             this.btnLuanKiem.Name = "btnLuanKiem";
             this.btnLuanKiem.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -389,7 +389,7 @@
             // btnGuild
             // 
             this.btnGuild.Caption = "Bang hội";
-            this.btnGuild.Glyph = global::KDQHDesignerTool.Properties.Resources.clapboard32x32;
+            this.btnGuild.Glyph = global::BBCTDesignerTool.Properties.Resources.clapboard32x32;
             this.btnGuild.Id = 33;
             this.btnGuild.Name = "btnGuild";
             this.btnGuild.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -398,7 +398,7 @@
             // btnNhiemVuHangNgay
             // 
             this.btnNhiemVuHangNgay.Caption = "Nhiệm vụ Hàng ngày";
-            this.btnNhiemVuHangNgay.Glyph = global::KDQHDesignerTool.Properties.Resources.eye32x32;
+            this.btnNhiemVuHangNgay.Glyph = global::BBCTDesignerTool.Properties.Resources.eye32x32;
             this.btnNhiemVuHangNgay.Id = 34;
             this.btnNhiemVuHangNgay.Name = "btnNhiemVuHangNgay";
             this.btnNhiemVuHangNgay.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -407,7 +407,7 @@
             // btnNhiemVuChinhTuyen
             // 
             this.btnNhiemVuChinhTuyen.Caption = "Nhiệm vụ Chính tuyến";
-            this.btnNhiemVuChinhTuyen.Glyph = global::KDQHDesignerTool.Properties.Resources.heart32x32;
+            this.btnNhiemVuChinhTuyen.Glyph = global::BBCTDesignerTool.Properties.Resources.heart32x32;
             this.btnNhiemVuChinhTuyen.Id = 35;
             this.btnNhiemVuChinhTuyen.Name = "btnNhiemVuChinhTuyen";
             this.btnNhiemVuChinhTuyen.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -416,7 +416,7 @@
             // btnBangChien
             // 
             this.btnBangChien.Caption = "Bang chiến";
-            this.btnBangChien.Glyph = global::KDQHDesignerTool.Properties.Resources.category32x32;
+            this.btnBangChien.Glyph = global::BBCTDesignerTool.Properties.Resources.category32x32;
             this.btnBangChien.Id = 36;
             this.btnBangChien.Name = "btnBangChien";
             this.btnBangChien.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -425,7 +425,7 @@
             // btnHoatDongDiemDanh
             // 
             this.btnHoatDongDiemDanh.Caption = "Điểm Danh";
-            this.btnHoatDongDiemDanh.Glyph = global::KDQHDesignerTool.Properties.Resources.creditcard32x32;
+            this.btnHoatDongDiemDanh.Glyph = global::BBCTDesignerTool.Properties.Resources.creditcard32x32;
             this.btnHoatDongDiemDanh.Id = 37;
             this.btnHoatDongDiemDanh.Name = "btnHoatDongDiemDanh";
             this.btnHoatDongDiemDanh.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -434,7 +434,7 @@
             // btnPhucLoi
             // 
             this.btnPhucLoi.Caption = "Phúc lợi tháng";
-            this.btnPhucLoi.Glyph = global::KDQHDesignerTool.Properties.Resources.money32x32;
+            this.btnPhucLoi.Glyph = global::BBCTDesignerTool.Properties.Resources.money32x32;
             this.btnPhucLoi.Id = 38;
             this.btnPhucLoi.Name = "btnPhucLoi";
             this.btnPhucLoi.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -443,7 +443,7 @@
             // btnTuNguXau
             // 
             this.btnTuNguXau.Caption = "Từ ngữ cấm ";
-            this.btnTuNguXau.Glyph = global::KDQHDesignerTool.Properties.Resources.rsz_keyboard;
+            this.btnTuNguXau.Glyph = global::BBCTDesignerTool.Properties.Resources.rsz_keyboard;
             this.btnTuNguXau.Id = 39;
             this.btnTuNguXau.Name = "btnTuNguXau";
             this.btnTuNguXau.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -452,7 +452,7 @@
             // btnLevelReward
             // 
             this.btnLevelReward.Caption = "Quà thưởng theo Level";
-            this.btnLevelReward.Glyph = global::KDQHDesignerTool.Properties.Resources.clapboard32x32;
+            this.btnLevelReward.Glyph = global::BBCTDesignerTool.Properties.Resources.clapboard32x32;
             this.btnLevelReward.Id = 40;
             this.btnLevelReward.Name = "btnLevelReward";
             this.btnLevelReward.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -461,7 +461,7 @@
             // btnShareFacebook
             // 
             this.btnShareFacebook.Caption = "Quà Share Facebook";
-            this.btnShareFacebook.Glyph = global::KDQHDesignerTool.Properties.Resources.present32x32;
+            this.btnShareFacebook.Glyph = global::BBCTDesignerTool.Properties.Resources.present32x32;
             this.btnShareFacebook.Id = 41;
             this.btnShareFacebook.Name = "btnShareFacebook";
             this.btnShareFacebook.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -470,7 +470,7 @@
             // btnTutorial
             // 
             this.btnTutorial.Caption = "Config Tutorial";
-            this.btnTutorial.Glyph = global::KDQHDesignerTool.Properties.Resources.item32x32;
+            this.btnTutorial.Glyph = global::BBCTDesignerTool.Properties.Resources.item32x32;
             this.btnTutorial.Id = 42;
             this.btnTutorial.Name = "btnTutorial";
             this.btnTutorial.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -479,7 +479,7 @@
             // btnThuGuiGM
             // 
             this.btnThuGuiGM.Caption = "Thư gửi GM";
-            this.btnThuGuiGM.Glyph = global::KDQHDesignerTool.Properties.Resources.systemMail32x32;
+            this.btnThuGuiGM.Glyph = global::BBCTDesignerTool.Properties.Resources.systemMail32x32;
             this.btnThuGuiGM.Id = 43;
             this.btnThuGuiGM.Name = "btnThuGuiGM";
             this.btnThuGuiGM.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -488,7 +488,7 @@
             // barButtonItem2
             // 
             this.barButtonItem2.Caption = "Thư gửi GM";
-            this.barButtonItem2.Glyph = global::KDQHDesignerTool.Properties.Resources.systemMail32x32;
+            this.barButtonItem2.Glyph = global::BBCTDesignerTool.Properties.Resources.systemMail32x32;
             this.barButtonItem2.Id = 44;
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -497,7 +497,7 @@
             // barButtonItem3
             // 
             this.barButtonItem3.Caption = "Hướng dẫn";
-            this.barButtonItem3.Glyph = global::KDQHDesignerTool.Properties.Resources.setting32x32;
+            this.barButtonItem3.Glyph = global::BBCTDesignerTool.Properties.Resources.setting32x32;
             this.barButtonItem3.Id = 45;
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -506,7 +506,7 @@
             // btnPlayer
             // 
             this.btnPlayer.Caption = "Tạo nick";
-            this.btnPlayer.Glyph = global::KDQHDesignerTool.Properties.Resources.trophy32x32;
+            this.btnPlayer.Glyph = global::BBCTDesignerTool.Properties.Resources.trophy32x32;
             this.btnPlayer.Id = 46;
             this.btnPlayer.Name = "btnPlayer";
             this.btnPlayer.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -515,7 +515,7 @@
             // btnTips
             // 
             this.btnTips.Caption = "Tip";
-            this.btnTips.Glyph = global::KDQHDesignerTool.Properties.Resources.chat32x32;
+            this.btnTips.Glyph = global::BBCTDesignerTool.Properties.Resources.chat32x32;
             this.btnTips.Id = 47;
             this.btnTips.Name = "btnTips";
             this.btnTips.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -524,7 +524,7 @@
             // btnThuongMap3Sao
             // 
             this.btnThuongMap3Sao.Caption = "Thưởng map 3 sao";
-            this.btnThuongMap3Sao.Glyph = global::KDQHDesignerTool.Properties.Resources.present32x32;
+            this.btnThuongMap3Sao.Glyph = global::BBCTDesignerTool.Properties.Resources.present32x32;
             this.btnThuongMap3Sao.Id = 48;
             this.btnThuongMap3Sao.Name = "btnThuongMap3Sao";
             this.btnThuongMap3Sao.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -533,7 +533,7 @@
             // btnCuuChiTon
             // 
             this.btnCuuChiTon.Caption = "Cửu cửu chí tôn";
-            this.btnCuuChiTon.Glyph = global::KDQHDesignerTool.Properties.Resources.briefcase32x32;
+            this.btnCuuChiTon.Glyph = global::BBCTDesignerTool.Properties.Resources.briefcase32x32;
             this.btnCuuChiTon.Id = 49;
             this.btnCuuChiTon.Name = "btnCuuChiTon";
             this.btnCuuChiTon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -542,7 +542,7 @@
             // btnPhucLoiTruongThanh
             // 
             this.btnPhucLoiTruongThanh.Caption = "Phúc lợi trưởng thành";
-            this.btnPhucLoiTruongThanh.Glyph = global::KDQHDesignerTool.Properties.Resources.category32x32;
+            this.btnPhucLoiTruongThanh.Glyph = global::BBCTDesignerTool.Properties.Resources.category32x32;
             this.btnPhucLoiTruongThanh.Id = 50;
             this.btnPhucLoiTruongThanh.Name = "btnPhucLoiTruongThanh";
             this.btnPhucLoiTruongThanh.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -551,7 +551,7 @@
             // btnRuongBau
             // 
             this.btnRuongBau.Caption = "Rương Random";
-            this.btnRuongBau.Glyph = global::KDQHDesignerTool.Properties.Resources.rsz_keyboard;
+            this.btnRuongBau.Glyph = global::BBCTDesignerTool.Properties.Resources.rsz_keyboard;
             this.btnRuongBau.Id = 51;
             this.btnRuongBau.Name = "btnRuongBau";
             this.btnRuongBau.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -560,7 +560,7 @@
             // btnInviteFacebook
             // 
             this.btnInviteFacebook.Caption = "Invite Facebook";
-            this.btnInviteFacebook.Glyph = global::KDQHDesignerTool.Properties.Resources.present32x32;
+            this.btnInviteFacebook.Glyph = global::BBCTDesignerTool.Properties.Resources.present32x32;
             this.btnInviteFacebook.Id = 52;
             this.btnInviteFacebook.Name = "btnInviteFacebook";
             this.btnInviteFacebook.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -569,7 +569,7 @@
             // btnThangLuanKiem
             // 
             this.btnThangLuanKiem.Caption = "Quà thắng, thua luận kiếm";
-            this.btnThangLuanKiem.Glyph = global::KDQHDesignerTool.Properties.Resources.present32x32;
+            this.btnThangLuanKiem.Glyph = global::BBCTDesignerTool.Properties.Resources.present32x32;
             this.btnThangLuanKiem.Id = 53;
             this.btnThangLuanKiem.Name = "btnThangLuanKiem";
             this.btnThangLuanKiem.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -724,7 +724,7 @@
             // btnDoiHinhDuBi
             // 
             this.btnDoiHinhDuBi.Caption = "Đội hình dự bị";
-            this.btnDoiHinhDuBi.Glyph = global::KDQHDesignerTool.Properties.Resources.briefcase32x32;
+            this.btnDoiHinhDuBi.Glyph = global::BBCTDesignerTool.Properties.Resources.briefcase32x32;
             this.btnDoiHinhDuBi.Id = 55;
             this.btnDoiHinhDuBi.Name = "btnDoiHinhDuBi";
             this.btnDoiHinhDuBi.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;

@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.UserController
+﻿namespace BBCTDesignerTool.UserController
 {
     partial class ucCuopTieu
     {
@@ -69,7 +69,7 @@
             // 
             // dbCuopTieuConfigBindingSource
             // 
-            this.dbCuopTieuConfigBindingSource.DataSource = typeof(KDQHDesignerTool.dbCuopTieuConfig);
+            this.dbCuopTieuConfigBindingSource.DataSource = typeof(BBCTDesignerTool.dbCuopTieuConfig);
             // 
             // colid
             // 

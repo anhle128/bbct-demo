@@ -22,9 +22,9 @@ namespace StaticDB.Models
         [ProtoMember(9)]
         public Skill normalSkill { get; set; } // chiêu tấn công thường
         [ProtoMember(10)]
-        public List<Skill>[] ultimateSkill { get; set; } //chiêu kĩ năng 1
+        public Skill[] ultimateSkill { get; set; } //chiêu kĩ năng 1
         [ProtoMember(12)]
-        public Skill[] passiveSkill { get; set; } // chiêu nội tại
+        public Skill passiveSkill { get; set; } // chiêu nội tại
         [ProtoMember(14)]
         public ClassCharacter classChar { get; set; } //class
 

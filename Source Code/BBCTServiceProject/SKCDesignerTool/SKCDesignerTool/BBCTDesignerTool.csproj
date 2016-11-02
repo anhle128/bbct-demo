@@ -7,8 +7,8 @@
     <ProjectGuid>{41CF050C-C973-4E86-B927-DF24437A47F5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KDQHDesignerTool</RootNamespace>
-    <AssemblyName>KDQHDesignerTool</AssemblyName>
+    <RootNamespace>BBCTDesignerTool</RootNamespace>
+    <AssemblyName>BBCTDesignerTool</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>

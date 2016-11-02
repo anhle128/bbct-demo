@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmDoiHinhDuBi
     {
@@ -56,7 +56,7 @@
             // 
             // dbDoiHinhDuBiRequireBindingSource
             // 
-            this.dbDoiHinhDuBiRequireBindingSource.DataSource = typeof(KDQHDesignerTool.dbDoiHinhDuBiRequire);
+            this.dbDoiHinhDuBiRequireBindingSource.DataSource = typeof(BBCTDesignerTool.dbDoiHinhDuBiRequire);
             // 
             // gvConfig
             // 

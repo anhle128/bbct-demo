@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
-namespace KDQHDesignerTool.Common
+namespace BBCTDesignerTool.Common
 {
     class CommonFunc
     {

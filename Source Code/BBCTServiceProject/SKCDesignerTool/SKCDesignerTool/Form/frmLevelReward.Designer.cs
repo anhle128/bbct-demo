@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmLevelReward
     {
@@ -83,7 +83,7 @@
             // 
             // btnDelete1
             // 
-            this.btnDelete1.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDelete1.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDelete1.Location = new System.Drawing.Point(207, 53);
             this.btnDelete1.Name = "btnDelete1";
             this.btnDelete1.Size = new System.Drawing.Size(23, 23);
@@ -105,7 +105,7 @@
             // 
             // dbLevelRewardConfigBindingSource
             // 
-            this.dbLevelRewardConfigBindingSource.DataSource = typeof(KDQHDesignerTool.dbLevelRewardConfig);
+            this.dbLevelRewardConfigBindingSource.DataSource = typeof(BBCTDesignerTool.dbLevelRewardConfig);
             // 
             // gvLevel
             // 
@@ -132,7 +132,7 @@
             // 
             // btnAdd1
             // 
-            this.btnAdd1.Image = global::KDQHDesignerTool.Properties.Resources.compose16x161;
+            this.btnAdd1.Image = global::BBCTDesignerTool.Properties.Resources.compose16x161;
             this.btnAdd1.Location = new System.Drawing.Point(207, 24);
             this.btnAdd1.Name = "btnAdd1";
             this.btnAdd1.Size = new System.Drawing.Size(23, 23);
@@ -153,7 +153,7 @@
             // 
             // btnDelete2
             // 
-            this.btnDelete2.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDelete2.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDelete2.Location = new System.Drawing.Point(581, 53);
             this.btnDelete2.Name = "btnDelete2";
             this.btnDelete2.Size = new System.Drawing.Size(23, 23);
@@ -162,7 +162,7 @@
             // 
             // btnAdd2
             // 
-            this.btnAdd2.Image = global::KDQHDesignerTool.Properties.Resources.compose16x161;
+            this.btnAdd2.Image = global::BBCTDesignerTool.Properties.Resources.compose16x161;
             this.btnAdd2.Location = new System.Drawing.Point(581, 24);
             this.btnAdd2.Name = "btnAdd2";
             this.btnAdd2.Size = new System.Drawing.Size(23, 23);
@@ -187,7 +187,7 @@
             // 
             // dbLevelRewardRewardBindingSource
             // 
-            this.dbLevelRewardRewardBindingSource.DataSource = typeof(KDQHDesignerTool.dbLevelReward_Reward);
+            this.dbLevelRewardRewardBindingSource.DataSource = typeof(BBCTDesignerTool.dbLevelReward_Reward);
             // 
             // gvReward
             // 
@@ -231,7 +231,7 @@
             // 
             // dbCTAfflictionBindingSource
             // 
-            this.dbCTAfflictionBindingSource.DataSource = typeof(KDQHDesignerTool.dbCTAffliction);
+            this.dbCTAfflictionBindingSource.DataSource = typeof(BBCTDesignerTool.dbCTAffliction);
             // 
             // colstaticID
             // 

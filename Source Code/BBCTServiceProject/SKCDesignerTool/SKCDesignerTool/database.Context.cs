@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KDQHDesignerTool
+namespace BBCTDesignerTool
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class kdqhdesignertoolv1Entities : DbContext
+    public partial class BBCTdesignertoolv1Entities : DbContext
     {
-        public kdqhdesignertoolv1Entities()
-            : base("name=kdqhdesignertoolv1Entities")
+        public BBCTdesignertoolv1Entities()
+            : base("name=BBCTdesignertoolv1Entities")
         {
         }
     

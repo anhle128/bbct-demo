@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KDQHDesignerTool.Models
+namespace BBCTDesignerTool.Models
 {
     public static class ConnectDB
     {
-        private static kdqhdesignertoolv1Entities entities;
+        private static BBCTdesignertoolv1Entities entities;
 
-        public static kdqhdesignertoolv1Entities Entities
+        public static BBCTdesignertoolv1Entities Entities
         {
             get
             {
                 if (entities == null)
                 {
-                    entities = new kdqhdesignertoolv1Entities();
+                    entities = new BBCTdesignertoolv1Entities();
                 }
                 return ConnectDB.entities;
             }

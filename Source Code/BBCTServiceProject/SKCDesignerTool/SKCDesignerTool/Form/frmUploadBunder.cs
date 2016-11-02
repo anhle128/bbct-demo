@@ -8,13 +8,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using KDQHDesignerTool.FormBase;
+using BBCTDesignerTool.FormBase;
 using System.Net;
 using RestSharp;
-using KDQHDesignerTool.Models;
-using KDQHDesignerTool.Common;
+using BBCTDesignerTool.Models;
+using BBCTDesignerTool.Common;
 
-namespace KDQHDesignerTool.Form
+namespace BBCTDesignerTool.Form
 {
     public partial class frmUploadBunder : frmFormChange
     {

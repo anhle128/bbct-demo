@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraSplashScreen;
 
-namespace KDQHDesignerTool.FormLoading
+namespace BBCTDesignerTool.FormLoading
 {
     public partial class SplashScreenLoading : SplashScreen
     {

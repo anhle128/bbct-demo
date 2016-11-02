@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmStarReward
     {
@@ -83,7 +83,7 @@
             // 
             // btnDeleteStar
             // 
-            this.btnDeleteStar.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDeleteStar.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDeleteStar.Location = new System.Drawing.Point(348, 54);
             this.btnDeleteStar.Name = "btnDeleteStar";
             this.btnDeleteStar.Size = new System.Drawing.Size(23, 23);
@@ -92,7 +92,7 @@
             // 
             // btnAddStar
             // 
-            this.btnAddStar.Image = global::KDQHDesignerTool.Properties.Resources.compose16x16;
+            this.btnAddStar.Image = global::BBCTDesignerTool.Properties.Resources.compose16x16;
             this.btnAddStar.Location = new System.Drawing.Point(349, 25);
             this.btnAddStar.Name = "btnAddStar";
             this.btnAddStar.Size = new System.Drawing.Size(23, 23);
@@ -153,7 +153,7 @@
             // 
             // btnDeleteReward
             // 
-            this.btnDeleteReward.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDeleteReward.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDeleteReward.Location = new System.Drawing.Point(646, 50);
             this.btnDeleteReward.Name = "btnDeleteReward";
             this.btnDeleteReward.Size = new System.Drawing.Size(23, 23);
@@ -178,7 +178,7 @@
             // 
             // dbStarRewardRewardBindingSource
             // 
-            this.dbStarRewardRewardBindingSource.DataSource = typeof(KDQHDesignerTool.dbStarRewardReward);
+            this.dbStarRewardRewardBindingSource.DataSource = typeof(BBCTDesignerTool.dbStarRewardReward);
             // 
             // gvReward
             // 
@@ -229,7 +229,7 @@
             // 
             // dbCTAfflictionBindingSource
             // 
-            this.dbCTAfflictionBindingSource.DataSource = typeof(KDQHDesignerTool.dbCTAffliction);
+            this.dbCTAfflictionBindingSource.DataSource = typeof(BBCTDesignerTool.dbCTAffliction);
             // 
             // colstaticID
             // 
@@ -289,7 +289,7 @@
             // 
             // btnAddReward
             // 
-            this.btnAddReward.Image = global::KDQHDesignerTool.Properties.Resources.compose16x16;
+            this.btnAddReward.Image = global::BBCTDesignerTool.Properties.Resources.compose16x16;
             this.btnAddReward.Location = new System.Drawing.Point(647, 21);
             this.btnAddReward.Name = "btnAddReward";
             this.btnAddReward.Size = new System.Drawing.Size(23, 23);
@@ -298,7 +298,7 @@
             // 
             // dbStarRewardBindingSource
             // 
-            this.dbStarRewardBindingSource.DataSource = typeof(KDQHDesignerTool.dbStarReward);
+            this.dbStarRewardBindingSource.DataSource = typeof(BBCTDesignerTool.dbStarReward);
             // 
             // frmStarReward
             // 

@@ -1,7 +1,7 @@
 ﻿using DevExpress.XtraSplashScreen;
-using KDQHDesignerTool.Common;
-using KDQHDesignerTool.Form;
-using KDQHDesignerTool.FormLoading;
+using BBCTDesignerTool.Common;
+using BBCTDesignerTool.Form;
+using BBCTDesignerTool.FormLoading;
 using System;
 using System.Collections.Generic;
 using System.Deployment.Application;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KDQHDesignerTool
+namespace BBCTDesignerTool
 {
     static class Program
     {

@@ -8,10 +8,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using KDQHDesignerTool.Common;
-using KDQHDesignerTool.Models;
+using BBCTDesignerTool.Common;
+using BBCTDesignerTool.Models;
 
-namespace KDQHDesignerTool.Form
+namespace BBCTDesignerTool.Form
 {
     public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
@@ -20,10 +20,10 @@ namespace KDQHDesignerTool.Form
             InitializeComponent();
             lbVersion.Text = SettingApp.toolVersion + SettingApp.gameVersion;
             txtmatKhau.Properties.PasswordChar = '*';
-            txtTenDangNhap.Text = KDQHDesignerTool.Properties.Settings.Default.UserName;
-            txtmatKhau.Text = KDQHDesignerTool.Properties.Settings.Default.Password;
+            txtTenDangNhap.Text = BBCTDesignerTool.Properties.Settings.Default.UserName;
+            txtmatKhau.Text = BBCTDesignerTool.Properties.Settings.Default.Password;
 
-            if (KDQHDesignerTool.Properties.Settings.Default.UserName != "")
+            if (BBCTDesignerTool.Properties.Settings.Default.UserName != "")
             {
                 ckeRememberMe.Checked = true;
             }
@@ -64,9 +64,9 @@ namespace KDQHDesignerTool.Form
         {
             if (ckeRememberMe.Checked == true)
             {
-                KDQHDesignerTool.Properties.Settings.Default.UserName = txtTenDangNhap.Text;
-                KDQHDesignerTool.Properties.Settings.Default.Password = txtmatKhau.Text;
-                KDQHDesignerTool.Properties.Settings.Default.Save();
+                BBCTDesignerTool.Properties.Settings.Default.UserName = txtTenDangNhap.Text;
+                BBCTDesignerTool.Properties.Settings.Default.Password = txtmatKhau.Text;
+                BBCTDesignerTool.Properties.Settings.Default.Save();
             }
 
             HandlerLogin();

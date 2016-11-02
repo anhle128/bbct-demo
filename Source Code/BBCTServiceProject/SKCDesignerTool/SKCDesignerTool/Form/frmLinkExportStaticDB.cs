@@ -8,10 +8,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using KDQHDesignerTool.FormBase;
-using KDQHDesignerTool.Models;
+using BBCTDesignerTool.FormBase;
+using BBCTDesignerTool.Models;
 
-namespace KDQHDesignerTool.Form
+namespace BBCTDesignerTool.Form
 {
     public partial class frmLinkExportStaticDB : frmFormChange
     {

@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmThuGuiGM
     {
@@ -67,7 +67,7 @@
             // 
             // dbGMMailConfigBindingSource
             // 
-            this.dbGMMailConfigBindingSource.DataSource = typeof(KDQHDesignerTool.dbGMMailConfig);
+            this.dbGMMailConfigBindingSource.DataSource = typeof(BBCTDesignerTool.dbGMMailConfig);
             // 
             // colid
             // 

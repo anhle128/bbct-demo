@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace KDQHDesignerTool.FormLoading
+namespace BBCTDesignerTool.FormLoading
 {
     public partial class frmSplashScreenManager : DevExpress.XtraEditors.XtraUserControl
     {

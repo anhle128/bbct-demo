@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmTips
     {
@@ -65,7 +65,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Image = global::KDQHDesignerTool.Properties.Resources.compose16x16;
+            this.btnAdd.Image = global::BBCTDesignerTool.Properties.Resources.compose16x16;
             this.btnAdd.Location = new System.Drawing.Point(850, 40);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(23, 23);
@@ -74,7 +74,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Image = global::KDQHDesignerTool.Properties.Resources.denied16x16;
+            this.btnDelete.Image = global::BBCTDesignerTool.Properties.Resources.denied16x16;
             this.btnDelete.Location = new System.Drawing.Point(849, 69);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(23, 23);
@@ -83,7 +83,7 @@
             // 
             // dbTipBindingSource
             // 
-            this.dbTipBindingSource.DataSource = typeof(KDQHDesignerTool.dbTip);
+            this.dbTipBindingSource.DataSource = typeof(BBCTDesignerTool.dbTip);
             // 
             // colid
             // 

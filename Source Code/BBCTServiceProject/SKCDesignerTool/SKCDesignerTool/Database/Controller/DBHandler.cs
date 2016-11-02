@@ -8,7 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace KDQHNPHTool.Database.Controller
+namespace BBCTNPHTool.Database.Controller
 {
     public class DBHandler
     {

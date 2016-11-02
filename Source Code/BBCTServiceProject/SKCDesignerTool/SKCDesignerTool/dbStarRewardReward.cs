@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KDQHDesignerTool
+namespace BBCTDesignerTool
 {
     using System;
     using System.Collections.Generic;

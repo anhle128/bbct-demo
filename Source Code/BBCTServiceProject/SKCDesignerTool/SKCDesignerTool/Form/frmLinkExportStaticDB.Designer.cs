@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmLinkExportStaticDB
     {
@@ -56,7 +56,7 @@
             // 
             // mChooseLinkStaticDBBindingSource
             // 
-            this.mChooseLinkStaticDBBindingSource.DataSource = typeof(KDQHDesignerTool.Models.MChooseLinkStaticDB);
+            this.mChooseLinkStaticDBBindingSource.DataSource = typeof(BBCTDesignerTool.Models.MChooseLinkStaticDB);
             // 
             // gvChoose
             // 

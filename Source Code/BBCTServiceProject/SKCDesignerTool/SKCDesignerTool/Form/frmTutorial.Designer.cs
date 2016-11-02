@@ -1,4 +1,4 @@
-﻿namespace KDQHDesignerTool.Form
+﻿namespace BBCTDesignerTool.Form
 {
     partial class frmTutorial
     {
@@ -55,7 +55,7 @@
             // 
             // dbTutorialConfigBindingSource
             // 
-            this.dbTutorialConfigBindingSource.DataSource = typeof(KDQHDesignerTool.dbTutorialConfig);
+            this.dbTutorialConfigBindingSource.DataSource = typeof(BBCTDesignerTool.dbTutorialConfig);
             // 
             // gridView1
             // 
