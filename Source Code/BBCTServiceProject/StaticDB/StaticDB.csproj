@@ -94,12 +94,14 @@
     <Compile Include="Models\ChucPhucConfig.cs" />
     <Compile Include="Models\CuopTieuConfig.cs" />
     <Compile Include="Models\CuuCuuTriTonConfig.cs" />
+    <Compile Include="Models\FormationConfig.cs" />
     <Compile Include="Models\DoiHinhDuBiConfig.cs" />
     <Compile Include="Models\DoiHinhDuBiRequire.cs" />
     <Compile Include="Models\Element2Element.cs" />
     <Compile Include="Models\ElementBonusAttribute.cs" />
     <Compile Include="Models\Equip2Equip.cs" />
     <Compile Include="Models\EquipLevelUpConfig.cs" />
+    <Compile Include="Models\LevelOpendSlotMainFormation.cs" />
     <Compile Include="Models\SkillStarLevel.cs" />
     <Compile Include="Models\EquipStarUpConfig.cs" />
     <Compile Include="Models\ExchangeGoldToSilverConfig.cs" />

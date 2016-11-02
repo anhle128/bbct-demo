@@ -74,6 +74,8 @@ namespace StaticDBSerializer
             model.Add(typeof(LevelNumCharInFormation), true);
             model.Add(typeof(ExchangeGoldToSilverConfig), true);
             model.Add(typeof(EquipLevelUpConfig), true);
+            model.Add(typeof(FormationConfig), true);
+            model.Add(typeof(LevelOpendSlotMainFormation), true);
 
             model.Add(typeof(GuildConfig), true);
             model.Add(typeof(RewardBossGuild), true);

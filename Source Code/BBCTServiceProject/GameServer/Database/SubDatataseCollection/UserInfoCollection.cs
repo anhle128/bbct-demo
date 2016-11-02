@@ -3,7 +3,6 @@ using GameServer.Common;
 using GameServer.Database.Controller;
 using GameServer.Database.Core;
 using GameServer.Server;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDBModel.Enum;
 using MongoDBModel.SubDatabaseModels;
@@ -158,7 +157,6 @@ namespace GameServer.Database.SubDatataseCollection
             data.gold = StaticDatabase.entities.configs.playerDefaultConfig.gold;
             data.silver = StaticDatabase.entities.configs.playerDefaultConfig.silver;
             data.stamina = StaticDatabase.entities.configs.playerDefaultConfig.stamina;
-            data.point_skill = 0;
             data.isBot = false;
             data.isLocked = false;
             data.level = StaticDatabase.entities.configs.playerDefaultConfig.level;
@@ -183,16 +181,16 @@ namespace GameServer.Database.SubDatataseCollection
         {
             Dictionary<string, object> dictData = new Dictionary<string, object>()
             {
-                {"silver",userInfo.silver},
-                {"gold",userInfo.gold},
-                {"ruby",userInfo.ruby},
-                {"exp",userInfo.exp},
-                {"level",userInfo.level},
-                {"point_luan_kiem",userInfo.pointLuanKiem},
-                {"last_time_update_stamina",userInfo.last_time_update_stamina},
-                {"stamina",userInfo.stamina},
+                {"silver",userInfo.info.silver},
+                {"gold",userInfo.info.gold},
+                {"ruby",userInfo.info.ruby},
+                {"exp",userInfo.info.exp},
+                {"level",userInfo.info.level},
+                {"point_luan_kiem",userInfo.info.point_luan_kiem},
+                {"last_time_update_stamina",userInfo.info.last_time_update_stamina},
+                {"stamina",userInfo.info.stamina},
             };
-            UpdateFields(userInfo.id, dictData);
+            UpdateFields(userInfo.info._id, dictData);
         }
 
 
@@ -200,17 +198,17 @@ namespace GameServer.Database.SubDatataseCollection
         {
             var data = new Dictionary<string, object>
             {
-                { "gold", cacheData.gold }
+                { "gold", cacheData.info.gold }
             };
 
-            UpdateFields(cacheData.id, data);
+            UpdateFields(cacheData.info._id, data);
 
             MongoController.LogDb.ActionGold.CreateSpentGoldLog
             (
-                userid: cacheData.id,
-                oldGlod: cacheData.gold + goldUsed,
+                userid: cacheData.info._id,
+                oldGlod: cacheData.info.gold + goldUsed,
                 spentGold: goldUsed,
-                newGold: cacheData.gold,
+                newGold: cacheData.info.gold,
                 reason: reason
             );
         }
@@ -221,17 +219,17 @@ namespace GameServer.Database.SubDatataseCollection
         {
             var data = new Dictionary<string, object>(2)
             {
-                { "gold", userInfo.gold },
+                { "gold", userInfo.info.gold },
                 { "count_time_x10_quoay_vat_pham", timeQuayx10VatPham}
             };
-            UpdateFields(userInfo.id, data);
+            UpdateFields(userInfo.info._id, data);
 
             MongoController.LogDb.ActionGold.CreateSpentGoldLog
             (
-                userid: userInfo.id,
-                oldGlod: userInfo.gold + goldUsed,
+                userid: userInfo.info._id,
+                oldGlod: userInfo.info.gold + goldUsed,
                 spentGold: goldUsed,
-                newGold: userInfo.gold,
+                newGold: userInfo.info.gold,
                 reason: ReasonActionGold.QuayVatPhamx10
             );
         }
@@ -241,18 +239,18 @@ namespace GameServer.Database.SubDatataseCollection
             {
                 {"last_time_free_quay_vat_pham",lastTimeFreeQuayVatPham}
             };
-            UpdateFields(userInfo.id, data);
+            UpdateFields(userInfo.info._id, data);
         }
 
         public void UpdateSilver(PlayerCacheData userInfo, TypeUseSilver type, int silverUsed)
         {
             var data = new Dictionary<string, object>(1)
             {
-                { "silver", userInfo.silver }
+                { "silver", userInfo.info.silver }
             };
-            UpdateFields(userInfo.id, data);
+            UpdateFields(userInfo.info._id, data);
             if (type != TypeUseSilver.None && silverUsed != 0)
-                MongoController.LogDb.UsedSilver.Create(userInfo.id, silverUsed, type);
+                MongoController.LogDb.UsedSilver.Create(userInfo.info._id, silverUsed, type);
 
         }
 
@@ -260,123 +258,92 @@ namespace GameServer.Database.SubDatataseCollection
         {
             var data = new Dictionary<string, object>(4)
             {
-                {"silver", userInfo.silver},
-                {"level", userInfo.level},
-                {"exp", userInfo.exp},
-                {"stamina", userInfo.stamina},
-                {"highest_stages_attacked", userInfo.highest_stages_attacked},
-                {"lastest_stage_attacked", userInfo.lastest_stage_attacked}
+                {"silver", userInfo.info.silver},
+                {"level", userInfo.info.level},
+                {"exp", userInfo.info.exp},
+                {"stamina", userInfo.info.stamina},
+                {"highest_stages_attacked", userInfo.info.highest_stages_attacked},
+                {"lastest_stage_attacked", userInfo.info.lastest_stage_attacked}
             };
-            if (userInfo.stamina < StaticDatabase.entities.configs.maxStamina)
+            if (userInfo.info.stamina < StaticDatabase.entities.configs.maxStamina)
             {
-                userInfo.last_time_update_stamina = DateTime.Now;
-                data.Add("last_time_update_stamina", userInfo.last_time_update_stamina);
+                userInfo.info.last_time_update_stamina = DateTime.Now;
+                data.Add("last_time_update_stamina", userInfo.info.last_time_update_stamina);
             }
-            else if (userInfo.stamina >= StaticDatabase.entities.configs.maxStamina
-                && userInfo.last_time_update_stamina != new DateTime())
+            else if (userInfo.info.stamina >= StaticDatabase.entities.configs.maxStamina
+                && userInfo.info.last_time_update_stamina != new DateTime())
             {
-                userInfo.last_time_update_stamina = new DateTime();
-                data.Add("last_time_update_stamina", userInfo.last_time_update_stamina);
+                userInfo.info.last_time_update_stamina = new DateTime();
+                data.Add("last_time_update_stamina", userInfo.info.last_time_update_stamina);
             }
-            UpdateFields(userInfo.id, data);
+            UpdateFields(userInfo.info._id, data);
         }
 
         public void UpdateStamina(PlayerCacheData userInfo)
         {
             var data = new Dictionary<string, object>(1)
             {
-                { "stamina", userInfo.stamina }
+                { "stamina", userInfo.info.stamina }
             };
             //userInfo.last_time_update_stamina == new DateTime()
             //                && 
-            if (userInfo.stamina < StaticDatabase.entities.configs.maxStamina)
+            if (userInfo.info.stamina < StaticDatabase.entities.configs.maxStamina)
             {
-                userInfo.last_time_update_stamina = DateTime.Now;
-                data.Add("last_time_update_stamina", userInfo.last_time_update_stamina);
+                userInfo.info.last_time_update_stamina = DateTime.Now;
+                data.Add("last_time_update_stamina", userInfo.info.last_time_update_stamina);
             }
-            else if (userInfo.stamina >= StaticDatabase.entities.configs.maxStamina &&
-                     userInfo.last_time_update_stamina != new DateTime())
+            else if (userInfo.info.stamina >= StaticDatabase.entities.configs.maxStamina &&
+                     userInfo.info.last_time_update_stamina != new DateTime())
             {
-                userInfo.last_time_update_stamina = new DateTime();
-                data.Add("last_time_update_stamina", userInfo.last_time_update_stamina);
+                userInfo.info.last_time_update_stamina = new DateTime();
+                data.Add("last_time_update_stamina", userInfo.info.last_time_update_stamina);
             }
-            UpdateFields(userInfo.id, data);
+            UpdateFields(userInfo.info._id, data);
         }
-
-        //public void UpdateStamina(MUserInfo userInfo)
-        //{
-        //    var data = new Dictionary<string, object>(1)
-        //    {
-        //        { "stamina", userInfo.stamina }
-        //    };
-
-        //    if (userInfo.last_time_update_stamina == new DateTime()
-        //       && userInfo.stamina < StaticDatabase.entities.configs.maxStamina)
-        //    {
-        //        userInfo.last_time_update_stamina = DateTime.Now;
-        //        data.Add("last_time_update_stamina", userInfo.last_time_update_stamina);
-        //    }
-        //    UpdateFields(userInfo._id, data);
-        //}
 
         public void Update_Level_Exp(PlayerCacheData data)
         {
             var dictData = new Dictionary<string, object>
             {
-                { "exp", data.exp },
-                { "level", data.level }
+                { "exp", data.info.exp },
+                { "level", data.info.level }
             };
-            UpdateFields(data.id, dictData);
-        }
-
-        public void UpdateSilver_PointSkill(PlayerCacheData data, int silverUsed)
-        {
-            data.last_time_update_point_skill =
-                data.point_skill == StaticDatabase.entities.configs.pointSkillConfig.maxPointSkillCanReach ?
-                new DateTime() : DateTime.Now;
-            var dictData = new Dictionary<string, object>
-            {
-                { "point_skill", data.point_skill },
-                { "last_time_update_point_skill", data.last_time_update_point_skill },
-                { "silver", data.silver },
-            };
-            UpdateFields(data.id, dictData);
-            MongoController.LogDb.UsedSilver.Create(data.id, silverUsed, TypeUseSilver.UpSkillChar);
+            UpdateFields(data.info._id, dictData);
         }
 
         public void UpdateAvatar(PlayerCacheData data)
         {
             var dictData = new Dictionary<string, object>
             {
-                { "avatar", data.avatar },
-                { "avatar_star", data.avatar_star }
+                { "avatar", data.info.avatar },
+                { "avatar_star", data.info.avatar_star }
             };
-            UpdateFields(data.id, dictData);
+            UpdateFields(data.info._id, dictData);
         }
 
         public void UpdateLastTimeAttackLuanKiem(PlayerCacheData data)
         {
             var dictData = new Dictionary<string, object>
             {
-                { "last_time_attack_luan_kiem", data.lastTimeAttackLuanKiem }
+                { "last_time_attack_luan_kiem", data.info.last_time_attack_luan_kiem }
             };
-            UpdateFields(data.id, dictData);
+            UpdateFields(data.info._id, dictData);
         }
 
         public void UpdateGold_LastTimeAttackLuanKiem(PlayerCacheData data, int goldUsed)
         {
             var dictData = new Dictionary<string, object>
             {
-                { "last_time_attack_luan_kiem", data.lastTimeAttackLuanKiem },
-                { "gold", data.gold }
+                { "last_time_attack_luan_kiem", data.info.last_time_attack_luan_kiem },
+                { "gold", data.info.gold }
             };
-            UpdateFields(data.id, dictData);
+            UpdateFields(data.info._id, dictData);
             MongoController.LogDb.ActionGold.CreateSpentGoldLog
             (
-                userid: data.id,
-                oldGlod: data.gold + goldUsed,
+                userid: data.info._id,
+                oldGlod: data.info.gold + goldUsed,
                 spentGold: goldUsed,
-                newGold: data.gold,
+                newGold: data.info.gold,
                 reason: ReasonActionGold.ResetLuanKiem
             );
         }
@@ -385,30 +352,21 @@ namespace GameServer.Database.SubDatataseCollection
         {
             var dictData = new Dictionary<string, object>
             {
-                { "avatar", data.avatar },
-                {"formation",data.formation},
-                {"doi_hinh_du_bi",data.doi_hinh_du_bi},
+                { "avatar", data.info.avatar },
+                {"formations",data.info.formations},
             };
-            UpdateFields(data.id, dictData);
+            UpdateFields(data.info._id, dictData);
         }
 
         public void UpdateFormation(PlayerCacheData data)
         {
             var dictData = new Dictionary<string, object>
             {
-                {"formation",data.formation}
+                {"formations",data.info.formations}
             };
-            UpdateFields(data.id, dictData);
+            UpdateFields(data.info._id, dictData);
         }
 
-        public void UpdateDoiHinhDiBi(PlayerCacheData data)
-        {
-            var dictData = new Dictionary<string, List<DuBi>>
-            {
-                {"doi_hinh_du_bi",data.doi_hinh_du_bi}
-            };
-            UpdateFields(data.id, dictData);
-        }
 
         public void UpdatePosition(string id, double posX, double posY)
         {
@@ -437,21 +395,21 @@ namespace GameServer.Database.SubDatataseCollection
         {
             var data = new Dictionary<string, object>
             {
-                {"stamina", userInfo.stamina},
-                {"lastest_stage_attacked", userInfo.lastest_stage_attacked},
+                {"stamina", userInfo.info.stamina},
+                {"lastest_stage_attacked", userInfo.info.lastest_stage_attacked},
                 //{"highest_stages_attacked", userInfo.highest_stages_attacked},
             };
-            if (userInfo.stamina >= StaticDatabase.entities.configs.maxStamina)
+            if (userInfo.info.stamina >= StaticDatabase.entities.configs.maxStamina)
             {
-                userInfo.last_time_update_stamina = new DateTime();
-                data.Add("last_time_update_stamina", userInfo.last_time_update_stamina);
+                userInfo.info.last_time_update_stamina = new DateTime();
+                data.Add("last_time_update_stamina", userInfo.info.last_time_update_stamina);
             }
-            else if (userInfo.stamina < StaticDatabase.entities.configs.maxStamina)
+            else if (userInfo.info.stamina < StaticDatabase.entities.configs.maxStamina)
             {
-                userInfo.last_time_update_stamina = DateTime.Now;
-                data.Add("last_time_update_stamina", userInfo.last_time_update_stamina);
+                userInfo.info.last_time_update_stamina = DateTime.Now;
+                data.Add("last_time_update_stamina", userInfo.info.last_time_update_stamina);
             }
-            UpdateFields(userInfo.id, data);
+            UpdateFields(userInfo.info._id, data);
         }
 
         public void UpdateGold_FreeTimeQuayTuongSpecial(MUserInfo userInfo, int goldUsed)
@@ -545,17 +503,17 @@ namespace GameServer.Database.SubDatataseCollection
         {
             Dictionary<string, object> dictData = new Dictionary<string, object>()
             {
-                {"gold",data.gold},
-                {"silver",data.silver},
+                {"gold",data.info.gold},
+                {"silver",data.info.silver},
             };
-            UpdateFields(data.id, dictData);
+            UpdateFields(data.info._id, dictData);
             //MongoController.LogDb.UsedGold.Create(data.userid, goldUsed, TypeUseGold.ExchangeGoldToSilver);
             MongoController.LogDb.ActionGold.CreateSpentGoldLog
             (
-                userid: data.id,
-                oldGlod: data.gold + goldUsed,
+                userid: data.info._id,
+                oldGlod: data.info.gold + goldUsed,
                 spentGold: goldUsed,
-                newGold: data.gold,
+                newGold: data.info.gold,
                 reason: ReasonActionGold.ExchangeGoldToSilver
             );
         }
@@ -564,20 +522,20 @@ namespace GameServer.Database.SubDatataseCollection
         {
             var data = new Dictionary<string, object>
             {
-                { "stamina", userInfo.stamina },
+                { "stamina", userInfo.info.stamina },
             };
-            if (userInfo.stamina >= StaticDatabase.entities.configs.maxStamina)
+            if (userInfo.info.stamina >= StaticDatabase.entities.configs.maxStamina)
             {
-                userInfo.last_time_update_stamina = new DateTime();
-                data.Add("last_time_update_stamina", userInfo.last_time_update_stamina);
+                userInfo.info.last_time_update_stamina = new DateTime();
+                data.Add("last_time_update_stamina", userInfo.info.last_time_update_stamina);
             }
             else
             {
-                userInfo.last_time_update_stamina = DateTime.Now;
-                data.Add("last_time_update_stamina", userInfo.last_time_update_stamina);
+                userInfo.info.last_time_update_stamina = DateTime.Now;
+                data.Add("last_time_update_stamina", userInfo.info.last_time_update_stamina);
             }
 
-            UpdateFields(userInfo.id, data);
+            UpdateFields(userInfo.info._id, data);
         }
 
         public void UpdatePlusStamina(MUserInfo userInfo)
@@ -600,21 +558,6 @@ namespace GameServer.Database.SubDatataseCollection
             UpdateFields(userInfo._id, data);
         }
 
-        public void UpdatePlusPointSkill(PlayerCacheData userInfo)
-        {
-            userInfo.last_time_update_point_skill =
-                userInfo.point_skill == StaticDatabase.entities.configs.pointSkillConfig.maxPointSkillCanReach ?
-                new DateTime() : DateTime.Now;
-
-            var data = new Dictionary<string, object>
-            {
-                { "point_skill", userInfo.point_skill },
-                { "last_time_update_point_skill", userInfo.last_time_update_point_skill},
-
-            };
-            UpdateFields(userInfo.id, data);
-        }
-
         public void UpdateBonusThanThap(string id, int all_bonus_than_thap_attributes)
         {
             var data = new Dictionary<string, object> { { "all_bonus_than_thap_attributes", all_bonus_than_thap_attributes } };
@@ -632,17 +575,17 @@ namespace GameServer.Database.SubDatataseCollection
 
         public void UpdatePointLuanKiem(PlayerCacheData userInfo)
         {
-            var data = new Dictionary<string, object> { { "point_luan_kiem", userInfo.pointLuanKiem } };
-            UpdateFields(userInfo.id, data);
+            var data = new Dictionary<string, object> { { "point_luan_kiem", userInfo.info.point_luan_kiem } };
+            UpdateFields(userInfo.info._id, data);
         }
 
         public void UpdateVip(PlayerCacheData userInfo)
         {
             var data = new Dictionary<string, object>
             {
-                {"vip",userInfo.vip},
+                {"vip",userInfo.info.vip},
             };
-            UpdateFields(userInfo.id, data);
+            UpdateFields(userInfo.info._id, data);
         }
 
         //public void UpdateRuby_Gold(PlayerCacheData userInfo)
@@ -695,28 +638,28 @@ namespace GameServer.Database.SubDatataseCollection
         {
             var data = new Dictionary<string, object>
             {
-                { "ruby",userInfo.ruby}
+                { "ruby",userInfo.info.ruby}
             };
-            UpdateFields(userInfo.id, data);
+            UpdateFields(userInfo.info._id, data);
         }
 
         public void UpdateRuby_TotalRubyTrans(PlayerCacheData userInfo)
         {
             var data = new Dictionary<string, object>
             {
-                { "ruby",userInfo.ruby},
-                { "total_ruby_trans",userInfo.total_ruby_trans},
+                { "ruby",userInfo.info.ruby},
+                { "total_ruby_trans",userInfo.info.total_ruby_trans},
             };
-            UpdateFields(userInfo.id, data);
+            UpdateFields(userInfo.info._id, data);
         }
 
         public void UpdateTotalRubyTrans(PlayerCacheData userInfo)
         {
             var data = new Dictionary<string, double>
             {
-                { "total_ruby_trans",userInfo.total_ruby_trans}
+                { "total_ruby_trans",userInfo.info.total_ruby_trans}
             };
-            UpdateFields(userInfo.id, data);
+            UpdateFields(userInfo.info._id, data);
         }
 
         public void UpdatePosition(PlayerCacheData userInfo)
@@ -725,10 +668,10 @@ namespace GameServer.Database.SubDatataseCollection
             {
                 var data = new Dictionary<string, double>
                 {
-                    { "posX",userInfo.x},
-                    { "posY",userInfo.y},
+                    { "posX",userInfo.info.posX},
+                    { "posY",userInfo.info.posX},
                 };
-                UpdateFields(userInfo.id, data);
+                UpdateFields(userInfo.info._id, data);
             }
         }
 

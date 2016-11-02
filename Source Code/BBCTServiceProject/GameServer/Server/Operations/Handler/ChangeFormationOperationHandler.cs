@@ -27,35 +27,6 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DBError);
             }
            
-            int totalNumCharInFormation = requestData.formationRows.Sum(stringArray => stringArray.columns.Count(a => a != "-1"));
-            if (totalNumCharInFormation > levelNumCharInFormation.numberCharInFormation)
-                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NumberCharInFormationIsWrong);
-
-            foreach (var duBi in requestData.doi_hinh_du_bi.Where(a => a.id_char != "-1"))
-            {
-                foreach (var formation in requestData.formationRows)
-                {
-                    if (formation.columns.Any(a => a.Equals(duBi.id_char)))
-                        return CommonFunc.SimpleResponse(operationRequest, ReturnCode.CharInFormation);
-                }
-            }
-
-            if (player.cacheData.doi_hinh_du_bi != null && player.cacheData.doi_hinh_du_bi.Count != requestData.doi_hinh_du_bi.Count)
-            {
-                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
-            }
-
-            foreach (var duBi in requestData.doi_hinh_du_bi)
-            {
-
-                if (player.cacheData.doi_hinh_du_bi.All(a => a.index != duBi.index))
-                {
-                    return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
-                }
-            }
-
-            player.cacheData.formation = requestData.formationRows;
-            player.cacheData.doi_hinh_du_bi = requestData.doi_hinh_du_bi;
 
             MongoController.UserDb.Info.UpdateAvatar_Formation(player.cacheData);
 

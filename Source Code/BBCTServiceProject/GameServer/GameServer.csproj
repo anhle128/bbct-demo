@@ -404,7 +404,6 @@
     <Compile Include="Server\Operations\Handler\MoiRuouOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\MoRuongOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\NotifyMessageOperationHandler.cs" />
-    <Compile Include="Server\Operations\Handler\OpendSlotDoiHinhDuBiOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\OutGuildMemberOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\PlushAttributeThanThapOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\PowerupCharOperationHandler.cs" />

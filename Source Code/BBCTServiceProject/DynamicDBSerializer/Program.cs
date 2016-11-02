@@ -84,7 +84,7 @@ namespace DynamicDBSerializer
             model.Add(typeof(BangChien), true);
             model.Add(typeof(BattleBangChien), true);
 
-            model.Add(typeof(DuBi), true);
+            model.Add(typeof(DataFormation), true);
 
             model.AllowParseableTypes = true;
             model.AutoAddMissingTypes = true;

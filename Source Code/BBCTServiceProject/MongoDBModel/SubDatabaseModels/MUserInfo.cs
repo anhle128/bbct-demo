@@ -37,10 +37,10 @@ namespace MongoDBModel.SubDatabaseModels
         public int count_time_x10_quoay_tuong_special { get; set; }
         public int count_time_x10_quoay_vat_pham { get; set; }
         public int reset_stage_times { get; set; }
-        public int point_skill { get; set; }
-        public StringArray[] formation { get; set; }
         public StageMode lastest_stage_attacked { get; set; }
         public StageMode highest_stages_attacked { get; set; }
+        public DataFormation[] formations { get; set; }
+        public int lastFormationUsed { get; set; }
 
         [BsonRepresentation(BsonType.DateTime)]
         [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
@@ -81,8 +81,6 @@ namespace MongoDBModel.SubDatabaseModels
         public int hash_code_time_send_facebook { get; set; }
         public int invite_friend { get; set; }
         public double total_ruby_trans { get; set; }
-        public List<DuBi> doi_hinh_du_bi { get; set; }
-
         public MUserInfo()
         {
 
