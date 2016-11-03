@@ -12,7 +12,7 @@ namespace BBCTDesignerTool
     using System;
     using System.Collections.Generic;
     
-    public partial class dbLevelUnlockMainSkill
+    public partial class dbEquipGoldNeedToStarup
     {
         public int id { get; set; }
         public Nullable<int> value { get; set; }

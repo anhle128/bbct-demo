@@ -138,11 +138,11 @@
     </ProjectReference>
     <ProjectReference Include="..\GameServer.Common\GameServer.Common.csproj">
       <Project>{ab1f7c3f-b59a-4b6c-86bd-c16730e461af}</Project>
-      <Name>KDQHGameServer.Common</Name>
+      <Name>GameServer.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\GameServer\GameServer.csproj">
       <Project>{ba30677d-d6d7-4046-bbd5-e7b257ad9a46}</Project>
-      <Name>KDQHGameServer</Name>
+      <Name>GameServer</Name>
     </ProjectReference>
     <ProjectReference Include="..\MongoDBModel\MongoDBModel.csproj">
       <Project>{a394ffeb-510a-4f91-9ad0-6f3323de8fcf}</Project>

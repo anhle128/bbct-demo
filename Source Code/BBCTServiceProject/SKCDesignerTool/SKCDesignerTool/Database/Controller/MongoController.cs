@@ -1,14 +1,14 @@
 ﻿
 using LitJson;
 using BBCTDesignerTool.Common;
-using BBCTNPHTool.Database.Model;
-using BBCTNPHTool.Database.MainDatabaseCollection;
+using BBCTDesignerTool.Database.Model;
+using BBCTDesignerTool.Database.MainDatabaseCollection;
 using System.IO;
 using System.Collections.Generic;
 using MongoDBModel.MainDatabaseModels;
 using BBCTDesignerTool.Models;
 
-namespace BBCTNPHTool.Database.Controller
+namespace BBCTDesignerTool.Database.Controller
 {
     public class MongoController
     {

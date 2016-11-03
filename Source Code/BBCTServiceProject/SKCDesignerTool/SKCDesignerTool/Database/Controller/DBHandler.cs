@@ -8,7 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace BBCTNPHTool.Database.Controller
+namespace BBCTDesignerTool.Database.Controller
 {
     public class DBHandler
     {
@@ -133,7 +133,6 @@ namespace BBCTNPHTool.Database.Controller
         {
             DateTime timeNow = DateTime.Now;
             //mongoModel._id = new ObjectId(CreateBytePrefixTest(Settings.prefixDB));
-            objectCreate._id = new ObjectId();
             objectCreate.updated_at = timeNow;
             objectCreate.created_at = timeNow;
             var collection = GetCollection<T>(nameCollection);
@@ -152,7 +151,7 @@ namespace BBCTNPHTool.Database.Controller
 
             DateTime timeNow = DateTime.Now;
             //mongoModel._id = new ObjectId(CreateBytePrefixTest(Settings.prefixDB));
-            objectCreate._id = new ObjectId();
+
             objectCreate.updated_at = timeNow;
             objectCreate.created_at = timeNow;
 
@@ -177,7 +176,6 @@ namespace BBCTNPHTool.Database.Controller
 
             Parallel.ForEach(listObjCreate, (currentObject) =>
             {
-                currentObject._id = new ObjectId();
                 currentObject.updated_at = timeNow;
                 currentObject.created_at = timeNow;
             });
@@ -198,7 +196,6 @@ namespace BBCTNPHTool.Database.Controller
             DateTime timeNow = DateTime.Now;
             Parallel.ForEach(listObjCreate, (currentObject) =>
             {
-                currentObject._id = new ObjectId();
                 currentObject.updated_at = timeNow;
                 currentObject.created_at = timeNow;
             });

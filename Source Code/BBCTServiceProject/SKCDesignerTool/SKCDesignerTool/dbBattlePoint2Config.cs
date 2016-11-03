@@ -19,7 +19,5 @@ namespace BBCTDesignerTool
         public Nullable<double> x { get; set; }
         public Nullable<double> y { get; set; }
         public Nullable<int> status { get; set; }
-    
-        public virtual dbBattlePoint2ArrayConfig dbBattlePoint2ArrayConfig { get; set; }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace StaticDB.Enum
+﻿namespace StaticDB.Enum
 {
     public enum Affliction : int
     {
@@ -22,12 +18,15 @@ namespace StaticDB.Enum
         KhieuKhich = 14,
         CamHieuUng = 15,
         KhienBaoVe = 16,
+        TuThan = 17,
+        BoQuaDef = 18,
+        BoQuaBlock = 19,
         //passive only
-        HoiSinh = 17,
-        GiamLuotChoSkill = 18,
-        TangLuotChoSkill = 19,
-        PhanDame = 20,
-        XoaHieuUngXau = 21,
-        XoaHieuUngTot = 22
+        HoiSinh = 20,
+        GiamLuotChoSkill = 21,
+        TangLuotChoSkill = 22,
+        PhanDame = 23,
+        XoaHieuUngXau = 24,
+        XoaHieuUngTot = 25
     };
 }

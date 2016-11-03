@@ -1,14 +1,14 @@
 ﻿
 using MongoDBModel.Implement;
 using MongoDBModel.MainDatabaseModels;
-using BBCTNPHTool.Database.Controller;
-using BBCTNPHTool.Database.Model;
+using BBCTDesignerTool.Database.Controller;
+using BBCTDesignerTool.Database.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace BBCTNPHTool.Database.Core
+namespace BBCTDesignerTool.Database.Core
 {
     public class AbsCollectionController<T> : IDataControlable<T> where T : IMongoModel
     {
@@ -55,7 +55,7 @@ namespace BBCTNPHTool.Database.Core
         {
             GetHandler(database).DeleteAllAsync(NameCollection, filter);
         }
-        public virtual void UpdateFieldsAsync(MMongoConnection database, MongoDB.Bson.ObjectId id, Dictionary<string, object> dictData)
+        public virtual void UpdateFieldsAsync(MMongoConnection database, string id, Dictionary<string, object> dictData)
         {
             Dictionary<string, object> dictFilter = new Dictionary<string, object>(1)
             {

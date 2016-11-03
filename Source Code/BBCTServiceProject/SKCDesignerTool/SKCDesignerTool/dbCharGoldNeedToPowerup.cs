@@ -12,19 +12,10 @@ namespace BBCTDesignerTool
     using System;
     using System.Collections.Generic;
     
-    public partial class dbEquipmentStarUp
+    public partial class dbCharGoldNeedToPowerup
     {
-        public dbEquipmentStarUp()
-        {
-            this.dbEquipmentReceipts = new HashSet<dbEquipmentReceipt>();
-        }
-    
         public int id { get; set; }
-        public Nullable<int> idEquipment { get; set; }
         public Nullable<int> value { get; set; }
         public Nullable<int> status { get; set; }
-    
-        public virtual dbEquipment dbEquipment { get; set; }
-        public virtual ICollection<dbEquipmentReceipt> dbEquipmentReceipts { get; set; }
     }
 }

@@ -114,6 +114,7 @@ namespace StaticDBSerializer
             model.Add(typeof(TypeSpawnSkill), true);
             model.Add(typeof(TypeStage), true);
             model.Add(typeof(TypeVehicle), true);
+            model.Add(typeof(TypePassiveSpawnSkill), true);
 
             model.AllowParseableTypes = true;
             model.AutoAddMissingTypes = true;

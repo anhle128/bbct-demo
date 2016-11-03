@@ -14,12 +14,6 @@ namespace BBCTDesignerTool
     
     public partial class dbCharSkill
     {
-        public dbCharSkill()
-        {
-            this.dbCharSkillAfflictionAttributes = new HashSet<dbCharSkillAfflictionAttribute>();
-            this.dbCharSkillAttributes = new HashSet<dbCharSkillAttribute>();
-        }
-    
         public int id { get; set; }
         public Nullable<int> idCharacter { get; set; }
         public string name { get; set; }
@@ -28,21 +22,16 @@ namespace BBCTDesignerTool
         public Nullable<int> slot { get; set; }
         public Nullable<int> category { get; set; }
         public Nullable<int> cooldown { get; set; }
+        public Nullable<int> startCooldown { get; set; }
         public Nullable<int> targets { get; set; }
         public Nullable<int> effect { get; set; }
         public Nullable<int> ranges { get; set; }
         public Nullable<int> afflictionSkill { get; set; }
-        public Nullable<int> orders { get; set; }
-        public Nullable<int> status { get; set; }
         public Nullable<int> countTurn { get; set; }
         public Nullable<int> typeSpawnSkill { get; set; }
-        public Nullable<int> manaCost { get; set; }
         public Nullable<int> afflictionDuration { get; set; }
         public Nullable<double> afflictionProc { get; set; }
-        public Nullable<int> categoryMain { get; set; }
-    
-        public virtual dbCharacter dbCharacter { get; set; }
-        public virtual ICollection<dbCharSkillAfflictionAttribute> dbCharSkillAfflictionAttributes { get; set; }
-        public virtual ICollection<dbCharSkillAttribute> dbCharSkillAttributes { get; set; }
+        public Nullable<int> orders { get; set; }
+        public Nullable<int> status { get; set; }
     }
 }

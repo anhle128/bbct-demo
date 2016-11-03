@@ -1036,6 +1036,10 @@ namespace BattleSimulator
                 case RangeSkill.Revenger:
                     targets.Add(owner.characterRevenger);
                     break;
+                case RangeSkill.Random:
+                    int indexTarget = RandomHelper.RandomRange(0, listFind.Count);
+                    targets.Add(listFind[indexTarget]);
+                    break;
             }
             return targets;
         }

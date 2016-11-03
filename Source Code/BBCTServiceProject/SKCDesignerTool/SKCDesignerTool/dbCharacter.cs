@@ -14,31 +14,22 @@ namespace BBCTDesignerTool
     
     public partial class dbCharacter
     {
-        public dbCharacter()
-        {
-            this.dbCharAttributes = new HashSet<dbCharAttribute>();
-            this.dbCharDuyenPhans = new HashSet<dbCharDuyenPhan>();
-            this.dbCharPowerUpReceipts = new HashSet<dbCharPowerUpReceipt>();
-            this.dbCharSkills = new HashSet<dbCharSkill>();
-        }
-    
         public int id { get; set; }
         public Nullable<int> idCharacter { get; set; }
         public string name { get; set; }
         public string descriptions { get; set; }
         public Nullable<int> category { get; set; }
-        public Nullable<int> promotion { get; set; }
         public Nullable<int> classCharacter { get; set; }
-        public Nullable<int> isMain { get; set; }
-        public Nullable<int> orders { get; set; }
-        public Nullable<int> status { get; set; }
-        public Nullable<int> amountPieceToImport { get; set; }
         public Nullable<int> isCreep { get; set; }
         public Nullable<int> idCharHuaNguyen { get; set; }
-    
-        public virtual ICollection<dbCharAttribute> dbCharAttributes { get; set; }
-        public virtual ICollection<dbCharDuyenPhan> dbCharDuyenPhans { get; set; }
-        public virtual ICollection<dbCharPowerUpReceipt> dbCharPowerUpReceipts { get; set; }
-        public virtual ICollection<dbCharSkill> dbCharSkills { get; set; }
+        public Nullable<int> isMale { get; set; }
+        public Nullable<int> element { get; set; }
+        public Nullable<int> idGroup { get; set; }
+        public string quote { get; set; }
+        public Nullable<int> typeCharacter { get; set; }
+        public Nullable<int> lowestStarLevel { get; set; }
+        public Nullable<int> highestStarLevel { get; set; }
+        public Nullable<int> orders { get; set; }
+        public Nullable<int> status { get; set; }
     }
 }

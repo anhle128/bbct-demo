@@ -11,12 +11,13 @@ using StaticDB.Models;
 using BattleSimulator;
 using System.Diagnostics;
 using System.Windows.Forms;
+using StaticDB.Enum;
 
 namespace BBCTDesignerTool.Models
 {
     public class ExportStaticData
     {
-        BBCTdesignertoolv1Entities cs = new BBCTdesignertoolv1Entities();
+        bbctdesignertoolv1Entities cs = new bbctdesignertoolv1Entities();
         Database css = new Database();
 
         public Entity HandlerExportFile()
@@ -338,44 +339,14 @@ namespace BBCTDesignerTool.Models
                 phucLoiTruongThanhConfig = HandlerPhucLoiTruongThanhConfig(),
                 cuuCuuTriTonConfig = HandlerCuuCuuChiTon(),
                 ruongRewardConfigs = HandlerRuongBau(),
-                playerLevelNumberCharInFormations = HandlerPlayerLevelNumberCharInFormations(),
                 exchangeGoldToSilverConfig = HandlerExchangeGoldToSilverConfig(),
                 levelRequireDoPhuong = (int)tmpConfig.levelRequireDoPhuong,
                 inviteFriendConfigs = HandlerInviteFriend(),
                 maxGoldDoPhuongConfig = (int)tmpConfig.maxGoldDoPhuongConfig,
                 huaNguyenConfig = HandlerHuaNguyenConfig(),
-                doiHinhDuBiConfig = HandlerDoiHinhDuBiConfig()
+                //formationConfig
             };
             return ag;
-        }
-
-        private DoiHinhDuBiConfig HandlerDoiHinhDuBiConfig()
-        {
-            DoiHinhDuBiConfig conf = new DoiHinhDuBiConfig()
-            {
-                datas = HandlerDoiHinhDuBiRequire()
-            };
-            return conf;
-        }
-
-        private DoiHinhDuBiRequire[] HandlerDoiHinhDuBiRequire()
-        {
-            List<DoiHinhDuBiRequire> lsDOiHinh = new List<DoiHinhDuBiRequire>();
-            var tmpDoiHinh = from tmp in cs.dbDoiHinhDuBiRequires
-                             where tmp.status == 1
-                             select tmp;
-
-            foreach (var item in tmpDoiHinh)
-            {
-                DoiHinhDuBiRequire conf = new DoiHinhDuBiRequire()
-                {
-                    level = (int)item.levels,
-                    numberItem = (int)item.numberItem
-                };
-                lsDOiHinh.Add(conf);
-            }
-
-            return lsDOiHinh.ToArray();
         }
 
         private HuaNguyenConfig HandlerHuaNguyenConfig()
@@ -441,25 +412,6 @@ namespace BBCTDesignerTool.Models
                 stepUpGold = (double)item.stepUpGold
             };
             return ex;
-        }
-
-        private LevelNumCharInFormation[] HandlerPlayerLevelNumberCharInFormations()
-        {
-            List<LevelNumCharInFormation> lsLevel = new List<LevelNumCharInFormation>();
-            var tmpLevel = from tmp in cs.dbLevelNumCharInFormations
-                           select tmp;
-
-            foreach (var item in tmpLevel)
-            {
-                LevelNumCharInFormation level = new LevelNumCharInFormation()
-                {
-                    level = (int)item.levels,
-                    numberCharInFormation = (int)item.numberCharInFormation
-                };
-                lsLevel.Add(level);
-            }
-
-            return lsLevel.ToArray();
         }
 
         private RuongRewardConfig[] HandlerRuongBau()
@@ -1836,14 +1788,14 @@ namespace BBCTDesignerTool.Models
             var tmpEqui = cs.dbEquipmentConfigs.FirstOrDefault();
             EquipmentConfig equi = new EquipmentConfig()
             {
-                maxStarCanReach = (int)tmpEqui.maxStarCanReach,
-                pieceNeedToImport = HandlerPieceNeedToImport().ToArray(),
-                pieceExportReceive = HandlerPieceExportReceive().ToArray(),
-                defaultConfig = HandlerEquipDefaultConfig((int)tmpEqui.levelDefault, (int)tmpEqui.starLevelDefault),
-                equipLevelUpConfig = HandlerEquipLevelUpConfig((int)tmpEqui.baseGold),
-                equipStarUpConfig = HandlerEquipStarUpConfig().ToArray(),
-                maxEquipToUpStar = (int)tmpEqui.maxEquipToUpStar,
-                modStar = (float)tmpEqui.procReceivedUpStar
+                //maxStarCanReach = (int)tmpEqui.maxStarCanReach,
+                //pieceNeedToImport = HandlerPieceNeedToImport().ToArray(),
+                //pieceExportReceive = HandlerPieceExportReceive().ToArray(),
+                //defaultConfig = HandlerEquipDefaultConfig((int)tmpEqui.levelDefault, (int)tmpEqui.starLevelDefault),
+                //equipLevelUpConfig = HandlerEquipLevelUpConfig((int)tmpEqui.baseGold),
+                //equipStarUpConfig = HandlerEquipStarUpConfig().ToArray(),
+                //maxEquipToUpStar = (int)tmpEqui.maxEquipToUpStar,
+                //modStar = (float)tmpEqui.procReceivedUpStar
             };
             return equi;
         }
@@ -1877,62 +1829,62 @@ namespace BBCTDesignerTool.Models
         private List<EquipStarUpConfig> HandlerEquipStarUpConfig()
         {
             List<EquipStarUpConfig> lsEquip = new List<EquipStarUpConfig>();
-            var tmpEquip = from tmp in css.lsdbEquipStarUpConfig
-                           where tmp.status == 1
-                           select tmp;
+            //var tmpEquip = from tmp in css.lsdbEquipStarUpConfig
+            //               where tmp.status == 1
+            //               select tmp;
 
-            foreach (var item in tmpEquip)
-            {
-                EquipStarUpConfig equi = new EquipStarUpConfig()
-                {
-                    rateByPromotion = HandlerEquipStarUpDetail((int)item.id).ToArray(),
-                    star = (int)item.equipStockStar,
-                    promotion = (int)item.promotion
-                };
-                lsEquip.Add(equi);
-            }
+            //foreach (var item in tmpEquip)
+            //{
+            //    EquipStarUpConfig equi = new EquipStarUpConfig()
+            //    {
+            //        rateByPromotion = HandlerEquipStarUpDetail((int)item.id).ToArray(),
+            //        star = (int)item.equipStockStar,
+            //        promotion = (int)item.promotion
+            //    };
+            //    lsEquip.Add(equi);
+            //}
             return lsEquip;
         }
 
         private List<float> HandlerEquipStarUpDetail(int idEqui)
         {
             List<float> lsEquip = new List<float>();
-            var tmpEquip = from tmp in css.lsdbEquipStarUpDetail
-                           where tmp.status == 1 && tmp.idStarUp == idEqui
-                           select tmp;
+            //var tmpEquip = from tmp in css.lsdbEquipStarUpDetail
+            //               where tmp.status == 1 && tmp.idStarUp == idEqui
+            //               select tmp;
 
-            foreach (var item in tmpEquip)
-            {
-                lsEquip.Add((float)item.value);
-            }
+            //foreach (var item in tmpEquip)
+            //{
+            //    lsEquip.Add((float)item.value);
+            //}
             return lsEquip;
         }
 
         private List<int> HandlerPieceNeedToImport()
         {
             List<int> lsSilver = new List<int>();
-            var tmpSilver = from tmp in cs.dbPieceNeedToImports
-                            where tmp.status == 1
-                            select tmp;
+            //var tmpSilver = from tmp in cs.dbPieceNeedToImports
+            //                where tmp.status == 1
+            //                select tmp;
 
-            foreach (var item in tmpSilver)
-            {
-                lsSilver.Add((int)item.value);
-            }
+            //foreach (var item in tmpSilver)
+            //{
+            //    lsSilver.Add((int)item.value);
+            //}
             return lsSilver;
         }
 
         private List<int> HandlerPieceExportReceive()
         {
             List<int> lsSilver = new List<int>();
-            var tmpSilver = from tmp in cs.dbpieceExportReceives
-                            where tmp.status == 1
-                            select tmp;
+            //var tmpSilver = from tmp in cs.dbpieceExportReceives
+            //                where tmp.status == 1
+            //                select tmp;
 
-            foreach (var item in tmpSilver)
-            {
-                lsSilver.Add((int)item.value);
-            }
+            //foreach (var item in tmpSilver)
+            //{
+            //    lsSilver.Add((int)item.value);
+            //}
             return lsSilver;
         }
 
@@ -1940,8 +1892,8 @@ namespace BBCTDesignerTool.Models
         {
             EquipDefaultConfig equi = new EquipDefaultConfig()
             {
-                level = level,
-                starLevel = starLevel
+                //level = level,
+                //starLevel = starLevel
             };
             return equi;
         }
@@ -1971,29 +1923,9 @@ namespace BBCTDesignerTool.Models
             {
                 defaultConfig = HandlerCharDefaultConfig(),
                 defaultCharSelections = HandlerCharSelection().ToArray(),
-                maxStarCanUp = (int)tmpBattle.maxStarCanUp,
-                procAmountCharToSoul = (double)tmpBattle.procAmountCharToSoul,
-                powerUpLevelUnlockPassiveSkill = (int)tmpBattle.powerUpLevelUnlockPassiveSkill,
-                levelUnlockPassiveSkill2 = (int)tmpBattle.levelUnlockPassiveSkill2,
-                prefixSilverUpSkill = (int)tmpBattle.prefixSilverUpSkill,
-                modStar = (float)tmpBattle.modStar,
-                levelUnlockMainSkills = HandlerLevelUnlockMainSkill()
+                //arrCharStarLevelExpConfig
             };
             return chr;
-        }
-
-        private int[] HandlerLevelUnlockMainSkill()
-        {
-            List<int> lsInt = new List<int>();
-            var tmpLevel = from tmp in cs.dbLevelUnlockMainSkills
-                           where tmp.status == 1
-                           select tmp;
-
-            foreach (var item in tmpLevel)
-            {
-                lsInt.Add((int)item.value);
-            }
-            return lsInt.ToArray();
         }
 
         private List<CharSelection> HandlerCharSelection()
@@ -2023,8 +1955,7 @@ namespace BBCTDesignerTool.Models
             {
                 levelChar = (int)tmpBattle.levelChar,
                 levelSkill = (int)tmpBattle.levelSkill,
-                powerupLevelChar = (int)tmpBattle.powerupLevelChar,
-                starLevelChar = (int)tmpBattle.starLevelChar
+                powerupLevelChar = (int)tmpBattle.powerupLevelChar
             };
             return chr;
         }
@@ -2039,19 +1970,19 @@ namespace BBCTDesignerTool.Models
                 centerBattle = HandlerPoint2((int)tmpBattle.centerBattleX, (int)tmpBattle.centerBattleY),
                 distanceFrontTarget = (float)tmpBattle.distanceFrontTarget,
                 manaPool = (int)tmpBattle.manaPool,
-                manaRegenNormal = (int)tmpBattle.manaRegen,
+                manaRegenNormal = (int)tmpBattle.manaRegenNormal,
                 manaRegenUltimate = (int)tmpBattle.manaRegenUltimate,
                 manaRegenAttacked = (int)tmpBattle.manaRegenAttacked,
-                idBackgroundThachDau = (int)tmpBattle.idBachgroundThachDau,
+                idBackgroundThachDau = (int)tmpBattle.idBackgroundThachDau,
                 idBossWorld = (int)tmpBattle.idBossWorld,
-                idBackgroundThanThap = (int)tmpBattle.idBachgroundThanThap,
-                idBackgroundBoss = (int)tmpBattle.idBachgroundBoss,
+                idBackgroundThanThap = (int)tmpBattle.idBackgroundThanThap,
+                idBackgroundBoss = (int)tmpBattle.idBackgroundBoss,
                 idBackgroundCuopTieu = (int)tmpBattle.idBackgroundCuopTieu,
                 idBackgroundLuanKiem = (int)tmpBattle.idBackgroundLuanKiem,
                 idBackgroundBangChien = (int)tmpBattle.idBackgroundBangChien,
                 levelSpeed = (int)tmpBattle.levelSpeed,
                 vipAuto = (int)tmpBattle.vipAuto,
-                levelAuto = (int)tmpBattle.vipSpeed,
+                levelAuto = (int)tmpBattle.levelAuto,
                 rangeRandomDamage = (int)tmpBattle.rangeRandomDamage
             };
             return battle;
@@ -2115,12 +2046,9 @@ namespace BBCTDesignerTool.Models
                 Equipment newChar = new Equipment()
                 {
                     id = (int)chr.idEquipment,
-                    category = (int)chr.category,
+                    category = (CategoryEquipment)chr.category,
                     description = HandlerKeyLanguage(5, (int)chr.id)[1],
                     name = HandlerKeyLanguage(5, (int)chr.id)[0],
-                    promotion = (short)chr.promotion,
-                    attributes = HandlerAttribute(5, (int)chr.id).ToArray(),
-                    starUpReceipts = HandlerStarUpReceipts((int)chr.id).ToArray(),
                     baseMarketPrice = (int)chr.baseMarketPrice,
                     canSellMarket = HandlerTrueorFalse((int)chr.canSellMarket),
                     icon = (int)chr.icon
@@ -2159,18 +2087,18 @@ namespace BBCTDesignerTool.Models
         private List<StarUpReceipt> HandlerStarUpReceipts(int idEquip)
         {
             List<StarUpReceipt> lsStar = new List<StarUpReceipt>();
-            var tmpStar = from tmp in css.lsdbEquipmentStarUp
-                          where tmp.status == 1 && tmp.idEquipment == idEquip
-                          select tmp;
+            //var tmpStar = from tmp in css.lsdbEquipmentStarUp
+            //              where tmp.status == 1 && tmp.idEquipment == idEquip
+            //              select tmp;
 
-            foreach (var item in tmpStar)
-            {
-                StarUpReceipt up = new StarUpReceipt()
-                {
-                    items = HandlerReceipt(3, (int)item.id).ToArray()
-                };
-                lsStar.Add(up);
-            }
+            //foreach (var item in tmpStar)
+            //{
+            //    StarUpReceipt up = new StarUpReceipt()
+            //    {
+            //        items = HandlerReceipt(3, (int)item.id).ToArray()
+            //    };
+            //    lsStar.Add(up);
+            //}
             return lsStar;
         }
 
@@ -2215,31 +2143,29 @@ namespace BBCTDesignerTool.Models
         public Character[] GetCharacters()
         {
             List<Character> lsCharacter = new List<Character>();
-            var tmpCharacter = from tmp in css.lsdbCharacter
-                               where tmp.status == 1
-                               orderby tmp.idCharacter ascending
-                               select tmp;
 
-            foreach (var chr in tmpCharacter)
+            foreach (var chr in css.lsdbCharacter.OrderBy(a => a.idCharacter))
             {
                 Character newChar = new Character();
                 newChar.id = (int)chr.idCharacter;
                 newChar.name = HandlerKeyLanguage(1, (int)chr.idCharacter)[0];
                 newChar.description = HandlerKeyLanguage(1, (int)chr.idCharacter)[1];
-                newChar.category = (int)chr.category;
-                newChar.promotion = (int)chr.promotion;
-                newChar.classCharacter = (int)chr.classCharacter;
+                newChar.category = (CategoryCharacter)chr.category;
+                newChar.element = (TypeElement)chr.classCharacter;
                 newChar.isCreep = HandlerTrueorFalse((int)chr.isCreep);
+                newChar.idCharHuaNguyen = (int)chr.idCharHuaNguyen;
                 newChar.attributes = HandlerAttribute(1, (int)chr.id).ToArray();
+                newChar.classChar = (ClassCharacter)chr.classCharacter;
                 newChar.duyenphans = HandlerDuyenPhan((int)chr.id).ToArray();
+                newChar.highestStarLevel = (int)chr.highestStarLevel;
+                newChar.idGroup = (int)chr.idGroup;
+                newChar.isMale = HandlerTrueorFalse((int)chr.isMale);
+                newChar.lowestStarLevel = (int)chr.lowestStarLevel;
+                newChar.quote = chr.quote;
+                newChar.type = (TypeCharacter)chr.typeCharacter;
                 newChar.normalSkill = HandlerSkill(1, (int)chr.id).Count > 0 ? HandlerSkill(1, (int)chr.id)[0] : null;
                 newChar.ultimateSkill = HandlerSkill(2, (int)chr.id).ToArray();
-                newChar.passiveSkill1 = HandlerSkill(3, (int)chr.id).ToArray();
-                newChar.passiveSkill2 = HandlerSkill(4, (int)chr.id).ToArray();
-                newChar.powerupReceipt = HandlerPowerUpReceipt((int)chr.id).ToArray();
-                newChar.isMain = HandlerTrueorFalse((int)chr.isMain);
-                newChar.amountPieceToImport = (int)chr.amountPieceToImport;
-                newChar.idCharHuaNguyen = (int)chr.idCharHuaNguyen;
+                newChar.passiveSkill = HandlerSkill(3, (int)chr.id).ToArray();
                 lsCharacter.Add(newChar);
             }
             return lsCharacter.ToArray();
@@ -2248,18 +2174,18 @@ namespace BBCTDesignerTool.Models
         private List<PowerUpReceipt> HandlerPowerUpReceipt(int idGen)
         {
             List<PowerUpReceipt> lsPowerUp = new List<PowerUpReceipt>();
-            var tmpPow = from pow in css.lsdbCharPowerUpReceipt
-                         where pow.status == 1 && pow.idCharacter == idGen
-                         select pow;
+            //var tmpPow = from pow in css.lsdbCharPowerUpReceipt
+            //             where pow.status == 1 && pow.idCharacter == idGen
+            //             select pow;
 
-            foreach (var item in tmpPow)
-            {
-                PowerUpReceipt po = new PowerUpReceipt()
-                {
-                    items = HandlerReceipt(1, (int)item.id).ToArray()
-                };
-                lsPowerUp.Add(po);
-            }
+            //foreach (var item in tmpPow)
+            //{
+            //    PowerUpReceipt po = new PowerUpReceipt()
+            //    {
+            //        items = HandlerReceipt(1, (int)item.id).ToArray()
+            //    };
+            //    lsPowerUp.Add(po);
+            //}
 
             return lsPowerUp;
         }
@@ -2267,37 +2193,37 @@ namespace BBCTDesignerTool.Models
         private List<Receipt> HandlerReceipt(int type, int idGen)
         {
             List<Receipt> lsReceipt = new List<Receipt>();
-            if (type == 1)
-            {
-                var tmpRe = from tm in css.lsdbCharDetailPowerUpReceipt
-                            where tm.status == 1 && tm.idReceipt == idGen
-                            select tm;
+            //if (type == 1)
+            //{
+            //    var tmpRe = from tm in css.lsdbCharDetailPowerUpReceipt
+            //                where tm.status == 1 && tm.idReceipt == idGen
+            //                select tm;
 
-                foreach (var item in tmpRe)
-                {
-                    Receipt re = new Receipt()
-                    {
-                        amount = (int)item.amount,
-                        idItem = (int)item.idItem
-                    };
-                    lsReceipt.Add(re);
-                }
-            }
-            else if (type == 3)
-            {
-                var tmpRe = from tm in css.lsdbEquipmentReceipt
-                            where tm.status == 1 && tm.idStarUp == idGen
-                            select tm;
+            //    foreach (var item in tmpRe)
+            //    {
+            //        Receipt re = new Receipt()
+            //        {
+            //            amount = (int)item.amount,
+            //            idItem = (int)item.idItem
+            //        };
+            //        lsReceipt.Add(re);
+            //    }
+            //}
+            //else if (type == 3)
+            //{
+            //    var tmpRe = from tm in css.lsdbEquipmentReceipt
+            //                where tm.status == 1 && tm.idStarUp == idGen
+            //                select tm;
 
-                foreach (var item in tmpRe)
-                {
-                    Receipt re = new Receipt()
-                    {
-                        amount = (int)item.amount,
-                        idItem = (int)item.idItem
-                    };
-                }
-            }
+            //    foreach (var item in tmpRe)
+            //    {
+            //        Receipt re = new Receipt()
+            //        {
+            //            amount = (int)item.amount,
+            //            idItem = (int)item.idItem
+            //        };
+            //    }
+            //}
 
             return lsReceipt;
         }
@@ -2319,17 +2245,16 @@ namespace BBCTDesignerTool.Models
                         description = HandlerKeyLanguage(2, (int)item.id)[1],
                         type = HandlerTypeSkill((int)item.types),
                         slot = (int)item.slot,
-                        category = (int)item.category,
+                        category = (CategoryCharacter)item.category,
                         cooldown = (int)item.cooldown,
-                        target = (int)item.targets,
-                        effect = (int)item.effect,
-                        range = (int)item.ranges,
-                        afflictionSkill = (int)item.afflictionSkill,
+                        target = (TargetSkill)item.targets,
+                        effect = (EffectSkill)item.effect,
+                        range = (RangeSkill)item.ranges,
+                        afflictionSkill = (Affliction)item.afflictionSkill,
                         afflictionAttributes = HandlerAttribute(2, (int)item.id).ToArray(),
                         attributes = HandlerAttribute(3, (int)item.id).ToArray(),
                         countTurn = (int)item.countTurn,
-                        typeSpawnSkill = (int)item.typeSpawnSkill,
-                        manaCost = (int)item.manaCost,
+                        typeSpawnSkill = (TypeSpawnSkill)item.typeSpawnSkill,
                         afflictionDuration = (int)item.afflictionDuration,
                         afflictionProc = (int)item.afflictionProc
                     };
@@ -2359,11 +2284,8 @@ namespace BBCTDesignerTool.Models
         private List<DuyenPhan> HandlerDuyenPhan(int idChr)
         {
             List<DuyenPhan> tmpDuyenPhan = new List<DuyenPhan>();
-            var lsDuyenPhan = from duyen in css.lsdbCharDuyenPhan
-                              where duyen.status == 1 && duyen.idCharacter == idChr
-                              select duyen;
 
-            foreach (var item in lsDuyenPhan)
+            foreach (var item in css.lsdbCharDuyenPhan.Where(x=>x.idCharacter == idChr))
             {
                 DuyenPhan dp = new DuyenPhan()
                 {
@@ -2371,7 +2293,7 @@ namespace BBCTDesignerTool.Models
                     category = (short)item.category,
                     isOne = HandlerTrueorFalse((int)item.isOne),
                     name = HandlerKeyLanguage(3, (int)item.id)[0],
-                    ids = HandlerDuyenIDS((int)item.id).ToArray()
+                    ids = HandlerDuyenIDS((int)item.id).ToArray(),                    
                 };
                 tmpDuyenPhan.Add(dp);
             }
@@ -2381,17 +2303,14 @@ namespace BBCTDesignerTool.Models
         private List<MainAttribute> HandlerDuyenPhanAttribute(int idDuyen)
         {
             List<MainAttribute> lsAttribute = new List<MainAttribute>();
-            var lsDuyen = from ls in css.lsdbCharDuyenPhanAttribute
-                          where ls.idDuyen == idDuyen && ls.status == 1
-                          select ls;
 
-            foreach (var item in lsDuyen)
+            foreach (var item in css.lsdbCharDuyenPhanAttribute.Where(x=>x.idDuyen == idDuyen))
             {
                 MainAttribute main = new MainAttribute()
                 {
                     mod = (float)item.value,
-                    growthMod = (float)item.growthMod,
-                    attribute = (int)item.attribute
+                    growthMod = (float)item.,
+                    //attribute = (CharacterAttribute)item.attribute
                 };
                 lsAttribute.Add(main);
             }
@@ -2419,15 +2338,11 @@ namespace BBCTDesignerTool.Models
             List<MainAttribute> tmpAttribute = new List<MainAttribute>();
             if (type == 1)
             {
-                var lsAttribute = from tmp in css.lsdbCharAttribute
-                                  where tmp.idCharacter == idGen && tmp.status == 1
-                                  select tmp;
-
-                foreach (var item in lsAttribute)
+                foreach (var item in css.lsdbCharAttribute.Where(x => x.idCharacter == idGen))
                 {
                     MainAttribute it = new MainAttribute()
                     {
-                        attribute = (int)item.attribute,
+                        attribute = (CharacterAttribute)item.attribute,
                         growthMod = (float)item.growthMod,
                         mod = (float)item.mods
                     };
@@ -2436,15 +2351,11 @@ namespace BBCTDesignerTool.Models
             }
             else if (type == 2)
             {
-                var lsAttribute = from tmp in css.lsdbCharSkillAfflictionAttribute
-                                  where tmp.idSkill == idGen && tmp.status == 1
-                                  select tmp;
-
-                foreach (var item in lsAttribute)
+                foreach (var item in css.lsdbCharSkillAfflictionAttribute.Where(x => x.idSkill == idGen))
                 {
                     MainAttribute it = new MainAttribute()
                     {
-                        attribute = (int)item.attribute,
+                        attribute = (CharacterAttribute)item.attribute,
                         growthMod = (float)item.growthMod,
                         mod = (float)item.mods
                     };
@@ -2461,7 +2372,7 @@ namespace BBCTDesignerTool.Models
                 {
                     MainAttribute it = new MainAttribute()
                     {
-                        attribute = (int)item.attribute,
+                        attribute = (CharacterAttribute)item.attribute,
                         growthMod = (float)item.growthMod,
                         mod = (float)item.mods
                     };
@@ -2478,7 +2389,7 @@ namespace BBCTDesignerTool.Models
                 {
                     MainAttribute it = new MainAttribute()
                     {
-                        attribute = (int)item.attribute,
+                        attribute = (CharacterAttribute)item.attribute,
                         growthMod = (float)item.growthMod,
                         mod = (float)item.mods
                     };
@@ -2488,20 +2399,20 @@ namespace BBCTDesignerTool.Models
 
             else if (type == 5)
             {
-                var lsAttribute = from tmp in css.lsdbEquipmentAttribute
-                                  where tmp.idEquipment == idGen && tmp.status == 1
-                                  select tmp;
+                //var lsAttribute = from tmp in css.lsdbEquipmentAttribute
+                //                  where tmp.idEquipment == idGen && tmp.status == 1
+                //                  select tmp;
 
-                foreach (var item in lsAttribute)
-                {
-                    MainAttribute it = new MainAttribute()
-                    {
-                        attribute = (int)item.attribute,
-                        growthMod = (float)item.growthMod,
-                        mod = (float)item.mods
-                    };
-                    tmpAttribute.Add(it);
-                }
+                //foreach (var item in lsAttribute)
+                //{
+                //    MainAttribute it = new MainAttribute()
+                //    {
+                //        attribute = (CharacterAttribute)item.attribute,
+                //        growthMod = (float)item.growthMod,
+                //        mod = (float)item.mods
+                //    };
+                //    tmpAttribute.Add(it);
+                //}
             }
 
             return tmpAttribute;

@@ -40,6 +40,8 @@ namespace StaticDB.Models
         public int afflictionDuration { get; set; } //thời gian hiệu ứng
         [ProtoMember(18)]
         public float afflictionProc { get; set; } //tỉ lệ sảy ra hiệu ứng
+        [ProtoMember(19)]
+        public TypePassiveSpawnSkill typePassive { get; set; } //kiểu hiệu ứng
 
         public Skill()
         {

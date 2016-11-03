@@ -14,21 +14,11 @@ namespace BBCTDesignerTool
     
     public partial class dbCharDuyenPhan
     {
-        public dbCharDuyenPhan()
-        {
-            this.dbCharDuyenPhanAttributes = new HashSet<dbCharDuyenPhanAttribute>();
-            this.dbCharDuyenPhanIDS = new HashSet<dbCharDuyenPhanID>();
-        }
-    
         public int id { get; set; }
         public Nullable<int> idCharacter { get; set; }
         public Nullable<int> category { get; set; }
         public string name { get; set; }
         public Nullable<int> isOne { get; set; }
         public Nullable<int> status { get; set; }
-    
-        public virtual dbCharacter dbCharacter { get; set; }
-        public virtual ICollection<dbCharDuyenPhanAttribute> dbCharDuyenPhanAttributes { get; set; }
-        public virtual ICollection<dbCharDuyenPhanID> dbCharDuyenPhanIDS { get; set; }
     }
 }

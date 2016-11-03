@@ -12,13 +12,13 @@ namespace BBCTDesignerTool
     using System;
     using System.Collections.Generic;
     
-    public partial class dbPieceNeedToImport
+    public partial class dbCharSkillStarLevel
     {
         public int id { get; set; }
-        public Nullable<int> idEquipmentConfig { get; set; }
-        public Nullable<int> value { get; set; }
+        public Nullable<int> star { get; set; }
+        public Nullable<int> numberItemRequire { get; set; }
+        public Nullable<int> silverRequire { get; set; }
+        public Nullable<int> maxLevel { get; set; }
         public Nullable<int> status { get; set; }
-    
-        public virtual dbEquipmentConfig dbEquipmentConfig { get; set; }
     }
 }

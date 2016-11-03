@@ -12,11 +12,10 @@ namespace BBCTDesignerTool
     using System;
     using System.Collections.Generic;
     
-    public partial class dbDoiHinhDuBiRequire
+    public partial class dbEquipProcElement
     {
         public int id { get; set; }
-        public Nullable<int> numberItem { get; set; }
-        public Nullable<int> levels { get; set; }
+        public Nullable<double> value { get; set; }
         public Nullable<int> status { get; set; }
     }
 }

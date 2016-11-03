@@ -12,14 +12,12 @@ namespace BBCTDesignerTool
     using System;
     using System.Collections.Generic;
     
-    public partial class dbCharDetailPowerUpReceipt
+    public partial class dbGroupCharacter
     {
         public int id { get; set; }
-        public Nullable<int> idReceipt { get; set; }
-        public Nullable<int> idItem { get; set; }
-        public Nullable<int> amount { get; set; }
+        public Nullable<int> idGroup { get; set; }
+        public string name { get; set; }
+        public string descriptions { get; set; }
         public Nullable<int> status { get; set; }
-    
-        public virtual dbCharPowerUpReceipt dbCharPowerUpReceipt { get; set; }
     }
 }

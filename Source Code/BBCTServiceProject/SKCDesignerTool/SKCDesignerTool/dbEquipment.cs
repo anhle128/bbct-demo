@@ -14,24 +14,19 @@ namespace BBCTDesignerTool
     
     public partial class dbEquipment
     {
-        public dbEquipment()
-        {
-            this.dbEquipmentAttributes = new HashSet<dbEquipmentAttribute>();
-            this.dbEquipmentStarUps = new HashSet<dbEquipmentStarUp>();
-        }
-    
         public int id { get; set; }
         public Nullable<int> idEquipment { get; set; }
+        public Nullable<int> icon { get; set; }
         public string name { get; set; }
         public string descriptions { get; set; }
         public Nullable<int> category { get; set; }
-        public Nullable<int> promotion { get; set; }
-        public Nullable<int> status { get; set; }
         public Nullable<int> baseMarketPrice { get; set; }
         public Nullable<int> canSellMarket { get; set; }
-        public Nullable<int> icon { get; set; }
-    
-        public virtual ICollection<dbEquipmentAttribute> dbEquipmentAttributes { get; set; }
-        public virtual ICollection<dbEquipmentStarUp> dbEquipmentStarUps { get; set; }
+        public Nullable<int> lowestStarLevel { get; set; }
+        public Nullable<int> highestStarLevel { get; set; }
+        public Nullable<int> attAttribute { get; set; }
+        public Nullable<double> attMods { get; set; }
+        public Nullable<int> attGrowthMod { get; set; }
+        public Nullable<int> status { get; set; }
     }
 }

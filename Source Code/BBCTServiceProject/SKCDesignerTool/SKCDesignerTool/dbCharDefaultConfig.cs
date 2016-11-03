@@ -15,11 +15,8 @@ namespace BBCTDesignerTool
     public partial class dbCharDefaultConfig
     {
         public int id { get; set; }
-        public Nullable<int> idChrConfig { get; set; }
         public Nullable<int> levelSkill { get; set; }
         public Nullable<int> levelChar { get; set; }
-        public Nullable<int> promotionLevelChar { get; set; }
         public Nullable<int> powerupLevelChar { get; set; }
-        public Nullable<int> starLevelChar { get; set; }
     }
 }

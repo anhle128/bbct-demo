@@ -12,15 +12,11 @@ namespace BBCTDesignerTool
     using System;
     using System.Collections.Generic;
     
-    public partial class dbEquipmentAttribute
+    public partial class dbEquipSupport
     {
         public int id { get; set; }
-        public Nullable<int> idEquipment { get; set; }
-        public Nullable<int> attribute { get; set; }
-        public Nullable<double> mods { get; set; }
-        public Nullable<double> growthMod { get; set; }
+        public Nullable<int> equip { get; set; }
+        public Nullable<int> equipSupport { get; set; }
         public Nullable<int> status { get; set; }
-    
-        public virtual dbEquipment dbEquipment { get; set; }
     }
 }

@@ -16,11 +16,9 @@ namespace BBCTDesignerTool
     {
         public int id { get; set; }
         public Nullable<int> idDuyen { get; set; }
-        public Nullable<double> value { get; set; }
-        public Nullable<int> status { get; set; }
         public Nullable<int> attribute { get; set; }
+        public Nullable<double> mods { get; set; }
         public Nullable<double> growthMod { get; set; }
-    
-        public virtual dbCharDuyenPhan dbCharDuyenPhan { get; set; }
+        public Nullable<int> status { get; set; }
     }
 }

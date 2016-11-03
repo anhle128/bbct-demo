@@ -9,7 +9,7 @@ namespace BBCTDesignerTool.Models
 {
     public class Database
     {
-        BBCTdesignertoolv1Entities cs = new BBCTdesignertoolv1Entities();
+        bbctdesignertoolv1Entities cs = new bbctdesignertoolv1Entities();
         public List<dbPowerUpItem> lsdbPowerUpItem = new List<dbPowerUpItem>();
         public List<dbPowerUpItemsAttribute> lsdbPowerUpItemsAttribute = new List<dbPowerUpItemsAttribute>();
         public List<dbCharacter> lsdbCharacter = new List<dbCharacter>();
@@ -20,14 +20,9 @@ namespace BBCTDesignerTool.Models
         public List<dbCharSkill> lsdbCharSkill = new List<dbCharSkill>();
         public List<dbCharSkillAfflictionAttribute> lsdbCharSkillAfflictionAttribute = new List<dbCharSkillAfflictionAttribute>();
         public List<dbCharSkillAttribute> lsdbCharSkillAttribute = new List<dbCharSkillAttribute>();
-        public List<dbCharPowerUpReceipt> lsdbCharPowerUpReceipt = new List<dbCharPowerUpReceipt>();
-        public List<dbCharDetailPowerUpReceipt> lsdbCharDetailPowerUpReceipt = new List<dbCharDetailPowerUpReceipt>();
-        public List<dbEquipmentReceipt> lsdbEquipmentReceipt = new List<dbEquipmentReceipt>();
-        public List<dbEquipmentAttribute> lsdbEquipmentAttribute = new List<dbEquipmentAttribute>();
         public List<dbItem> lsdbItem = new List<dbItem>();
         public List<dbItemAttribute> lsdbItemAttribute = new List<dbItemAttribute>();
         public List<dbEquipment> lsdbEquipment = new List<dbEquipment>();
-        public List<dbEquipmentStarUp> lsdbEquipmentStarUp = new List<dbEquipmentStarUp>();
         public List<dbStarReward> lsdbStarReward = new List<dbStarReward>();
         public List<dbStarRewardReward> lsdbStarRewardReward = new List<dbStarRewardReward>();
         public List<dbMap> lsdbMap = new List<dbMap>();
@@ -41,8 +36,6 @@ namespace BBCTDesignerTool.Models
         public List<dbBattlePoint2Config> lsdbBattlePoint2Config = new List<dbBattlePoint2Config>();
         public List<dbNhiemVuHangNgay> lsdbNhiemVuHangNgay = new List<dbNhiemVuHangNgay>();
         public List<dbNhiemVuHangNgayReward> lsdbNhiemVuHangNgayReward = new List<dbNhiemVuHangNgayReward>();
-        public List<dbEquipStarUpConfig> lsdbEquipStarUpConfig = new List<dbEquipStarUpConfig>();
-        public List<dbEquipStarUpDetail> lsdbEquipStarUpDetail = new List<dbEquipStarUpDetail>();
         public List<dbThanThapMonster> lsdbThanThapMonster = new List<dbThanThapMonster>();
         public List<dbThanThapDetailMonster> lsdbThanThapDetailMonster = new List<dbThanThapDetailMonster>();
         public List<dbCauCaConfig> lsdbCauCaConfig = new List<dbCauCaConfig>();
@@ -170,40 +163,40 @@ namespace BBCTDesignerTool.Models
             }
 
             ////////////
-            var tmpdbEquipStarUpDetail = from tmp in cs.dbEquipStarUpDetails
-                                         where tmp.status == 1
-                                         select tmp;
+            //var tmpdbEquipStarUpDetail = from tmp in cs.dbEquipStarUpDetails
+            //                             where tmp.status == 1
+            //                             select tmp;
 
-            foreach (var item in tmpdbEquipStarUpDetail)
-            {
-                dbEquipStarUpDetail db = new dbEquipStarUpDetail()
-                {
-                    id = item.id,
-                    idStarUp = item.idStarUp,
-                    status = item.status,
-                    value = item.value
-                };
-                lsdbEquipStarUpDetail.Add(db);
-            }
+            //foreach (var item in tmpdbEquipStarUpDetail)
+            //{
+            //    dbEquipStarUpDetail db = new dbEquipStarUpDetail()
+            //    {
+            //        id = item.id,
+            //        idStarUp = item.idStarUp,
+            //        status = item.status,
+            //        value = item.value
+            //    };
+            //    lsdbEquipStarUpDetail.Add(db);
+            //}
 
             ///////////
-            var tmpdbEquipStarUpConfig = from tmp in cs.dbEquipStarUpConfigs
-                                         where tmp.status == 1
-                                         select tmp;
+            //var tmpdbEquipStarUpConfig = from tmp in cs.dbEquipStarUpConfigs
+            //                             where tmp.status == 1
+            //                             select tmp;
 
-            foreach (var item in tmpdbEquipStarUpConfig)
-            {
-                dbEquipStarUpConfig db = new dbEquipStarUpConfig()
-                {
-                    id = item.id,
-                    idEquipmentConfig = item.idEquipmentConfig,
-                    status = item.status,
-                    value = item.value,
-                    promotion = item.promotion,
-                    equipStockStar = item.equipStockStar
-                };
-                lsdbEquipStarUpConfig.Add(db);
-            }
+            //foreach (var item in tmpdbEquipStarUpConfig)
+            //{
+            //    dbEquipStarUpConfig db = new dbEquipStarUpConfig()
+            //    {
+            //        id = item.id,
+            //        idEquipmentConfig = item.idEquipmentConfig,
+            //        status = item.status,
+            //        value = item.value,
+            //        promotion = item.promotion,
+            //        equipStockStar = item.equipStockStar
+            //    };
+            //    lsdbEquipStarUpConfig.Add(db);
+            //}
 
             ///////////
             var tmpdbNhiemVuHangNgayReward = from tmp in cs.dbNhiemVuHangNgayRewards
@@ -316,22 +309,6 @@ namespace BBCTDesignerTool.Models
                 lsdbStarReward.Add(db);
             }
 
-            //////////////////
-            var tmpdbEquipmentStarUp = from tmp in cs.dbEquipmentStarUps
-                                       where tmp.status == 1
-                                       select tmp;
-
-            foreach (var item in tmpdbEquipmentStarUp)
-            {
-                dbEquipmentStarUp db = new dbEquipmentStarUp()
-                {
-                    id = item.id,
-                    idEquipment = item.idEquipment,
-                    status = item.status,
-                    value = item.value
-                };
-                lsdbEquipmentStarUp.Add(db);
-            }
 
             ///////////////
             var tmpdbEquipment = from tmp in cs.dbEquipments
@@ -350,7 +327,7 @@ namespace BBCTDesignerTool.Models
                     id = item.id,
                     idEquipment = item.idEquipment,
                     name = item.name,
-                    promotion = item.promotion,
+                    //promotion = item.promotion,
                     status = item.status
                 };
                 lsdbEquipment.Add(db);
@@ -393,79 +370,6 @@ namespace BBCTDesignerTool.Models
                 };
                 lsdbItem.Add(db);
             }
-
-            ////////////////
-            var tmpdbEquipmentAttribute = from tmp in cs.dbEquipmentAttributes
-                                          where tmp.status == 1
-                                          select tmp;
-
-            foreach (var item in tmpdbEquipmentAttribute)
-            {
-                dbEquipmentAttribute db = new dbEquipmentAttribute()
-                {
-                    attribute = item.attribute,
-                    growthMod = item.growthMod,
-                    id = item.id,
-                    idEquipment = item.idEquipment,
-                    mods = item.mods,
-                    status = item.status
-                };
-                lsdbEquipmentAttribute.Add(db);
-            }
-
-            ///////////
-            var tmpdbEquipmentReceipt = from tmp in cs.dbEquipmentReceipts
-                                        where tmp.status == 1
-                                        select tmp;
-
-            foreach (var item in tmpdbEquipmentReceipt)
-            {
-                dbEquipmentReceipt db = new dbEquipmentReceipt()
-                {
-                    amount = item.amount,
-                    id = item.id,
-                    idItem = item.idItem,
-                    idStarUp = item.idStarUp,
-                    status = item.status
-                };
-                lsdbEquipmentReceipt.Add(db);
-            }
-
-            //////////////////
-            var tmpdbCharDetailPowerUpReceipt = from tmp in cs.dbCharDetailPowerUpReceipts
-                                                where tmp.status == 1
-                                                select tmp;
-
-            foreach (var item in tmpdbCharDetailPowerUpReceipt)
-            {
-                dbCharDetailPowerUpReceipt db = new dbCharDetailPowerUpReceipt()
-                {
-                    amount = item.amount,
-                    id = item.id,
-                    idItem = item.idItem,
-                    idReceipt = item.idReceipt,
-                    status = item.status
-                };
-                lsdbCharDetailPowerUpReceipt.Add(db);
-            }
-
-            /////////////
-            var tmpdbCharPowerUpReceipt = from tmp in cs.dbCharPowerUpReceipts
-                                          where tmp.status == 1
-                                          select tmp;
-
-            foreach (var item in tmpdbCharPowerUpReceipt)
-            {
-                dbCharPowerUpReceipt db = new dbCharPowerUpReceipt()
-                {
-                    gen = item.gen,
-                    id = item.id,
-                    idCharacter = item.idCharacter,
-                    status = item.status
-                };
-                lsdbCharPowerUpReceipt.Add(db);
-            }
-
 
             /////////////////
             var tmpdbCharSkillAttribute = from tmp in cs.dbCharSkillAttributes
@@ -524,7 +428,6 @@ namespace BBCTDesignerTool.Models
                     effect = item.effect,
                     id = item.id,
                     idCharacter = item.idCharacter,
-                    manaCost = item.manaCost,
                     name = item.name,
                     orders = item.orders,
                     ranges = item.ranges,
@@ -563,12 +466,10 @@ namespace BBCTDesignerTool.Models
             {
                 dbCharDuyenPhanAttribute db = new dbCharDuyenPhanAttribute()
                 {
-                    attribute = item.attribute,
-                    growthMod = item.growthMod,
                     id = item.id,
                     idDuyen = item.idDuyen,
                     status = item.status,
-                    value = item.value
+                    value = item.value,
                 };
                 lsdbCharDuyenPhanAttribute.Add(db);
             }
@@ -620,19 +521,23 @@ namespace BBCTDesignerTool.Models
             {
                 dbCharacter db = new dbCharacter()
                 {
-                    amountPieceToImport = item.amountPieceToImport,
                     category = item.category,
                     classCharacter = item.classCharacter,
                     descriptions = item.descriptions,
                     id = item.id,
                     idCharacter = item.idCharacter,
                     isCreep = item.isCreep,
-                    isMain = item.isMain,
                     name = item.name,
                     orders = item.orders,
-                    promotion = item.promotion,
                     status = item.status,
-                    idCharHuaNguyen = item.idCharHuaNguyen
+                    idCharHuaNguyen = item.idCharHuaNguyen,
+                    element = item.element,
+                    highestStarLevel = item.highestStarLevel,
+                    idGroup = item.idGroup,
+                    isMale = item.isMale,
+                    lowestStarLevel = item.lowestStarLevel,
+                    typeCharacter = item.typeCharacter,
+                    quote = item.quote
                 };
                 lsdbCharacter.Add(db);
             }

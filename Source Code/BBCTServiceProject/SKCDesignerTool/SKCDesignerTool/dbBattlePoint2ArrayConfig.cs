@@ -14,14 +14,7 @@ namespace BBCTDesignerTool
     
     public partial class dbBattlePoint2ArrayConfig
     {
-        public dbBattlePoint2ArrayConfig()
-        {
-            this.dbBattlePoint2Config = new HashSet<dbBattlePoint2Config>();
-        }
-    
         public int id { get; set; }
         public Nullable<int> status { get; set; }
-    
-        public virtual ICollection<dbBattlePoint2Config> dbBattlePoint2Config { get; set; }
     }
 }

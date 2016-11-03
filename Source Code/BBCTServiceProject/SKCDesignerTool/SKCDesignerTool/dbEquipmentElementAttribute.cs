@@ -12,10 +12,11 @@ namespace BBCTDesignerTool
     using System;
     using System.Collections.Generic;
     
-    public partial class dbCharacterConfig
+    public partial class dbEquipmentElementAttribute
     {
         public int id { get; set; }
-        public Nullable<int> sellPrice { get; set; }
-        public Nullable<double> maxResKH { get; set; }
+        public Nullable<int> idEquipment { get; set; }
+        public Nullable<int> element { get; set; }
+        public Nullable<int> status { get; set; }
     }
 }

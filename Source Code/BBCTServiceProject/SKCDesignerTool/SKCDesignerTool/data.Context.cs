@@ -13,10 +13,10 @@ namespace BBCTDesignerTool
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BBCTdesignertoolv1Entities : DbContext
+    public partial class bbctdesignertoolv1Entities : DbContext
     {
-        public BBCTdesignertoolv1Entities()
-            : base("name=BBCTdesignertoolv1Entities")
+        public bbctdesignertoolv1Entities()
+            : base("name=bbctdesignertoolv1Entities")
         {
         }
     
@@ -37,15 +37,19 @@ namespace BBCTDesignerTool
         public virtual DbSet<dbCharacterLevelExp> dbCharacterLevelExps { get; set; }
         public virtual DbSet<dbCharAttribute> dbCharAttributes { get; set; }
         public virtual DbSet<dbCharDefaultConfig> dbCharDefaultConfigs { get; set; }
-        public virtual DbSet<dbCharDetailPowerUpReceipt> dbCharDetailPowerUpReceipts { get; set; }
         public virtual DbSet<dbCharDuyenPhan> dbCharDuyenPhans { get; set; }
         public virtual DbSet<dbCharDuyenPhanAttribute> dbCharDuyenPhanAttributes { get; set; }
         public virtual DbSet<dbCharDuyenPhanID> dbCharDuyenPhanIDS { get; set; }
-        public virtual DbSet<dbCharPowerUpReceipt> dbCharPowerUpReceipts { get; set; }
+        public virtual DbSet<dbCharGoldNeedToFusion> dbCharGoldNeedToFusions { get; set; }
+        public virtual DbSet<dbCharGoldNeedToPowerup> dbCharGoldNeedToPowerups { get; set; }
+        public virtual DbSet<dbCharGoldNeedToStarup> dbCharGoldNeedToStarups { get; set; }
         public virtual DbSet<dbCharSelection> dbCharSelections { get; set; }
         public virtual DbSet<dbCharSkill> dbCharSkills { get; set; }
         public virtual DbSet<dbCharSkillAfflictionAttribute> dbCharSkillAfflictionAttributes { get; set; }
         public virtual DbSet<dbCharSkillAttribute> dbCharSkillAttributes { get; set; }
+        public virtual DbSet<dbCharSkillStarLevel> dbCharSkillStarLevels { get; set; }
+        public virtual DbSet<dbCharStarLevelExp> dbCharStarLevelExps { get; set; }
+        public virtual DbSet<dbCharStarLevelExpConfig> dbCharStarLevelExpConfigs { get; set; }
         public virtual DbSet<dbChucPhucConfig> dbChucPhucConfigs { get; set; }
         public virtual DbSet<dbConfig> dbConfigs { get; set; }
         public virtual DbSet<dbCTAffliction> dbCTAfflictions { get; set; }
@@ -78,19 +82,24 @@ namespace BBCTDesignerTool
         public virtual DbSet<dbCuopTieuConfig> dbCuopTieuConfigs { get; set; }
         public virtual DbSet<dbCuuCuuTriTonConfig> dbCuuCuuTriTonConfigs { get; set; }
         public virtual DbSet<dbCuuCuuTriTonConfigReward> dbCuuCuuTriTonConfigRewards { get; set; }
+        public virtual DbSet<dbEquipElementSupport> dbEquipElementSupports { get; set; }
+        public virtual DbSet<dbEquipGoldNeedToPowerup> dbEquipGoldNeedToPowerups { get; set; }
+        public virtual DbSet<dbEquipGoldNeedToStarup> dbEquipGoldNeedToStarups { get; set; }
         public virtual DbSet<dbEquipment> dbEquipments { get; set; }
-        public virtual DbSet<dbEquipmentAttribute> dbEquipmentAttributes { get; set; }
+        public virtual DbSet<dbEquipmentBonusAttribute> dbEquipmentBonusAttributes { get; set; }
         public virtual DbSet<dbEquipmentConfig> dbEquipmentConfigs { get; set; }
-        public virtual DbSet<dbEquipmentReceipt> dbEquipmentReceipts { get; set; }
-        public virtual DbSet<dbEquipmentStarUp> dbEquipmentStarUps { get; set; }
-        public virtual DbSet<dbEquipStarUpConfig> dbEquipStarUpConfigs { get; set; }
-        public virtual DbSet<dbEquipStarUpDetail> dbEquipStarUpDetails { get; set; }
+        public virtual DbSet<dbEquipmentElementAttribute> dbEquipmentElementAttributes { get; set; }
+        public virtual DbSet<dbEquipProcElement> dbEquipProcElements { get; set; }
+        public virtual DbSet<dbEquipStarLevelExp> dbEquipStarLevelExps { get; set; }
+        public virtual DbSet<dbEquipStarLevelExpConfig> dbEquipStarLevelExpConfigs { get; set; }
+        public virtual DbSet<dbEquipSupport> dbEquipSupports { get; set; }
         public virtual DbSet<dbExchangeGoldToSilverConfig> dbExchangeGoldToSilverConfigs { get; set; }
         public virtual DbSet<dbFreeStaminaConfig> dbFreeStaminaConfigs { get; set; }
         public virtual DbSet<dbGlobalAttackConfig> dbGlobalAttackConfigs { get; set; }
         public virtual DbSet<dbGlobalBonusRewardConfig> dbGlobalBonusRewardConfigs { get; set; }
         public virtual DbSet<dbGlobalBossConfig> dbGlobalBossConfigs { get; set; }
         public virtual DbSet<dbGMMailConfig> dbGMMailConfigs { get; set; }
+        public virtual DbSet<dbGroupCharacter> dbGroupCharacters { get; set; }
         public virtual DbSet<dbGuildBoss> dbGuildBosses { get; set; }
         public virtual DbSet<dbGuildBossReward> dbGuildBossRewards { get; set; }
         public virtual DbSet<dbGuildConfig> dbGuildConfigs { get; set; }
@@ -101,6 +110,7 @@ namespace BBCTDesignerTool
         public virtual DbSet<dbHoatDongDiemDanhConfig> dbHoatDongDiemDanhConfigs { get; set; }
         public virtual DbSet<dbHoatDongDiemDanhMonth> dbHoatDongDiemDanhMonths { get; set; }
         public virtual DbSet<dbHoatDongDiemDanhMonthReward> dbHoatDongDiemDanhMonthRewards { get; set; }
+        public virtual DbSet<dbHuaNguyenConfig> dbHuaNguyenConfigs { get; set; }
         public virtual DbSet<dbInviteFriendConfig> dbInviteFriendConfigs { get; set; }
         public virtual DbSet<dbInviteFriendReward> dbInviteFriendRewards { get; set; }
         public virtual DbSet<dbItem> dbItems { get; set; }
@@ -108,7 +118,6 @@ namespace BBCTDesignerTool
         public virtual DbSet<dbLevelNumCharInFormation> dbLevelNumCharInFormations { get; set; }
         public virtual DbSet<dbLevelReward_Reward> dbLevelReward_Reward { get; set; }
         public virtual DbSet<dbLevelRewardConfig> dbLevelRewardConfigs { get; set; }
-        public virtual DbSet<dbLevelUnlockMainSkill> dbLevelUnlockMainSkills { get; set; }
         public virtual DbSet<dbLinkExportStatic> dbLinkExportStatics { get; set; }
         public virtual DbSet<dbLogKNBTool> dbLogKNBTools { get; set; }
         public virtual DbSet<dbLuanKiemConfig> dbLuanKiemConfigs { get; set; }
@@ -135,8 +144,6 @@ namespace BBCTDesignerTool
         public virtual DbSet<dbPhucLoiTruongThanhConfig> dbPhucLoiTruongThanhConfigs { get; set; }
         public virtual DbSet<dbPhucLoiTruongThanhLevel> dbPhucLoiTruongThanhLevels { get; set; }
         public virtual DbSet<dbPhucLoiTruongThanhLevelReward> dbPhucLoiTruongThanhLevelRewards { get; set; }
-        public virtual DbSet<dbpieceExportReceive> dbpieceExportReceives { get; set; }
-        public virtual DbSet<dbPieceNeedToImport> dbPieceNeedToImports { get; set; }
         public virtual DbSet<dbPlayerDefaultConfig> dbPlayerDefaultConfigs { get; set; }
         public virtual DbSet<dbPlayerLevelExp> dbPlayerLevelExps { get; set; }
         public virtual DbSet<dbPowerUpItem> dbPowerUpItems { get; set; }
@@ -159,6 +166,7 @@ namespace BBCTDesignerTool
         public virtual DbSet<dbThanThapMonster> dbThanThapMonsters { get; set; }
         public virtual DbSet<dbThanThapPlusAttributeRequire> dbThanThapPlusAttributeRequires { get; set; }
         public virtual DbSet<dbThanThapStarReward> dbThanThapStarRewards { get; set; }
+        public virtual DbSet<dbTimeAttackBoss> dbTimeAttackBosses { get; set; }
         public virtual DbSet<dbTip> dbTips { get; set; }
         public virtual DbSet<dbTutorialConfig> dbTutorialConfigs { get; set; }
         public virtual DbSet<dbUser> dbUsers { get; set; }
@@ -166,8 +174,6 @@ namespace BBCTDesignerTool
         public virtual DbSet<dbVanTieuProtectReward> dbVanTieuProtectRewards { get; set; }
         public virtual DbSet<dbVanTieuRobReward> dbVanTieuRobRewards { get; set; }
         public virtual DbSet<dbVipConfig> dbVipConfigs { get; set; }
-        public virtual DbSet<dbDoiHinhDuBiRequire> dbDoiHinhDuBiRequires { get; set; }
-        public virtual DbSet<dbHuaNguyenConfig> dbHuaNguyenConfigs { get; set; }
-        public virtual DbSet<dbTimeAttackBoss> dbTimeAttackBosses { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

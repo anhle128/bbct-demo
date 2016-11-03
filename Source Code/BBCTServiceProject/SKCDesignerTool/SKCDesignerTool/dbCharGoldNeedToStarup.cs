@@ -12,13 +12,10 @@ namespace BBCTDesignerTool
     using System;
     using System.Collections.Generic;
     
-    public partial class dbEquipStarUpDetail
+    public partial class dbCharGoldNeedToStarup
     {
         public int id { get; set; }
-        public Nullable<int> idStarUp { get; set; }
-        public Nullable<double> value { get; set; }
+        public Nullable<int> value { get; set; }
         public Nullable<int> status { get; set; }
-    
-        public virtual dbEquipStarUpConfig dbEquipStarUpConfig { get; set; }
     }
 }
