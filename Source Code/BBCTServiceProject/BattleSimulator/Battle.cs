@@ -113,6 +113,7 @@ namespace BattleSimulator
             foreach (var ch in characters)
             {
                 ch.coolDown.ForEach(a => a--);
+                ch.EffectDie();
             }
             BCharacter turnOwner = turns[0];
             if (turnOwner.state == BCharacter.State.Alive)
@@ -269,7 +270,7 @@ namespace BattleSimulator
 
                                         if (!isMiss)
                                         {
-                                            dmg = targets[a].Attacked(owner, skill.GetAttributes()[0].mod, (int)skill.info.category, isCrit, isBlock, skill.info.countTurn);
+                                            dmg = targets[a].Attacked(owner, skill.GetAttributes()[0].mod, skill.info.category, isCrit, isBlock, skill.info.countTurn);
                                         }
 
                                         bool isProcAffliction = false;
@@ -287,6 +288,11 @@ namespace BattleSimulator
                                             isProcAffliction = StartAffliction(skill, targets[a]);
                                         }
 
+                                        targets[a].PassiveIsActive(
+                                            skill.info.category ==
+                                                CategoryCharacter.Physic
+                                                    ? TypePassiveSpawnSkill.TanCongDameNoi
+                                                    : TypePassiveSpawnSkill.TanCongDameNgoai);
                                         actionReplay.isMiss = isMiss;
                                         actionReplay.isCrit = isCrit;
                                         actionReplay.isBlock = isBlock;
@@ -388,7 +394,7 @@ namespace BattleSimulator
 
                                         if (!isMiss)
                                         {
-                                            dmg = targets[a].Attacked(owner, skill.GetAttributes()[0].mod, (int)skill.info.category, isCrit, isBlock, skill.info.countTurn);
+                                            dmg = targets[a].Attacked(owner, skill.GetAttributes()[0].mod, skill.info.category, isCrit, isBlock, skill.info.countTurn);
                                             targets[a].RegenHPByPoint(dmg);
                                         }
 
@@ -449,6 +455,9 @@ namespace BattleSimulator
                                         if (isProcAffliction)
                                         {
                                             isProcAffliction = StartAffliction(skill, targets[a]);
+
+                                            if (targets[a].isBadAffliction(skill.info.afflictionSkill))
+                                                targets[a].PassiveIsActive(TypePassiveSpawnSkill.TrungHieuUngXau);
                                         }
 
                                         actionReplay.isMiss = false;
@@ -1111,10 +1120,9 @@ namespace BattleSimulator
 
             if (!bCharacter.affController.GetAffliction(Affliction.CamChieu).IsStart())
             {
-                bCharacter.isPassive = true;
                 turns.Insert(1, bCharacter);
                 turns[0].CallViewerChangeTurn(GetTurnId());
-                //                bCharacter.curPassiveSkill = TypePassiveSkill.WaitSkill;
+                bCharacter.isPassive = false;
             }
         }
 

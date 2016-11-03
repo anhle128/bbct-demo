@@ -40,6 +40,7 @@ namespace BattleSimulator
         public int coolDownPassive;
 
         public BCharacter characterRevenger;
+        private TypePassiveSpawnSkill typePassive;
         #endregion
 
         public BCharacter(string id, Battle battle, CharacterParameter characterParameter, string tagTeam, bool isMain,
@@ -104,7 +105,8 @@ namespace BattleSimulator
 
         public void ProcessInit()
         {
-            CalculatePassiveSkillStart(passiveSkill1);
+            if (PassiveIsActive(TypePassiveSpawnSkill.XuatPhat))
+                CalculatePassiveSkillBuff(passiveSkill1);
 
             hp = calculator.GetAttribute(CharacterAttribute.Hp);
 
@@ -113,8 +115,9 @@ namespace BattleSimulator
 
         #region Passive Skill
 
-        public void CalculatePassiveSkillStart(SkillCalculator skill)
+        public void CalculatePassiveSkillBuff(SkillCalculator skill)
         {
+            typePassive = skill.info.typePassive;
             if (skill.GetAttributes() != null)
             {
                 if (skill.info.range == RangeSkill.Self)
@@ -140,9 +143,15 @@ namespace BattleSimulator
             }
         }
 
+        public bool PassiveIsActive(TypePassiveSpawnSkill type)
+        {
+            isPassive = type == typePassive;
+            return isPassive;
+        }
+
         #endregion
 
-        public float Attacked(BCharacter attacker, float SkillMod, int category, bool isCrit, bool isBlock, int countTurn)
+        public float Attacked(BCharacter attacker, float SkillMod, CategoryCharacter category, bool isCrit, bool isBlock, int countTurn)
         {
             if (state == State.Alive)
             {
@@ -153,11 +162,11 @@ namespace BattleSimulator
                 {
                     crit = RandomHelper.RandomFloat(0.9f, 1.1f) + attacker.calculator.GetAttribute(CharacterAttribute.CritModifier) / 100f;
                 }
-                float mainAtt = (category == (int)CategoryCharacter.Physic) ? attacker.calculator.GetAttribute(CharacterAttribute.Physic) : attacker.calculator.GetAttribute(CharacterAttribute.Magic);
+                float mainAtt = (category == CategoryCharacter.Physic) ? attacker.calculator.GetAttribute(CharacterAttribute.Physic) : attacker.calculator.GetAttribute(CharacterAttribute.Magic);
 
-                float constX = (category == (int)CategoryCharacter.Physic) ? battle.staticDB.configs.battleConfig.modX
+                float constX = (category == CategoryCharacter.Physic) ? battle.staticDB.configs.battleConfig.modX
                     : battle.staticDB.configs.battleConfig.modF;
-                float constY = (category == (int)CategoryCharacter.Physic) ? battle.staticDB.configs.battleConfig.modY
+                float constY = (category == CategoryCharacter.Physic) ? battle.staticDB.configs.battleConfig.modY
                     : battle.staticDB.configs.battleConfig.modU;
 
                 float resKH = battle.ResNguHanh(attacker, this);
@@ -166,10 +175,10 @@ namespace BattleSimulator
                     resKH = battle.staticDB.configs.characterConfig.maxResKH;
                 }
 
-                float dmgResType = (category == (int)CategoryCharacter.Physic) ? 1 :
+                float dmgResType = (category == CategoryCharacter.Physic) ? 1 :
                     battle.DamageResTypeElement(attacker.typeElement, typeElement, resKH);
 
-                float dmg = constX * (mainAtt - constY * ((category == (int)CategoryCharacter.Physic) ?
+                float dmg = constX * (mainAtt - constY * ((category == CategoryCharacter.Physic) ?
                     calculator.GetAttribute(CharacterAttribute.Def) : calculator.GetAttribute(CharacterAttribute.DefOn)) * crit) *
                     dmgResType;
 
@@ -204,8 +213,11 @@ namespace BattleSimulator
 
 
                 attacker.totalDmg += dmg;
+                PassiveIsActive(TypePassiveSpawnSkill.KhiBiTanCong);
                 return MinusHP(dmg);
             }
+
+            PassiveIsActive(TypePassiveSpawnSkill.KhiBiTanCong);
             return 0f;
         }
 
@@ -226,6 +238,7 @@ namespace BattleSimulator
                 else
                 {
                     state = State.Die;
+                    PassiveIsActive(TypePassiveSpawnSkill.KhiChet);
                     bool isTeamA = tagTeam.Equals("A");
                     battle.ChangeSubChar(this, battle, isTeamA);
                 }
@@ -309,13 +322,22 @@ namespace BattleSimulator
                 {
                     Affliction.DotChay, Affliction.CamChieu, Affliction.DongBang, Affliction.Choang, Affliction.PhaGiap,
                     Affliction.TrungDoc,Affliction.CamHoiMau, Affliction.GiamCong, Affliction.KhieuKhich, Affliction.CamHieuUng,
+                    Affliction.TuThan
                 };
 
             return new List<Affliction>()
             {
                 Affliction.TangCong, Affliction.BatTu, Affliction.TangGiap, Affliction.BatTu,
-                Affliction.TangBao, Affliction.KhienBaoVe, Affliction.KhangHieuUng
+                Affliction.TangBao, Affliction.KhienBaoVe, Affliction.KhangHieuUng,Affliction.BoQuaDef,Affliction.BoQuaBlock
             };
+        }
+
+        public bool isBadAffliction(Affliction aff)
+        {
+            List<Affliction> lAff = ListAffliction(true);
+            bool isBad = lAff.Contains(aff);
+
+            return isBad;
         }
 
         #region cooldown skill
@@ -344,7 +366,7 @@ namespace BattleSimulator
 
         public bool CanProcSkillPassive()
         {
-            return (coolDownPassive <= 0 &&
+            return (isPassive && coolDownPassive <= 0 &&
                 !affController.GetAffliction(Affliction.CamChieu).IsStart() &&
                 !affController.GetAffliction(Affliction.Choang).IsStart() &&
                 !affController.GetAffliction(Affliction.DongBang).IsStart());
