@@ -31,10 +31,15 @@ namespace BattleSimulator
         private int curAutoTeamB;
         public int curCharSubA;
         public int curCharSubB;
+
         public double totalDameCharDieA = 0;
         public double totalDameCharDieB = 0;
 
-        public Battle(Entity staticDB, DataInputBattle inputBattle, bool isGenerateReplay, bool isIgnoreView, IDebugLogger logger, bool isAuto)
+        public int levelCharA;
+        public int levelCharB;
+
+        public Battle(Entity staticDB, DataInputBattle inputBattle, bool isGenerateReplay,
+            bool isIgnoreView, IDebugLogger logger, bool isAuto, int levelCharA, int levelCharB)
         {
             this.staticDB = staticDB;
             this.inputBattle = inputBattle;
@@ -42,6 +47,8 @@ namespace BattleSimulator
             this.isIgnoreView = isIgnoreView;
             this.logger = logger;
             this.isAuto = isAuto;
+            this.levelCharA = levelCharA;
+            this.levelCharB = levelCharB;
 
             if (isGenerateReplay)
             {
@@ -1150,7 +1157,7 @@ namespace BattleSimulator
 
         #region Sub Team
 
-        public void ChangeSubChar(BCharacter sCharacter, Battle battle, bool isTeamA)
+        public void ChangeSubCharDie(BCharacter sCharacter, Battle battle, bool isTeamA)
         {
 
             if (isTeamA)
@@ -1161,7 +1168,7 @@ namespace BattleSimulator
                     battle.charactersAS.Count > 0 &&
                     battle.curCharSubA <= (battle.charactersAS.Count - 1))
                 {
-                    SetColRow(battle.charactersA[indInListChar], battle.charactersAS[battle.curCharSubA]);
+                    SetColRow(battle.charactersAS[battle.curCharSubA], battle.charactersA);
                     totalDameCharDieA += battle.charactersA[indInListChar].totalDmg;
                     battle.charactersA[indInListChar] = battle.charactersAS[battle.curCharSubA];
                     battle.charactersA[indInListChar].state = BCharacter.State.Alive;
@@ -1180,7 +1187,7 @@ namespace BattleSimulator
                     battle.charactersBS.Count > 0 &&
                     battle.curCharSubB <= (battle.charactersBS.Count - 1))
                 {
-                    SetColRow(charactersB[indInListChar], battle.charactersBS[battle.curCharSubB]);
+                    SetColRow(charactersB[indInListChar], battle.charactersB);
                     totalDameCharDieB += battle.charactersB[indInListChar].totalDmg;
                     battle.charactersB[indInListChar] = battle.charactersBS[battle.curCharSubB];
                     battle.charactersB[indInListChar].state = BCharacter.State.Alive;
@@ -1193,12 +1200,51 @@ namespace BattleSimulator
 
         }
 
-        void SetColRow(BCharacter curChar, BCharacter tagChar)
+        void SetColRow(BCharacter tagChar, List<BCharacter> lMainTeam)
         {
-            tagChar.col = curChar.col;
-            tagChar.row = curChar.row;
+            int[] rowCol = SetRowCol(lMainTeam);
+            tagChar.row = rowCol[0];
+            tagChar.col = rowCol[1];
         }
 
+        public int[] SetRowCol(List<BCharacter> lbCharacters)
+        {
+            List<int> lIndexChar = new List<int>();
+            List<int> lCharNull = new List<int>();
+            int indexInTeam = -1;
+            for (int i = 0; i < lbCharacters.Count; i++)
+            {
+                indexInTeam = lbCharacters[i].row * 3 + lbCharacters[i].col;
+                lIndexChar.Add(indexInTeam);
+            }
+
+            for (int i = 0; i < 9; i++)
+                if (!lIndexChar.Contains(i))
+                    lCharNull.Add(i);
+
+            int randomIndex = RandomHelper.RandomRange(0, lCharNull.Count - 1);
+
+            int row = (int)(randomIndex / 3);
+            int col = randomIndex - row * 3;
+
+            return new int[] { row, col };
+        }
+
+        void InitSubCharAffterCreated(int level, bool isTeamA)
+        {
+            if (charactersA.Count < staticDB.configs.formationConfig.GetNumberCharInMainFormation(level) - 1)
+                for (int i = 0; i < staticDB.configs.formationConfig.GetNumberCharInMainFormation(level) - charactersA.Count - 1; i++)
+                {
+                    int[] rowCol = SetRowCol(charactersA);
+                    BCharacter charInit = charactersAS[curCharSubA];
+                    charInit.row = rowCol[0];
+                    charInit.col = rowCol[1];
+                    charactersA.Add(charInit);
+                    characters.Add(charInit);
+                    charactersA.Last().ProcessInit();
+
+                }
+        }
         #endregion
 
         #region Res TypeElement Caculator

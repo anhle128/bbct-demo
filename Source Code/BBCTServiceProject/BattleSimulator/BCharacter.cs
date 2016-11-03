@@ -240,7 +240,7 @@ namespace BattleSimulator
                     state = State.Die;
                     PassiveIsActive(TypePassiveSpawnSkill.KhiChet);
                     bool isTeamA = tagTeam.Equals("A");
-                    battle.ChangeSubChar(this, battle, isTeamA);
+                    battle.ChangeSubCharDie(this, battle, isTeamA);
                 }
 
             }
