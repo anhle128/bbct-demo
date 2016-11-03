@@ -9,6 +9,7 @@
         MidCol = 5,
         RearCol = 6,
         Self = 7,
-        Revenger = 8,
+        Revenger = 8, // dành cho passive
+        Random = 9,
     }
 }

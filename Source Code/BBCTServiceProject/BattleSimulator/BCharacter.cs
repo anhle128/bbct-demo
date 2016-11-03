@@ -264,6 +264,17 @@ namespace BattleSimulator
             }
         }
 
+        public void EffectDie()
+        {
+            if (affController.GetAffliction(Affliction.TuThan).IsStart())
+            {
+                if (affController.GetAffliction(Affliction.TuThan).duration <= 0)
+                {
+                    hp = 0;
+                    state = State.Die;
+                }
+            }
+        }
 
         public void ReCooldown(int indexSkill, int countCooldown, EffectSkill eff)
         {

@@ -8,7 +8,7 @@ namespace BattleSimulator
         public BCharacter owner;
         public float attribute;
         private bool isStart = false;
-        private int duration;
+        public int duration;
 
         public BAffliction(Affliction id, BCharacter owner)
         {
