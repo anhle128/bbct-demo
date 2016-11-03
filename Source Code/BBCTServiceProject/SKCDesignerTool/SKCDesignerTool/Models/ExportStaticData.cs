@@ -344,38 +344,9 @@ namespace BBCTDesignerTool.Models
                 inviteFriendConfigs = HandlerInviteFriend(),
                 maxGoldDoPhuongConfig = (int)tmpConfig.maxGoldDoPhuongConfig,
                 huaNguyenConfig = HandlerHuaNguyenConfig(),
-                doiHinhDuBiConfig = HandlerDoiHinhDuBiConfig()
+                //formationConfig
             };
             return ag;
-        }
-
-        private DoiHinhDuBiConfig HandlerDoiHinhDuBiConfig()
-        {
-            DoiHinhDuBiConfig conf = new DoiHinhDuBiConfig()
-            {
-                datas = HandlerDoiHinhDuBiRequire()
-            };
-            return conf;
-        }
-
-        private DoiHinhDuBiRequire[] HandlerDoiHinhDuBiRequire()
-        {
-            List<DoiHinhDuBiRequire> lsDOiHinh = new List<DoiHinhDuBiRequire>();
-            var tmpDoiHinh = from tmp in cs.dbDoiHinhDuBiRequires
-                             where tmp.status == 1
-                             select tmp;
-
-            foreach (var item in tmpDoiHinh)
-            {
-                DoiHinhDuBiRequire conf = new DoiHinhDuBiRequire()
-                {
-                    level = (int)item.levels,
-                    numberItem = (int)item.numberItem
-                };
-                lsDOiHinh.Add(conf);
-            }
-
-            return lsDOiHinh.ToArray();
         }
 
         private HuaNguyenConfig HandlerHuaNguyenConfig()
