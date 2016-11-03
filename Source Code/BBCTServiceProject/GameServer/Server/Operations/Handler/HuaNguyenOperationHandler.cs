@@ -28,7 +28,7 @@ namespace GameServer.Server.Operations.Handler
             if (config == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DBError);
 
-            if (player.cacheData.level < config.levelRequire)
+            if (player.cacheData.info.level < config.levelRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             MUserCharacter userChar =
@@ -64,7 +64,7 @@ namespace GameServer.Server.Operations.Handler
             }
             huaNguyen.count_times++;
 
-            VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[player.cacheData.vip];
+            VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[player.cacheData.info.vip];
             if (huaNguyen.count_times > vipConfig.huaNguyenTimes)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxHuaNguyenTimes);
 

@@ -2,7 +2,6 @@
 using GameServer.Common;
 using GameServer.MMO;
 using GameServer.MMO.Concepts;
-using MongoDB.Bson;
 using Photon.SocketServer;
 using System;
 using System.Collections.Generic;
@@ -83,11 +82,11 @@ namespace GameServer.Server
 
             ChatData cData = new ChatData()
             {
-                avatar = cacheData.avatar,
+                avatar = cacheData.info.avatar,
                 message = message,
-                nickname = cacheData.nickname,
-                username = cacheData.username,
-                vip = cacheData.vip,
+                nickname = cacheData.info.nickname,
+                username = cacheData.info.username,
+                vip = cacheData.info.vip,
             };
             return chatData.AddItem(cData);
         }

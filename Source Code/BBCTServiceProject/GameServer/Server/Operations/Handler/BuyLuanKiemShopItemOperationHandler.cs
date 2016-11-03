@@ -29,7 +29,7 @@ namespace GameServer.Server.Operations.Handler
 
             // kiểm tra point yêu cầu
             int pointRequire = shopItem.point_luan_kiem * requestData.quantity;
-            if (player.cacheData.pointLuanKiem < pointRequire)
+            if (player.cacheData.info.point_luan_kiem < pointRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughPoint);
 
             // kiểm tra tổng số lượt đã mua trong ngày
@@ -54,7 +54,7 @@ namespace GameServer.Server.Operations.Handler
                 };
 
             // process
-            player.cacheData.pointLuanKiem -= shopItem.point_luan_kiem * requestData.quantity;
+            player.cacheData.info.point_luan_kiem -= shopItem.point_luan_kiem * requestData.quantity;
             MongoController.UserDb.Info.UpdatePointLuanKiem(player.cacheData);
 
             MBuyShopLuanKiemItemLog log = new MBuyShopLuanKiemItemLog()
@@ -80,11 +80,9 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listRewardItems,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_ruby = player.cacheData.info.ruby
 
             };
             return new OperationResponse()

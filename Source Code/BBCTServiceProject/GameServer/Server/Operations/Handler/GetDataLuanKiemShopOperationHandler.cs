@@ -15,8 +15,8 @@ namespace GameServer.Server.Operations.Handler
             LuanKiemShopResponseData responseData = new LuanKiemShopResponseData()
             {
                 items = MongoController.GetLuanKiemShopItems(player.cacheData.info._id),
-                rank = player.cacheData.rankLuanKiem,
-                point = player.cacheData.pointLuanKiem
+                rank = player.cacheData.info.rank_luan_kiem,
+                point = player.cacheData.info.point_luan_kiem
             };
             var response = new OperationResponse()
             {

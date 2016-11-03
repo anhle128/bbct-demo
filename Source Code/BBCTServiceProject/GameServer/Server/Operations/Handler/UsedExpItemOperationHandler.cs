@@ -48,7 +48,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DoesNotEnoughItem);
 
             // Lấy level max của character
-            int levelMax = CommonFunc.GetMaxLevelCharacter(player.cacheData.level);
+            int levelMax = CommonFunc.GetMaxLevelCharacter(player.cacheData.info.level);
             CharacterLevelExp levelExp =
                 StaticDatabase.entities.configs.characterLevelExps.FirstOrDefault(a => a.level == levelMax);
             int expNeedTopUpLevel = levelExp.exp;

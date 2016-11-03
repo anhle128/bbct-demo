@@ -92,9 +92,9 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listReward,
-                user_silver = player.cacheData.silver,
-                user_gold = player.cacheData.gold,
-                user_ruby = player.cacheData.ruby
+                user_silver = player.cacheData.info.silver,
+                user_gold = player.cacheData.info.gold,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()
@@ -160,9 +160,9 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listReward,
-                user_silver = player.cacheData.silver,
-                user_gold = player.cacheData.gold,
-                user_ruby = player.cacheData.ruby
+                user_silver = player.cacheData.info.silver,
+                user_gold = player.cacheData.info.gold,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()

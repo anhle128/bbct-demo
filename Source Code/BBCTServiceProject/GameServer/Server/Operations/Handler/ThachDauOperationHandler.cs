@@ -21,7 +21,7 @@ namespace GameServer.Server.Operations.Handler
             requestData.Deserialize(operationRequest.Parameters);
 
 
-            VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[player.cacheData.vip];
+            VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[player.cacheData.info.vip];
             int countThachDau = MongoController.LogSubDB.ThachDau.Count(player.cacheData.info._id);
             if (countThachDau >= vipConfig.challengeTimes)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxAttackTimes);

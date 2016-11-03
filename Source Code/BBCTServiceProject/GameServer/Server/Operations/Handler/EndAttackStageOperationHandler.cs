@@ -1,18 +1,17 @@
 ﻿using DynamicDBModel.Models;
+using GameServer.Battle;
 using GameServer.Common;
 using GameServer.Common.Enum;
 using GameServer.Common.SerializeData.RequestData;
 using GameServer.Common.SerializeData.ResponseData;
-using GameServer.Server.Operations.Core;
 using GameServer.Database;
 using GameServer.Database.Controller;
+using GameServer.Server.Operations.Core;
 using MongoDBModel.Enum;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
 using StaticDB.Models;
 using System.Collections.Generic;
-using DynamicDBModel.Models.Battle;
-using GameServer.Battle;
 
 namespace GameServer.Server.Operations.Handler
 {
@@ -36,7 +35,7 @@ namespace GameServer.Server.Operations.Handler
             if (userInfo == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.AccountDoNotExist);
 
-           
+
 
             // kiểm tra user stage_info
             MUserStage userStage = player.cacheData.stageAttacked;
@@ -50,10 +49,10 @@ namespace GameServer.Server.Operations.Handler
             if (map.isAuto)
             {
                 BattleProcessor processor = new BattleProcessor();
-                BattleSimulator.Battle battle = processor.BattleGhk(player.cacheData, stage,userStage.stage_info.stage.level);
+                BattleSimulator.Battle battle = processor.BattleGhk(player.cacheData, stage, userStage.stage_info.stage.level);
 
                 responseData.replay = battle.replay;
-               
+
                 // player thua
                 if (battle.result != 2)
                 {
@@ -63,7 +62,7 @@ namespace GameServer.Server.Operations.Handler
                         OperationCode = operationRequest.OperationCode,
                         DebugMessage = "EndAttackStageOperationHandler done!",
                         Parameters = responseData.Serialize(),
-                        ReturnCode = (short) ReturnCode.OK
+                        ReturnCode = (short)ReturnCode.OK
                     };
                 }
                 requestData.star = battle.star;
@@ -82,7 +81,7 @@ namespace GameServer.Server.Operations.Handler
             //update user stage_info
             if (userStage.stage_info.stage.level == 1 && userStage.stage_info.star == 0)
             {
-                userInfo.highest_stages_attacked = userStage.stage_info.stage;
+                userInfo.info.highest_stages_attacked = userStage.stage_info.stage;
             }
 
             if (userStage.stage_info.star < requestData.star)
@@ -109,21 +108,21 @@ namespace GameServer.Server.Operations.Handler
             listRewardResult = MongoController.UserDb.UpdateReward(player.cacheData, listReward, ReasonActionGold.RewardAttackStage);
 
             // update level Player
-            int oldLevel = player.cacheData.level;
+            int oldLevel = player.cacheData.info.level;
             int expPlayerReceive = StaticDatabase.entities.GetExpReceiveInStage(userStage.stage_info.stage.map_index,
                 userStage.stage_info.stage.stage_index);
             CommonFunc.UpLevelPlayer(player.cacheData, expPlayerReceive);
 
-            if (oldLevel != player.cacheData.level)
+            if (oldLevel != player.cacheData.info.level)
             {
-                MongoController.LogDb.UserLevelUp.Create(player.cacheData.info._id, player.cacheData.level);
-                if (player.cacheData.stamina < StaticDatabase.entities.configs.maxStamina)
+                MongoController.LogDb.UserLevelUp.Create(player.cacheData.info._id, player.cacheData.info.level);
+                if (player.cacheData.info.stamina < StaticDatabase.entities.configs.maxStamina)
                 {
-                    player.cacheData.stamina = StaticDatabase.entities.configs.maxStamina;
+                    player.cacheData.info.stamina = StaticDatabase.entities.configs.maxStamina;
                 }
             }
 
-            int maxLevelChar = CommonFunc.GetMaxLevelCharacter(player.cacheData.level);
+            int maxLevelChar = CommonFunc.GetMaxLevelCharacter(player.cacheData.info.level);
             // update characger result
             List<CharBattleResult> listCharResult = CommonFunc.UpCharAfterBattle
             (
@@ -133,7 +132,7 @@ namespace GameServer.Server.Operations.Handler
             );
 
             // update user info
-            player.cacheData.silver += silverReceived;
+            player.cacheData.info.silver += silverReceived;
 
             MongoController.UserDb.Info.Update_Silver_Level_EXP_Stamina_HighestStageAttacked(userInfo);
             MongoController.UserDb.Char.UpdateCharBattleResult(listCharResult);
@@ -146,8 +145,8 @@ namespace GameServer.Server.Operations.Handler
             responseData.rewards = listRewardResult;
             responseData.reward_exp_player = expPlayerReceive;
             responseData.reward_exp_character = expCharReceived;
-            responseData.level_player = player.cacheData.level;
-            responseData.exp_player = player.cacheData.exp;
+            responseData.level_player = player.cacheData.info.level;
+            responseData.exp_player = player.cacheData.info.exp;
             responseData.chars = listCharResult;
 
             return new OperationResponse()

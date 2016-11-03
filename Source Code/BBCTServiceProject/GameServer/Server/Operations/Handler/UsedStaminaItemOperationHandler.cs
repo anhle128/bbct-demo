@@ -38,7 +38,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DBError);
 
             int staminaReceive = (int)item.attribute[0];
-            player.cacheData.stamina += staminaReceive;
+            player.cacheData.info.stamina += staminaReceive;
             userItem.quantity--;
 
             MongoController.UserDb.Item.UpdateQuantity(userItem);

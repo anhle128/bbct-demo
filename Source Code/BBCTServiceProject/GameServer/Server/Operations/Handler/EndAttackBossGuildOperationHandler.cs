@@ -38,7 +38,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 MBossGuildLog log = new MBossGuildLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     guild_id = member.guild_id,
                     dmg = requestData.dmg,
                     attack_times = 1,

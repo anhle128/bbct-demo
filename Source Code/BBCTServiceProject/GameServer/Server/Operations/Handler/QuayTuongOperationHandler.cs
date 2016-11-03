@@ -35,10 +35,8 @@ namespace GameServer.Server.Operations.Handler
             MUserInfo userInfo =
                 MongoController.UserDb.Info.GetData(cacheData.info._id);
 
-            if (userInfo.gold != player.cacheData.gold)
+            if (userInfo.gold != player.cacheData.info.gold)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DBError);
-
-            cacheData.username = userInfo.username;
 
             MChieuMoConfig chieuMoConfig =
                 MongoController.ConfigDb.ChieuMo.GetData();
@@ -229,14 +227,14 @@ namespace GameServer.Server.Operations.Handler
 
             MongoController.LogDb.ChieuMo.CreateLogQuayTuong(userInfo._id, listReward.Count == 1 ? 1 : 10, listReward);
 
-            cacheData.gold = userInfo.gold;
+            cacheData.info.gold = userInfo.gold;
 
             // response
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listReward,
-                user_gold = cacheData.gold,
-                user_silver = cacheData.silver
+                user_gold = cacheData.info.gold,
+                user_silver = cacheData.info.silver
             };
 
             return new OperationResponse()

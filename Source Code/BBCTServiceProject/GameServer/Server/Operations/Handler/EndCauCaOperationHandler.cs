@@ -30,12 +30,12 @@ namespace GameServer.Server.Operations.Handler
                 if (timeMinus < config.canCauConfigs[userCauCa.indexCanCau].duration)
                 {
                     // quick end
-                    if (player.cacheData.vip < config.vipRequireToEnd)
+                    if (player.cacheData.info.vip < config.vipRequireToEnd)
                         return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
-                    if (player.cacheData.gold < config.goldRequireToEnd)
+                    if (player.cacheData.info.gold < config.goldRequireToEnd)
                         return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
-                    player.cacheData.gold -= config.goldRequireToEnd;
+                    player.cacheData.info.gold -= config.goldRequireToEnd;
                     MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.QuickEndCauCa, config.goldRequireToEnd);
                 }
 

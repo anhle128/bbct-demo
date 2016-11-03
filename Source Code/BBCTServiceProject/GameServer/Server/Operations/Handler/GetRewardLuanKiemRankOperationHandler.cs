@@ -26,7 +26,7 @@ namespace GameServer.Server.Operations.Handler
             MUserInfo userInfo =
                 MongoController.UserDb.Info.GetData(player.cacheData.info._id);
 
-            player.cacheData.rankLuanKiem = userInfo.rank_luan_kiem;
+            player.cacheData.info.rank_luan_kiem = userInfo.rank_luan_kiem;
 
             if (userInfo.index_rank_luan_kiem_rewarded == null)
                 userInfo.index_rank_luan_kiem_rewarded = new List<int>();
@@ -48,11 +48,11 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listReward,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_level = player.cacheData.info.level,
+                user_exp = player.cacheData.info.exp,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()

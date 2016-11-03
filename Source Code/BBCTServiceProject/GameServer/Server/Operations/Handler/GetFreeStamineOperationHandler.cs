@@ -44,7 +44,7 @@ namespace GameServer.Server.Operations.Handler
                 user_id = player.cacheData.info._id,
                 hash_code_time = CommonFunc.GetHashCodeTime()
             };
-            userInfo.stamina += freeStaminaTimeConfig.stamina;
+            userInfo.info.stamina += freeStaminaTimeConfig.stamina;
 
             // update
             MongoController.LogSubDB.FreeStamina.Create(newLog);

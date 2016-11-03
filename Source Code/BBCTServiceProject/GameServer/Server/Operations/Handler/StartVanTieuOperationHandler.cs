@@ -19,7 +19,7 @@ namespace GameServer.Server.Operations.Handler
             int countVanTieuDone =
                 MongoController.UserDb.VanTieu.CountStartVanTieu(player.cacheData.info._id);
 
-            if (countVanTieuDone >= StaticDatabase.entities.configs.vipConfigs[player.cacheData.vip].vanTieuTimes)
+            if (countVanTieuDone >= StaticDatabase.entities.configs.vipConfigs[player.cacheData.info.vip].vanTieuTimes)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxVanTieuTimes);
 
 

@@ -35,11 +35,11 @@ namespace GameServer.Server.Operations.Handler
                 log = new MSKDoiDoLog()
                 {
                     user_id = player.cacheData.info._id,
-                    nickname = player.cacheData.nickname,
+                    nickname = player.cacheData.info.nickname,
                     su_kien_id = config._id,
                     last_time_get_item = DateTime.Now,
                     exchange_items = config.exchange_items.OrderBy(a => Guid.NewGuid()).Skip(0).Take(3).ToList(),
-                    avatar = player.cacheData.avatar,
+                    avatar = player.cacheData.info.avatar,
                     hash_code_time = CommonFunc.GetHashCodeTime(),
                     index_receiveds = new List<IndexReceived>()
                 };

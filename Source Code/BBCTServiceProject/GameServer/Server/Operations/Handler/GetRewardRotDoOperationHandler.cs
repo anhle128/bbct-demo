@@ -78,14 +78,14 @@ namespace GameServer.Server.Operations.Handler
                 {
                     totalGoldNeed += requireIten.quantity;
 
-                    if (totalGoldNeed > player.cacheData.gold)
+                    if (totalGoldNeed > player.cacheData.info.gold)
                         return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
                 }
                 else if (requireIten.type_reward == (int)TypeReward.Silver)
                 {
                     totalSilverNeed += requireIten.quantity;
 
-                    if (totalSilverNeed > player.cacheData.silver)
+                    if (totalSilverNeed > player.cacheData.info.silver)
                         return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughSliver);
                 }
             }
@@ -100,22 +100,22 @@ namespace GameServer.Server.Operations.Handler
 
             if (totalGoldNeed > 0)
             {
-                player.cacheData.gold -= totalGoldNeed;
+                player.cacheData.info.gold -= totalGoldNeed;
                 MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.ExchangeGoldInSkRotDo, totalGoldNeed);
             }
 
             if (totalSilverNeed > 0)
             {
-                player.cacheData.silver -= totalSilverNeed;
+                player.cacheData.info.silver -= totalSilverNeed;
                 MongoController.UserDb.Info.UpdateSilver(player.cacheData, TypeUseSilver.ExchangeSilverInSkRotDo, totalGoldNeed);
             }
 
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listReceive,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()

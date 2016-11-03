@@ -24,7 +24,7 @@ namespace GameServer.Server.Operations.Handler
             // kiểm tra thể lực
             Map mapData = StaticDatabase.entities.maps[requestData.stage_info.map_index];
             Stage stage = mapData.stages[requestData.stage_info.stage_index];
-            if (userInfo.stamina < stage.stamina)
+            if (userInfo.info.stamina < stage.stamina)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DoesNotEnoughStamina);
 
             //Get UserState
@@ -63,10 +63,10 @@ namespace GameServer.Server.Operations.Handler
 
             //neu la map level 1 thi save lan cuoi danh vao cache
             if (userStage.stage_info.stage.level == 1)
-                userInfo.lastest_stage_attacked = userStage.stage_info.stage;
+                userInfo.info.lastest_stage_attacked = userStage.stage_info.stage;
 
             //Progress Data
-            userInfo.stamina -= stage.stamina;
+            userInfo.info.stamina -= stage.stamina;
             userStage.stage_info.attack_times += 1;
 
             if (isNull)

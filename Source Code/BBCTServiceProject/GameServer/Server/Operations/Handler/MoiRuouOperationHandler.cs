@@ -34,7 +34,7 @@ namespace GameServer.Server.Operations.Handler
             if (otherUserInfo == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 
-            VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[userInfo.vip];
+            VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[userInfo.info.vip];
             int countMoiRuouInDay =
                 MongoController.LogSubDB.MoiRuou.Count(userInfo.info._id);
 
@@ -69,7 +69,7 @@ namespace GameServer.Server.Operations.Handler
             int staminaReceive = StaticDatabase.entities.configs.moiRuouConfig.stamina;
 
             // process
-            userInfo.stamina += staminaReceive;
+            userInfo.info.stamina += staminaReceive;
             otherUserInfo.stamina += staminaReceive;
 
             // update
@@ -78,13 +78,13 @@ namespace GameServer.Server.Operations.Handler
 
             MoiRuouEventData eventData = new MoiRuouEventData()
             {
-                nickname = player.cacheData.nickname,
+                nickname = player.cacheData.info.nickname,
                 stamina = staminaReceive
             };
 
             otherPlayer.peer.SendEvent((byte)EventCode.MoiRuou, eventData.Serialize());
-            otherPlayer.peer.Player.cacheData.stamina = otherUserInfo.stamina;
-            otherPlayer.peer.Player.cacheData.last_time_update_stamina = otherUserInfo.last_time_update_stamina;
+            otherPlayer.peer.Player.cacheData.info.stamina = otherUserInfo.stamina;
+            otherPlayer.peer.Player.cacheData.info.last_time_update_stamina = otherUserInfo.last_time_update_stamina;
 
             return CommonFunc.SimpleResponse(operationRequest, ReturnCode.OK);
 

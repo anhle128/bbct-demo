@@ -6,7 +6,6 @@ using GameServer.Common.SerializeData.ResponseData;
 using GameServer.Database;
 using GameServer.Database.Controller;
 using GameServer.Server.Operations.Core;
-using MongoDB.Bson;
 using MongoDBModel.Enum;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
@@ -38,9 +37,9 @@ namespace GameServer.Server.Operations.Handler
 
             if (requestData.type == GetRewardVanTieuType.Quick)
             {
-                if (player.cacheData.vip < vanTieuConfig.vipRequireToEnd)
+                if (player.cacheData.info.vip < vanTieuConfig.vipRequireToEnd)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
-                if (player.cacheData.gold < vanTieuConfig.goldRequireToEnd)
+                if (player.cacheData.info.gold < vanTieuConfig.goldRequireToEnd)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
                 goldNeed = vanTieuConfig.goldRequireToEnd;
@@ -81,11 +80,11 @@ namespace GameServer.Server.Operations.Handler
             userVanTieu.end = true;
             userVanTieu.current_vehicle.going_on = false;
 
-            player.cacheData.silver += silverReward;
+            player.cacheData.info.silver += silverReward;
 
             if (goldNeed != 0)
             {
-                player.cacheData.gold -= goldNeed;
+                player.cacheData.info.gold -= goldNeed;
                 MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.QuickEndVanTieu, goldNeed);
             }
             MongoController.UserDb.VanTieu.UpdateEnd(userVanTieu);
@@ -94,11 +93,11 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listRewardResult,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver - silverReward,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver - silverReward,
+                user_level = player.cacheData.info.level,
+                user_exp = player.cacheData.info.exp,
+                user_ruby = player.cacheData.info.ruby
             };
 
             // response

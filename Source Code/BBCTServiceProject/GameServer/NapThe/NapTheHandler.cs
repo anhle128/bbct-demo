@@ -19,7 +19,7 @@ namespace GameServer.NapThe
         public static void CheckSuKienPhucLoiThang(GamePlayer player, double totalRubyTrans)
         {
             MUserPhucLoiThang lastPhucLoiThang =
-                MongoController.UserDb.PhucLoiThang.GetData(player.cacheData.id);
+                MongoController.UserDb.PhucLoiThang.GetData(player.cacheData.info._id);
             if (lastPhucLoiThang == null)
             {
                 ProcessPhucLoiThang(player.cacheData, totalRubyTrans);
@@ -30,7 +30,7 @@ namespace GameServer.NapThe
                 {
                     double totalRubyTransInTime = MongoController.LogDb.Trans.GetTotalRuby
                         (
-                            player.cacheData.id,
+                            player.cacheData.info._id,
                             lastPhucLoiThang.day_end,
                             DateTime.Now
                         );
@@ -48,12 +48,12 @@ namespace GameServer.NapThe
                 if (totalRubyTrans < StaticDatabase.entities.configs.cuuCuuTriTonConfig.ruby_require)
                     return;
 
-                if (MongoController.UserDb.CuuCuuTriTon.CheckExist(player.cacheData.id))
+                if (MongoController.UserDb.CuuCuuTriTon.CheckExist(player.cacheData.info._id))
                     return;
 
                 MUserCuuCuuTriTon cuuCuuTriTon = new MUserCuuCuuTriTon()
                 {
-                    user_id = player.cacheData.id
+                    user_id = player.cacheData.info._id
                 };
 
                 MongoController.UserDb.CuuCuuTriTon.Create(cuuCuuTriTon);
@@ -68,11 +68,11 @@ namespace GameServer.NapThe
             {
                 if (totalRubyTrans < StaticDatabase.entities.configs.phucLoiTruongThanhConfig.ruby_require)
                     return;
-                if (MongoController.LogSubDB.SkPhucLoiTruongThanh.CheckActivate(player.cacheData.id))
+                if (MongoController.LogSubDB.SkPhucLoiTruongThanh.CheckActivate(player.cacheData.info._id))
                     return;
                 MPhucLoiTruongThanhLog log = new MPhucLoiTruongThanhLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     status = Status.Activate
                 };
                 MongoController.LogSubDB.SkPhucLoiTruongThanh.Create(log);
@@ -85,12 +85,12 @@ namespace GameServer.NapThe
             {
                 MUserPhucLoiThang newPhucLoiThang = new MUserPhucLoiThang()
                 {
-                    user_id = cacheData.id,
+                    user_id = cacheData.info._id,
                     day_start = DateTime.Now,
                     day_end = DateTime.Now.AddDays(StaticDatabase.entities.configs.phucLoiThangConfig.ngay)
                 };
                 MongoController.UserDb.PhucLoiThang.Create(newPhucLoiThang);
-                MongoController.UserDb.Mail.SendGiftPhucLoiThang(cacheData.id, StaticDatabase.entities.configs.phucLoiThangConfig.rewards);
+                MongoController.UserDb.Mail.SendGiftPhucLoiThang(cacheData.info._id, StaticDatabase.entities.configs.phucLoiThangConfig.rewards);
             }
         }
 
@@ -100,7 +100,7 @@ namespace GameServer.NapThe
 
             double totalRuby = listNewTrans.Sum(a => a.ruby);
 
-            if (player.cacheData.total_ruby_trans == 0) // nap lần đầu tiên
+            if (player.cacheData.info.total_ruby_trans == 0) // nap lần đầu tiên
             {
                 haveBonusMail = true;
 
@@ -109,14 +109,14 @@ namespace GameServer.NapThe
                 MThuongNapLanDauConfig thuongNapConfig = MongoController.ConfigDb.ThuongNapLanDau.GetData();
                 if (x2Config != null)
                 {
-                    MongoController.UserDb.Mail.SendMailThuongNapLanDau_x2Ruby(player.cacheData.id, new List<MTransaction>() { firstTrans },
+                    MongoController.UserDb.Mail.SendMailThuongNapLanDau_x2Ruby(player.cacheData.info._id, new List<MTransaction>() { firstTrans },
                         thuongNapConfig.rewards, true);
                     if (listOtherTrans.Count != 0)
                         MongoController.UserDb.Mail.SendMail2xRuby(listOtherTrans);
                 }
                 else
                 {
-                    MongoController.UserDb.Mail.SendMailThuongNapLanDau_x2Ruby(player.cacheData.id, new List<MTransaction>() { firstTrans },
+                    MongoController.UserDb.Mail.SendMailThuongNapLanDau_x2Ruby(player.cacheData.info._id, new List<MTransaction>() { firstTrans },
                         thuongNapConfig.rewards, false);
                 }
             }
@@ -131,10 +131,10 @@ namespace GameServer.NapThe
 
             //string[] trans_ids = listNewTrans.Select(a => a._id.ToString()).ToArray();
 
-            player.cacheData.total_ruby_trans += totalRuby;
-            player.cacheData.ruby += Convert.ToInt32(totalRuby);
+            player.cacheData.info.total_ruby_trans += totalRuby;
+            player.cacheData.info.ruby += Convert.ToInt32(totalRuby);
 
-            UpVip(player, player.cacheData.total_ruby_trans);
+            UpVip(player, player.cacheData.info.total_ruby_trans);
 
 
 
@@ -142,20 +142,20 @@ namespace GameServer.NapThe
             MongoController.UserDb.Info.UpdateTotalRubyTrans(player.cacheData);
             MongoController.LogDb.Trans.UpdateDoneTrans(listNewTrans);
 
-            double totalDayCreateAccount = (DateTime.Now - player.cacheData.create_at).TotalDays;
+            double totalDayCreateAccount = (DateTime.Now - player.cacheData.info.created_at).TotalDays;
             // su kien phuc loi thang
-            CheckSuKienPhucLoiThang(player, player.cacheData.total_ruby_trans);
+            CheckSuKienPhucLoiThang(player, player.cacheData.info.total_ruby_trans);
             // su kien phuc loi truong thanh
-            CheckSuKienPhucLoiTruongThanh(player, player.cacheData.total_ruby_trans, totalDayCreateAccount);
+            CheckSuKienPhucLoiTruongThanh(player, player.cacheData.info.total_ruby_trans, totalDayCreateAccount);
             // su kien cuu cuu tri ton
-            CheckSuKienCuuCuuTriTon(player, player.cacheData.total_ruby_trans, totalDayCreateAccount);
+            CheckSuKienCuuCuuTriTon(player, player.cacheData.info.total_ruby_trans, totalDayCreateAccount);
 
             CheckTransResponseData responseData = new CheckTransResponseData()
             {
                 haveBonusMail = haveBonusMail,
-                ruby = player.cacheData.ruby,
-                total_ruby_trans = player.cacheData.total_ruby_trans,
-                vip = player.cacheData.vip
+                ruby = player.cacheData.info.ruby,
+                total_ruby_trans = player.cacheData.info.total_ruby_trans,
+                vip = player.cacheData.info.vip
             };
 
             // response
@@ -170,12 +170,12 @@ namespace GameServer.NapThe
 
         public static void UpVip(GamePlayer player, double totalRubyTrans)
         {
-            if (player.cacheData.vip >= StaticDatabase.entities.configs.vipConfigs.Length)
+            if (player.cacheData.info.vip >= StaticDatabase.entities.configs.vipConfigs.Length)
                 return;
-            if (player.cacheData.vip == StaticDatabase.entities.configs.vipConfigs.Length - 1)
+            if (player.cacheData.info.vip == StaticDatabase.entities.configs.vipConfigs.Length - 1)
                 return;
 
-            double totalRubyCurrentVip = StaticDatabase.entities.configs.GetTotalRubyVip(player.cacheData.vip);
+            double totalRubyCurrentVip = StaticDatabase.entities.configs.GetTotalRubyVip(player.cacheData.info.vip);
             double rubyPlusVip = totalRubyTrans - totalRubyCurrentVip;
             bool isUpVip = UpVipPlayer(player.cacheData, rubyPlusVip, false);
 
@@ -186,13 +186,13 @@ namespace GameServer.NapThe
         private static bool UpVipPlayer(PlayerCacheData cacheData, double ruby, bool isUpVip)
         {
             bool upVip = isUpVip;
-            if (cacheData.vip == StaticDatabase.entities.configs.vipConfigs.Length - 1)
+            if (cacheData.info.vip == StaticDatabase.entities.configs.vipConfigs.Length - 1)
                 return upVip;
-            int rubyRequireUpVip = StaticDatabase.entities.configs.vipConfigs[cacheData.vip].rubyRequire;
+            int rubyRequireUpVip = StaticDatabase.entities.configs.vipConfigs[cacheData.info.vip].rubyRequire;
             if (ruby >= rubyRequireUpVip)
             {
                 ruby -= rubyRequireUpVip;
-                cacheData.vip++;
+                cacheData.info.vip++;
                 upVip = UpVipPlayer(cacheData, ruby, true);
                 return upVip;
             }

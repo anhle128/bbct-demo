@@ -33,11 +33,11 @@ namespace GameServer.Server.Operations.Handler
 
             RewardResponseData responseData = new RewardResponseData();
             responseData.rewards = listReward;
-            responseData.user_gold = player.cacheData.gold;
-            responseData.user_silver = player.cacheData.silver;
-            responseData.user_exp = player.cacheData.exp;
-            responseData.user_level = player.cacheData.level;
-            responseData.user_ruby = player.cacheData.ruby;
+            responseData.user_gold = player.cacheData.info.gold;
+            responseData.user_silver = player.cacheData.info.silver;
+            responseData.user_exp = player.cacheData.info.exp;
+            responseData.user_level = player.cacheData.info.level;
+            responseData.user_ruby = player.cacheData.info.ruby;
 
 
             return new OperationResponse()

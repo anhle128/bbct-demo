@@ -51,9 +51,9 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData response = new RewardResponseData()
             {
                 rewards = listRewardResult,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()
