@@ -24,7 +24,7 @@ namespace GameServer.Server.Operations.Handler
             requestData.Deserialize(operationRequest.Parameters);
 
 
-            MUserInfo userinfo = MongoController.UserDb.Info.GetData(player.cacheData.id);
+            MUserInfo userinfo = MongoController.UserDb.Info.GetData(player.cacheData.info._id);
 
             int idChar = 0;
 
@@ -58,15 +58,15 @@ namespace GameServer.Server.Operations.Handler
                 ReasonActionGold.RewardTutorial
             );
 
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.ChieuMo);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.ChieuMo);
 
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listReward,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_level = player.cacheData.info.level,
+                user_exp = player.cacheData.info.exp
             };
 
 

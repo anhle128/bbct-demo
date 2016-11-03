@@ -28,7 +28,7 @@ namespace GameServer.Server.Operations.Handler
             if (config == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DBError);
 
-            if (player.cacheData.level < config.levelRequire)
+            if (player.cacheData.info.level < config.levelRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             MUserCharacter userChar =
@@ -40,7 +40,7 @@ namespace GameServer.Server.Operations.Handler
 
             Character character = StaticDatabase.entities.characters.FirstOrDefault(a => a.id == userChar.static_id);
 
-            MHuaNguyenLog huaNguyen = MongoController.LogSubDB.HuaNguyen.GetData(player.cacheData.id,
+            MHuaNguyenLog huaNguyen = MongoController.LogSubDB.HuaNguyen.GetData(player.cacheData.info._id,
                 CommonFunc.GetHashCodeTime());
 
             bool isCreate = false;
@@ -48,7 +48,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 huaNguyen = new MHuaNguyenLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     count_times = 0,
                     hash_code_time = CommonFunc.GetHashCodeTime()
                 };
@@ -64,7 +64,7 @@ namespace GameServer.Server.Operations.Handler
             }
             huaNguyen.count_times++;
 
-            VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[player.cacheData.vip];
+            VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[player.cacheData.info.vip];
             if (huaNguyen.count_times > vipConfig.huaNguyenTimes)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxHuaNguyenTimes);
 

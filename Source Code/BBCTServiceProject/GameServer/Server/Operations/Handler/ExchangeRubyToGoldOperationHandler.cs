@@ -4,13 +4,13 @@ using GameServer.Common;
 using GameServer.Common.Enum;
 using GameServer.Common.SerializeData.RequestData;
 using GameServer.Common.SerializeData.ResponseData;
-using GameServer.Server.Operations.Core;
 using GameServer.Database;
 using GameServer.Database.Controller;
+using GameServer.Server.Operations.Core;
+using MongoDBModel.Enum;
 using Photon.SocketServer;
 using StaticDB.Enum;
 using System.Collections.Generic;
-using MongoDBModel.Enum;
 
 namespace GameServer.Server.Operations.Handler
 {
@@ -23,14 +23,14 @@ namespace GameServer.Server.Operations.Handler
             ExchangeRubyRequestData requestData = new ExchangeRubyRequestData();
             requestData.Deserialize(operationRequest.Parameters);
 
-            if (player.cacheData.ruby < requestData.ruby)
+            if (player.cacheData.info.ruby < requestData.ruby)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 
-            player.cacheData.ruby -= requestData.ruby;
+            player.cacheData.info.ruby -= requestData.ruby;
 
             int goldReward = requestData.ruby * StaticDatabase.entities.configs.exchangeRubyToGoldConfig;
 
-            int oldGold = player.cacheData.gold;
+            int oldGold = player.cacheData.info.gold;
 
             //Player.cacheData.gold += goldReward;
 
@@ -54,11 +54,9 @@ namespace GameServer.Server.Operations.Handler
                             type_reward = (int)TypeReward.Gold
                         }
                     },
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.level,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_ruby = player.cacheData.info.ruby
             };
 
             // response

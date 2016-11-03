@@ -26,7 +26,7 @@ namespace GameServer.Server.Operations.Handler
             }
 
 
-            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.id);
+            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.info._id);
 
             if (member == null)
             {
@@ -40,7 +40,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            var log = MongoController.LogSubDB.ContributeLog.GetData(player.cacheData.id);
+            var log = MongoController.LogSubDB.ContributeLog.GetData(player.cacheData.info._id);
 
             bool isCan = true;
             if (log != null)
@@ -64,12 +64,12 @@ namespace GameServer.Server.Operations.Handler
             if (requestData.type == 1)
             {
                 //CommonLog.Instance.PrintLog("tru silver");
-                player.cacheData.silver -= price;
+                player.cacheData.info.silver -= price;
                 MongoController.UserDb.Info.UpdateSilver(player.cacheData, TypeUseSilver.UpContributeGuild, price);
             }
             else
             {
-                player.cacheData.gold -= price;
+                player.cacheData.info.gold -= price;
                 //CommonLog.Instance.PrintLog("tru gold");
                 //CommonLog.Instance.PrintLog("Player.cacheData.gold: " + Player.cacheData.gold);
                 MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.UpContributeGuild, price);
@@ -83,7 +83,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 MContributeGuildLog nLog = new MContributeGuildLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                 };
                 MongoController.LogSubDB.ContributeLog.Create(nLog);
             }
@@ -151,7 +151,7 @@ namespace GameServer.Server.Operations.Handler
         {
             if (type == 1)
             {
-                if (player.cacheData.silver < price)
+                if (player.cacheData.info.silver < price)
                 {
                     return false;
                 }
@@ -162,7 +162,7 @@ namespace GameServer.Server.Operations.Handler
             }
             else
             {
-                if (player.cacheData.gold < price)
+                if (player.cacheData.info.gold < price)
                 {
                     return false;
                 }

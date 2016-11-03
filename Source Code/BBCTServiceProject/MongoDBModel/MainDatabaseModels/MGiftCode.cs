@@ -1,4 +1,6 @@
-﻿using MongoDBModel.Implement;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDBModel.Implement;
 
 namespace MongoDBModel.MainDatabaseModels
 {
@@ -6,6 +8,8 @@ namespace MongoDBModel.MainDatabaseModels
     {
         public string category { get; set; }
         public string code { get; set; }
-        public string username { get; set; }
+
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string user_id { get; set; }
     }
 }

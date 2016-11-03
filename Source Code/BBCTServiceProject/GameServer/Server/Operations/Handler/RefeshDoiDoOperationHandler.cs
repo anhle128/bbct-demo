@@ -24,7 +24,7 @@ namespace GameServer.Server.Operations.Handler
 
             MSKDoiDoConfig config = MongoController.ConfigDb.SkDoiDo.GetData();
 
-            MSKDoiDoLog log = MongoController.LogSubDB.SkDoiDo.GetData(player.cacheData.id,
+            MSKDoiDoLog log = MongoController.LogSubDB.SkDoiDo.GetData(player.cacheData.info._id,
                 config._id);
             if (log == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
@@ -38,14 +38,14 @@ namespace GameServer.Server.Operations.Handler
             }
             else
             {
-                if (player.cacheData.gold < config.refesh.gold_require)
+                if (player.cacheData.info.gold < config.refesh.gold_require)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
                 log.exchange_items = config.exchange_items.OrderBy(a => Guid.NewGuid()).Skip(0).Take(3).ToList();
                 log.total_point += config.refesh.point_reward;
                 log.current_point += config.refesh.point_reward;
 
-                player.cacheData.gold -= config.refesh.gold_require;
+                player.cacheData.info.gold -= config.refesh.gold_require;
                 MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.RefeshDoiDo, config.refesh.gold_require);
 
                 SuKienDoiDoInfo.RefeshCurrentTopUsers(log);
@@ -55,7 +55,7 @@ namespace GameServer.Server.Operations.Handler
 
             RefeshDoiDoResponseData responseData = new RefeshDoiDoResponseData()
             {
-                user_gold = player.cacheData.gold,
+                user_gold = player.cacheData.info.gold,
                 current_point = log.current_point,
                 total_point = log.total_point,
                 exchange_items = log.exchange_items,

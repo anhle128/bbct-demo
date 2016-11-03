@@ -27,19 +27,19 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
             }
 
-            MSKDoiDoLog log = MongoController.LogSubDB.SkDoiDo.GetData(player.cacheData.id, config._id);
+            MSKDoiDoLog log = MongoController.LogSubDB.SkDoiDo.GetData(player.cacheData.info._id, config._id);
 
             double restTime = 0;
             if (log == null)
             {
                 log = new MSKDoiDoLog()
                 {
-                    user_id = player.cacheData.id,
-                    nickname = player.cacheData.nickname,
+                    user_id = player.cacheData.info._id,
+                    nickname = player.cacheData.info.nickname,
                     su_kien_id = config._id,
                     last_time_get_item = DateTime.Now,
                     exchange_items = config.exchange_items.OrderBy(a => Guid.NewGuid()).Skip(0).Take(3).ToList(),
-                    avatar = player.cacheData.avatar,
+                    avatar = player.cacheData.info.avatar,
                     hash_code_time = CommonFunc.GetHashCodeTime(),
                     index_receiveds = new List<IndexReceived>()
                 };

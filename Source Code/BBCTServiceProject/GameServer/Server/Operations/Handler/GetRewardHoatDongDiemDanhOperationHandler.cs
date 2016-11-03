@@ -30,7 +30,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
 
             MUserDienDanhThang userDiemDanh =
-                MongoController.UserDb.DiemDanhThang.GetData(player.cacheData.id, monthReward.month);
+                MongoController.UserDb.DiemDanhThang.GetData(player.cacheData.info._id, monthReward.month);
 
             if (userDiemDanh == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
@@ -51,12 +51,12 @@ namespace GameServer.Server.Operations.Handler
             if (currentIndex != requestData.index)
                 goldRequire = StaticDatabase.entities.configs.hoatDongDiemDanhConfig.goldRequireBuyMissingReward;
 
-            if (player.cacheData.gold < goldRequire)
+            if (player.cacheData.info.gold < goldRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
             if (goldRequire > 0)
             {
-                player.cacheData.gold -= goldRequire;
+                player.cacheData.info.gold -= goldRequire;
                 MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.BuyMissingRewardDiemDanh, goldRequire);
             }
 
@@ -77,10 +77,10 @@ namespace GameServer.Server.Operations.Handler
 
             RewardResponseData responseData = new RewardResponseData();
             responseData.rewards = listRewardResult;
-            responseData.user_gold = player.cacheData.gold;
-            responseData.user_silver = player.cacheData.silver;
-            responseData.user_exp = player.cacheData.exp;
-            responseData.user_level = player.cacheData.level;
+            responseData.user_gold = player.cacheData.info.gold;
+            responseData.user_silver = player.cacheData.info.silver;
+            responseData.user_exp = player.cacheData.info.exp;
+            responseData.user_level = player.cacheData.info.level;
 
 
             return new OperationResponse()

@@ -20,34 +20,34 @@ namespace GameServer.Server.Operations.Handler
              OperationController controller)
         {
 
-            if (player.cacheData.level < StaticDatabase.entities.configs.vanTieuConfig.levelRequire)
+            if (player.cacheData.info.level < StaticDatabase.entities.configs.vanTieuConfig.levelRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             MUserVanTieu userVanTieu =
-                MongoController.UserDb.VanTieu.GetDataByUserId(player.cacheData.id);
+                MongoController.UserDb.VanTieu.GetDataByUserId(player.cacheData.info._id);
             if (userVanTieu == null)
             {
                 userVanTieu = new MUserVanTieu()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     hash_code_time = CommonFunc.GetHashCodeTime(),
-                    level = player.cacheData.level,
+                    level = player.cacheData.info.level,
                     end = false,
-                    nickname = player.cacheData.nickname,
-                    vip = player.cacheData.vip
+                    nickname = player.cacheData.info.nickname,
+                    vip = player.cacheData.info.vip
                 };
                 MongoController.UserDb.VanTieu.Create(userVanTieu);
             }
 
             if (userVanTieu.current_vehicle != null)
             {
-                if (player.cacheData.gold < StaticDatabase.entities.configs.vanTieuConfig.goldRefeshVehicle)
+                if (player.cacheData.info.gold < StaticDatabase.entities.configs.vanTieuConfig.goldRefeshVehicle)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
                 if (userVanTieu.current_vehicle.going_on)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 
-                player.cacheData.gold -= StaticDatabase.entities.configs.vanTieuConfig.goldRefeshVehicle;
+                player.cacheData.info.gold -= StaticDatabase.entities.configs.vanTieuConfig.goldRefeshVehicle;
                 MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.GetVehicleVanTieu, StaticDatabase.entities.configs.vanTieuConfig.goldRefeshVehicle);
             }
             else
@@ -87,7 +87,7 @@ namespace GameServer.Server.Operations.Handler
 
             GetVehicleVanTieuResponseData responseData = new GetVehicleVanTieuResponseData()
             {
-                user_gold = player.cacheData.gold,
+                user_gold = player.cacheData.info.gold,
                 type = userVanTieu.current_vehicle.type,
                 rewards = userVanTieu.rewards
             };

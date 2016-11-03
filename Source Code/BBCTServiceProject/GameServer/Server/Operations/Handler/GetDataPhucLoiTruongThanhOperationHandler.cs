@@ -13,7 +13,7 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters,
             OperationController controller)
         {
-            MPhucLoiTruongThanhLog log = MongoController.LogSubDB.SkPhucLoiTruongThanh.GetData(player.cacheData.id);
+            MPhucLoiTruongThanhLog log = MongoController.LogSubDB.SkPhucLoiTruongThanh.GetData(player.cacheData.info._id);
 
 
             SkPhucLoiTruongThanhResponseData responseData = new SkPhucLoiTruongThanhResponseData();

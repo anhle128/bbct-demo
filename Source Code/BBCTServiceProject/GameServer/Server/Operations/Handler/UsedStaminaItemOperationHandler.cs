@@ -38,12 +38,12 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DBError);
 
             int staminaReceive = (int)item.attribute[0];
-            player.cacheData.stamina += staminaReceive;
+            player.cacheData.info.stamina += staminaReceive;
             userItem.quantity--;
 
             MongoController.UserDb.Item.UpdateQuantity(userItem);
             MongoController.UserDb.Info.UpdateStamina(player.cacheData);
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.GetFreeStamina);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.GetFreeStamina);
 
             return CommonFunc.SimpleResponse(operationRequest, ReturnCode.OK);
 

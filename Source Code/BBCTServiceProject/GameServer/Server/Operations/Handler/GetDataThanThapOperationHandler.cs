@@ -20,36 +20,36 @@ namespace GameServer.Server.Operations.Handler
         {
 
             ThanThapConfig thanThapConfig = StaticDatabase.entities.configs.thanThapConfig;
-            if (player.cacheData.level < thanThapConfig.levelRequire)
+            if (player.cacheData.info.level < thanThapConfig.levelRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             MUserThanThap userThanThap =
-                MongoController.UserDb.ThanThap.GetData(player.cacheData.id, ThanThapInfo.GetHashTimeEnd());
+                MongoController.UserDb.ThanThap.GetData(player.cacheData.info._id, ThanThapInfo.GetHashTimeEnd());
             if (userThanThap == null)
             {
                 // calculate bonus attribute
                 MUserThanThap lastTimeAttackThanThap =
-                    MongoController.UserDb.ThanThap.GetData(player.cacheData.id,
+                    MongoController.UserDb.ThanThap.GetData(player.cacheData.info._id,
                         ThanThapInfo.GetPrevHashTimeEnd());
                 int allBonusAttribute = 0;
                 if (lastTimeAttackThanThap != null)
                 {
                     allBonusAttribute = lastTimeAttackThanThap.floor / 4;
                 }
-                player.cacheData.allBonusThanThapAttributes = allBonusAttribute;
-                MongoController.UserDb.Info.UpdateBonusThanThap(player.cacheData.id, allBonusAttribute);
+                player.cacheData.info.all_bonus_than_thap_attributes = allBonusAttribute;
+                MongoController.UserDb.Info.UpdateBonusThanThap(player.cacheData.info._id, allBonusAttribute);
 
                 // create data than thap
                 userThanThap = new MUserThanThap()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     hash_code_time = ThanThapInfo.GetHashTimeEnd(),
-                    nickname = player.cacheData.nickname,
+                    nickname = player.cacheData.info.nickname,
                     floor = 1,
                     bonus_attributes = new int[4] { 0, 0, 0, 0 },
                     monsters = CommonFunc.GetRandomMoster(),
                     dead = false,
-                    avatar = player.cacheData.avatar
+                    avatar = player.cacheData.info.avatar
                 };
                 MongoController.UserDb.ThanThap.Create(userThanThap);
             }
@@ -60,7 +60,7 @@ namespace GameServer.Server.Operations.Handler
 
             DataThanThapResponseData responseData = new DataThanThapResponseData()
             {
-                all_bonus_tran_phap_attribute = player.cacheData.allBonusThanThapAttributes,
+                all_bonus_tran_phap_attribute = player.cacheData.info.all_bonus_than_thap_attributes,
                 floor = userThanThap.floor,
                 reset_attack_times = userThanThap.reset_times,
                 top_10_rewards = listTopRewardConfigs,

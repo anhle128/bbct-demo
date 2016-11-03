@@ -33,7 +33,7 @@ namespace GameServer.Server.Operations.Handler
             Stage stage = StaticDatabase.entities.maps[requestData.map_index].stages[requestData.stage_index];
 
             // Kiểm tra xem map này đã 3 sao chưa
-            MUserStage userStage = MongoController.UserDb.Stage.GetData(player.cacheData.id, new StageMode()
+            MUserStage userStage = MongoController.UserDb.Stage.GetData(player.cacheData.info._id, new StageMode()
             {
                 level = requestData.level,
                 map_index = requestData.map_index,
@@ -49,7 +49,7 @@ namespace GameServer.Server.Operations.Handler
             if (userStage.stage_info.attack_times + requestData.attack_times > stage.maxAttack)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxAttackTimes);
 
-            if (player.cacheData.stamina < stage.stamina * requestData.attack_times)
+            if (player.cacheData.info.stamina < stage.stamina * requestData.attack_times)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DoesNotEnoughStamina);
 
 
@@ -70,7 +70,7 @@ namespace GameServer.Server.Operations.Handler
             PlayerCacheData userInfo = player.cacheData;
 
             item.quantity -= requestData.attack_times;
-            userInfo.stamina -= stage.stamina * requestData.attack_times;
+            userInfo.info.stamina -= stage.stamina * requestData.attack_times;
             userStage.stage_info.attack_times += requestData.attack_times;
 
             MongoController.UserDb.Item.UpdateQuantity(item);
@@ -100,7 +100,7 @@ namespace GameServer.Server.Operations.Handler
 
             List<RewardItem> listRewardResult = MongoController.UserDb.UpdateReward(player.cacheData, listReward, ReasonActionGold.RewardAttackStage);
 
-            int maxLevelChar = CommonFunc.GetMaxLevelCharacter(player.cacheData.level);
+            int maxLevelChar = CommonFunc.GetMaxLevelCharacter(player.cacheData.info.level);
             List<CharBattleResult> listCharResult = CommonFunc.UpCharAfterBattle
             (
                 userInfo,
@@ -110,21 +110,21 @@ namespace GameServer.Server.Operations.Handler
             MongoController.UserDb.Char.UpdateCharBattleResult(listCharResult);
 
             // update user info
-            player.cacheData.silver += silverReceived;
+            player.cacheData.info.silver += silverReceived;
 
-            int oldLevel = player.cacheData.level;
+            int oldLevel = player.cacheData.info.level;
             int expPlayerReceive = StaticDatabase.entities.GetExpReceiveInStage(userStage.stage_info.stage.map_index, userStage.stage_info.stage.stage_index) * requestData.attack_times;
             CommonFunc.UpLevelPlayer(player.cacheData, expPlayerReceive);
 
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.CanQuet, requestData.attack_times);
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.AttackStage, requestData.attack_times);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.CanQuet, requestData.attack_times);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.AttackStage, requestData.attack_times);
 
-            if (oldLevel != player.cacheData.level)
+            if (oldLevel != player.cacheData.info.level)
             {
-                MongoController.LogDb.UserLevelUp.Create(player.cacheData.id, player.cacheData.level);
-                if (player.cacheData.stamina < StaticDatabase.entities.configs.maxStamina)
+                MongoController.LogDb.UserLevelUp.Create(player.cacheData.info._id, player.cacheData.info.level);
+                if (player.cacheData.info.stamina < StaticDatabase.entities.configs.maxStamina)
                 {
-                    player.cacheData.stamina = StaticDatabase.entities.configs.maxStamina;
+                    player.cacheData.info.stamina = StaticDatabase.entities.configs.maxStamina;
                 }
             }
 
@@ -136,8 +136,8 @@ namespace GameServer.Server.Operations.Handler
                 rewards = listRewardResult,
                 reward_exp_player = expPlayerReceive,
                 reward_exp_character = expCharReceived,
-                level_player = player.cacheData.level,
-                exp_player = player.cacheData.exp,
+                level_player = player.cacheData.info.level,
+                exp_player = player.cacheData.info.exp,
                 chars = listCharResult
             };
 

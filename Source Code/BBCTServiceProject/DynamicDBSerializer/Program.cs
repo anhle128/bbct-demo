@@ -69,6 +69,7 @@ namespace DynamicDBSerializer
             model.Add(typeof(TopUserVongQuayMayMan), true);
             model.Add(typeof(UserStarReward), true);
             model.Add(typeof(ChatData), true);
+            model.Add(typeof(DataFormation), true);
             // battle
             model.Add(typeof(BattleReplay), true);
             model.Add(typeof(CharacterReplay), true);

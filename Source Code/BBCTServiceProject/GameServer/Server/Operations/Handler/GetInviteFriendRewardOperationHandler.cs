@@ -3,14 +3,14 @@ using GameServer.Common;
 using GameServer.Common.Enum;
 using GameServer.Common.SerializeData.RequestData;
 using GameServer.Common.SerializeData.ResponseData;
-using GameServer.Server.Operations.Core;
 using GameServer.Database;
 using GameServer.Database.Controller;
+using GameServer.Server.Operations.Core;
+using MongoDBModel.Enum;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
 using StaticDB.Models;
 using System.Collections.Generic;
-using MongoDBModel.Enum;
 
 namespace GameServer.Server.Operations.Handler
 {
@@ -22,7 +22,7 @@ namespace GameServer.Server.Operations.Handler
             IndexRequestData requestData = new IndexRequestData();
             requestData.Deserialize(operationRequest.Parameters);
 
-            MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.id);
+            MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.info._id);
 
             if (userInfo == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.AccountDoNotExist);
@@ -46,16 +46,16 @@ namespace GameServer.Server.Operations.Handler
             userInfo.index_invite_rewarded.Add(requestData.index);
             MongoController.UserDb.Info.Update(userInfo);
 
-            List<RewardItem> listRewardResult = MongoController.UserDb.UpdateReward(player.cacheData, CommonFunc.ConvertToSubReward(mConfig.rewards),ReasonActionGold.RewardInvitedFriend);
+            List<RewardItem> listRewardResult = MongoController.UserDb.UpdateReward(player.cacheData, CommonFunc.ConvertToSubReward(mConfig.rewards), ReasonActionGold.RewardInvitedFriend);
 
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listRewardResult,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_level = player.cacheData.info.level,
+                user_exp = player.cacheData.info.exp,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()

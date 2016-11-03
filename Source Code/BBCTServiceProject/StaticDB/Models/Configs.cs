@@ -133,9 +133,6 @@ namespace StaticDB.Models
         [ProtoMember(44)]
         public RuongRewardConfig[] ruongRewardConfigs { get; set; }
 
-        [ProtoMember(45)]
-        public LevelNumCharInFormation[] playerLevelNumberCharInFormations { get; set; }
-
         [ProtoMember(46)]
         public ExchangeGoldToSilverConfig exchangeGoldToSilverConfig { get; set; }
 
@@ -150,9 +147,6 @@ namespace StaticDB.Models
 
         [ProtoMember(50)]
         public HuaNguyenConfig huaNguyenConfig { get; set; }
-
-        [ProtoMember(51)]
-        public DoiHinhDuBiConfig doiHinhDuBiConfig { get; set; }
         [ProtoMember(52)]
         public PlayerLevelNumberChar[] playerLevelNumberChars { get; set; }
         [ProtoMember(53)]

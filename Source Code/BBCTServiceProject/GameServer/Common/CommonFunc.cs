@@ -353,25 +353,25 @@ namespace GameServer.Common
         {
             try
             {
-                int levelPlayer = userInfo.level;
+                int levelPlayer = userInfo.info.level;
                 if (levelPlayer > StaticDatabase.entities.configs.playerLevelExps.Length)
                     return;
                 PlayerLevelExp playerLevelExp = StaticDatabase.entities.configs.playerLevelExps[levelPlayer - 1];
-                if ((userInfo.exp + exp) < playerLevelExp.exp)
+                if ((userInfo.info.exp + exp) < playerLevelExp.exp)
                 {
-                    userInfo.exp = (int)(userInfo.exp + exp);
+                    userInfo.info.exp = (int)(userInfo.info.exp + exp);
                     return;
                 }
 
-                if (userInfo.level + 1 > StaticDatabase.entities.configs.playerLevelExps.Length)
+                if (userInfo.info.level + 1 > StaticDatabase.entities.configs.playerLevelExps.Length)
                 {
-                    userInfo.exp = playerLevelExp.exp;
+                    userInfo.info.exp = playerLevelExp.exp;
                     return;
                 }
 
-                double balancesExp = userInfo.exp + exp - playerLevelExp.exp;
-                userInfo.level++;
-                userInfo.exp = 0;
+                double balancesExp = userInfo.info.exp + exp - playerLevelExp.exp;
+                userInfo.info.level++;
+                userInfo.info.exp = 0;
                 if (balancesExp > 0)
                 {
                     UpLevelPlayer(userInfo, balancesExp);
@@ -379,7 +379,7 @@ namespace GameServer.Common
             }
             catch (Exception)
             {
-                CommonLog.Instance.PrintLog("error level: " + userInfo.level);
+                CommonLog.Instance.PrintLog("error level: " + userInfo.info.level);
             }
 
         }
@@ -388,14 +388,14 @@ namespace GameServer.Common
         {
             List<CharBattleResult> listChar = new List<CharBattleResult>();
             List<MUserCharacter> listUserChar = cachdeData.listUserChar;
-            listChar.AddRange(UpLevelCharInArray(listUserChar, cachdeData.formation, exp, maxLevel));
+            listChar.AddRange(UpLevelCharInArray(listUserChar, cachdeData.info.formations[0], exp, maxLevel));
             return listChar;
         }
 
-        private static List<CharBattleResult> UpLevelCharInArray(List<MUserCharacter> listUserChar, StringArray[] formationRows, int exp, int maxLevel)
+        private static List<CharBattleResult> UpLevelCharInArray(List<MUserCharacter> listUserChar, DataFormation dataFormation, int exp, int maxLevel)
         {
             List<CharBattleResult> listChar = new List<CharBattleResult>();
-            foreach (var colums in formationRows)
+            foreach (var colums in dataFormation.main)
             {
                 foreach (var idChar in colums.columns)
                 {
@@ -658,13 +658,18 @@ namespace GameServer.Common
             {
                 MUserInfo userInfo = listUserInfo[i];
                 List<MUserCharacter> listChar = listUserChar.Where(a => a.user_id.Equals(userInfo._id)).ToList();
-                userInfo.formation = CreateNewMFormation(listChar.Select(a => a._id.ToString()).ToList());
+                userInfo.formations = CreateNewMFormation(listChar.Select(a => a._id.ToString()).ToList());
                 MongoController.UserDb.Info.Update(userInfo);
             }
         }
 
-        private static StringArray[] CreateNewMFormation(List<string> listIdChar)
+        private static DataFormation[] CreateNewMFormation(List<string> listIdChar)
         {
+
+            DataFormation[] dataResult = new DataFormation[StaticDatabase.entities.configs.formationConfig.totalNumberFormation];
+
+
+
             StringArray[] stringArray = new StringArray[3];
 
             stringArray[0] = new StringArray();
@@ -690,7 +695,13 @@ namespace GameServer.Common
                 stringArray[randomRow].columns[randomColumn] = idChar;
             }
 
-            return stringArray;
+            dataResult[0] = new DataFormation()
+            {
+                main = stringArray,
+                sub = new List<string>() { "-1", "-1", "-1", "-1", "-1" }
+            };
+
+            return dataResult;
         }
 
         public static bool IsPassDay(DateTime timeCompare)
@@ -831,15 +842,15 @@ namespace GameServer.Common
         {
             double time = 0;
 
-            if (player.cacheData.stamina >= StaticDatabase.entities.configs.maxStamina)
+            if (player.cacheData.info.stamina >= StaticDatabase.entities.configs.maxStamina)
             {
                 time = -1;
             }
             else
             {
-                int maxStaminaCanReceive = StaticDatabase.entities.configs.maxStamina - player.cacheData.stamina;
+                int maxStaminaCanReceive = StaticDatabase.entities.configs.maxStamina - player.cacheData.info.stamina;
 
-                TimeSpan timeSpan = DateTime.Now - player.cacheData.last_time_update_stamina;
+                TimeSpan timeSpan = DateTime.Now - player.cacheData.info.last_time_update_stamina;
                 double coolDownTime = StaticDatabase.entities.configs.GetSecondCoolDownPlusStamina();
                 double totalSecond = timeSpan.TotalSeconds;
                 if (timeSpan.TotalSeconds > coolDownTime)
@@ -849,19 +860,19 @@ namespace GameServer.Common
                     if (staminaReceived > maxStaminaCanReceive)
                         staminaReceived = maxStaminaCanReceive;
 
-                    player.cacheData.last_time_update_stamina = DateTime.Now;
-                    player.cacheData.stamina += (int)staminaReceived;
+                    player.cacheData.info.last_time_update_stamina = DateTime.Now;
+                    player.cacheData.info.stamina += (int)staminaReceived;
 
                     MongoController.UserDb.Info.UpdatePlusStamina(player.cacheData);
 
-                    if (player.cacheData.stamina == StaticDatabase.entities.configs.maxStamina)
+                    if (player.cacheData.info.stamina == StaticDatabase.entities.configs.maxStamina)
                     {
                         time = -1;
                     }
                     else
                     {
                         DateTime nextTimePlusStamina =
-                            player.cacheData.last_time_update_stamina.AddMinutes(
+                            player.cacheData.info.last_time_update_stamina.AddMinutes(
                                 StaticDatabase.entities.configs.timeCooldownPlusStamina);
                         time = (nextTimePlusStamina - DateTime.Now).TotalSeconds;
                     }
@@ -873,7 +884,7 @@ namespace GameServer.Common
             }
             GetCooldownPointResponseData responseData = new GetCooldownPointResponseData()
             {
-                point = player.cacheData.stamina,
+                point = player.cacheData.info.stamina,
                 cooldown_time = time
             };
             return responseData;

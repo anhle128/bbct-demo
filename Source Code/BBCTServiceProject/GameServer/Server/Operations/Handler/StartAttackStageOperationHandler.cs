@@ -24,11 +24,11 @@ namespace GameServer.Server.Operations.Handler
             // kiểm tra thể lực
             Map mapData = StaticDatabase.entities.maps[requestData.stage_info.map_index];
             Stage stage = mapData.stages[requestData.stage_info.stage_index];
-            if (userInfo.stamina < stage.stamina)
+            if (userInfo.info.stamina < stage.stamina)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DoesNotEnoughStamina);
 
             //Get UserState
-            MUserStage userStage = MongoController.UserDb.Stage.GetData(player.cacheData.id,
+            MUserStage userStage = MongoController.UserDb.Stage.GetData(player.cacheData.info._id,
                 requestData.stage_info);
 
             bool isNull = false;
@@ -37,7 +37,7 @@ namespace GameServer.Server.Operations.Handler
                 isNull = true;
                 userStage = new MUserStage()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     stage_info = new UserStage()
                     {
                         stage = new StageMode()
@@ -63,10 +63,10 @@ namespace GameServer.Server.Operations.Handler
 
             //neu la map level 1 thi save lan cuoi danh vao cache
             if (userStage.stage_info.stage.level == 1)
-                userInfo.lastest_stage_attacked = userStage.stage_info.stage;
+                userInfo.info.lastest_stage_attacked = userStage.stage_info.stage;
 
             //Progress Data
-            userInfo.stamina -= stage.stamina;
+            userInfo.info.stamina -= stage.stamina;
             userStage.stage_info.attack_times += 1;
 
             if (isNull)
@@ -75,7 +75,7 @@ namespace GameServer.Server.Operations.Handler
                 MongoController.UserDb.Stage.Update(userStage);
 
             MongoController.UserDb.Info.Update_Stamina_StageAttacked(userInfo);
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.AttackStage);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.AttackStage);
 
             userInfo.stageAttacked = userStage;
 
@@ -91,7 +91,7 @@ namespace GameServer.Server.Operations.Handler
                 return true;
 
             StageMode prevStage = GetPrevStage(uStage.stage_info.stage);
-            MUserStage userStage = MongoController.UserDb.Stage.GetData(userInfo.id, prevStage);
+            MUserStage userStage = MongoController.UserDb.Stage.GetData(userInfo.info._id, prevStage);
 
 
             if (userStage == null)

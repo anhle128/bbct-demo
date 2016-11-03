@@ -24,7 +24,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
             }
 
-            MSKThanTaiLog log = MongoController.LogSubDB.SkThanTai.GetData(player.cacheData.id,
+            MSKThanTaiLog log = MongoController.LogSubDB.SkThanTai.GetData(player.cacheData.info._id,
                 config._id.ToString());
 
             SkThanTaiResponseData responseData = new SkThanTaiResponseData();

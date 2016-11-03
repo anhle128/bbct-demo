@@ -35,8 +35,6 @@ namespace DynamicDBModel.Models
         public double total_ruby_trans { get; set; }
         [ProtoMember(14)]
         public int ruby { get; set; }
-        [ProtoMember(15)]
-        public int point_skill { get; set; }
         [ProtoMember(16)]
         public string guildName { get; set; }
         [ProtoMember(18)]

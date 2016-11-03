@@ -27,7 +27,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
             }
 
-            double totalUsedGold = MongoController.LogDb.ActionGold.GetTotalUsedGold(player.cacheData.id,
+            double totalUsedGold = MongoController.LogDb.ActionGold.GetTotalUsedGold(player.cacheData.info._id,
                sk.start, sk.end);
 
             SkTichLuyTieuResponseData responseData = new SkTichLuyTieuResponseData();
@@ -37,7 +37,7 @@ namespace GameServer.Server.Operations.Handler
 
             MSKTichLuyTieuLog log = MongoController.LogSubDB.SkTichLuyTieu.GetData
             (
-                player.cacheData.id,
+                player.cacheData.info._id,
                 sk._id.ToString()
             );
 

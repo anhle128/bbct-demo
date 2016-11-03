@@ -17,7 +17,7 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters,
             OperationController controller)
         {
-            MUserCuuCuuTriTon userCuuCuuTriTon = MongoController.UserDb.CuuCuuTriTon.GetData(player.cacheData.id);
+            MUserCuuCuuTriTon userCuuCuuTriTon = MongoController.UserDb.CuuCuuTriTon.GetData(player.cacheData.info._id);
             if (userCuuCuuTriTon == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 
@@ -38,11 +38,11 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = rewards,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_ruby = player.cacheData.ruby,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_ruby = player.cacheData.info.ruby,
+                user_level = player.cacheData.info.level,
+                user_exp = player.cacheData.info.exp
             };
 
             // response

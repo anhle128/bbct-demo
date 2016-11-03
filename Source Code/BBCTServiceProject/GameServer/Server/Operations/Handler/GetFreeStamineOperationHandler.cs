@@ -33,7 +33,7 @@ namespace GameServer.Server.Operations.Handler
 
             // kiểm tra log
             List<MFreeStaminaLog> freeStaminaLog =
-                MongoController.LogSubDB.FreeStamina.GetDatas(player.cacheData.id);
+                MongoController.LogSubDB.FreeStamina.GetDatas(player.cacheData.info._id);
 
             if (freeStaminaLog.Any(a => a.created_at.Hour >= freeStaminaTimeConfig.from && a.created_at.Hour <= freeStaminaTimeConfig.to))
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.AlreadyDone);
@@ -41,15 +41,15 @@ namespace GameServer.Server.Operations.Handler
             // process
             MFreeStaminaLog newLog = new MFreeStaminaLog()
             {
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
                 hash_code_time = CommonFunc.GetHashCodeTime()
             };
-            userInfo.stamina += freeStaminaTimeConfig.stamina;
+            userInfo.info.stamina += freeStaminaTimeConfig.stamina;
 
             // update
             MongoController.LogSubDB.FreeStamina.Create(newLog);
             MongoController.UserDb.Info.UpdateStamina(userInfo);
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.GetFreeStamina);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.GetFreeStamina);
             // resoinse
             FreeStaminaResponse responseData = new FreeStaminaResponse()
             {

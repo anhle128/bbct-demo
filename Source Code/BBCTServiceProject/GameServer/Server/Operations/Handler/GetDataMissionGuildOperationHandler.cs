@@ -15,14 +15,14 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters,
             OperationController controller)
         {
-            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.id);
+            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.info._id);
 
             if (member == null)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.IsNotMemberInGuild);
             }
 
-            var missionLogs = MongoController.LogSubDB.MissionGuildLog.GetDatas(member.guild_id, player.cacheData.id);
+            var missionLogs = MongoController.LogSubDB.MissionGuildLog.GetDatas(member.guild_id, player.cacheData.info._id);
 
             GetDataMissionGuildResponseData responseData = new GetDataMissionGuildResponseData();
             responseData.missions = new int[StaticDatabase.entities.configs.guildConfig.missions.Length];

@@ -33,12 +33,12 @@ namespace GameServer.Server.Operations.Handler
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.ItemsBought);
                 }
 
-                if (player.cacheData.ruby < itemOnMarket.price)
+                if (player.cacheData.info.ruby < itemOnMarket.price)
                 {
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughRuby);
                 }
 
-                player.cacheData.ruby -= itemOnMarket.price;
+                player.cacheData.info.ruby -= itemOnMarket.price;
                 MongoController.UserDb.Info.UpdateRuby(player.cacheData);
 
 
@@ -50,7 +50,7 @@ namespace GameServer.Server.Operations.Handler
 
                 MUserEquip userEquip =
                     MongoController.UserDb.Equip.GetData(itemOnMarket.id_equipment);
-                userEquip.user_id = player.cacheData.id;
+                userEquip.user_id = player.cacheData.info._id;
                 player.cacheData.AddOwnOwnEquipment(userEquip);
 
                 MongoController.MarketDb.ItemSelling.Delete(itemOnMarket._id);
@@ -70,7 +70,7 @@ namespace GameServer.Server.Operations.Handler
                         bonusAttributeGrowMod = eq.bonus_attribute_grow_mod,
                         bonusAttributeMod = eq.bonus_attribute_mod
                     },
-                    userRuby = player.cacheData.ruby,
+                    userRuby = player.cacheData.info.ruby,
                 };
 
                 return new OperationResponse()

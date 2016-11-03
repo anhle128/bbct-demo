@@ -5,7 +5,6 @@ using GameServer.Common.SerializeData.ResponseData;
 using GameServer.Database;
 using GameServer.Database.Controller;
 using GameServer.Server.Operations.Core;
-using MongoDB.Bson;
 using MongoDBModel.Enum;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
@@ -22,7 +21,7 @@ namespace GameServer.Server.Operations.Handler
             OperationController controller)
         {
             MUserCuopTieu userCuopTieu =
-                MongoController.UserDb.CuopTieu.GetData(player.cacheData.id);
+                MongoController.UserDb.CuopTieu.GetData(player.cacheData.info._id);
 
             if (userCuopTieu == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
@@ -51,8 +50,8 @@ namespace GameServer.Server.Operations.Handler
             // process
             int silverReward =
                 StaticDatabase.entities.configs.GetSilverCuopTieuReward(userVanTieu.current_vehicle.type);
-            player.cacheData.silver += (int)silverReward;
-            userVanTieu.users_cuop_tieu.Add(player.cacheData.id);
+            player.cacheData.info.silver += (int)silverReward;
+            userVanTieu.users_cuop_tieu.Add(player.cacheData.info._id);
 
             // update
             MongoController.UserDb.VanTieu.UpdateCurrentVehidle_UsersCuopTieu(userVanTieu);
@@ -82,11 +81,11 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listRewardResult,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver - silverReward,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver - silverReward,
+                user_level = player.cacheData.info.level,
+                user_exp = player.cacheData.info.exp,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()

@@ -14,7 +14,7 @@ namespace GameServer.Server.Operations.Handler
             MailResponseData responseData = new MailResponseData()
             {
                 system_mails = MongoController.MailDb.GetSystemMails(),
-                user_mails = MongoController.UserDb.GetListUserEmail(player.cacheData.id)
+                user_mails = MongoController.UserDb.GetListUserEmail(player.cacheData.info._id)
             };
 
             // responseData

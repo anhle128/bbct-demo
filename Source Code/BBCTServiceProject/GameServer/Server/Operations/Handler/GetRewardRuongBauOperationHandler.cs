@@ -3,8 +3,8 @@ using GameServer.Common;
 using GameServer.Common.Enum;
 using GameServer.Common.SerializeData.RequestData;
 using GameServer.Common.SerializeData.ResponseData;
-using GameServer.Server.Operations.Core;
 using GameServer.Database.Controller;
+using GameServer.Server.Operations.Core;
 using MongoDBModel.Enum;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
@@ -44,11 +44,11 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = rewardResult,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_level = player.cacheData.info.level,
+                user_exp = player.cacheData.info.exp,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()

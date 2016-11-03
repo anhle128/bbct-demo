@@ -19,10 +19,8 @@ namespace MongoDBModel.SubDatabaseModels
         public int hash_code_time_chuc_phuc { get; set; }
         public int count_chuc_phuc { get; set; }
         public int avatar { get; set; }
-        [BsonRepresentation(BsonType.Double)]
-        public double posX { get; set; }
-        [BsonRepresentation(BsonType.Double)]
-        public double posY { get; set; }
+        public float posX { get; set; }
+        public float posY { get; set; }
         public string nickname { get; set; }
         public int exp { get; set; }
         public int gold { get; set; }

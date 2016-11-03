@@ -57,7 +57,7 @@ namespace DynamicDBModel
         [ProtoMember(24)]
         public int countTimeBuyPointSkill { get; set; }
         [ProtoMember(25)]
-        public List<DataFormation> formations { get; set; }
+        public DataFormation[] formations { get; set; }
 
         public Entity()
         {

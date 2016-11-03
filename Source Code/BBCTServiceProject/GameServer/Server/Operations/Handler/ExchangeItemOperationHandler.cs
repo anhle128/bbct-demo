@@ -27,7 +27,7 @@ namespace GameServer.Server.Operations.Handler
             if (!SuKienDoiDoInfo.Duration)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
 
-            MSKDoiDoLog log = MongoController.LogSubDB.SkDoiDo.GetData(player.cacheData.id, SuKienDoiDoInfo.SuKienId);
+            MSKDoiDoLog log = MongoController.LogSubDB.SkDoiDo.GetData(player.cacheData.info._id, SuKienDoiDoInfo.SuKienId);
 
             if (log.index_exchanged == null)
                 log.index_exchanged = new List<int>();
@@ -42,16 +42,16 @@ namespace GameServer.Server.Operations.Handler
 
             if (requireItem.type_reward == (int)TypeReward.Gold)
             {
-                if (player.cacheData.gold < requireItem.quantity)
+                if (player.cacheData.info.gold < requireItem.quantity)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
-                player.cacheData.gold -= requireItem.quantity;
+                player.cacheData.info.gold -= requireItem.quantity;
                 MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.SkDoiDo, requireItem.quantity);
             }
             else if (requireItem.type_reward == (int)TypeReward.Silver)
             {
-                if (player.cacheData.silver < requireItem.quantity)
+                if (player.cacheData.info.silver < requireItem.quantity)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
-                player.cacheData.silver -= requireItem.quantity;
+                player.cacheData.info.silver -= requireItem.quantity;
                 MongoController.UserDb.Info.UpdateSilver(player.cacheData, TypeUseSilver.SkDoiDo, requireItem.quantity);
             }
             else if (requireItem.type_reward == (int)TypeReward.Item)
@@ -83,11 +83,9 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listResult,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()

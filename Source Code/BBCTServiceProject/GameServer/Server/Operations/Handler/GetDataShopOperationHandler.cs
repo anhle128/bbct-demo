@@ -14,8 +14,8 @@ namespace GameServer.Server.Operations.Handler
 
             ShopResponseData responseData = new ShopResponseData()
             {
-                items = MongoController.GetShopItems(player.cacheData.id, player.cacheData.vip),
-                lebaos = MongoController.GetLeBaos(player.cacheData.id, player.cacheData.vip)
+                items = MongoController.GetShopItems(player.cacheData.info._id, player.cacheData.info.vip),
+                lebaos = MongoController.GetLeBaos(player.cacheData.info._id, player.cacheData.info.vip)
             };
             var response = new OperationResponse()
             {

@@ -20,7 +20,7 @@ namespace GameServer.Server.Operations.Handler
             if (player.cacheData.thanThapAttacked == null)
             {
                 player.cacheData.thanThapAttacked =
-               MongoController.UserDb.ThanThap.GetData(player.cacheData.id, ThanThapInfo.GetHashTimeEnd());
+               MongoController.UserDb.ThanThap.GetData(player.cacheData.info._id, ThanThapInfo.GetHashTimeEnd());
             }
 
             if (player.cacheData.thanThapAttacked == null)
@@ -34,16 +34,16 @@ namespace GameServer.Server.Operations.Handler
 
             if (money.type == (int)TypeReward.Ruby)
             {
-                if (player.cacheData.gold < money.quantity)
+                if (player.cacheData.info.gold < money.quantity)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
-                player.cacheData.gold -= money.quantity;
+                player.cacheData.info.gold -= money.quantity;
                 MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.ResetThanThap, money.quantity);
             }
             else
             {
-                if (player.cacheData.silver < money.quantity)
+                if (player.cacheData.info.silver < money.quantity)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughSliver);
-                player.cacheData.silver -= money.quantity;
+                player.cacheData.info.silver -= money.quantity;
                 MongoController.UserDb.Info.UpdateSilver(player.cacheData, TypeUseSilver.ResetAttackThanThap, money.quantity);
             }
 

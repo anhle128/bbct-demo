@@ -34,13 +34,13 @@ namespace GameServer.Server.Operations.Handler
             if (item.quantity <= item.quantity_sold)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.OutOfStock);
 
-            if (player.cacheData.gold < item.price)
+            if (player.cacheData.info.gold < item.price)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
             item.quantity_sold++;
-            player.cacheData.gold -= item.price;
+            player.cacheData.info.gold -= item.price;
 
-            MSkTranhMuaServerLog log = MongoController.LogSubDB.SkTranhMuaServer.GetData(player.cacheData.id,
+            MSkTranhMuaServerLog log = MongoController.LogSubDB.SkTranhMuaServer.GetData(player.cacheData.info._id,
                 config._id.ToString(), day);
 
             bool isCreate = false;
@@ -49,7 +49,7 @@ namespace GameServer.Server.Operations.Handler
                 isCreate = true;
                 log = new MSkTranhMuaServerLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     day = day,
                     index_recieveds = new List<IndexReceived>(),
                     su_kien_id = config._id.ToString()
@@ -92,8 +92,8 @@ namespace GameServer.Server.Operations.Handler
             BuyItemTranhMuaResponseData responseData = new BuyItemTranhMuaResponseData()
             {
                 rewards = listReward,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
                 items = dayTranhMua.items
             };
 

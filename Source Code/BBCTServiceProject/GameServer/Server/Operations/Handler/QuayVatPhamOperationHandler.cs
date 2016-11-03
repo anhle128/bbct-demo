@@ -24,9 +24,9 @@ namespace GameServer.Server.Operations.Handler
             requestData.Deserialize(operationRequest.Parameters);
 
             MUserInfo userInfo =
-                MongoController.UserDb.Info.GetData(player.cacheData.id);
+                MongoController.UserDb.Info.GetData(player.cacheData.info._id);
 
-            if (userInfo.gold != player.cacheData.gold)
+            if (userInfo.gold != player.cacheData.info.gold)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DBError);
 
             MQuayVatPhamGroup config = MongoController.ConfigDb.ChieuMo.GetData().quay_vat_pham;
@@ -57,7 +57,7 @@ namespace GameServer.Server.Operations.Handler
             numberItemRandom = 9;
             listItemRandom.AddRange(RandomManyItemRewrd(numberItemRandom, config.normal_config.vat_phams));
 
-            player.cacheData.gold -= config.normal_config.x10_price;
+            player.cacheData.info.gold -= config.normal_config.x10_price;
             MongoController.UserDb.Info.UpdateGold_CountTimex10VatPham(player.cacheData, userInfo.count_time_x10_quoay_vat_pham, config.normal_config.x10_price);
 
             List<RewardItem> listReward = MongoController.UserDb.UpdateReward(player.cacheData, listItemRandom, ReasonActionGold.None);
@@ -68,11 +68,11 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listReward,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_level = player.cacheData.info.level,
+                user_exp = player.cacheData.info.exp,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()
@@ -94,7 +94,7 @@ namespace GameServer.Server.Operations.Handler
                 if (userInfo.gold < config.normal_config.price)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
-                player.cacheData.gold -= config.normal_config.price;
+                player.cacheData.info.gold -= config.normal_config.price;
                 MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.QuayVatPhamx1, config.normal_config.price);
             }
             else
@@ -116,10 +116,10 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listReward,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_level = player.cacheData.info.level,
+                user_exp = player.cacheData.info.exp
             };
             return new OperationResponse()
             {

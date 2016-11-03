@@ -21,7 +21,7 @@ namespace GameServer.Server.Operations.Handler
             if (player.cacheData.thanThapAttacked == null)
             {
                 player.cacheData.thanThapAttacked =
-               MongoController.UserDb.ThanThap.GetData(player.cacheData.id, ThanThapInfo.GetHashTimeEnd());
+               MongoController.UserDb.ThanThap.GetData(player.cacheData.info._id, ThanThapInfo.GetHashTimeEnd());
             }
 
             if (player.cacheData.thanThapAttacked == null

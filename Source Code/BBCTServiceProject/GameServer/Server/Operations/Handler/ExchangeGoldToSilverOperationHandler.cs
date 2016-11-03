@@ -24,7 +24,7 @@ namespace GameServer.Server.Operations.Handler
             requestData.Deserialize(operationRequest.Parameters);
 
             MExchangeGoldToSilverLog log =
-                MongoController.LogSubDB.ExchangeGoldToSilver.GetData(player.cacheData.id,
+                MongoController.LogSubDB.ExchangeGoldToSilver.GetData(player.cacheData.info._id,
                     CommonFunc.GetHashCodeTime());
 
             bool isCreate = false;
@@ -32,7 +32,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 log = new MExchangeGoldToSilverLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     hash_code_time = CommonFunc.GetHashCodeTime(),
                     times = 0
                 };
@@ -49,10 +49,10 @@ namespace GameServer.Server.Operations.Handler
            MExchangeGoldToSilverLog log, bool isCreate)
         {
             ExchangeGoldToSilverConfig config = StaticDatabase.entities.configs.exchangeGoldToSilverConfig;
-            if (config.levelRequire > player.cacheData.level)
+            if (config.levelRequire > player.cacheData.info.level)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
-            VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[player.cacheData.vip];
+            VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[player.cacheData.info.vip];
 
             if (log.times >= vipConfig.exchangeGoldToSilverTimes)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxExchangeTimes);
@@ -74,10 +74,10 @@ namespace GameServer.Server.Operations.Handler
 
                 if (log.times > config.freeTimes)
                 {
-                    if (goldNeed > player.cacheData.gold)
+                    if (goldNeed > player.cacheData.info.gold)
                         break;
 
-                    player.cacheData.gold -= goldNeed;
+                    player.cacheData.info.gold -= goldNeed;
                     totalGoldNeed += goldNeed;
                 }
 
@@ -95,7 +95,7 @@ namespace GameServer.Server.Operations.Handler
             else
                 MongoController.LogSubDB.ExchangeGoldToSilver.Update(log);
 
-            player.cacheData.silver += totalSilverReward;
+            player.cacheData.info.silver += totalSilverReward;
 
             MongoController.UserDb.Info.UpdateGold_Silver(player.cacheData, totalGoldNeed);
 
@@ -110,8 +110,8 @@ namespace GameServer.Server.Operations.Handler
                         type_reward = (int) TypeReward.Silver,
                     }
                 },
-                user_silver = player.cacheData.silver,
-                user_glod = player.cacheData.gold,
+                user_silver = player.cacheData.info.silver,
+                user_glod = player.cacheData.info.gold,
                 total_time_exchange = log.times,
             };
 
@@ -129,10 +129,10 @@ namespace GameServer.Server.Operations.Handler
             MExchangeGoldToSilverLog log, bool isCreate)
         {
             ExchangeGoldToSilverConfig config = StaticDatabase.entities.configs.exchangeGoldToSilverConfig;
-            if (config.levelRequire > player.cacheData.level)
+            if (config.levelRequire > player.cacheData.info.level)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
-            VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[player.cacheData.vip];
+            VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[player.cacheData.info.vip];
 
             if (log.times >= vipConfig.exchangeGoldToSilverTimes)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxExchangeTimes);
@@ -150,12 +150,12 @@ namespace GameServer.Server.Operations.Handler
 
             if (log.times > config.freeTimes)
             {
-                if (player.cacheData.gold < goldNeed)
+                if (player.cacheData.info.gold < goldNeed)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
-                player.cacheData.gold -= goldNeed;
+                player.cacheData.info.gold -= goldNeed;
             }
-            player.cacheData.silver += silverReward;
+            player.cacheData.info.silver += silverReward;
 
 
             MongoController.UserDb.Info.UpdateGold_Silver(player.cacheData, goldNeed);
@@ -176,8 +176,8 @@ namespace GameServer.Server.Operations.Handler
                         type_reward = (int) TypeReward.Silver,
                     }
                 },
-                user_silver = player.cacheData.silver,
-                user_glod = player.cacheData.gold,
+                user_silver = player.cacheData.info.silver,
+                user_glod = player.cacheData.info.gold,
                 total_time_exchange = log.times
             };
 

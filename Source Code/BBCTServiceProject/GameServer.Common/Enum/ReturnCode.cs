@@ -86,6 +86,7 @@
         IsMaxRequestJoin,
         MaxHuaNguyenTimes,
         CharInFormation,
-        InvalidChar
+        InvalidChar,
+        InvalidNumCharInMainFormation,
     }
 }

@@ -31,7 +31,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            if (!itemOnMarket.user_id.Equals(player.cacheData.id))
+            if (!itemOnMarket.user_id.Equals(player.cacheData.info._id))
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotHavePermission);
             }
@@ -41,7 +41,7 @@ namespace GameServer.Server.Operations.Handler
             MUserEquip userEquip =
                 MongoController.UserDb.Equip.GetData(itemOnMarket.id_equipment);
 
-            userEquip.user_id = player.cacheData.id;
+            userEquip.user_id = player.cacheData.info._id;
 
             player.cacheData.AddOwnOwnEquipment(userEquip);
 

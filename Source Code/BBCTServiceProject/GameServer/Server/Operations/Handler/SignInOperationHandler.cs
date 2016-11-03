@@ -86,7 +86,7 @@ namespace GameServer.Server.Operations.Handler
                 }
 
                 // check payment
-                List<MTransaction> listNewTrans = MongoController.LogDb.Trans.GetCheckTrans(player.cacheData.id);
+                List<MTransaction> listNewTrans = MongoController.LogDb.Trans.GetCheckTrans(player.cacheData.info._id);
                 MSKx2NapConfig x2Config = MongoController.ConfigDb.Skx2Nap.GetData();
                 if (x2Config == null)
                     SuKienInfo.SetDeactiveSuKien(TypeSuKien.x2Nap);
@@ -94,9 +94,9 @@ namespace GameServer.Server.Operations.Handler
                 {
                     NapTheHandler.CheckTrans(player, operationRequest, listNewTrans, x2Config);
 
-                    userInfo.vip = player.cacheData.vip;
-                    userInfo.total_ruby_trans = player.cacheData.total_ruby_trans;
-                    userInfo.ruby = player.cacheData.ruby;
+                    userInfo.vip = player.cacheData.info.vip;
+                    userInfo.total_ruby_trans = player.cacheData.info.total_ruby_trans;
+                    userInfo.ruby = player.cacheData.info.ruby;
                 }
 
                 Entity entities = MongoController.GetEntity(player.cacheData, userInfo);

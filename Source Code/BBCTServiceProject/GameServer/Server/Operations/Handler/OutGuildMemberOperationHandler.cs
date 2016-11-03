@@ -13,7 +13,7 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters,
             OperationController controller)
         {
-            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.id);
+            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.info._id);
 
             if (member == null)
             {
@@ -37,7 +37,7 @@ namespace GameServer.Server.Operations.Handler
             MUserMail mail = new MUserMail()
             {
                 title = "Rời bang",
-                content = player.cacheData.nickname + " đã rời khỏi bang " + guild.name + " đi phiêu bạt giang hồ",
+                content = player.cacheData.info.nickname + " đã rời khỏi bang " + guild.name + " đi phiêu bạt giang hồ",
                 readed = false,
                 user_id = guild.user_id,
                 type = MongoDBModel.Enum.UserMailType.Normal,

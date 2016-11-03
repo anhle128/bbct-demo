@@ -22,16 +22,16 @@ namespace GameServer.Server.Operations.Handler
         {
 
             MUserGlobalBoss userGlobalBoss =
-                MongoController.UserDb.GlobalBoss.GetData(player.cacheData.id, GlobalBossInfo.HashCodeEndTime);
+                MongoController.UserDb.GlobalBoss.GetData(player.cacheData.info._id, GlobalBossInfo.HashCodeEndTime);
             if (userGlobalBoss == null)
             {
                 userGlobalBoss = new MUserGlobalBoss()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     total_damages = 0,
                     hash_code_time = GlobalBossInfo.HashCodeEndTime,
                     last_time_attack = new DateTime(),
-                    nickname = player.cacheData.nickname
+                    nickname = player.cacheData.info.nickname
                 };
                 MongoController.UserDb.GlobalBoss.Create(userGlobalBoss);
             }

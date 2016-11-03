@@ -7,7 +7,6 @@ using GameServer.Common.SerializeData.ResponseData;
 using GameServer.Database;
 using GameServer.Database.Controller;
 using GameServer.Server.Operations.Core;
-using MongoDB.Bson;
 using MongoDBModel.Enum;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
@@ -28,9 +27,9 @@ namespace GameServer.Server.Operations.Handler
                 requestData.Deserialize(operationRequest.Parameters);
 
             MUserCuopTieu userCuopTieu =
-                 MongoController.UserDb.CuopTieu.GetData(player.cacheData.id);
+                 MongoController.UserDb.CuopTieu.GetData(player.cacheData.info._id);
 
-            VipConfig vip = StaticDatabase.entities.configs.vipConfigs[player.cacheData.vip];
+            VipConfig vip = StaticDatabase.entities.configs.vipConfigs[player.cacheData.info.vip];
 
             if (userCuopTieu.cuop_tieu_datas == null)
                 userCuopTieu.cuop_tieu_datas = new List<MCuopTieuData>();
@@ -79,8 +78,8 @@ namespace GameServer.Server.Operations.Handler
                 // process
                 int silverReward =
                     StaticDatabase.entities.configs.GetSilverCuopTieuReward(userVanTieu.current_vehicle.type);
-                player.cacheData.silver += (int)silverReward;
-                userVanTieu.users_cuop_tieu.Add(player.cacheData.id);
+                player.cacheData.info.silver += (int)silverReward;
+                userVanTieu.users_cuop_tieu.Add(player.cacheData.info._id);
 
                 // update
                 MongoController.UserDb.VanTieu.UpdateCurrentVehidle_UsersCuopTieu(userVanTieu);
@@ -107,11 +106,11 @@ namespace GameServer.Server.Operations.Handler
                 // response
 
                 responseData.rewards = listRewardResult;
-                responseData.user_gold = player.cacheData.gold;
-                responseData.user_silver = player.cacheData.silver;
-                responseData.user_level = player.cacheData.level;
-                responseData.user_exp = player.cacheData.exp;
-                responseData.user_ruby = player.cacheData.ruby;
+                responseData.user_gold = player.cacheData.info.gold;
+                responseData.user_silver = player.cacheData.info.silver;
+                responseData.user_level = player.cacheData.info.level;
+                responseData.user_exp = player.cacheData.info.exp;
+                responseData.user_ruby = player.cacheData.info.ruby;
             }
 
             MongoController.UserDb.CuopTieu.UpdateCuopTieuData(userCuopTieu);

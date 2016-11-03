@@ -18,7 +18,7 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters,
             OperationController controller)
         {
-            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.id);
+            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.info._id);
 
             if (member == null)
             {
@@ -49,7 +49,7 @@ namespace GameServer.Server.Operations.Handler
             MLuaTraiRewardLog log = new MLuaTraiRewardLog()
             {
                 guild_id = member.guild_id,
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
                 hash_code_time = CommonFunc.GetHashCodeTime(),
             };
             MongoController.LogSubDB.LuaTraiRewardLog.Create(log);
@@ -57,11 +57,11 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listRewardResult,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_level = player.cacheData.info.level,
+                user_exp = player.cacheData.info.exp,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()

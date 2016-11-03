@@ -26,7 +26,7 @@ namespace GameServer.Server.Operations.Handler
             }
 
             MSK7NgayNhanThuongLog log =
-                MongoController.LogSubDB.Sk7NgayNhanThuong.GetData(player.cacheData.id, sk._id);
+                MongoController.LogSubDB.Sk7NgayNhanThuong.GetData(player.cacheData.info._id, sk._id);
 
             Sk7NgayNhanThuongResponseData responseData = new Sk7NgayNhanThuongResponseData();
             responseData.currentDay = DateTime.Now.Day;

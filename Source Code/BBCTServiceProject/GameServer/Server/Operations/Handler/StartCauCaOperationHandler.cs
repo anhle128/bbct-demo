@@ -20,16 +20,16 @@ namespace GameServer.Server.Operations.Handler
             StartCauCaRequestData requestData = new StartCauCaRequestData();
             requestData.Deserialize(operationRequest.Parameters);
 
-            var uCauCas = MongoController.UserDb.CauCa.GetCurrentCauCa(player.cacheData.id);
+            var uCauCas = MongoController.UserDb.CauCa.GetCurrentCauCa(player.cacheData.info._id);
 
             if (uCauCas != null)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            int countTimes = MongoController.UserDb.CauCa.Count(player.cacheData.id);
+            int countTimes = MongoController.UserDb.CauCa.Count(player.cacheData.info._id);
 
-            int maxTimes = StaticDatabase.entities.configs.GetVipConfig(player.cacheData.vip).cauCaTimes;
+            int maxTimes = StaticDatabase.entities.configs.GetVipConfig(player.cacheData.info.vip).cauCaTimes;
 
             if (countTimes >= maxTimes)
             {
@@ -42,26 +42,26 @@ namespace GameServer.Server.Operations.Handler
 
             CanCauConfig canCauConfig = StaticDatabase.entities.configs.cauCaConfig.canCauConfigs[requestData.indexCanCau];
 
-            if (player.cacheData.silver < canCauConfig.silver ||
-                player.cacheData.gold < canCauConfig.gold ||
-                player.cacheData.vip < canCauConfig.vipRequire)
+            if (player.cacheData.info.silver < canCauConfig.silver ||
+                player.cacheData.info.gold < canCauConfig.gold ||
+                player.cacheData.info.vip < canCauConfig.vipRequire)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
             }
             if (canCauConfig.gold > 0)
             {
-                player.cacheData.gold -= canCauConfig.gold;
+                player.cacheData.info.gold -= canCauConfig.gold;
                 MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.StartCauCa, canCauConfig.gold);
             }
             else if (canCauConfig.silver > 0)
             {
-                player.cacheData.silver -= canCauConfig.silver;
+                player.cacheData.info.silver -= canCauConfig.silver;
                 MongoController.UserDb.Info.UpdateSilver(player.cacheData, TypeUseSilver.StartCauCa, canCauConfig.silver);
             }
 
             MCauCa mCauCa = new MCauCa()
             {
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
                 is_open = true,
                 indexCanCau = requestData.indexCanCau,
                 hash_code_time = CommonFunc.GetHashCodeTime(),

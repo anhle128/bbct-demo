@@ -25,7 +25,7 @@ namespace GameServer.Server.Operations.Handler
             requestData.Deserialize(operationRequest.Parameters);
 
 
-            MNhiemVuHangNgayLog log = MongoController.LogSubDB.NhiemVuHangNgay.GetData(player.cacheData.id);
+            MNhiemVuHangNgayLog log = MongoController.LogSubDB.NhiemVuHangNgay.GetData(player.cacheData.info._id);
             if (log == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 
@@ -45,7 +45,7 @@ namespace GameServer.Server.Operations.Handler
                 {
                     //return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
                     goldRequire = StaticDatabase.entities.configs.nhiemVuHangNgayConfig.goldRequireCompolete;
-                    if (player.cacheData.gold < goldRequire)
+                    if (player.cacheData.info.gold < goldRequire)
                         return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
 
                 }
@@ -53,7 +53,7 @@ namespace GameServer.Server.Operations.Handler
                 arrRewards = StaticDatabase.entities.configs.nhiemVuHangNgayConfig.GetReward
                 (
                     requestData.type,
-                    player.cacheData.level
+                    player.cacheData.info.level
                 );
             }
             else
@@ -65,7 +65,7 @@ namespace GameServer.Server.Operations.Handler
                 arrRewards = StaticDatabase.entities.configs.nhiemVuHangNgayConfig.GetReward
                 (
                     requestData.type,
-                    player.cacheData.level
+                    player.cacheData.info.level
                 );
             }
 
@@ -75,7 +75,7 @@ namespace GameServer.Server.Operations.Handler
             MongoController.LogSubDB.NhiemVuHangNgay.Update(log);
             if (goldRequire != 0)
             {
-                player.cacheData.gold -= goldRequire;
+                player.cacheData.info.gold -= goldRequire;
                 MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.QuickFinishNhiemVuHangNgay, goldRequire);
             }
 
@@ -84,11 +84,11 @@ namespace GameServer.Server.Operations.Handler
 
             RewardResponseData responseData = new RewardResponseData();
             responseData.rewards = listReward;
-            responseData.user_gold = player.cacheData.gold;
-            responseData.user_silver = player.cacheData.silver;
-            responseData.user_exp = player.cacheData.exp;
-            responseData.user_level = player.cacheData.level;
-            responseData.user_ruby = player.cacheData.ruby;
+            responseData.user_gold = player.cacheData.info.gold;
+            responseData.user_silver = player.cacheData.info.silver;
+            responseData.user_exp = player.cacheData.info.exp;
+            responseData.user_level = player.cacheData.info.level;
+            responseData.user_ruby = player.cacheData.info.ruby;
 
             return new OperationResponse()
             {

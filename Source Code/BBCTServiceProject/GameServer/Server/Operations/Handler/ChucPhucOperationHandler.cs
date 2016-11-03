@@ -20,7 +20,7 @@ namespace GameServer.Server.Operations.Handler
             OperationController controller)
         {
             MUserInfo userInfo =
-                    MongoController.UserDb.Info.GetData(player.cacheData.id);
+                    MongoController.UserDb.Info.GetData(player.cacheData.info._id);
 
             int hashTime = CommonFunc.GetHashCodeTime();
             if (userInfo.hash_code_time_chuc_phuc == hashTime)
@@ -31,14 +31,14 @@ namespace GameServer.Server.Operations.Handler
                 userInfo.count_chuc_phuc = 1;
 
                 MongoController.UserDb.Info.UpdateChucPhuc(userInfo);
-                MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.ChucPhuc);
+                MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.ChucPhuc);
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.OK);
 
             }
             else
             {
                 userInfo.count_chuc_phuc++;
-                MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.ChucPhuc);
+                MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.ChucPhuc);
                 if (userInfo.count_chuc_phuc == StaticDatabase.entities.configs.chucPhucConfig.maxChucPhuc)
                 {
                     MChucPhucConfig config = MongoController.ConfigDb.ChucPhuc.GetData();
@@ -48,11 +48,11 @@ namespace GameServer.Server.Operations.Handler
                     RewardResponseData responseData = new RewardResponseData()
                     {
                         rewards = listRewardItem,
-                        user_gold = player.cacheData.gold,
-                        user_silver = player.cacheData.silver,
-                        user_level = player.cacheData.level,
-                        user_exp = player.cacheData.exp,
-                        user_ruby = player.cacheData.ruby
+                        user_gold = player.cacheData.info.gold,
+                        user_silver = player.cacheData.info.silver,
+                        user_level = player.cacheData.info.level,
+                        user_exp = player.cacheData.info.exp,
+                        user_ruby = player.cacheData.info.ruby
                     };
 
                     MongoController.UserDb.Info.UpdateChucPhuc(userInfo);

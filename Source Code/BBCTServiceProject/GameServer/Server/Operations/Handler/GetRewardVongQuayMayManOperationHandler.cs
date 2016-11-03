@@ -28,30 +28,30 @@ namespace GameServer.Server.Operations.Handler
             bool isCreate = false;
 
 
-            MSKVongQuayMayManLog log = MongoController.LogSubDB.SkVongQuayMayMan.GetData(player.cacheData.id, config._id);
+            MSKVongQuayMayManLog log = MongoController.LogSubDB.SkVongQuayMayMan.GetData(player.cacheData.info._id, config._id);
             if (log == null)
             {
                 isCreate = true;
                 log = new MSKVongQuayMayManLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     count_times_quay_free = 0,
                     server_id = Settings.Instance.server_id,
                     su_kien_id = config._id,
                     rewards = new List<SubRewardItem>(),
                     total_point = 0,
-                    level = player.cacheData.level,
-                    nickname = player.cacheData.nickname,
-                    avatar = player.cacheData.avatar,
-                    vip = player.cacheData.vip,
+                    level = player.cacheData.info.level,
+                    nickname = player.cacheData.info.nickname,
+                    avatar = player.cacheData.info.avatar,
+                    vip = player.cacheData.info.vip,
                 };
             }
             else
             {
-                log.nickname = player.cacheData.nickname;
-                log.level = player.cacheData.level;
-                log.avatar = player.cacheData.avatar;
-                log.vip = player.cacheData.vip;
+                log.nickname = player.cacheData.info.nickname;
+                log.level = player.cacheData.info.level;
+                log.avatar = player.cacheData.info.avatar;
+                log.vip = player.cacheData.info.vip;
             }
 
 
@@ -70,7 +70,7 @@ namespace GameServer.Server.Operations.Handler
                 }
                 else
                 {
-                    if (player.cacheData.gold < config.price)
+                    if (player.cacheData.info.gold < config.price)
                         return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
                     goldRequired = config.price;
                     log.total_point += 1;
@@ -79,7 +79,7 @@ namespace GameServer.Server.Operations.Handler
             }
             else // quay x10
             {
-                if (player.cacheData.gold < config.x10_price)
+                if (player.cacheData.info.gold < config.x10_price)
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
                 // process
@@ -91,7 +91,7 @@ namespace GameServer.Server.Operations.Handler
                 log.total_point += 10;
             }
 
-            player.cacheData.gold -= goldRequired;
+            player.cacheData.info.gold -= goldRequired;
 
             // update
             MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.GetRewardSkVongQuayMayMan, goldRequired);
@@ -120,8 +120,8 @@ namespace GameServer.Server.Operations.Handler
             responseData = new GetRewardVongQuayMayManResponseData()
             {
                 rewards = rewardResult,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
                 show_rewards = rewards
             };
 

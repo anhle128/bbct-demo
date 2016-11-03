@@ -15,7 +15,7 @@ namespace GameServer.Server
         public string guildName { get; set; }
         public string guildId { get; set; }
 
-        //public string vanTieuId { get; set; }
+        public string vanTieuId { get; set; }
         //public string id { get; set; }
         //public string username { get; set; }
         //public string nickname { get; set; }
@@ -23,7 +23,7 @@ namespace GameServer.Server
         //public int level { get; set; }
         //public int exp { get; set; }
         //public int vip { get; set; }
-        //public int title { get; set; }
+        public int title { get; set; }
         //public float x { get; set; }
         //public float y { get; set; }
 

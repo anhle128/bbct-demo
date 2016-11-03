@@ -27,12 +27,12 @@ namespace GameServer.Server.Operations.Handler
             if (mConfig.goldDoPhuongConfig > requestData.goldBet || mConfig.maxGoldDoPhuongConfig < requestData.goldBet)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
 
-            if (requestData.goldBet > player.cacheData.gold)
+            if (requestData.goldBet > player.cacheData.info.gold)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
-            int count = MongoController.LogSubDB.DoPhuong.Count(player.cacheData.id);
+            int count = MongoController.LogSubDB.DoPhuong.Count(player.cacheData.info._id);
 
-            int maxTimes = StaticDatabase.entities.configs.GetVipConfig(player.cacheData.vip).doPhuongTimes;
+            int maxTimes = StaticDatabase.entities.configs.GetVipConfig(player.cacheData.info.vip).doPhuongTimes;
             //CommonLog.Instance.PrintLog("Max Do Phuong " + maxTimes);
             if (count >= maxTimes)
             {
@@ -75,13 +75,13 @@ namespace GameServer.Server.Operations.Handler
             }
             else
             {
-                player.cacheData.gold -= requestData.goldBet;
+                player.cacheData.info.gold -= requestData.goldBet;
                 MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.ThuaDoPhuong, requestData.goldBet);
             }
 
             MDoPhuongLog log = new MDoPhuongLog()
             {
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
                 hash_code_time = CommonFunc.GetHashCodeTime(),
                 betGold = requestData.goldBet,
                 isWin = isWin

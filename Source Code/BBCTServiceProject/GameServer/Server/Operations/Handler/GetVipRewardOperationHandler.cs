@@ -21,7 +21,7 @@ namespace GameServer.Server.Operations.Handler
             VipRewardRequestData requestData = new VipRewardRequestData();
             requestData.Deserialize(operationRequest.Parameters);
 
-            MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.id);
+            MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.info._id);
 
             if (userInfo == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.Error);
@@ -51,9 +51,9 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData response = new RewardResponseData()
             {
                 rewards = listRewardResult,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_ruby = player.cacheData.ruby
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()

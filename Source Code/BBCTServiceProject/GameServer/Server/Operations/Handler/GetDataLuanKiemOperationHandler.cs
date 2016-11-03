@@ -22,24 +22,24 @@ namespace GameServer.Server.Operations.Handler
         {
 
             LuanKiemConfig config = StaticDatabase.entities.configs.luanKiemConfig;
-            if (player.cacheData.level < config.levelRequire)
+            if (player.cacheData.info.level < config.levelRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
-            currentUserId = player.cacheData.id.ToString();
+            currentUserId = player.cacheData.info._id;
 
-            int countAttackTimes = MongoController.LogSubDB.LuanKiem.CountAttackTimes(player.cacheData.id);
+            int countAttackTimes = MongoController.LogSubDB.LuanKiem.CountAttackTimes(player.cacheData.info._id);
 
             List<PlayerLuanKiem> listPlayers = GetLuanKiemPlayers(player);
             List<LuanKiemLog> listLogs = GetDataChienBao(player);
             List<LuanKiemLog> listLogTop10 = GetDataChienBapTop10();
 
-            double coolTime = CommonFunc.GetCoolTimeSecond(player.cacheData.lastTimeAttackLuanKiem,
+            double coolTime = CommonFunc.GetCoolTimeSecond(player.cacheData.info.last_time_attack_luan_kiem,
                 StaticDatabase.entities.configs.luanKiemConfig.GetSecondCoolDownAttack());
 
             DataLuanKiemResponse responseData = new DataLuanKiemResponse()
             {
-                currentRank = player.cacheData.rankLuanKiem,
-                pointLuanKiem = player.cacheData.pointLuanKiem,
+                currentRank = player.cacheData.info.rank_luan_kiem,
+                pointLuanKiem = player.cacheData.info.point_luan_kiem,
                 attackTimes = countAttackTimes,
                 players = listPlayers,
                 logs = listLogs,
@@ -76,35 +76,35 @@ namespace GameServer.Server.Operations.Handler
         {
             List<PlayerLuanKiem> listPlayers = new List<PlayerLuanKiem>();
 
-            if (player.cacheData.rankLuanKiem <= 4)
+            if (player.cacheData.info.rank_luan_kiem <= 4)
             {
                 listPlayers = GetTopPlayerLuanKiem(4);
             }
-            else if (player.cacheData.rankLuanKiem <= 11)
+            else if (player.cacheData.info.rank_luan_kiem <= 11)
             {
                 listPlayers.Add(new PlayerLuanKiem()
                 {
-                    username = player.cacheData.username,
-                    nickname = player.cacheData.nickname,
-                    rank = player.cacheData.rankLuanKiem,
-                    avatar = player.cacheData.avatar,
-                    level = player.cacheData.level,
-                    vip = player.cacheData.vip
+                    userid = player.cacheData.info._id,
+                    nickname = player.cacheData.info.nickname,
+                    rank = player.cacheData.info.rank_luan_kiem,
+                    avatar = player.cacheData.info.avatar,
+                    level = player.cacheData.info.level,
+                    vip = player.cacheData.info.vip
                 });
 
-                listPlayers.AddRange(GetRandomLuanKiemPlayer(player.cacheData.rankLuanKiem - 1));
+                listPlayers.AddRange(GetRandomLuanKiemPlayer(player.cacheData.info.rank_luan_kiem - 1));
                 listPlayers = listPlayers.OrderByDescending(a => a.rank).ToList();
             }
             else
             {
                 listPlayers.Add(new PlayerLuanKiem()
                 {
-                    username = player.cacheData.username,
-                    nickname = player.cacheData.nickname,
-                    rank = player.cacheData.rankLuanKiem,
-                    avatar = player.cacheData.avatar,
-                    level = player.cacheData.level,
-                    vip = player.cacheData.vip
+                    userid = player.cacheData.info._id,
+                    nickname = player.cacheData.info.nickname,
+                    rank = player.cacheData.info.rank_luan_kiem,
+                    avatar = player.cacheData.info.avatar,
+                    level = player.cacheData.info.level,
+                    vip = player.cacheData.info.vip
                 });
 
                 Add3LuanKiemOpponentPlayer(player, listPlayers);
@@ -115,7 +115,7 @@ namespace GameServer.Server.Operations.Handler
 
         private List<LuanKiemLog> GetDataChienBao(GamePlayer player)
         {
-            List<MLuanKiemLog> dataAllLuanKiemLogs = MongoController.LogSubDB.LuanKiem.GetChienBaoLogs(player.cacheData.id);
+            List<MLuanKiemLog> dataAllLuanKiemLogs = MongoController.LogSubDB.LuanKiem.GetChienBaoLogs(player.cacheData.info._id);
             // delete log
             //if (dataAllLuanKiemLogs.CoundLogInDay > 10)
             //{
@@ -150,8 +150,8 @@ namespace GameServer.Server.Operations.Handler
         {
             RangeLuanKiemOpponent rangeConfig =
                 StaticDatabase.entities.configs.luanKiemConfig.rangeOpponent.First(
-                    a => a.range.start <= player.cacheData.rankLuanKiem &&
-                         a.range.end >= player.cacheData.rankLuanKiem);
+                    a => a.range.start <= player.cacheData.info.rank_luan_kiem &&
+                         a.range.end >= player.cacheData.info.rank_luan_kiem);
             for (int i = 0; i < rangeConfig.rangeOpponent.Length; i++)
             {
                 Range range = rangeConfig.rangeOpponent[i];
@@ -161,8 +161,8 @@ namespace GameServer.Server.Operations.Handler
                 {
                     count++;
                     int rankRandom = range.start != range.end
-                        ? CommonFunc.RandomNumber(range.start, range.end, player.cacheData.rankLuanKiem)
-                        : player.cacheData.rankLuanKiem - range.start;
+                        ? CommonFunc.RandomNumber(range.start, range.end, player.cacheData.info.rank_luan_kiem)
+                        : player.cacheData.info.rank_luan_kiem - range.start;
                     if (listPlayers.All(a => a.rank != rankRandom))
                     {
                         MUserInfo userInfo =
@@ -184,7 +184,7 @@ namespace GameServer.Server.Operations.Handler
         private PlayerLuanKiem GetPlayerLuanKiem(MUserInfo userInfo)
         {
             PlayerLuanKiem playerLuanKiem = new PlayerLuanKiem();
-            playerLuanKiem.username = userInfo.username;
+            playerLuanKiem.userid = userInfo._id;
             playerLuanKiem.nickname = userInfo.nickname;
             playerLuanKiem.rank = userInfo.rank_luan_kiem;
             playerLuanKiem.avatar = userInfo.avatar;
@@ -223,7 +223,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 PlayerLuanKiem playerLuanKiem = new PlayerLuanKiem()
                 {
-                    username = userInfo.username,
+                    userid = userInfo._id,
                     nickname = userInfo.nickname,
                     rank = userInfo.rank_luan_kiem,
                     avatar = userInfo.avatar,

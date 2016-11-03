@@ -19,6 +19,7 @@ namespace GameServer.Database.SubDatataseCollection
         {
             data.server_id = Settings.Instance.server_id;
         }
+
         public MBossGuildLog GetData(string guildId, string userId)
         {
             return GetSingleData(x => x.guild_id.Equals(guildId) &&

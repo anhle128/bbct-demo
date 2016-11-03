@@ -22,7 +22,7 @@ namespace GameServer.Server.Operations.Handler
             if (config == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
 
-            MSKThanTaiLog log = MongoController.LogSubDB.SkThanTai.GetData(player.cacheData.id,
+            MSKThanTaiLog log = MongoController.LogSubDB.SkThanTai.GetData(player.cacheData.info._id,
                 config._id.ToString());
 
             bool isCreate = false;
@@ -31,8 +31,8 @@ namespace GameServer.Server.Operations.Handler
                 isCreate = true;
                 log = new MSKThanTaiLog()
                 {
-                    user_id = player.cacheData.id,
-                    sk_kien_id = config._id.ToString(),
+                    user_id = player.cacheData.info._id,
+                    sk_kien_id = config._id,
                     current_index_reward = 0
                 };
             }
@@ -42,10 +42,10 @@ namespace GameServer.Server.Operations.Handler
 
             MThanTaiReward thanTaiReward = config.rewards[log.current_index_reward];
             int goldRequire = thanTaiReward.gold_require;
-            if (player.cacheData.gold < goldRequire)
+            if (player.cacheData.info.gold < goldRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
-            player.cacheData.gold -= goldRequire;
+            player.cacheData.info.gold -= goldRequire;
 
             int goldReward = CommonFunc.RandomNumber(thanTaiReward.min_gold_reward, thanTaiReward.max_gold_reward);
 
@@ -68,7 +68,7 @@ namespace GameServer.Server.Operations.Handler
 
             SkThanTaiRewardResponseData responseData = new SkThanTaiRewardResponseData()
             {
-                user_gold = player.cacheData.gold,
+                user_gold = player.cacheData.info.gold,
                 gold_reward = goldReward
             };
 

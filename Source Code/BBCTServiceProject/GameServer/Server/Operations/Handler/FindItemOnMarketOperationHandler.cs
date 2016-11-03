@@ -43,7 +43,7 @@ namespace GameServer.Server.Operations.Handler
                 requestData.keyword,
                 requestData.minPrice,
                 requestData.maxPrice,
-                player.cacheData.id
+                player.cacheData.info._id
             );
 
             GetItemOnMarketResponseData responseData = new GetItemOnMarketResponseData()

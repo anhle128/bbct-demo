@@ -20,7 +20,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            var guild = MongoController.GuildDb.Guild.GetDataByUserId(player.cacheData.id);
+            var guild = MongoController.GuildDb.Guild.GetDataByUserId(player.cacheData.info._id);
 
             if (guild == null)
             {

@@ -1,6 +1,5 @@
 ﻿using BattleSimulator;
 using DynamicDBModel.Models;
-using GameServer.Common;
 using GameServer.Database;
 using GameServer.Database.Controller;
 using MongoDBModel.SubDatabaseModels;
@@ -72,21 +71,21 @@ namespace GameServer.GlobalInfo
             List<MUserEquip> listAllEquipment = MongoController.UserDb.Equip.GetEquipUsed(topUser._id);
             int[] arrIdAllChar = listAllUserCharacter.Select(a => a.static_id).ToArray();
             double totalPower = 0;
-            for (int i = 0; i < topUser.formation.Length; i++)
-            {
-                for (int j = 0; j < topUser.formation[i].columns.Length; j++)
-                {
-                    if (topUser.formation[i].columns[j] == "-1")
-                        continue;
-                    MUserCharacter userChar =
-                        listAllUserCharacter.FirstOrDefault(
-                            a => a._id == topUser.formation[i].columns[j]);
-                    if (userChar == null)
-                        continue;
-                    List<MUserEquip> listEquip = listAllEquipment.Where(a => a.char_equip == userChar._id.ToString()).ToList();
-                    totalPower += CalculatePowerChar(userChar, listEquip, arrIdAllChar);
-                }
-            }
+            //for (int i = 0; i < topUser.formation.Length; i++)
+            //{
+            //    for (int j = 0; j < topUser.formation[i].columns.Length; j++)
+            //    {
+            //        if (topUser.formation[i].columns[j] == "-1")
+            //            continue;
+            //        MUserCharacter userChar =
+            //            listAllUserCharacter.FirstOrDefault(
+            //                a => a._id == topUser.formation[i].columns[j]);
+            //        if (userChar == null)
+            //            continue;
+            //        List<MUserEquip> listEquip = listAllEquipment.Where(a => a.char_equip == userChar._id.ToString()).ToList();
+            //        totalPower += CalculatePowerChar(userChar, listEquip, arrIdAllChar);
+            //    }
+            //}
             return totalPower;
         }
 

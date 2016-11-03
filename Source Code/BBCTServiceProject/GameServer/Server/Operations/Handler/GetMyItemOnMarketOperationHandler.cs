@@ -13,7 +13,7 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters,
             OperationController controller)
         {
-            var items = MongoController.MarketDb.ItemSelling.GetDatas(player.cacheData.id);
+            var items = MongoController.MarketDb.ItemSelling.GetDatas(player.cacheData.info._id);
 
 
             GetItemOnMarketResponseData responseData = new GetItemOnMarketResponseData()

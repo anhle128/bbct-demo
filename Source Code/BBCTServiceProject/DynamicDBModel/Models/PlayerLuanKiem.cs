@@ -6,7 +6,7 @@ namespace DynamicDBModel.Models
     public class PlayerLuanKiem
     {
         [ProtoMember(1)]
-        public string username { get; set; }
+        public string userid { get; set; }
         [ProtoMember(2)]
         public string nickname { get; set; }
         [ProtoMember(3)]

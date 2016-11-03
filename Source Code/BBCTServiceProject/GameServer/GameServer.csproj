@@ -301,7 +301,6 @@
     <Compile Include="Server\Operations\Handler\ChangeAvatarOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\ChangeFormationOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\ChangeMasterGuildOperationHandler.cs" />
-    <Compile Include="Server\Operations\Handler\ChangeUsernameOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\ChatGuildOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\ChatServerOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\CheckGetFreeStaminaOperationHandler.cs" />
@@ -365,7 +364,6 @@
     <Compile Include="Server\Operations\Handler\GetGuildMemberOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\GetInviteFriendRewardOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\GetMyItemOnMarketOperationHandler.cs" />
-    <Compile Include="Server\Operations\Handler\GetPointSkillOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\GetRequestJoinGuildOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\GetReward7NgayNhanThuongOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\GetRewardCharTutorialOperationHandler.cs" />

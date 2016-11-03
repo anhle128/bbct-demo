@@ -5,7 +5,6 @@ using GameServer.Common.SerializeData.ResponseData;
 using GameServer.Database;
 using GameServer.Database.Controller;
 using GameServer.Server.Operations.Core;
-using MongoDB.Bson;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
 using StaticDB.Models;
@@ -19,18 +18,18 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters, OperationController controller)
         {
 
-            if (player.cacheData.level < StaticDatabase.entities.configs.vanTieuConfig.levelRequire)
+            if (player.cacheData.info.level < StaticDatabase.entities.configs.vanTieuConfig.levelRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             MUserCuopTieu userCuopTieu =
-                MongoController.UserDb.CuopTieu.GetData(player.cacheData.id);
+                MongoController.UserDb.CuopTieu.GetData(player.cacheData.info._id);
 
 
             if (userCuopTieu == null)
             {
                 userCuopTieu = new MUserCuopTieu()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     hash_code_time = CommonFunc.GetHashCodeTime()
                 };
                 MongoController.UserDb.CuopTieu.Create(userCuopTieu);
@@ -40,13 +39,13 @@ namespace GameServer.Server.Operations.Handler
 
             if (userCuopTieu.cuop_tieu_datas == null)
                 userCuopTieu.cuop_tieu_datas = new List<MCuopTieuData>();
-            if (userCuopTieu.cuop_tieu_datas.Count >= config.vipConfigs[player.cacheData.vip].cuopTieuTimes)
+            if (userCuopTieu.cuop_tieu_datas.Count >= config.vipConfigs[player.cacheData.info.vip].cuopTieuTimes)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxCuopTieuTimes);
-            int maxLevel = player.cacheData.level + 100;
-            int minLevel = player.cacheData.level - 100 <= 1 ? 1 : player.cacheData.level - 100;
+            int maxLevel = player.cacheData.info.level + 100;
+            int minLevel = player.cacheData.info.level - 100 <= 1 ? 1 : player.cacheData.info.level - 100;
 
             List<MUserVanTieu> userVanTieus =
-                MongoController.UserDb.VanTieu.GetRandomDatas(player.cacheData.id, minLevel, maxLevel);
+                MongoController.UserDb.VanTieu.GetRandomDatas(player.cacheData.info._id, minLevel, maxLevel);
 
             //CommonLog.Instance.PrintLog("userVanTieus: " + userVanTieus.CoundLogInDay);
 

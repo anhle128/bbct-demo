@@ -30,13 +30,13 @@ namespace GameServer.Server.Operations.Handler
                 CommonFunc.SimpleResponse(operationRequest, ReturnCode.DBError);
 
             MSK7NgayNhanThuongLog log =
-                MongoController.LogSubDB.Sk7NgayNhanThuong.GetData(player.cacheData.id, sk._id);
+                MongoController.LogSubDB.Sk7NgayNhanThuong.GetData(player.cacheData.info._id, sk._id);
 
             if (log == null)
             {
                 log = new MSK7NgayNhanThuongLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     su_kien_id = sk._id,
                     day_received = new List<int>() { day }
                 };
@@ -60,8 +60,8 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = rewardResult,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver
             };
 
             return new OperationResponse()

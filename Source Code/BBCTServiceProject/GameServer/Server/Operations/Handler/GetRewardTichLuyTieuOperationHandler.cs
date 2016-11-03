@@ -33,7 +33,7 @@ namespace GameServer.Server.Operations.Handler
 
             MSKTichLuyTieuLog log = MongoController.LogSubDB.SkTichLuyTieu.GetData
             (
-                player.cacheData.id,
+                player.cacheData.info._id,
                 sk._id.ToString()
             );
 
@@ -42,8 +42,8 @@ namespace GameServer.Server.Operations.Handler
                 isCreate = true;
                 log = new MSKTichLuyTieuLog()
                 {
-                    user_id = player.cacheData.id,
-                    su_kien_id = sk._id.ToString(),
+                    user_id = player.cacheData.info._id,
+                    su_kien_id = sk._id,
                     index_received = new List<int>()
                 };
             }
@@ -56,7 +56,7 @@ namespace GameServer.Server.Operations.Handler
             if (log.index_received.Any(a => a == requestData.index))
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.AlreadyDoneBefore);
 
-            double totalUsedGold = MongoController.LogDb.ActionGold.GetTotalUsedGold(player.cacheData.id,
+            double totalUsedGold = MongoController.LogDb.ActionGold.GetTotalUsedGold(player.cacheData.info._id,
                 sk.start, DateTime.Now);
 
             int totalGoldNeed = sk.gold_rewards[requestData.index].gold_require;
@@ -76,9 +76,9 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = listReward,
-                user_silver = player.cacheData.silver,
-                user_gold = player.cacheData.gold,
-                user_ruby = player.cacheData.ruby
+                user_silver = player.cacheData.info.silver,
+                user_gold = player.cacheData.info.gold,
+                user_ruby = player.cacheData.info.ruby
             };
 
             return new OperationResponse()

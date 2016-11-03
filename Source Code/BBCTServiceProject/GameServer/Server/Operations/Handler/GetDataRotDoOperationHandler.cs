@@ -25,13 +25,13 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
             }
 
-            MSKRotDoLog log = MongoController.LogSubDB.SkRotDo.GetData(player.cacheData.id,
+            MSKRotDoLog log = MongoController.LogSubDB.SkRotDo.GetData(player.cacheData.info._id,
                 config._id);
             if (log == null)
             {
                 log = new MSKRotDoLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     hash_code_time = CommonFunc.GetHashCodeTime(),
                     su_kien_id = config._id,
                     index_receiveds = new List<IndexReceived>()

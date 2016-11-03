@@ -33,7 +33,7 @@ namespace GameServer.Server.Operations.Handler
             responseData.end_time = config.end;
 
             MSkTranhMuaServerLog log =
-                MongoController.LogSubDB.SkTranhMuaServer.GetData(player.cacheData.id, config._id.ToString(), day);
+                MongoController.LogSubDB.SkTranhMuaServer.GetData(player.cacheData.info._id, config._id, day);
 
             responseData.index_recieveds = log != null ? log.index_recieveds : null;
 

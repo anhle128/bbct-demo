@@ -17,7 +17,7 @@ namespace GameServer.Server.Operations.Handler
             MSKVongQuayMayManConfig config = MongoController.ConfigDb.SkVongQuayMayMan.GetData();
             if (config == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
-            MSKVongQuayMayManLog log = MongoController.LogSubDB.SkVongQuayMayMan.GetData(player.cacheData.id, config._id);
+            MSKVongQuayMayManLog log = MongoController.LogSubDB.SkVongQuayMayMan.GetData(player.cacheData.info._id, config._id);
             VongQuayMayManLogResponseData responseData = new VongQuayMayManLogResponseData();
             if (log != null)
             {
