@@ -5,212 +5,211 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="1417512fa9854591bcd6bead76698127" Name="Diagram1">
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbBadWord" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbBattleConfig" Width="1.5" PointX="21.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbBattlePoint2ArrayConfig" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbBattlePoint2Config" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCauCaConfig" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCauCaMainConfig" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCauCaReward" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharacter" Width="1.5" PointX="9.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharacterConfig" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharacterLevelExp" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharAttribute" Width="1.5" PointX="21.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharDefaultConfig" Width="1.5" PointX="21.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharDuyenPhan" Width="1.5" PointX="23.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharDuyenPhanAttribute" Width="1.5" PointX="23.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharDuyenPhanID" Width="1.5" PointX="7.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharGoldNeedToFusion" Width="1.5" PointX="9.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharGoldNeedToPowerup" Width="1.5" PointX="23.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharGoldNeedToStarup" Width="1.5" PointX="11.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharSelection" Width="1.5" PointX="23.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharSkill" Width="1.5" PointX="13.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharSkillAfflictionAttribute" Width="1.5" PointX="15.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharSkillAttribute" Width="1.5" PointX="23.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharSkillStarLevel" Width="1.5" PointX="17.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharStarLevelExp" Width="1.5" PointX="19.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharStarLevelExpConfig" Width="1.5" PointX="21.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbChucPhucConfig" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbConfig" Width="1.5" PointX="0.75" PointY="37.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTAffliction" Width="1.5" PointX="23.75" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTCategoryCharacter" Width="1.5" PointX="24.75" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTChacacterMain" Width="1.5" PointX="25.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTCharacterAttribute" Width="1.5" PointX="25.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTClassCharacter" Width="1.5" PointX="25.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTEffectSkill" Width="1.5" PointX="25.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTGiftcode" Width="1.5" PointX="25.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTOneorAll" Width="1.5" PointX="25.75" PointY="22.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTPromotionCharacter" Width="1.5" PointX="25.75" PointY="25.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTRangeSkill" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTReasonActionGoldLog" Width="1.5" PointX="7.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTReasonSpentGoldLog" Width="1.5" PointX="9.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTStatusSuKien" Width="1.5" PointX="15.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTargetSkill" Width="1.5" PointX="17.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeEquipment" Width="1.5" PointX="26.75" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeItem" Width="1.5" PointX="19.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeLeBaoActivationTime" Width="1.5" PointX="21.75" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeLeBaoBuyTime" Width="1.5" PointX="27.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeNhiemVuChinhTuyen" Width="1.5" PointX="27.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeNhiemVuHangNgay" Width="1.5" PointX="27.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeReward" Width="1.5" PointX="27.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeRewardNPH" Width="1.5" PointX="27.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeSkill" Width="1.5" PointX="27.75" PointY="22.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeSkillCompare" Width="1.5" PointX="27.75" PointY="25.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeSpawnSkill" Width="1.5" PointX="28.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeStage" Width="1.5" PointX="28.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeUseGold" Width="1.5" PointX="23.75" PointY="28.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCuopTieuConfig" Width="1.5" PointX="25.75" PointY="28.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCuuCuuTriTonConfig" Width="1.5" PointX="21.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCuuCuuTriTonConfigReward" Width="1.5" PointX="24" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbDoiHinhDuBiRequire" Width="1.5" PointX="27.75" PointY="28.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipElementSupport" Width="1.5" PointX="29.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipGoldNeedToPowerup" Width="1.5" PointX="29.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipGoldNeedToStarup" Width="1.5" PointX="7.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipment" Width="1.5" PointX="29.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipmentBonusAttribute" Width="1.5" PointX="9.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipmentConfig" Width="1.5" PointX="11.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipmentElementAttribute" Width="1.5" PointX="13.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipProcElement" Width="1.5" PointX="29.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipStarLevelExp" Width="1.5" PointX="15.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipStarLevelExpConfig" Width="1.5" PointX="17.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipSupport" Width="1.5" PointX="19.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbExchangeGoldToSilverConfig" Width="1.5" PointX="29.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbFreeStaminaConfig" Width="1.5" PointX="29.75" PointY="25.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGlobalAttackConfig" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGlobalBonusRewardConfig" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGlobalBossConfig" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGMMailConfig" Width="1.5" PointX="29.75" PointY="28.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGroupCharacter" Width="1.5" PointX="30.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildBoss" Width="1.5" PointX="5.25" PointY="17.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildBossReward" Width="1.5" PointX="7.5" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildConfig" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildLevelContribution" Width="1.5" PointX="5.25" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildMission" Width="1.5" PointX="5.25" PointY="23.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildRewardBangChien" Width="1.5" PointX="5.25" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildRewardsLuaTrai" Width="1.5" PointX="5.25" PointY="30.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbHoatDongDiemDanhConfig" Width="1.5" PointX="3" PointY="34.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbHoatDongDiemDanhMonth" Width="1.5" PointX="5.25" PointY="34.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbHoatDongDiemDanhMonthReward" Width="1.5" PointX="7.5" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbHuaNguyenConfig" Width="1.5" PointX="0.75" PointY="30.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbInviteFriendConfig" Width="1.5" PointX="19.75" PointY="20.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbInviteFriendReward" Width="1.5" PointX="22" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbItem" Width="1.5" PointX="14.75" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbItemAttribute" Width="1.5" PointX="17" PointY="20.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLevelNumCharInFormation" Width="1.5" PointX="30.75" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLevelReward_Reward" Width="1.5" PointX="12" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLevelRewardConfig" Width="1.5" PointX="9.75" PointY="20.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLinkExportStatic" Width="1.5" PointX="31.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLogKNBTool" Width="1.5" PointX="31.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemConfig" Width="1.5" PointX="3" PointY="40.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemLoseReward" Width="1.5" PointX="31.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemPoint" Width="1.5" PointX="5.25" PointY="37.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemRange" Width="1.5" PointX="5.25" PointY="41" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemRangeOpponent" Width="1.5" PointX="7.5" PointY="41.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemRank" Width="1.5" PointX="5.25" PointY="44.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemRankReward" Width="1.5" PointX="7.5" PointY="44.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemWinReward" Width="1.5" PointX="31.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMap" Width="1.5" PointX="9.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMapStage" Width="1.5" PointX="12" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMapStageMonter" Width="1.5" PointX="14.25" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMapStageMonterSupper" Width="1.5" PointX="14.25" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMapStagePath" Width="1.5" PointX="14.25" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMapStageReward" Width="1.5" PointX="14.25" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMapStageSupper" Width="1.5" PointX="14.25" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbNhiemVuChinhTuyen" Width="1.5" PointX="5.25" PointY="47.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbNhiemVuChinhTuyenConfig" Width="1.5" PointX="3" PointY="48.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbNhiemVuChinhTuyenReward" Width="1.5" PointX="7.5" PointY="48" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbNhiemVuHangNgay" Width="1.5" PointX="5.25" PointY="51.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbNhiemVuHangNgayConfig" Width="1.5" PointX="3" PointY="52" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbNhiemVuHangNgayReward" Width="1.5" PointX="7.5" PointY="51.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPhucLoiTruongThanhConfig" Width="1.5" PointX="31.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPhucLoiTruongThanhLevel" Width="1.5" PointX="16.75" PointY="16.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPhucLoiTruongThanhLevelReward" Width="1.5" PointX="19" PointY="16" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPlayerDefaultConfig" Width="1.5" PointX="21.75" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPlayerLevelExp" Width="1.5" PointX="23.75" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPowerUpItem" Width="1.5" PointX="16.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPowerUpItemsAttribute" Width="1.5" PointX="19" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPowerUpItemsReceipt" Width="1.5" PointX="19" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPowRateByPromotion" Width="1.5" PointX="31.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPucLoiThangConfig" Width="1.5" PointX="16.75" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPucLoiThangReward" Width="1.5" PointX="19" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbRuongBauConfig" Width="1.5" PointX="16.75" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbRuongBauReward" Width="1.5" PointX="19" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbShareFacebook" Width="1.5" PointX="25.75" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbStarReward" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbStarRewardReward" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbTaoNickReward" Width="1.5" PointX="31.75" PointY="27.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThap" Width="1.5" PointX="3" PointY="61.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapAttribute" Width="1.5" PointX="5.25" PointY="55.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapDetailMonster" Width="1.5" PointX="7.5" PointY="64.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapFloorReward" Width="1.5" PointX="5.25" PointY="57.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapMoneyReset" Width="1.5" PointX="5.25" PointY="61.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapMonster" Width="1.5" PointX="5.25" PointY="64.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapPlusAttributeRequire" Width="1.5" PointX="5.25" PointY="68" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapStarReward" Width="1.5" PointX="5.25" PointY="70.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbTimeAttackBoss" Width="1.5" PointX="27.75" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbTip" Width="1.5" PointX="29.75" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbTutorialConfig" Width="1.5" PointX="31.75" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbUser" Width="1.5" PointX="32.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbVanTieu" Width="1.5" PointX="3" PointY="75.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbVanTieuProtectReward" Width="1.5" PointX="5.25" PointY="73.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbVanTieuRobReward" Width="1.5" PointX="5.25" PointY="77.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbVipConfig" Width="1.5" PointX="11.75" PointY="32.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bbctdesignertoolv1Model.sysdiagram" Width="1.5" PointX="13.75" PointY="32.75" IsExpanded="true" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbCauCaCo__idCon__22401542" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbCauCaRe__idCau__2334397B" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbChucPhu__idCon__2CBDA3B5" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGlobalB__idCon__3552E9B6" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildCo__idCon__382F5661" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbHoatDon__idCon__3CF40B7E" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLuanKie__idCon__42ACE4D4" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbNhiemVu__idCon__4F12BBB9" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbNhiemVu__idCon__51EF2864" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idCon__5B78929E" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbVanTieu__idCon__6319B466" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbCuuCuuT__idCuu__2DB1C7EE" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGlobalA__idGlo__336AA144" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGlobalB__idGlo__345EC57D" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildBo__idBos__373B3228" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildBo__idGui__36470DEF" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildLe__idGui__39237A9A" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildMi__idGui__3A179ED3" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildRe__idGui__3B0BC30C" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildRe__idGui__3BFFE745" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbHoatDon__idDie__3DE82FB7" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbHoatDon__idMon__3EDC53F0" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbInviteF__idInv__3FD07829" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbItemAtt__idIte__40C49C62" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLevelRe__idLev__41B8C09B" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLuanKie__idLua__43A1090D" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLuanKie__idLua__44952D46" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLuanKie__idLua__467D75B8" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLuanKie__idRan__4589517F" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLuanKie__idRan__477199F1" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbMapStag__idMap__4865BE2A" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbMapStag__idSta__4959E263" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbMapStag__idSta__4A4E069C" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbMapStag__idSta__4B422AD5" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbMapStag__idSta__4C364F0E" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbMapStag__idSta__4D2A7347" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbNhiemVu__idChi__4E1E9780" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbNhiemVu__idNhi__5006DFF2" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbNhiemVu__idChi__50FB042B" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbNhiemVu__idNhi__0169315C" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbPhucLoi__idLev__53D770D6" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbPowerUp__idPow__56B3DD81" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbPowerUp__idPow__57A801BA" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbPucLoiT__idPhu__589C25F3" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbRuongBa__idRuo__59904A2C" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbStarRew__idSta__5A846E65" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__5C6CB6D7" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__5E54FF49" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__5F492382" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__603D47BB" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__61316BF4" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__6225902D" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__5D60DB10" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbVanTieu__idVan__640DD89F" ManuallyRouted="false" />
-        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbVanTieu__idVan__6501FCD8" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbBadWord" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbBattleConfig" Width="1.5" PointX="21.75" PointY="4.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbBattlePoint2ArrayConfig" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbBattlePoint2Config" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCauCaConfig" Width="1.5" PointX="3" PointY="4.625" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCauCaMainConfig" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCauCaReward" Width="1.5" PointX="5.25" PointY="4.625" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharacter" Width="1.5" PointX="9.75" PointY="13.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharacterConfig" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharacterLevelExp" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharAttribute" Width="1.5" PointX="21.75" PointY="11.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharDefaultConfig" Width="1.5" PointX="21.75" PointY="14.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharDuyenPhan" Width="1.5" PointX="22.75" PointY="17.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharDuyenPhanAttribute" Width="1.5" PointX="22.75" PointY="20.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharDuyenPhanID" Width="1.5" PointX="23.75" PointY="4.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharGoldNeedToFusion" Width="1.5" PointX="23.75" PointY="7.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharGoldNeedToPowerup" Width="1.5" PointX="7.75" PointY="23.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharGoldNeedToStarup" Width="1.5" PointX="9.75" PointY="23.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharSelection" Width="1.5" PointX="23.75" PointY="10.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharSkill" Width="1.5" PointX="11.75" PointY="23.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharSkillAfflictionAttribute" Width="1.5" PointX="23.75" PointY="13.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharSkillAttribute" Width="1.5" PointX="13.75" PointY="23.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharSkillStarLevel" Width="1.5" PointX="15.75" PointY="23.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharStarLevelExp" Width="1.5" PointX="17.75" PointY="23.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCharStarLevelExpConfig" Width="1.5" PointX="19.75" PointY="23.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbChucPhucConfig" Width="1.5" PointX="3" PointY="41.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbConfig" Width="1.5" PointX="0.75" PointY="37.25" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTAffliction" Width="1.5" PointX="21.75" PointY="23.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTCategoryCharacter" Width="1.5" PointX="23.75" PointY="23.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTChacacterMain" Width="1.5" PointX="0.75" PointY="24.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTCharacterAttribute" Width="1.5" PointX="24.75" PointY="16.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTClassCharacter" Width="1.5" PointX="24.75" PointY="19.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTEffectSkill" Width="1.5" PointX="25.75" PointY="4.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTGiftcode" Width="1.5" PointX="25.75" PointY="7.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTOneorAll" Width="1.5" PointX="25.75" PointY="10.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTPromotionCharacter" Width="1.5" PointX="25.75" PointY="13.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTRangeSkill" Width="1.5" PointX="25.75" PointY="22.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTReasonActionGoldLog" Width="1.5" PointX="25.75" PointY="25.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTReasonSpentGoldLog" Width="1.5" PointX="26.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTStatusSuKien" Width="1.5" PointX="7.75" PointY="26.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTargetSkill" Width="1.5" PointX="13.75" PointY="26.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeEquipment" Width="1.5" PointX="15.75" PointY="26.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeItem" Width="1.5" PointX="26.75" PointY="16.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeLeBaoActivationTime" Width="1.5" PointX="17.75" PointY="26.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeLeBaoBuyTime" Width="1.5" PointX="26.75" PointY="19.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeNhiemVuChinhTuyen" Width="1.5" PointX="19.75" PointY="26.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeNhiemVuHangNgay" Width="1.5" PointX="21.75" PointY="26.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeReward" Width="1.5" PointX="0.75" PointY="27.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeRewardNPH" Width="1.5" PointX="27.75" PointY="3.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeSkill" Width="1.5" PointX="27.75" PointY="6.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeSkillCompare" Width="1.5" PointX="27.75" PointY="9.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeSpawnSkill" Width="1.5" PointX="27.75" PointY="12.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeStage" Width="1.5" PointX="27.75" PointY="22.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCTTypeUseGold" Width="1.5" PointX="27.75" PointY="25.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCuopTieuConfig" Width="1.5" PointX="28.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCuuCuuTriTonConfig" Width="1.5" PointX="21.75" PointY="1.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbCuuCuuTriTonConfigReward" Width="1.5" PointX="24" PointY="1" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipElementSupport" Width="1.5" PointX="28.75" PointY="15.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipGoldNeedToPowerup" Width="1.5" PointX="28.75" PointY="18.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipGoldNeedToStarup" Width="1.5" PointX="23.75" PointY="28.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipment" Width="1.5" PointX="25.75" PointY="28.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipmentBonusAttribute" Width="1.5" PointX="27.75" PointY="28.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipmentConfig" Width="1.5" PointX="29.75" PointY="3.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipmentElementAttribute" Width="1.5" PointX="29.75" PointY="6.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipProcElement" Width="1.5" PointX="7.75" PointY="29.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipStarLevelExp" Width="1.5" PointX="29.75" PointY="9.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipStarLevelExpConfig" Width="1.5" PointX="9.75" PointY="29.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbEquipSupport" Width="1.5" PointX="11.75" PointY="29.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbExchangeGoldToSilverConfig" Width="1.5" PointX="13.75" PointY="29.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbFreeStaminaConfig" Width="1.5" PointX="29.75" PointY="12.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGlobalAttackConfig" Width="1.5" PointX="5.25" PointY="35.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGlobalBonusRewardConfig" Width="1.5" PointX="5.25" PointY="38.25" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGlobalBossConfig" Width="1.5" PointX="3" PointY="36.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGMMailConfig" Width="1.5" PointX="15.75" PointY="29.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGroupCharacter" Width="1.5" PointX="17.75" PointY="29.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildBoss" Width="1.5" PointX="5.25" PointY="15.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildBossReward" Width="1.5" PointX="7.5" PointY="15.25" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildConfig" Width="1.5" PointX="3" PointY="15.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildLevelContribution" Width="1.5" PointX="5.25" PointY="22.25" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildMission" Width="1.5" PointX="5.25" PointY="25" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildRewardBangChien" Width="1.5" PointX="5.25" PointY="18.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbGuildRewardsLuaTrai" Width="1.5" PointX="5.25" PointY="11.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbHoatDongDiemDanhConfig" Width="1.5" PointX="3" PointY="77.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbHoatDongDiemDanhMonth" Width="1.5" PointX="5.25" PointY="77.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbHoatDongDiemDanhMonthReward" Width="1.5" PointX="7.5" PointY="77" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbHuaNguyenConfig" Width="1.5" PointX="19.75" PointY="29.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbInviteFriendConfig" Width="1.5" PointX="17.75" PointY="20.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbInviteFriendReward" Width="1.5" PointX="20" PointY="20" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbItem" Width="1.5" PointX="12.75" PointY="20" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbItemAttribute" Width="1.5" PointX="15" PointY="20.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLevelNumCharInFormation" Width="1.5" PointX="29.75" PointY="21.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLevelReward_Reward" Width="1.5" PointX="10" PointY="20" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLevelRewardConfig" Width="1.5" PointX="7.75" PointY="20.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLinkExportStatic" Width="1.5" PointX="29.75" PointY="24.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLogKNBTool" Width="1.5" PointX="29.75" PointY="27.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemConfig" Width="1.5" PointX="3" PointY="51.125" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemLoseReward" Width="1.5" PointX="30.75" PointY="15.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemPoint" Width="1.5" PointX="5.25" PointY="51.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemRange" Width="1.5" PointX="5.25" PointY="48.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemRangeOpponent" Width="1.5" PointX="7.5" PointY="48.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemRank" Width="1.5" PointX="5.25" PointY="55.125" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemRankReward" Width="1.5" PointX="7.5" PointY="55" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbLuanKiemWinReward" Width="1.5" PointX="31.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMap" Width="1.5" PointX="9.75" PointY="8.875" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMapStage" Width="1.5" PointX="12" PointY="7.25" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMapStageMonter" Width="1.5" PointX="14.25" PointY="11.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMapStageMonterSupper" Width="1.5" PointX="14.25" PointY="1.625" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMapStagePath" Width="1.5" PointX="14.25" PointY="5.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMapStageReward" Width="1.5" PointX="14.25" PointY="15.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbMapStageSupper" Width="1.5" PointX="14.25" PointY="8.25" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbNhiemVuChinhTuyen" Width="1.5" PointX="5.25" PointY="44.25" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbNhiemVuChinhTuyenConfig" Width="1.5" PointX="3" PointY="45" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbNhiemVuChinhTuyenReward" Width="1.5" PointX="7.5" PointY="44.625" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbNhiemVuHangNgay" Width="1.5" PointX="5.25" PointY="8.25" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbNhiemVuHangNgayConfig" Width="1.5" PointX="3" PointY="8.625" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbNhiemVuHangNgayReward" Width="1.5" PointX="7.5" PointY="8.25" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPhucLoiTruongThanhConfig" Width="1.5" PointX="31.75" PointY="4.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPhucLoiTruongThanhLevel" Width="1.5" PointX="16.75" PointY="16.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPhucLoiTruongThanhLevelReward" Width="1.5" PointX="19" PointY="16" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPlayerDefaultConfig" Width="1.5" PointX="31.75" PointY="7.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPlayerLevelExp" Width="1.5" PointX="31.75" PointY="10.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPowerUpItem" Width="1.5" PointX="16.75" PointY="2.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPowerUpItemsAttribute" Width="1.5" PointX="19" PointY="1.125" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPowerUpItemsReceipt" Width="1.5" PointX="19" PointY="4.25" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPowRateByPromotion" Width="1.5" PointX="31.75" PointY="19.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPucLoiThangConfig" Width="1.5" PointX="16.75" PointY="12.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbPucLoiThangReward" Width="1.5" PointX="19" PointY="12" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbRuongBauConfig" Width="1.5" PointX="16.75" PointY="8.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbRuongBauReward" Width="1.5" PointX="19" PointY="8" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbShareFacebook" Width="1.5" PointX="21.75" PointY="31.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbStarReward" Width="1.5" PointX="5.75" PointY="1.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbStarRewardReward" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbTaoNickReward" Width="1.5" PointX="31.75" PointY="22.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThap" Width="1.5" PointX="3" PointY="64.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapAttribute" Width="1.5" PointX="5.25" PointY="64.125" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapDetailMonster" Width="1.5" PointX="7.5" PointY="66.875" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapFloorReward" Width="1.5" PointX="5.25" PointY="70.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapMoneyReset" Width="1.5" PointX="5.25" PointY="74" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapMonster" Width="1.5" PointX="5.25" PointY="67.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapPlusAttributeRequire" Width="1.5" PointX="5.25" PointY="58.5" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbThanThapStarReward" Width="1.5" PointX="5.25" PointY="61.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbTimeAttackBoss" Width="1.5" PointX="31.75" PointY="26.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbTip" Width="1.5" PointX="31.75" PointY="29.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbTutorialConfig" Width="1.5" PointX="7.75" PointY="32.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbUser" Width="1.5" PointX="9.75" PointY="32.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbVanTieu" Width="1.5" PointX="3" PointY="30.125" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbVanTieuProtectReward" Width="1.5" PointX="5.25" PointY="31.875" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbVanTieuRobReward" Width="1.5" PointX="5.25" PointY="28.375" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.dbVipConfig" Width="1.5" PointX="32.75" PointY="13.75" />
+        <EntityTypeShape EntityType="bbctdesignertoolv1Model.sysdiagram" Width="1.5" PointX="15.75" PointY="32.75" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbCauCaCo__idCon__22401542" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbCauCaRe__idCau__2334397B" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbChucPhu__idCon__2CBDA3B5" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGlobalB__idCon__3552E9B6" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildCo__idCon__382F5661" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbHoatDon__idCon__3CF40B7E" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLuanKie__idCon__42ACE4D4" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbNhiemVu__idCon__4F12BBB9" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbNhiemVu__idCon__51EF2864" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idCon__5B78929E" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbVanTieu__idCon__6319B466" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbCuuCuuT__idCuu__2DB1C7EE" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGlobalA__idGlo__336AA144" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGlobalB__idGlo__345EC57D" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildBo__idBos__373B3228" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildBo__idGui__36470DEF" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildLe__idGui__39237A9A" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildMi__idGui__3A179ED3" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildRe__idGui__3B0BC30C" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbGuildRe__idGui__3BFFE745" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbHoatDon__idDie__3DE82FB7" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbHoatDon__idMon__3EDC53F0" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbInviteF__idInv__3FD07829" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbItemAtt__idIte__40C49C62" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLevelRe__idLev__41B8C09B" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLuanKie__idLua__43A1090D" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLuanKie__idLua__44952D46" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLuanKie__idLua__467D75B8" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLuanKie__idRan__4589517F" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbLuanKie__idRan__477199F1" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbMapStag__idMap__4865BE2A" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbMapStag__idSta__4959E263" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbMapStag__idSta__4A4E069C" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbMapStag__idSta__4B422AD5" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbMapStag__idSta__4C364F0E" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbMapStag__idSta__4D2A7347" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbNhiemVu__idChi__4E1E9780" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbNhiemVu__idNhi__5006DFF2" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbNhiemVu__idChi__50FB042B" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbNhiemVu__idNhi__0169315C" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbPhucLoi__idLev__53D770D6" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbPowerUp__idPow__56B3DD81" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbPowerUp__idPow__57A801BA" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbPucLoiT__idPhu__589C25F3" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbRuongBa__idRuo__59904A2C" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbStarRew__idSta__5A846E65" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__5C6CB6D7" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__5E54FF49" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__5F492382" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__603D47BB" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__61316BF4" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__6225902D" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbThanTha__idTha__5D60DB10" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbVanTieu__idVan__640DD89F" />
+        <AssociationConnector Association="bbctdesignertoolv1Model.FK__dbVanTieu__idVan__6501FCD8" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

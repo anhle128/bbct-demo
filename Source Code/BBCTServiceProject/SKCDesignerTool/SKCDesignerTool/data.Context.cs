@@ -82,7 +82,6 @@ namespace BBCTDesignerTool
         public virtual DbSet<dbCuopTieuConfig> dbCuopTieuConfigs { get; set; }
         public virtual DbSet<dbCuuCuuTriTonConfig> dbCuuCuuTriTonConfigs { get; set; }
         public virtual DbSet<dbCuuCuuTriTonConfigReward> dbCuuCuuTriTonConfigRewards { get; set; }
-        public virtual DbSet<dbDoiHinhDuBiRequire> dbDoiHinhDuBiRequires { get; set; }
         public virtual DbSet<dbEquipElementSupport> dbEquipElementSupports { get; set; }
         public virtual DbSet<dbEquipGoldNeedToPowerup> dbEquipGoldNeedToPowerups { get; set; }
         public virtual DbSet<dbEquipGoldNeedToStarup> dbEquipGoldNeedToStarups { get; set; }

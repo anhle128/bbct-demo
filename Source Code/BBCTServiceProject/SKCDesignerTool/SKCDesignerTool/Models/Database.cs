@@ -20,14 +20,9 @@ namespace BBCTDesignerTool.Models
         public List<dbCharSkill> lsdbCharSkill = new List<dbCharSkill>();
         public List<dbCharSkillAfflictionAttribute> lsdbCharSkillAfflictionAttribute = new List<dbCharSkillAfflictionAttribute>();
         public List<dbCharSkillAttribute> lsdbCharSkillAttribute = new List<dbCharSkillAttribute>();
-        //public List<dbCharPowerUpReceipt> lsdbCharPowerUpReceipt = new List<dbCharPowerUpReceipt>();
-        //public List<dbCharDetailPowerUpReceipt> lsdbCharDetailPowerUpReceipt = new List<dbCharDetailPowerUpReceipt>();
-        //public List<dbEquipmentReceipt> lsdbEquipmentReceipt = new List<dbEquipmentReceipt>();
-        //public List<dbEquipmentAttribute> lsdbEquipmentAttribute = new List<dbEquipmentAttribute>();
         public List<dbItem> lsdbItem = new List<dbItem>();
         public List<dbItemAttribute> lsdbItemAttribute = new List<dbItemAttribute>();
         public List<dbEquipment> lsdbEquipment = new List<dbEquipment>();
-        //public List<dbEquipmentStarUp> lsdbEquipmentStarUp = new List<dbEquipmentStarUp>();
         public List<dbStarReward> lsdbStarReward = new List<dbStarReward>();
         public List<dbStarRewardReward> lsdbStarRewardReward = new List<dbStarRewardReward>();
         public List<dbMap> lsdbMap = new List<dbMap>();
@@ -41,8 +36,6 @@ namespace BBCTDesignerTool.Models
         public List<dbBattlePoint2Config> lsdbBattlePoint2Config = new List<dbBattlePoint2Config>();
         public List<dbNhiemVuHangNgay> lsdbNhiemVuHangNgay = new List<dbNhiemVuHangNgay>();
         public List<dbNhiemVuHangNgayReward> lsdbNhiemVuHangNgayReward = new List<dbNhiemVuHangNgayReward>();
-        //public List<dbEquipStarUpConfig> lsdbEquipStarUpConfig = new List<dbEquipStarUpConfig>();
-        //public List<dbEquipStarUpDetail> lsdbEquipStarUpDetail = new List<dbEquipStarUpDetail>();
         public List<dbThanThapMonster> lsdbThanThapMonster = new List<dbThanThapMonster>();
         public List<dbThanThapDetailMonster> lsdbThanThapDetailMonster = new List<dbThanThapDetailMonster>();
         public List<dbCauCaConfig> lsdbCauCaConfig = new List<dbCauCaConfig>();
@@ -476,7 +469,7 @@ namespace BBCTDesignerTool.Models
                     id = item.id,
                     idDuyen = item.idDuyen,
                     status = item.status,
-                    value = item.value
+                    value = item.value,
                 };
                 lsdbCharDuyenPhanAttribute.Add(db);
             }
@@ -544,7 +537,7 @@ namespace BBCTDesignerTool.Models
                     isMale = item.isMale,
                     lowestStarLevel = item.lowestStarLevel,
                     typeCharacter = item.typeCharacter,
-                    
+                    quote = item.quote
                 };
                 lsdbCharacter.Add(db);
             }

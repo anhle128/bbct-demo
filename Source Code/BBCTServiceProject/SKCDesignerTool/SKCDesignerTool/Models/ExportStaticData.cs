@@ -2143,31 +2143,29 @@ namespace BBCTDesignerTool.Models
         public Character[] GetCharacters()
         {
             List<Character> lsCharacter = new List<Character>();
-            var tmpCharacter = from tmp in css.lsdbCharacter
-                               where tmp.status == 1
-                               orderby tmp.idCharacter ascending
-                               select tmp;
 
-            foreach (var chr in tmpCharacter)
+            foreach (var chr in css.lsdbCharacter.OrderBy(a => a.idCharacter))
             {
                 Character newChar = new Character();
-                //newChar.id = (int)chr.idCharacter;
-                //newChar.name = HandlerKeyLanguage(1, (int)chr.idCharacter)[0];
-                //newChar.description = HandlerKeyLanguage(1, (int)chr.idCharacter)[1];
-                //newChar.category = (int)chr.category;
-                //newChar.promotion = (int)chr.promotion;
-                //newChar.classCharacter = (int)chr.classCharacter;
-                //newChar.isCreep = HandlerTrueorFalse((int)chr.isCreep);
-                //newChar.attributes = HandlerAttribute(1, (int)chr.id).ToArray();
-                //newChar.duyenphans = HandlerDuyenPhan((int)chr.id).ToArray();
-                //newChar.normalSkill = HandlerSkill(1, (int)chr.id).Count > 0 ? HandlerSkill(1, (int)chr.id)[0] : null;
-                //newChar.ultimateSkill = HandlerSkill(2, (int)chr.id).ToArray();
-                //newChar.passiveSkill1 = HandlerSkill(3, (int)chr.id).ToArray();
-                //newChar.passiveSkill2 = HandlerSkill(4, (int)chr.id).ToArray();
-                //newChar.powerupReceipt = HandlerPowerUpReceipt((int)chr.id).ToArray();
-                //newChar.isMain = HandlerTrueorFalse((int)chr.isMain);
-                //newChar.amountPieceToImport = (int)chr.amountPieceToImport;
-                //newChar.idCharHuaNguyen = (int)chr.idCharHuaNguyen;
+                newChar.id = (int)chr.idCharacter;
+                newChar.name = HandlerKeyLanguage(1, (int)chr.idCharacter)[0];
+                newChar.description = HandlerKeyLanguage(1, (int)chr.idCharacter)[1];
+                newChar.category = (CategoryCharacter)chr.category;
+                newChar.element = (TypeElement)chr.classCharacter;
+                newChar.isCreep = HandlerTrueorFalse((int)chr.isCreep);
+                newChar.idCharHuaNguyen = (int)chr.idCharHuaNguyen;
+                newChar.attributes = HandlerAttribute(1, (int)chr.id).ToArray();
+                newChar.classChar = (ClassCharacter)chr.classCharacter;
+                newChar.duyenphans = HandlerDuyenPhan((int)chr.id).ToArray();
+                newChar.highestStarLevel = (int)chr.highestStarLevel;
+                newChar.idGroup = (int)chr.idGroup;
+                newChar.isMale = HandlerTrueorFalse((int)chr.isMale);
+                newChar.lowestStarLevel = (int)chr.lowestStarLevel;
+                newChar.quote = chr.quote;
+                newChar.type = (TypeCharacter)chr.typeCharacter;
+                newChar.normalSkill = HandlerSkill(1, (int)chr.id).Count > 0 ? HandlerSkill(1, (int)chr.id)[0] : null;
+                newChar.ultimateSkill = HandlerSkill(2, (int)chr.id).ToArray();
+                newChar.passiveSkill = HandlerSkill(3, (int)chr.id).ToArray();
                 lsCharacter.Add(newChar);
             }
             return lsCharacter.ToArray();
@@ -2286,11 +2284,8 @@ namespace BBCTDesignerTool.Models
         private List<DuyenPhan> HandlerDuyenPhan(int idChr)
         {
             List<DuyenPhan> tmpDuyenPhan = new List<DuyenPhan>();
-            var lsDuyenPhan = from duyen in css.lsdbCharDuyenPhan
-                              where duyen.status == 1 && duyen.idCharacter == idChr
-                              select duyen;
 
-            foreach (var item in lsDuyenPhan)
+            foreach (var item in css.lsdbCharDuyenPhan.Where(x=>x.idCharacter == idChr))
             {
                 DuyenPhan dp = new DuyenPhan()
                 {
@@ -2298,7 +2293,7 @@ namespace BBCTDesignerTool.Models
                     category = (short)item.category,
                     isOne = HandlerTrueorFalse((int)item.isOne),
                     name = HandlerKeyLanguage(3, (int)item.id)[0],
-                    ids = HandlerDuyenIDS((int)item.id).ToArray()
+                    ids = HandlerDuyenIDS((int)item.id).ToArray(),                    
                 };
                 tmpDuyenPhan.Add(dp);
             }
@@ -2308,16 +2303,13 @@ namespace BBCTDesignerTool.Models
         private List<MainAttribute> HandlerDuyenPhanAttribute(int idDuyen)
         {
             List<MainAttribute> lsAttribute = new List<MainAttribute>();
-            var lsDuyen = from ls in css.lsdbCharDuyenPhanAttribute
-                          where ls.idDuyen == idDuyen && ls.status == 1
-                          select ls;
 
-            foreach (var item in lsDuyen)
+            foreach (var item in css.lsdbCharDuyenPhanAttribute.Where(x=>x.idDuyen == idDuyen))
             {
                 MainAttribute main = new MainAttribute()
                 {
                     mod = (float)item.value,
-                    //growthMod = (float)item.,
+                    growthMod = (float)item.,
                     //attribute = (CharacterAttribute)item.attribute
                 };
                 lsAttribute.Add(main);
@@ -2346,11 +2338,7 @@ namespace BBCTDesignerTool.Models
             List<MainAttribute> tmpAttribute = new List<MainAttribute>();
             if (type == 1)
             {
-                var lsAttribute = from tmp in css.lsdbCharAttribute
-                                  where tmp.idCharacter == idGen && tmp.status == 1
-                                  select tmp;
-
-                foreach (var item in lsAttribute)
+                foreach (var item in css.lsdbCharAttribute.Where(x => x.idCharacter == idGen))
                 {
                     MainAttribute it = new MainAttribute()
                     {
@@ -2363,11 +2351,7 @@ namespace BBCTDesignerTool.Models
             }
             else if (type == 2)
             {
-                var lsAttribute = from tmp in css.lsdbCharSkillAfflictionAttribute
-                                  where tmp.idSkill == idGen && tmp.status == 1
-                                  select tmp;
-
-                foreach (var item in lsAttribute)
+                foreach (var item in css.lsdbCharSkillAfflictionAttribute.Where(x => x.idSkill == idGen))
                 {
                     MainAttribute it = new MainAttribute()
                     {
