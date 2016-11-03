@@ -18,7 +18,5 @@ namespace BBCTDesignerTool
         public Nullable<int> idDuyen { get; set; }
         public Nullable<int> value { get; set; }
         public Nullable<int> status { get; set; }
-    
-        public virtual dbCharDuyenPhan dbCharDuyenPhan { get; set; }
     }
 }

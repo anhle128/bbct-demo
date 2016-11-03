@@ -20,7 +20,5 @@ namespace BBCTDesignerTool
         public Nullable<double> mods { get; set; }
         public Nullable<double> growthMod { get; set; }
         public Nullable<int> status { get; set; }
-    
-        public virtual dbCharSkill dbCharSkill { get; set; }
     }
 }

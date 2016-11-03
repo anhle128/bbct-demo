@@ -20,25 +20,19 @@ namespace BBCTDesignerTool
         public Nullable<double> centerBattleY { get; set; }
         public Nullable<double> distanceFrontTarget { get; set; }
         public Nullable<int> manaPool { get; set; }
-        public Nullable<int> manaRegen { get; set; }
+        public Nullable<int> manaRegenNormal { get; set; }
         public Nullable<int> manaRegenUltimate { get; set; }
-        public Nullable<int> idBachgroundThachDau { get; set; }
-        public Nullable<int> idBossWorld { get; set; }
-        public Nullable<int> idBachgroundThanThap { get; set; }
-        public Nullable<int> idBachgroundBoss { get; set; }
+        public Nullable<int> manaRegenAttacked { get; set; }
+        public Nullable<int> idBackgroundThanThap { get; set; }
+        public Nullable<int> idBackgroundBoss { get; set; }
         public Nullable<int> idBackgroundCuopTieu { get; set; }
         public Nullable<int> idBackgroundLuanKiem { get; set; }
         public Nullable<int> idBackgroundBangChien { get; set; }
-        public Nullable<int> manaRegenAttacked { get; set; }
+        public Nullable<int> idBackgroundThachDau { get; set; }
         public Nullable<int> levelSpeed { get; set; }
         public Nullable<int> vipAuto { get; set; }
-        public Nullable<int> vipSpeed { get; set; }
-        public Nullable<int> rangeRandomDamage { get; set; }
-        public Nullable<int> manaRegenNormal { get; set; }
-        public Nullable<int> idBackgroundThanThap { get; set; }
-        public Nullable<int> idBackgroundBoss { get; set; }
-        public Nullable<int> idBackgroundThachDau { get; set; }
         public Nullable<int> levelAuto { get; set; }
+        public Nullable<int> rangeRandomDamage { get; set; }
         public Nullable<int> vipSkip { get; set; }
         public Nullable<double> modX { get; set; }
         public Nullable<double> modY { get; set; }
@@ -46,5 +40,6 @@ namespace BBCTDesignerTool
         public Nullable<double> modF { get; set; }
         public Nullable<double> modU { get; set; }
         public Nullable<double> modKH { get; set; }
+        public Nullable<int> idBossWorld { get; set; }
     }
 }

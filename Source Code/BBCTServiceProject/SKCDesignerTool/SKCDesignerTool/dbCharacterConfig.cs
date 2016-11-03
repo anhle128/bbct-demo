@@ -15,14 +15,6 @@ namespace BBCTDesignerTool
     public partial class dbCharacterConfig
     {
         public int id { get; set; }
-        public Nullable<int> maxStarCanUp { get; set; }
-        public Nullable<int> amountCharToSoul { get; set; }
-        public Nullable<int> powerUpLevelUnlockPassiveSkill { get; set; }
-        public Nullable<int> levelUnlockPassiveSkill2 { get; set; }
-        public Nullable<int> prefixSilverUpSkill { get; set; }
-        public Nullable<double> modStar { get; set; }
-        public Nullable<double> procReceivedUpStar { get; set; }
-        public Nullable<double> procAmountCharToSoul { get; set; }
         public Nullable<int> sellPrice { get; set; }
         public Nullable<double> maxResKH { get; set; }
     }

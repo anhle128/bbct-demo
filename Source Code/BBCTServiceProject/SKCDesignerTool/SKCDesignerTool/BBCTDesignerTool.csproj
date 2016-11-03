@@ -143,20 +143,20 @@
     <Compile Include="Common\CommonDialog.cs" />
     <Compile Include="Common\CommonShowDialog.cs" />
     <Compile Include="Common\CommonFunc.cs" />
-    <Compile Include="database.Context.cs">
+    <Compile Include="data.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>database.Context.tt</DependentUpon>
+      <DependentUpon>data.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="database.cs">
+    <Compile Include="data.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
-    <Compile Include="database.Designer.cs">
+    <Compile Include="data.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>database.edmx</DependentUpon>
+      <DependentUpon>data.edmx</DependentUpon>
     </Compile>
     <Compile Include="Database\Controller\DBHandler.cs" />
     <Compile Include="Database\Controller\MongoController.cs" />
@@ -165,484 +165,454 @@
     <Compile Include="Database\MainDatabaseCollection\StaticDBCollection.cs" />
     <Compile Include="Database\Model\DatabaseManager.cs" />
     <Compile Include="dbBadWord.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbBattleConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbBattlePoint2ArrayConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbBattlePoint2Config.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCauCaConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCauCaMainConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCauCaReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharacter.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharacterConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharacterLevelExp.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharAttribute.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharDefaultConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbCharDetailPowerUpReceipt.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharDuyenPhan.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharDuyenPhanAttribute.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharDuyenPhanID.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharGoldNeedToFusion.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharGoldNeedToPowerup.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharGoldNeedToStarup.cs">
-      <DependentUpon>database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbCharPowerUpReceipt.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharSelection.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharSkill.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharSkillAfflictionAttribute.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharSkillAttribute.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharSkillStarLevel.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharStarLevelExp.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharStarLevelExpConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbChucPhucConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTAffliction.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTCategoryCharacter.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTChacacterMain.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTCharacterAttribute.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTClassCharacter.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTEffectSkill.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTGiftcode.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTOneorAll.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTPromotionCharacter.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTRangeSkill.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTReasonActionGoldLog.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTReasonSpentGoldLog.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTStatusSuKien.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTargetSkill.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeEquipment.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeItem.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeLeBaoActivationTime.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeLeBaoBuyTime.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeNhiemVuChinhTuyen.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeNhiemVuHangNgay.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeRewardNPH.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeSkill.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeSkillCompare.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeSpawnSkill.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeStage.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCTTypeUseGold.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCuopTieuConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCuuCuuTriTonConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCuuCuuTriTonConfigReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbDoiHinhDuBiRequire.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipElementSupport.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipGoldNeedToPowerup.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipGoldNeedToStarup.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipment.cs">
-      <DependentUpon>database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEquipmentAttribute.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipmentBonusAttribute.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipmentConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipmentElementAttribute.cs">
-      <DependentUpon>database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEquipmentReceipt.cs">
-      <DependentUpon>database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEquipmentStarUp.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipProcElement.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipStarLevelExp.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipStarLevelExpConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEquipStarUpConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEquipStarUpDetail.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipSupport.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbExchangeGoldToSilverConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbFreeStaminaConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGlobalAttackConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGlobalBonusRewardConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGlobalBossConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGMMailConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGroupCharacter.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGuildBoss.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGuildBossReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGuildConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGuildLevelContribution.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGuildMission.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGuildRewardBangChien.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGuildRewardsLuaTrai.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbHoatDongDiemDanhConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbHoatDongDiemDanhMonth.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbHoatDongDiemDanhMonthReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbHuaNguyenConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbInviteFriendConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbInviteFriendReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbItem.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbItemAttribute.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLevelNumCharInFormation.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLevelRewardConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLevelReward_Reward.cs">
-      <DependentUpon>database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbLevelUnlockMainSkill.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLinkExportStatic.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLogKNBTool.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLuanKiemConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLuanKiemLoseReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLuanKiemPoint.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLuanKiemRange.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLuanKiemRangeOpponent.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLuanKiemRank.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLuanKiemRankReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbLuanKiemWinReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbMap.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbMapStage.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbMapStageMonter.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbMapStageMonterSupper.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbMapStagePath.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbMapStageReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbMapStageSupper.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbNhiemVuChinhTuyen.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbNhiemVuChinhTuyenConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbNhiemVuChinhTuyenReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbNhiemVuHangNgay.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbNhiemVuHangNgayConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbNhiemVuHangNgayReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbPhucLoiTruongThanhConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbPhucLoiTruongThanhLevel.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbPhucLoiTruongThanhLevelReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbpieceExportReceive.cs">
-      <DependentUpon>database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbPieceNeedToImport.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbPlayerDefaultConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbPlayerLevelExp.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbPowerUpItem.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbPowerUpItemsAttribute.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbPowerUpItemsReceipt.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbPowRateByPromotion.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbPucLoiThangConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbPucLoiThangReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbRuongBauConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbRuongBauReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbShareFacebook.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbStarReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbStarRewardReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbTaoNickReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbThanThap.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbThanThapAttribute.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbThanThapDetailMonster.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbThanThapFloorReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbThanThapMoneyReset.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbThanThapMonster.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbThanThapPlusAttributeRequire.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbThanThapStarReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbTimeAttackBoss.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbTip.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbTutorialConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbUser.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbVanTieu.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbVanTieuProtectReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbVanTieuRobReward.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="dbVipConfig.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="FormBase\frmFormChange.cs">
       <SubType>Form</SubType>
@@ -860,7 +830,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>database.tt</DependentUpon>
+      <DependentUpon>data.tt</DependentUpon>
     </Compile>
     <Compile Include="UserController\ucBattleConfig.cs">
       <SubType>UserControl</SubType>
@@ -1101,22 +1071,22 @@
     <EmbeddedResource Include="UserController\ucVipConfig.resx">
       <DependentUpon>ucVipConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="database.edmx">
+    <EntityDeploy Include="data.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>database.Designer.cs</LastGenOutput>
+      <LastGenOutput>data.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="database.Context.tt">
+    <None Include="data.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>database.edmx</DependentUpon>
-      <LastGenOutput>database.Context.cs</LastGenOutput>
+      <DependentUpon>data.edmx</DependentUpon>
+      <LastGenOutput>data.Context.cs</LastGenOutput>
     </None>
-    <None Include="database.edmx.diagram">
-      <DependentUpon>database.edmx</DependentUpon>
+    <None Include="data.edmx.diagram">
+      <DependentUpon>data.edmx</DependentUpon>
     </None>
-    <None Include="database.tt">
+    <None Include="data.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>database.edmx</DependentUpon>
-      <LastGenOutput>database.cs</LastGenOutput>
+      <DependentUpon>data.edmx</DependentUpon>
+      <LastGenOutput>data.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Character.datasource" />
