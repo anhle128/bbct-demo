@@ -10,7 +10,6 @@ namespace GameServer.Server
         public string loginId { get; set; }
         public MUserInfo info { get; set; }
         public MUserStage stageAttacked { get; set; }
-        public int allBonusThanThapAttributes { get; set; }
         public MUserThanThap thanThapAttacked { get; set; }
         public MUserGlobalBoss userGlobalBoss { get; set; }
         public string guildName { get; set; }
