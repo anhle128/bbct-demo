@@ -7,7 +7,7 @@ namespace GameServer.Common.SerializeData.EventData
     public class ChatServerEventData : ISerializeData
     {
         public string message { get; set; }
-        public string username { get; set; }
+        public string userid { get; set; }
         public string nickname { get; set; }
         public int avatar { get; set; }
         public int vip { get; set; }
@@ -17,7 +17,7 @@ namespace GameServer.Common.SerializeData.EventData
             Dictionary<byte, object> dict = new Dictionary<byte, object>(3)
             {
                 {1, message},
-                {2, username},
+                {2, userid},
                 {3, nickname},
                 {4, avatar},
                 {5, vip}
@@ -28,7 +28,7 @@ namespace GameServer.Common.SerializeData.EventData
         public void Deserialize(Dictionary<byte, object> data)
         {
             message = data[1].ToString();
-            username = data[2].ToString();
+            userid = data[2].ToString();
             nickname = data[3].ToString();
             avatar = Convert.ToInt32(data[4].ToString());
             vip = Convert.ToInt32(data[5].ToString());

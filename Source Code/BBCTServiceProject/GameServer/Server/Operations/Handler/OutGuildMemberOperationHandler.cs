@@ -37,7 +37,7 @@ namespace GameServer.Server.Operations.Handler
             MUserMail mail = new MUserMail()
             {
                 title = "Rời bang",
-                content = player.cacheData.nickname + " đã rời khỏi bang " + guild.name + " đi phiêu bạt giang hồ",
+                content = player.cacheData.info.nickname + " đã rời khỏi bang " + guild.name + " đi phiêu bạt giang hồ",
                 readed = false,
                 user_id = guild.user_id,
                 type = MongoDBModel.Enum.UserMailType.Normal,

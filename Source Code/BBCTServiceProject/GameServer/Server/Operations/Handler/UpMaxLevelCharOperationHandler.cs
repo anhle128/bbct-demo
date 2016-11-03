@@ -3,9 +3,9 @@ using GameServer.Common;
 using GameServer.Common.Enum;
 using GameServer.Common.SerializeData.RequestData;
 using GameServer.Common.SerializeData.ResponseData;
-using GameServer.Server.Operations.Core;
 using GameServer.Database;
 using GameServer.Database.Controller;
+using GameServer.Server.Operations.Core;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
 using StaticDB.Enum;
@@ -36,11 +36,11 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxLevel);
 
             // Lấy level max của character
-            int levelMax = CommonFunc.GetMaxLevelCharacter(player.cacheData.level);
+            int levelMax = CommonFunc.GetMaxLevelCharacter(player.cacheData.info.level);
 
             int expNeedUpLevel = StaticDatabase.entities.configs.characterLevelExps.Single(a => a.level == levelMax).exp;
             // Kiểm tra max level
-            if (character.level >= levelMax && character.exp >= expNeedUpLevel -1)
+            if (character.level >= levelMax && character.exp >= expNeedUpLevel - 1)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxLevel);
 
             // Lấy toàn bộ item tăng exp của user

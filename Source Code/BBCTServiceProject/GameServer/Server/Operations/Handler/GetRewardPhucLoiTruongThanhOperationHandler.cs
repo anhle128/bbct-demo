@@ -38,7 +38,7 @@ namespace GameServer.Server.Operations.Handler
             LevelReward levelReward =
                 StaticDatabase.entities.configs.phucLoiTruongThanhConfig.rewards[requestData.index];
 
-            if (player.cacheData.level < levelReward.level)
+            if (player.cacheData.info.level < levelReward.level)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
 
             if (log.index_received == null)
@@ -65,11 +65,11 @@ namespace GameServer.Server.Operations.Handler
             RewardResponseData responseData = new RewardResponseData()
             {
                 rewards = rewards,
-                user_gold = player.cacheData.gold,
-                user_silver = player.cacheData.silver,
-                user_ruby = player.cacheData.ruby,
-                user_level = player.cacheData.level,
-                user_exp = player.cacheData.exp
+                user_gold = player.cacheData.info.gold,
+                user_silver = player.cacheData.info.silver,
+                user_ruby = player.cacheData.info.ruby,
+                user_level = player.cacheData.info.level,
+                user_exp = player.cacheData.info.exp
             };
 
 

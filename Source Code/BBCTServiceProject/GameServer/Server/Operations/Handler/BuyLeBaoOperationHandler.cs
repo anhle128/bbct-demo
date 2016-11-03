@@ -27,7 +27,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 
             // kiểm tra vip
-            if (player.cacheData.vip < leBao.vip_required)
+            if (player.cacheData.info.vip < leBao.vip_required)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
 
 
@@ -36,11 +36,11 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
 
             // kiểm tra quay_tuong_normal
-            if (player.cacheData.gold < leBao.gold)
+            if (player.cacheData.info.gold < leBao.gold)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
             // kiểm tra số lần mua lễ bao
-            int totalTimesCanBuy = CommonFunc.GetTimesCanBuyLeBao(leBao, player.cacheData.vip);
+            int totalTimesCanBuy = CommonFunc.GetTimesCanBuyLeBao(leBao, player.cacheData.info.vip);
             int totalTimesBought =
                 MongoController.LogSubDB.BuyLeBao.Count(player.cacheData.info._id, (requestData.id));
 
@@ -48,7 +48,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxTimesCanBuy);
 
             // process
-            player.cacheData.gold -= leBao.gold;
+            player.cacheData.info.gold -= leBao.gold;
             MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.BuyLeBao, leBao.gold);
 
             MBuyLeBaoLog log = new MBuyLeBaoLog()
@@ -67,7 +67,7 @@ namespace GameServer.Server.Operations.Handler
             BuyItemInShopResponseData responseData = new BuyItemInShopResponseData()
             {
                 rewards = listReward,
-                user_gold = player.cacheData.gold
+                user_gold = player.cacheData.info.gold
             };
             return new OperationResponse()
             {

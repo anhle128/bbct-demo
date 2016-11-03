@@ -28,7 +28,7 @@ namespace GameServer.Server.Operations.Handler
 
             GlobalBossConfig globalBossConfig = StaticDatabase.entities.configs.globalBossConfig;
 
-            if (player.cacheData.level < globalBossConfig.levelRequire)
+            if (player.cacheData.info.level < globalBossConfig.levelRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             if (player.cacheData.userGlobalBoss == null)
@@ -48,7 +48,7 @@ namespace GameServer.Server.Operations.Handler
                     .TotalSeconds < config.waitTime)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
 
-            if (requestData.typeAttackGlobalBoss == (int)TypeAttackGlobalBoss.Special && player.cacheData.vip < config.vipRequire)
+            if (requestData.typeAttackGlobalBoss == (int)TypeAttackGlobalBoss.Special && player.cacheData.info.vip < config.vipRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 
             player.cacheData.userGlobalBoss.last_time_attack = DateTime.Now;
@@ -71,8 +71,8 @@ namespace GameServer.Server.Operations.Handler
 
                 GlobalBossInfo.RefeshCurrentTopUsersAndHpBoss
                 (
-                    player.cacheData.id,
-                    player.cacheData.nickname,
+                    player.cacheData.info._id,
+                    player.cacheData.info.nickname,
                     player.cacheData.userGlobalBoss.total_damages,
                     damage
                 );
@@ -104,13 +104,13 @@ namespace GameServer.Server.Operations.Handler
             {
                 current_top_users = GlobalBossInfo.CurrentTopUsers,
                 time_boss = GlobalBossInfo.GetCoolDownTimeAttackBoss(),
-                user_silver = player.cacheData.silver,
+                user_silver = player.cacheData.info.silver,
                 rewards = listRewardResult,
                 replay = battleSim.replay
             };
 
             MongoController.UserDb.GlobalBoss.Update(player.cacheData.userGlobalBoss);
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.AttackGlobalBoss);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.AttackGlobalBoss);
 
             return new OperationResponse()
             {

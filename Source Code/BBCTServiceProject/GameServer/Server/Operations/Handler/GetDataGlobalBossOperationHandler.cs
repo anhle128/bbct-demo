@@ -31,7 +31,7 @@ namespace GameServer.Server.Operations.Handler
                     total_damages = 0,
                     hash_code_time = GlobalBossInfo.HashCodeEndTime,
                     last_time_attack = new DateTime(),
-                    nickname = player.cacheData.nickname
+                    nickname = player.cacheData.info.nickname
                 };
                 MongoController.UserDb.GlobalBoss.Create(userGlobalBoss);
             }

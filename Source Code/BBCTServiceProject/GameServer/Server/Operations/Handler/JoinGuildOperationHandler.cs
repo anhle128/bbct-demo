@@ -23,7 +23,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            if (player.cacheData.level < StaticDatabase.entities.configs.guildConfig.levelRequireCreateGuild)
+            if (player.cacheData.info.level < StaticDatabase.entities.configs.guildConfig.levelRequireCreateGuild)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
             }

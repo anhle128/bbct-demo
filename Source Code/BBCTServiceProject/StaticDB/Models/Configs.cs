@@ -147,9 +147,6 @@ namespace StaticDB.Models
 
         [ProtoMember(50)]
         public HuaNguyenConfig huaNguyenConfig { get; set; }
-
-        [ProtoMember(51)]
-        public DoiHinhDuBiConfig doiHinhDuBiConfig { get; set; }
         [ProtoMember(52)]
         public PlayerLevelNumberChar[] playerLevelNumberChars { get; set; }
         [ProtoMember(53)]

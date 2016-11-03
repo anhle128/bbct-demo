@@ -83,7 +83,6 @@ namespace StaticDBSerializer
             model.Add(typeof(TimeAttackBoss), true);
             model.Add(typeof(HuaNguyenConfig), true);
             model.Add(typeof(DoiHinhDuBiRequire), true);
-            model.Add(typeof(DoiHinhDuBiConfig), true);
             model.Add(typeof(GroupCharacter), true);
             model.Add(typeof(PlayerLevelNumberChar), true);
             model.Add(typeof(StarLevelExp), true);

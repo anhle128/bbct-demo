@@ -184,9 +184,8 @@ namespace GameServer.Database.Controller
             entities.info.stamina = userInfo.stamina;
             entities.info.vip = userInfo.vip;
             entities.info.level = userInfo.level;
-            entities.info.point_skill = userInfo.point_skill;
             entities.info.guildName = guildName;
-            entities.formation_rows = userInfo.formation;
+            entities.formations = userInfo.formations;
             entities.info.count_chuc_phuc = userInfo.count_chuc_phuc;
             entities.info.vipRewarded = userInfo.vip_rewarded;
             entities.info.isSendFacebook = userInfo.hash_code_time_send_facebook == hashCodeTime;
@@ -223,8 +222,6 @@ namespace GameServer.Database.Controller
             MBuyPointSkillLog buyPointSkill = MongoController.LogSubDB.BuyPointSkill.GetData(userInfo._id,
                 CommonFunc.GetHashCodeTime());
             entities.countTimeBuyPointSkill = buyPointSkill != null ? buyPointSkill.count_times : 0;
-
-            entities.doi_hinh_du_bi = userInfo.doi_hinh_du_bi;
 
             return entities;
         }
@@ -278,7 +275,7 @@ namespace GameServer.Database.Controller
 
         public List<UserEquip> GetListEquip(PlayerCacheData cacheData)
         {
-            cacheData.listUserEquip = _equip.GetDatas(cacheData.id);
+            cacheData.listUserEquip = _equip.GetDatas(cacheData.info._id);
             if (cacheData.listUserEquip == null)
             {
                 cacheData.listUserEquip = new List<MUserEquip>();
@@ -289,7 +286,7 @@ namespace GameServer.Database.Controller
 
         public List<UserCharacter> GetListUserChar(PlayerCacheData cacheData)
         {
-            cacheData.listUserChar = _char.GetDatas(cacheData.id);
+            cacheData.listUserChar = _char.GetDatas(cacheData.info._id);
             if (cacheData.listUserChar == null)
             {
                 cacheData.listUserChar = new List<MUserCharacter>();
@@ -300,7 +297,7 @@ namespace GameServer.Database.Controller
 
         private List<UserItem> GetListUserItem(PlayerCacheData cacheData)
         {
-            cacheData.listUserItem = _item.GetDatas(cacheData.id);
+            cacheData.listUserItem = _item.GetDatas(cacheData.info._id);
             if (cacheData.listUserItem == null)
             {
                 cacheData.listUserItem = new List<MUserItem>();
@@ -342,22 +339,22 @@ namespace GameServer.Database.Controller
             if (totalSilver == 0 && totalRuby == 0 && totalExp == 0 && totalLuanKiemPoint == 0 && totalGold == 0)
                 return;
 
-            int oldGlod = userInfo.gold;
+            int oldGlod = userInfo.info.gold;
 
-            userInfo.silver += totalSilver;
-            userInfo.ruby += totalRuby;
-            userInfo.gold += totalGold;
-            userInfo.pointLuanKiem += totalLuanKiemPoint;
+            userInfo.info.silver += totalSilver;
+            userInfo.info.ruby += totalRuby;
+            userInfo.info.gold += totalGold;
+            userInfo.info.point_luan_kiem += totalLuanKiemPoint;
 
             if (totalExp != 0)
             {
-                int oldLevel = userInfo.level;
+                int oldLevel = userInfo.info.level;
                 CommonFunc.UpLevelPlayer(userInfo, totalExp);
-                if (oldLevel != userInfo.level
-                    && userInfo.stamina < StaticDatabase.entities.configs.maxStamina) // up level
+                if (oldLevel != userInfo.info.level
+                    && userInfo.info.stamina < StaticDatabase.entities.configs.maxStamina) // up level
                 {
-                    userInfo.stamina = StaticDatabase.entities.configs.maxStamina;
-                    userInfo.last_time_update_stamina = new DateTime();
+                    userInfo.info.stamina = StaticDatabase.entities.configs.maxStamina;
+                    userInfo.info.last_time_update_stamina = new DateTime();
                 }
             }
 
@@ -402,7 +399,7 @@ namespace GameServer.Database.Controller
                     type_reward = (int)TypeReward.Gold
                 });
 
-                MongoController.LogDb.ActionGold.CreateGetGoldLog(userInfo.id, oldGlod, totalGold, userInfo.gold, reason);
+                MongoController.LogDb.ActionGold.CreateGetGoldLog(userInfo.info._id, oldGlod, totalGold, userInfo.info.gold, reason);
             }
 
             _info.UpdateUserInfoReward(userInfo);
@@ -448,10 +445,10 @@ namespace GameServer.Database.Controller
 
                     var userItem = new MUserItem
                     {
-                        user_id = userInfo.id,
+                        user_id = userInfo.info._id,
                         quantity = 1,
                         static_id = reward.static_id,
-                        ruong_bau_id = ruongBau._id.ToString(),
+                        ruong_bau_id = ruongBau._id,
                         rewards = ruongBau.rewards
                     };
 
@@ -465,7 +462,7 @@ namespace GameServer.Database.Controller
                     {
                         userItem = new MUserItem
                         {
-                            user_id = userInfo.id,
+                            user_id = userInfo.info._id,
                             quantity = 0,
                             static_id = reward.static_id
                         };
@@ -550,7 +547,7 @@ namespace GameServer.Database.Controller
                 {
                     var userChar = new MUserCharacter()
                     {
-                        user_id = userInfo.id,
+                        user_id = userInfo.info._id,
                         static_id = reward.static_id
                     };
                     listCreate.Add(userChar);
@@ -574,7 +571,7 @@ namespace GameServer.Database.Controller
                 for (int i = 0; i < reward.quantity; i++)
                 {
                     var userEquip = RandomEquipsElementAndBonusAttribute(reward.static_id);
-                    userEquip.user_id = userInfo.id;
+                    userEquip.user_id = userInfo.info._id;
                     listCreate.Add(userEquip);
                 }
             }
@@ -655,11 +652,11 @@ namespace GameServer.Database.Controller
             switch ((TypeNhiemVuChinhTuyen)nhiemVuConfig.type)
             {
                 case TypeNhiemVuChinhTuyen.AttachStage:
-                    return CheckDoneAttackStage(playerCacheData.id, nhiemVu);
+                    return CheckDoneAttackStage(playerCacheData.info._id, nhiemVu);
                 case TypeNhiemVuChinhTuyen.GetEquip:
                     return CheckDoneGetEquip(playerCacheData, nhiemVu, nhiemVuConfig.numberRequire);
                 case TypeNhiemVuChinhTuyen.UpLevelPlayer:
-                    return CheckDoneUpLevelPlayer(playerCacheData.level, nhiemVu);
+                    return CheckDoneUpLevelPlayer(playerCacheData.info.level, nhiemVu);
                 case TypeNhiemVuChinhTuyen.UpLevelEquip:
                     return CheckDoneUpLevelEquip(playerCacheData, nhiemVu, nhiemVuConfig.numberRequire);
                 case TypeNhiemVuChinhTuyen.UpLevelSkill:
@@ -732,7 +729,7 @@ namespace GameServer.Database.Controller
         public SubDataPlayer GetSubDataPlayer(MUserInfo userInfo)
         {
             SubDataPlayer subData = new SubDataPlayer();
-            subData.formation_rows = userInfo.formation;
+            subData.formation_rows = userInfo.formations[userInfo.last_formation_used].main;
 
             List<MUserCharacter> listAllChar =
                 MongoController.UserDb.Char.GetDatas(userInfo._id);

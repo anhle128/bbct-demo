@@ -25,9 +25,9 @@ namespace GameServer.Server.Operations.Handler
             //CommonLog.Instance.PrintLog(Player.cacheData.nickname + " - enter world");
 
             // process
-            Vector2D position = new Vector2D(player.cacheData.x, player.cacheData.y);
+            Vector2D position = new Vector2D(player.cacheData.info.posX, player.cacheData.info.posY);
 
-            Item item = new Item(player.cacheData.username, position, world, player.peer);
+            Item item = new Item(player.cacheData.info._id, position, world, player.peer);
 
             player.EnterWorld(item);
             item.Spawn();

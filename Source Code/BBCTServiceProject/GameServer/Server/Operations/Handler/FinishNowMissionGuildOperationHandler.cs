@@ -47,11 +47,11 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
             }
 
-            if (player.cacheData.gold < StaticDatabase.entities.configs.guildConfig.goldToFinishNowMission)
+            if (player.cacheData.info.gold < StaticDatabase.entities.configs.guildConfig.goldToFinishNowMission)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
             }
-            player.cacheData.gold -= StaticDatabase.entities.configs.guildConfig.goldToFinishNowMission;
+            player.cacheData.info.gold -= StaticDatabase.entities.configs.guildConfig.goldToFinishNowMission;
 
             MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.QuickFinishMissionGuild, StaticDatabase.entities.configs.guildConfig.goldToFinishNowMission);
 

@@ -19,7 +19,7 @@ namespace GameServer.Server.Operations.Handler
             OperationController controller)
         {
 
-            if (player.cacheData.level < StaticDatabase.entities.configs.vanTieuConfig.levelRequire)
+            if (player.cacheData.info.level < StaticDatabase.entities.configs.vanTieuConfig.levelRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             int countVanTieuDone =
@@ -38,9 +38,9 @@ namespace GameServer.Server.Operations.Handler
                 {
                     user_id = player.cacheData.info._id,
                     hash_code_time = CommonFunc.GetHashCodeTime(),
-                    level = player.cacheData.level,
-                    nickname = player.cacheData.nickname,
-                    vip = player.cacheData.vip,
+                    level = player.cacheData.info.level,
+                    nickname = player.cacheData.info.nickname,
+                    vip = player.cacheData.info.vip,
                     end = false,
                     start = false
                 };

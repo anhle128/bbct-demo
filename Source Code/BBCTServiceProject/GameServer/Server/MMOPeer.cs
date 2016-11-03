@@ -115,11 +115,11 @@ namespace GameServer.Server
                 {
                     ChatServerEventData data = new ChatServerEventData()
                     {
-                        username = peer.Player.cacheData.username,
-                        nickname = peer.Player.cacheData.nickname,
-                        avatar = peer.Player.cacheData.avatar,
+                        userid = peer.Player.cacheData.info._id,
+                        nickname = peer.Player.cacheData.info.nickname,
+                        avatar = peer.Player.cacheData.info.avatar,
                         message = param[1].ToString(),
-                        vip = peer.Player.cacheData.vip
+                        vip = peer.Player.cacheData.info.vip
                     };
                     SendEvent((byte)EventCode.ChatServer, data.Serialize());
                 }
@@ -137,11 +137,11 @@ namespace GameServer.Server
                     {
                         ChatServerEventData data = new ChatServerEventData()
                         {
-                            username = peer.Player.cacheData.username,
-                            nickname = peer.Player.cacheData.nickname,
-                            avatar = peer.Player.cacheData.avatar,
+                            userid = peer.Player.cacheData.info._id,
+                            nickname = peer.Player.cacheData.info.nickname,
+                            avatar = peer.Player.cacheData.info.avatar,
                             message = param[1].ToString(),
-                            vip = peer.Player.cacheData.vip
+                            vip = peer.Player.cacheData.info.vip
                         };
                         SendEvent((byte)EventCode.ChatGuild, data.Serialize());
                     }

@@ -17,7 +17,7 @@ namespace GameServer.Server.Operations.Handler
             OperationController controller)
         {
             ExchangeGoldToSilverConfig config = StaticDatabase.entities.configs.exchangeGoldToSilverConfig;
-            if (config.levelRequire > player.cacheData.level)
+            if (config.levelRequire > player.cacheData.info.level)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             MExchangeGoldToSilverLog log =

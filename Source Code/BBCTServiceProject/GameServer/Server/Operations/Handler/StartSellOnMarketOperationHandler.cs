@@ -29,7 +29,7 @@ namespace GameServer.Server.Operations.Handler
             requestData.keywordSearch = requestData.keywordSearch.ToLower();
             requestData.keywordSearch = ConvertToUnsign3(requestData.keywordSearch);
 
-            if (player.cacheData.ruby < StaticDatabase.entities.configs.priceStartBuyMarket)
+            if (player.cacheData.info.ruby < StaticDatabase.entities.configs.priceStartBuyMarket)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughRuby);
             }
@@ -37,7 +37,7 @@ namespace GameServer.Server.Operations.Handler
             int countItemSelling = MongoController.MarketDb.ItemSelling.Count(player.cacheData.info._id);
 
 
-            if (countItemSelling >= StaticDatabase.entities.configs.GetVipConfig(player.cacheData.vip).maxSellMarket)
+            if (countItemSelling >= StaticDatabase.entities.configs.GetVipConfig(player.cacheData.info.vip).maxSellMarket)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxAmountItemCanSell);
             }
@@ -71,7 +71,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.CannotLessBasePrice);
             }
 
-            player.cacheData.ruby -= StaticDatabase.entities.configs.priceStartBuyMarket;
+            player.cacheData.info.ruby -= StaticDatabase.entities.configs.priceStartBuyMarket;
             MongoController.UserDb.Info.UpdateRuby(player.cacheData);
 
             player.cacheData.RemoveOwnEquipment(equipment);

@@ -25,12 +25,12 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            if (player.cacheData.level < StaticDatabase.entities.configs.guildConfig.levelRequireCreateGuild)
+            if (player.cacheData.info.level < StaticDatabase.entities.configs.guildConfig.levelRequireCreateGuild)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
             }
 
-            if (player.cacheData.gold < StaticDatabase.entities.configs.guildConfig.priceCreateGuild)
+            if (player.cacheData.info.gold < StaticDatabase.entities.configs.guildConfig.priceCreateGuild)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
             }
@@ -63,7 +63,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NameGuildExist);
             }
 
-            player.cacheData.gold -= StaticDatabase.entities.configs.guildConfig.priceCreateGuild;
+            player.cacheData.info.gold -= StaticDatabase.entities.configs.guildConfig.priceCreateGuild;
             MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.CreateGuild, StaticDatabase.entities.configs.guildConfig.priceCreateGuild);
 
             MGuild newGuild = CreateNewGuild(requestData.nameGuild, player.cacheData.info._id);

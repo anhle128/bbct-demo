@@ -94,9 +94,9 @@ namespace GameServer.Server.Operations.Handler
                 {
                     NapTheHandler.CheckTrans(player, operationRequest, listNewTrans, x2Config);
 
-                    userInfo.vip = player.cacheData.vip;
-                    userInfo.total_ruby_trans = player.cacheData.total_ruby_trans;
-                    userInfo.ruby = player.cacheData.ruby;
+                    userInfo.vip = player.cacheData.info.vip;
+                    userInfo.total_ruby_trans = player.cacheData.info.total_ruby_trans;
+                    userInfo.ruby = player.cacheData.info.ruby;
                 }
 
                 Entity entities = MongoController.GetEntity(player.cacheData, userInfo);

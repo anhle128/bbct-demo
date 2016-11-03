@@ -67,8 +67,8 @@ namespace GameServer.MMO.Concepts
 
         private void UpdatePosition(Vector2D newPosition)
         {
-            owner.Player.cacheData.x = newPosition.x;
-            owner.Player.cacheData.y = newPosition.y;
+            owner.Player.cacheData.info.posX = newPosition.x;
+            owner.Player.cacheData.info.posY = newPosition.y;
             UpdateRegion(newPosition);
             interestArea.Update();
         }
@@ -144,12 +144,12 @@ namespace GameServer.MMO.Concepts
                         sData.itemType = 1;
                         sData.posX = sMsg.position.x;
                         sData.posY = sMsg.position.y;
-                        sData.avatar = msg.source.owner.Player.cacheData.avatar;
-                        sData.level = msg.source.owner.Player.cacheData.level;
-                        sData.nickname = msg.source.owner.Player.cacheData.nickname;
-                        sData.vip = msg.source.owner.Player.cacheData.vip;
+                        sData.avatar = msg.source.owner.Player.cacheData.info.avatar;
+                        sData.level = msg.source.owner.Player.cacheData.info.level;
+                        sData.nickname = msg.source.owner.Player.cacheData.info.nickname;
+                        sData.vip = msg.source.owner.Player.cacheData.info.vip;
                         sData.title = msg.source.owner.Player.cacheData.title;
-                        sData.star = msg.source.owner.Player.cacheData.avatar_star;
+                        sData.star = msg.source.owner.Player.cacheData.info.avatar_star;
                         owner.SendEvent((byte)EventCode.ItemSubscribed, sData.Serialize());
 
                         if (!interestArea.interestItems.ContainsKey(msg.source.id))

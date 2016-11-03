@@ -42,7 +42,6 @@ namespace GameServer.Server.Operations.Core
             {(byte) OperationCode.GetDataChieuMo, new GetDataChieuMoOperationHandler()},
             {(byte) OperationCode.UsedExpItem, new UsedExpItemOperationHandler()},
             {(byte) OperationCode.GetStamina, new GetStaminaOperationHandler()},
-            {(byte) OperationCode.GetPointSkill, new GetPointSkillOperationHandler()},
             {(byte) OperationCode.ViewDetailPlayer, new ViewDetailPlayerOperationHandler()},
             {(byte) OperationCode.UseGiftCode, new UseGiftCodeOperationHandler()},
             {(byte) OperationCode.UsedStaminaItem, new UsedStaminaItemOperationHandler()},
@@ -69,7 +68,6 @@ namespace GameServer.Server.Operations.Core
             {(byte) OperationCode.GetDataExchangGoldToSilver, new GetDataExchangeGoldToSilverOperationHandler()},
             {(byte) OperationCode.CheckTrans, new CheckTransactionOperationHandler()},
             {(byte) OperationCode.HuaNguyen, new HuaNguyenOperationHandler()},
-            {(byte) OperationCode.OpendSlotDoiHinhDuBi, new OpendSlotDoiHinhDuBiOperationHandler()},
             {(byte) OperationCode.RemoveFriend, new RemoveFriendRewardOperationHandler()},
 
             // van tieu

@@ -33,7 +33,7 @@ namespace GameServer.Server.Operations.Handler
 
 
             int countTimesAttack = MongoController.LogSubDB.LuanKiem.CountAttackTimes(player.cacheData.info._id);
-            VipConfig vip = StaticDatabase.entities.configs.vipConfigs[player.cacheData.vip];
+            VipConfig vip = StaticDatabase.entities.configs.vipConfigs[player.cacheData.info.vip];
             if (countTimesAttack >= vip.arenaTimes)
             {
                 Item luanKiemLenh = StaticDatabase.entities.items.Single(a => a.type == (int)TypeItem.LuanKiemLenh);
@@ -53,26 +53,26 @@ namespace GameServer.Server.Operations.Handler
 
             // process
             MUserInfo userOpponent = MongoController.UserDb.Info.GetData((requestData.userid));
-            player.cacheData.lastTimeAttackLuanKiem = DateTime.Now;
+            player.cacheData.info.last_time_attack_luan_kiem = DateTime.Now;
             MongoController.UserDb.Info.UpdateLastTimeAttackLuanKiem(player.cacheData);
 
-            if (player.cacheData.rankLuanKiem <= userOpponent.rank_luan_kiem)
+            if (player.cacheData.info.rank_luan_kiem <= userOpponent.rank_luan_kiem)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 
             MLuanKiemLog log = new MLuanKiemLog()
             {
                 user = new UserLuanKiem()
                 {
-                    userid = player.cacheData.info._id.ToString(),
-                    nickname = player.cacheData.nickname,
-                    old_rank = player.cacheData.rankLuanKiem,
-                    new_rank = player.cacheData.rankLuanKiem
+                    userid = player.cacheData.info._id,
+                    nickname = player.cacheData.info.nickname,
+                    old_rank = player.cacheData.info.rank_luan_kiem,
+                    new_rank = player.cacheData.info.rank_luan_kiem
                 },
                 hash_code_time = CommonFunc.GetHashCodeTime(),
                 outcome = OutcomeResult.Lose,
                 user_opponent = new UserLuanKiem()
                 {
-                    userid = userOpponent._id.ToString(),
+                    userid = userOpponent._id,
                     nickname = userOpponent.nickname,
                     new_rank = userOpponent.rank_luan_kiem,
                     old_rank = userOpponent.rank_luan_kiem
@@ -98,7 +98,7 @@ namespace GameServer.Server.Operations.Handler
                 lock (lockObject)
                 {
                     MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.info._id);
-                    if (userInfo.rank_luan_kiem != player.cacheData.rankLuanKiem)
+                    if (userInfo.rank_luan_kiem != player.cacheData.info.rank_luan_kiem)
                         return CommonFunc.SimpleResponse(operationRequest, ReturnCode.RankChanged);
 
                     userOpponent = MongoController.UserDb.Info.GetData((log.user_opponent.userid));
@@ -106,7 +106,7 @@ namespace GameServer.Server.Operations.Handler
                         return CommonFunc.SimpleResponse(operationRequest, ReturnCode.RankChanged);
 
                     log.outcome = OutcomeResult.Win;
-                    player.cacheData.rankLuanKiem = log.user_opponent.old_rank;
+                    player.cacheData.info.rank_luan_kiem = log.user_opponent.old_rank;
                     log.user.new_rank = log.user_opponent.old_rank;
                     log.user_opponent.new_rank = log.user.old_rank;
 
@@ -114,7 +114,7 @@ namespace GameServer.Server.Operations.Handler
                     userOpponent.rank_luan_kiem = log.user_opponent.new_rank;
 
                     if (!userOpponent.isBot)
-                        MongoController.UserDb.Mail.SendMailAttackedLuanKiem(player.cacheData.nickname, userOpponent._id, userOpponent.rank_luan_kiem);
+                        MongoController.UserDb.Mail.SendMailAttackedLuanKiem(player.cacheData.info.nickname, userOpponent._id, userOpponent.rank_luan_kiem);
 
                     MongoController.UserDb.Info.UpdateRank(userInfo);
                     MongoController.UserDb.Info.UpdateRank(userOpponent);
@@ -123,7 +123,7 @@ namespace GameServer.Server.Operations.Handler
 
                     if (opponentPlayer != null)
                     {
-                        opponentPlayer.cacheData.rankLuanKiem = log.user_opponent.new_rank;
+                        opponentPlayer.cacheData.info.rank_luan_kiem = log.user_opponent.new_rank;
                     }
 
                     MongoController.LogSubDB.LuanKiem.Create(log);

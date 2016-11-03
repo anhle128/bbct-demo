@@ -28,7 +28,7 @@ namespace GameServer.Server.Operations.Handler
             requestData.Deserialize(operationRequest.Parameters);
 
             ThanThapConfig thanThapConfig = StaticDatabase.entities.configs.thanThapConfig;
-            if (player.cacheData.level < thanThapConfig.levelRequire)
+            if (player.cacheData.info.level < thanThapConfig.levelRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             MUserThanThap userThanThap = player.cacheData.thanThapAttacked;

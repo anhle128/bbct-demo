@@ -29,7 +29,7 @@ namespace GameServer.Server.Operations.Handler
 
             // kiểm tra quay_tuong_normal yêu cầu
             int goldRequire = shopItem.gold * requestData.quantity;
-            if (player.cacheData.gold < goldRequire)
+            if (player.cacheData.info.gold < goldRequire)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughGold);
 
             // kiểm tra tổng số lượt đã mua trong ngày
@@ -44,7 +44,7 @@ namespace GameServer.Server.Operations.Handler
                     summer =>
                         summer.quantity
                 ).ToString());
-            int maxNumberCanBuyInDay = shopItem.vip_buy_times[player.cacheData.vip];
+            int maxNumberCanBuyInDay = shopItem.vip_buy_times[player.cacheData.info.vip];
             if ((countTotalNumberBought + requestData.quantity) > maxNumberCanBuyInDay)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxTimesCanBuy);
 
@@ -54,7 +54,7 @@ namespace GameServer.Server.Operations.Handler
                 };
 
             // process
-            player.cacheData.gold -= goldRequire;
+            player.cacheData.info.gold -= goldRequire;
             MongoController.UserDb.Info.UpdateGold(player.cacheData, ReasonActionGold.BuyShopItem, goldRequire);
 
             MBuyShopItemLog log = new MBuyShopItemLog()
@@ -82,7 +82,7 @@ namespace GameServer.Server.Operations.Handler
             BuyItemInShopResponseData responseData = new BuyItemInShopResponseData()
             {
                 rewards = listRewardItems,
-                user_gold = player.cacheData.gold
+                user_gold = player.cacheData.info.gold
             };
 
             return new OperationResponse()
