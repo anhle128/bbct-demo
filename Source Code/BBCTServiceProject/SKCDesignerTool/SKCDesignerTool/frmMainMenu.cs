@@ -104,8 +104,8 @@ namespace BBCTDesignerTool
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ucQuanLyNhanVat nv = new ucQuanLyNhanVat();
-            Common.CommonFunc.AddTab(tabControl, nv, "Quản lý môn phái", "Quản lý môn phái");
+            //ucQuanLyNhanVat nv = new ucQuanLyNhanVat();
+            //Common.CommonFunc.AddTab(tabControl, nv, "Quản lý môn phái", "Quản lý môn phái");
         }
 
         private void btnXuatfile_ItemClick(object sender, ItemClickEventArgs e)
@@ -141,19 +141,10 @@ namespace BBCTDesignerTool
                 Serialize(entities, "static.bytes");
                 export.CreateFileLanguage();
 
-                //Dictionary<string, object> postParameters = new Dictionary<string, object>();
-
-                //byte[] bytesStatic = System.IO.File.ReadAllBytes("static.bytes");
-                //byte[] bytesLanguage = System.IO.File.ReadAllBytes("language.json");
-                //postParameters.Add("staticDB", new FormUpload.FileParameter(bytesStatic, "static.bytes", "application/x-www-form-urlencoded"));
-                //postParameters.Add("language", new FormUpload.FileParameter(bytesLanguage, "language.json", "application/x-www-form-urlencoded"));
-                //postParameters.Add("version", entities.version);
-
                 try
                 {
                     foreach (var item in lsLink.Where(x => x.choose == true))
                     {
-                        //HttpWebResponse webResponse = FormUpload.MultipartFormDataPost(item.link, "tool-design", postParameters);
                         client.Credentials = new NetworkCredential(SettingApp.accountFPTUploadFile, SettingApp.passwordFPTUploadFile);
                         client.UploadFile(item.link + SettingApp.gameVersion + "/StaticDB/static.bytes", "static.bytes");
                         client.UploadFile(item.link + SettingApp.gameVersion + "/Language/language.json", "language.json");
@@ -191,8 +182,8 @@ namespace BBCTDesignerTool
 
         private void btnQuanlyEquipment_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ucQuanLyEquipment nv = new ucQuanLyEquipment();
-            Common.CommonFunc.AddTab(tabControl, nv, "Quản lý Equipment", "Quản lý Equipment");
+            //ucQuanLyEquipment nv = new ucQuanLyEquipment();
+            //Common.CommonFunc.AddTab(tabControl, nv, "Quản lý Equipment", "Quản lý Equipment");
         }
 
         private void btnQuanLyBook_ItemClick(object sender, ItemClickEventArgs e)
@@ -229,8 +220,8 @@ namespace BBCTDesignerTool
 
         private void btnEquipmentConfig_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmEquipmentConfig nv = new frmEquipmentConfig();
-            nv.ShowDialog();
+            //frmEquipmentConfig nv = new frmEquipmentConfig();
+            //nv.ShowDialog();
         }
 
         private void btnQuanLyMapConfig_ItemClick(object sender, ItemClickEventArgs e)

@@ -76,6 +76,7 @@
     <Compile Include="Enum\TypeItem.cs" />
     <Compile Include="Enum\TypeNhiemVuChinhTuyen.cs" />
     <Compile Include="Enum\TypeNhiemVuHangNgay.cs" />
+    <Compile Include="Enum\TypePassiveSpawnSkill.cs" />
     <Compile Include="Enum\TypeReward.cs" />
     <Compile Include="Enum\TypeSkill.cs" />
     <Compile Include="Enum\TypeSpawnSkill.cs" />

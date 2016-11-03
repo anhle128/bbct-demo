@@ -20,7 +20,7 @@ namespace BBCTDesignerTool.Database.Core
 
         void DeleteAllAsync(MMongoConnection database, Expression<Func<T, bool>> filter);
 
-        void UpdateFieldsAsync(MMongoConnection database, ObjectId id, Dictionary<string, object> dictData);
+        void UpdateFieldsAsync(MMongoConnection database, string id, Dictionary<string, object> dictData);
         void Update(MMongoConnection database, T objectUpdate);
         void FindOneAndUpdateAsync(MMongoConnection database, Dictionary<string, object> dictFilter, Dictionary<string, object> dictData);
         void UpdateAllAsync(MMongoConnection database, Dictionary<string, object> dictFilter, Dictionary<string, object> dictData);

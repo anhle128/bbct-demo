@@ -108,13 +108,16 @@
     <Reference Include="LitJson">
       <HintPath>..\..\..\..\Libraries\LitJson.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Bson">
+    <Reference Include="MongoDB.Bson, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\MongoDB.Bson.2.3.0\lib\net45\MongoDB.Bson.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Driver">
+    <Reference Include="MongoDB.Driver, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\MongoDB.Driver.2.3.0\lib\net45\MongoDB.Driver.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Driver.Core">
+    <Reference Include="MongoDB.Driver.Core, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\MongoDB.Driver.Core.2.3.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net">
@@ -663,12 +666,6 @@
     <Compile Include="Form\frmCuuChiTon.Designer.cs">
       <DependentUpon>frmCuuChiTon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\frmDetailCharater.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form\frmDetailCharater.Designer.cs">
-      <DependentUpon>frmDetailCharater.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form\frmDiemDanh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -862,12 +859,6 @@
     <Compile Include="UserController\ucCuopTieu.Designer.cs">
       <DependentUpon>ucCuopTieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\frmEquipmentConfig.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form\frmEquipmentConfig.Designer.cs">
-      <DependentUpon>frmEquipmentConfig.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserController\ucGlobalBoss.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -886,23 +877,11 @@
     <Compile Include="UserController\ucPowerupItem.Designer.cs">
       <DependentUpon>ucPowerupItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserController\ucQuanLyEquipment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserController\ucQuanLyEquipment.Designer.cs">
-      <DependentUpon>ucQuanLyEquipment.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserController\ucQuanLyItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserController\ucQuanLyItem.Designer.cs">
       <DependentUpon>ucQuanLyItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserController\ucQuanLyNhanVat.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserController\ucQuanLyNhanVat.Designer.cs">
-      <DependentUpon>ucQuanLyNhanVat.cs</DependentUpon>
     </Compile>
     <Compile Include="UserController\ucVanTieu.cs">
       <SubType>UserControl</SubType>
@@ -939,9 +918,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmCuuChiTon.resx">
       <DependentUpon>frmCuuChiTon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\frmDetailCharater.resx">
-      <DependentUpon>frmDetailCharater.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmDiemDanh.resx">
       <DependentUpon>frmDiemDanh.cs</DependentUpon>
@@ -1044,9 +1020,6 @@
     <EmbeddedResource Include="UserController\ucCuopTieu.resx">
       <DependentUpon>ucCuopTieu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\frmEquipmentConfig.resx">
-      <DependentUpon>frmEquipmentConfig.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserController\ucGlobalBoss.resx">
       <DependentUpon>ucGlobalBoss.cs</DependentUpon>
     </EmbeddedResource>
@@ -1056,14 +1029,8 @@
     <EmbeddedResource Include="UserController\ucPowerupItem.resx">
       <DependentUpon>ucPowerupItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserController\ucQuanLyEquipment.resx">
-      <DependentUpon>ucQuanLyEquipment.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserController\ucQuanLyItem.resx">
       <DependentUpon>ucQuanLyItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserController\ucQuanLyNhanVat.resx">
-      <DependentUpon>ucQuanLyNhanVat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserController\ucVanTieu.resx">
       <DependentUpon>ucVanTieu.cs</DependentUpon>

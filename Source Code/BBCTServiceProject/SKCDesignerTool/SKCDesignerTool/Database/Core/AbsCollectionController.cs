@@ -55,7 +55,7 @@ namespace BBCTDesignerTool.Database.Core
         {
             GetHandler(database).DeleteAllAsync(NameCollection, filter);
         }
-        public virtual void UpdateFieldsAsync(MMongoConnection database, MongoDB.Bson.ObjectId id, Dictionary<string, object> dictData)
+        public virtual void UpdateFieldsAsync(MMongoConnection database, string id, Dictionary<string, object> dictData)
         {
             Dictionary<string, object> dictFilter = new Dictionary<string, object>(1)
             {

@@ -8,15 +8,15 @@ namespace BBCTDesignerTool.Models
 {
     public static class ConnectDB
     {
-        private static BBCTdesignertoolv1Entities entities;
+        private static bbctdesignertoolv1Entities entities;
 
-        public static BBCTdesignertoolv1Entities Entities
+        public static bbctdesignertoolv1Entities Entities
         {
             get
             {
                 if (entities == null)
                 {
-                    entities = new BBCTdesignertoolv1Entities();
+                    entities = new bbctdesignertoolv1Entities();
                 }
                 return ConnectDB.entities;
             }
