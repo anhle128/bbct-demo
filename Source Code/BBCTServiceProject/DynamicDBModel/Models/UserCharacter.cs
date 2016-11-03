@@ -21,7 +21,7 @@ namespace DynamicDBModel.Models
         [ProtoMember(7)]
         public List<LevelSkill> active_skills { get; set; }
         [ProtoMember(8)]
-        public List<LevelSkill> passive_skills { get; set; }
+        public LevelSkill passive_skill { get; set; }
         [ProtoMember(9)]
         public List<string> equipments { get; set; }
     }

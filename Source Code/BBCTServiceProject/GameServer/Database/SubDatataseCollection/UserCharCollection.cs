@@ -44,6 +44,23 @@ namespace GameServer.Database.SubDatataseCollection
             {
                 data.equipments = new List<string>() { "-1", "-1", "-1", "-1", "-1", "-1" };
             }
+
+            data.active_skills = new List<LevelSkill>();
+
+            foreach (var skill in character.ultimateSkill)
+            {
+                data.active_skills.Add(new LevelSkill()
+                {
+                    star = StaticDatabase.entities.configs.characterConfig.defaultConfig.starSkill,
+                    level = StaticDatabase.entities.configs.characterConfig.defaultConfig.levelSkill
+                });
+            }
+
+            data.passive_skill = new LevelSkill()
+            {
+                star = StaticDatabase.entities.configs.characterConfig.defaultConfig.starSkill,
+                level = StaticDatabase.entities.configs.characterConfig.defaultConfig.levelSkill
+            };
         }
 
         private void Update_Exp_Level_LevelSkill(string id, int exp, int level, List<LevelSkill> level_skills, bool isOpendNewSkill)
@@ -104,7 +121,7 @@ namespace GameServer.Database.SubDatataseCollection
             dictData.Add("level", data.level);
             dictData.Add("exp", data.exp);
             dictData.Add("active_skills", data.active_skills);
-            dictData.Add("passive_skills", data.passive_skills);
+            dictData.Add("passive_skill", data.passive_skill);
             UpdateFields(data._id, dictData);
         }
 
@@ -122,7 +139,7 @@ namespace GameServer.Database.SubDatataseCollection
         {
             Dictionary<string, object> dictData = new Dictionary<string, object>(1);
             dictData.Add("active_skills", data.active_skills);
-            dictData.Add("passive_skills", data.passive_skills);
+            dictData.Add("passive_skill", data.passive_skill);
             UpdateFields(data._id, dictData);
         }
 

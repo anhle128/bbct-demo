@@ -11,7 +11,7 @@ namespace MongoDBModel.SubDatabaseModels
         public int powerup_level { get; set; } // cường hóa
         public int star_level { get; set; } // sao
         public List<LevelSkill> active_skills { get; set; }
-        public List<LevelSkill> passive_skills { get; set; }
+        public LevelSkill passive_skill { get; set; }
         public List<string> equipments { get; set; } // trang bi
     }
 }

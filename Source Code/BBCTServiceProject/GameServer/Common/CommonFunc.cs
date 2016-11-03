@@ -260,7 +260,7 @@ namespace GameServer.Common
                              powerup_level = a.powerup_level,
                              star_level = a.star_level,
                              active_skills = a.active_skills,
-                             passive_skills = a.passive_skills,
+                             passive_skill = a.passive_skill,
                              equipments = a.equipments,
                          };
             return result.ToList();
