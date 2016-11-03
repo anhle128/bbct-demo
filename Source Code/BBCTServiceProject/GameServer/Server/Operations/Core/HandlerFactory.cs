@@ -69,6 +69,8 @@ namespace GameServer.Server.Operations.Core
             {(byte) OperationCode.CheckTrans, new CheckTransactionOperationHandler()},
             {(byte) OperationCode.HuaNguyen, new HuaNguyenOperationHandler()},
             {(byte) OperationCode.RemoveFriend, new RemoveFriendRewardOperationHandler()},
+            {(byte) OperationCode.PowerUpCharacter, new PowerupCharOperationHandler()},
+            {(byte) OperationCode.FusionCharacter, new FusionCharOperationHandler()},
 
             // van tieu
             {(byte) OperationCode.GetDataVanTieu, new GetDataVanTieuOperationHandler()},

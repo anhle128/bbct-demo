@@ -203,7 +203,7 @@ namespace GameServer.Database.Controller
 
             UserFriend friend = new UserFriend()
             {
-                username = friendInfo.username,
+                userid = friendInfo._id,
                 avatar = friendInfo.avatar,
                 level = friendInfo.level,
                 vip = friendInfo.vip,

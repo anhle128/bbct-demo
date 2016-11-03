@@ -95,6 +95,24 @@ namespace GameServer.Server
             listUserChar.Add(userChar);
             MongoController.UserDb.Char.Create(userChar);
         }
+
+        public void DeleteUserChar(MUserCharacter userChar)
+        {
+            listUserChar.Remove(userChar);
+
+            MongoController.UserDb.Char.Delete(userChar._id);
+        }
+
+        public void DeleteAllUserChar(List<MUserCharacter> listUserCha)
+        {
+            foreach (var userCharStock in listUserCha)
+            {
+                listUserChar.Remove(userCharStock);
+            }
+
+            List<string> listIdUserCharStock = listUserCha.Select(a => a._id).ToList();
+            MongoController.UserDb.Char.DeleteAllById(listIdUserCharStock);
+        }
         #endregion
     }
 }

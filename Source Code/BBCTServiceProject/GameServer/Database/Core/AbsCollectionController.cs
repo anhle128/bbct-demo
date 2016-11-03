@@ -51,13 +51,18 @@ namespace GameServer.Database.Core
         #endregion
 
         #region Delete data
-        public virtual void Delete(string id)
+        public void Delete(string id)
         {
             DBHandler.Delete(Collection, id);
         }
-        public virtual void DeleteAll(Expression<Func<T, bool>> filter)
+        public void DeleteAll(Expression<Func<T, bool>> filter)
         {
             DBHandler.DeleteAll(Collection, filter);
+        }
+
+        public void DeleteAllById(List<string> listData)
+        {
+            DBHandler.DeleteAll(Collection, "_id", listData);
         }
         #endregion
 

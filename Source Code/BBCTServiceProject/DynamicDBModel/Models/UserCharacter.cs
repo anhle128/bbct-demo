@@ -1,5 +1,4 @@
-﻿using DynamicDBModel.Enum;
-using ProtoBuf;
+﻿using ProtoBuf;
 using System.Collections.Generic;
 
 namespace DynamicDBModel.Models
@@ -25,9 +24,5 @@ namespace DynamicDBModel.Models
         public List<LevelSkill> passive_skills { get; set; }
         [ProtoMember(9)]
         public List<string> equipments { get; set; }
-        [ProtoMember(10)]
-        public EquipPowerupItemStatus[] powerup_item { get; set; }
-
-
     }
 }

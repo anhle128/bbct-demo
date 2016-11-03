@@ -45,7 +45,7 @@ namespace GameServer.Server.Operations.Handler
                 try
                 {
                     GuildMember mem = new GuildMember();
-                    mem.username = userInfo.username;
+                    mem.userid = userInfo._id;
                     mem.nickname = userInfo.nickname;
                     mem.level = userInfo.level;
                     mem.avatar = userInfo.avatar;

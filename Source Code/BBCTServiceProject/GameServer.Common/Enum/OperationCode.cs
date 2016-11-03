@@ -188,5 +188,6 @@ namespace GameServer.Common.Enum
         HuaNguyen,
         BuyPointSkill,
         OpendSlotDoiHinhDuBi,
+        FusionCharacter
     }
 }

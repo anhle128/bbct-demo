@@ -6,7 +6,7 @@ namespace DynamicDBModel.Models
     public class UserFriend
     {
         [ProtoMember(1)]
-        public string username;
+        public string userid;
         [ProtoMember(2)]
         public string nickname;
         [ProtoMember(3)]

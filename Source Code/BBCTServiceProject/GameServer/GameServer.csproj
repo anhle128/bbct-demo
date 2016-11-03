@@ -324,6 +324,7 @@
     <Compile Include="Server\Operations\Handler\FindItemOnMarketOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\FinishMissionGuildOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\FinishNowMissionGuildOperationHandler.cs" />
+    <Compile Include="Server\Operations\Handler\FusionCharOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\GetData7NgayNhanThuongOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\GetDataBangChienOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\GetDataBossGuildOperationHandler.cs" />

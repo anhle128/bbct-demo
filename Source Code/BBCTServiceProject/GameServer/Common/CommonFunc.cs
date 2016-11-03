@@ -285,6 +285,7 @@ namespace GameServer.Common
                     : RandomNumber(reward.amountMin, reward.amountMax);
                 subRewardItem.static_id = reward.staticID;
                 subRewardItem.type_reward = reward.typeReward;
+                subRewardItem.star = reward.star;
                 listRealReward.Add(subRewardItem);
             }
             return listRealReward;
@@ -314,7 +315,8 @@ namespace GameServer.Common
                 static_id = rewardSelect.staticID,
                 quantity = rewardSelect.amountMax == rewardSelect.amountMin
                     ? rewardSelect.amountMax : RandomNumber(rewardSelect.amountMin, rewardSelect.amountMax),
-                type_reward = rewardSelect.typeReward
+                type_reward = rewardSelect.typeReward,
+                star = rewardSelect.star
             };
 
             return resultReward;

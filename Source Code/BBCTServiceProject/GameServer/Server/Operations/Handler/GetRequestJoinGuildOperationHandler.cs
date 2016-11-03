@@ -41,7 +41,7 @@ namespace GameServer.Server.Operations.Handler
                         MUserInfo userInfo = uInfos.FirstOrDefault(a => a._id.Equals(item.user_id));
                         RequestJoinGuild rq = new RequestJoinGuild()
                         {
-                            username = userInfo.username,
+                            userid = userInfo.username,
                             nickname = userInfo.nickname,
                             level = userInfo.level,
                             avatar = userInfo.avatar,

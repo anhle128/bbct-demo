@@ -13,5 +13,7 @@ namespace DynamicDBModel.Models
         public int quantity { get; set; }
         [ProtoMember(4)]
         public string ruong_bau_id { get; set; }
+        [ProtoMember(5)]
+        public int star { get; set; } // chỉ dùng cho character
     }
 }

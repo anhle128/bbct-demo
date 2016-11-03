@@ -548,7 +548,9 @@ namespace GameServer.Database.Controller
                     var userChar = new MUserCharacter()
                     {
                         user_id = userInfo.info._id,
-                        static_id = reward.static_id
+                        static_id = reward.static_id,
+                        star_level = reward.star
+
                     };
                     listCreate.Add(userChar);
                 }

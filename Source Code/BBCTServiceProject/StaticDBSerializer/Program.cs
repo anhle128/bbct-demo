@@ -90,6 +90,7 @@ namespace StaticDBSerializer
             model.Add(typeof(ElementBonusAttribute), true);
             model.Add(typeof(Equip2Equip), true);
             model.Add(typeof(Element2Element), true);
+            model.Add(typeof(FusionCharConfig), true);
 
             model.Add(typeof(DayOfWeek), true);
             model.Add(typeof(TypeNhiemVuHangNgay), true);

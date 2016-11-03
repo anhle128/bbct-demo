@@ -152,6 +152,9 @@ namespace StaticDB.Models
         [ProtoMember(53)]
         public FormationConfig formationConfig { get; set; }
 
+        [ProtoMember(54)]
+        public FusionCharConfig fusionCharConfig { get; set; }
+
         public Configs()
         {
 

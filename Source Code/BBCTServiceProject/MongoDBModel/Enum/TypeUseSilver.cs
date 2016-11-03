@@ -10,6 +10,9 @@ namespace MongoDBModel.Enum
         SkDoiDo,
         UpContributeGuild,
         StartCauCa,
-        ExchangeSilverInSkRotDo
+        ExchangeSilverInSkRotDo,
+        PowerupChar,
+        UpStarLevelChar,
+        FusionChar
     }
 }

@@ -253,6 +253,19 @@ namespace GameServer.Database.SubDatataseCollection
 
         }
 
+        public void UpdateSilver_CountTimesFusion(PlayerCacheData userInfo, TypeUseSilver type, int silverUsed)
+        {
+            var data = new Dictionary<string, object>(1)
+            {
+                { "silver", userInfo.info.silver },
+                { "count_times_fusion", userInfo.info.count_times_fusion }
+            };
+            UpdateFields(userInfo.info._id, data);
+            if (type != TypeUseSilver.None && silverUsed != 0)
+                MongoController.LogDb.UsedSilver.Create(userInfo.info._id, silverUsed, type);
+
+        }
+
         public void Update_Silver_Level_EXP_Stamina_HighestStageAttacked(PlayerCacheData userInfo)
         {
             var data = new Dictionary<string, object>(4)

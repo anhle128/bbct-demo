@@ -79,6 +79,7 @@ namespace MongoDBModel.SubDatabaseModels
         public int hash_code_time_send_facebook { get; set; }
         public int invite_friend { get; set; }
         public double total_ruby_trans { get; set; }
+        public int count_times_fusion { get; set; }
         public MUserInfo()
         {
 

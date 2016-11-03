@@ -88,5 +88,7 @@
         CharInFormation,
         InvalidChar,
         InvalidNumCharInMainFormation,
+        MaxPowerupLevel,
+        PowerupNotEnough
     }
 }

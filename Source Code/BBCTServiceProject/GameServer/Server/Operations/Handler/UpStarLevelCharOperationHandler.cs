@@ -1,10 +1,14 @@
 ﻿using GameServer.Common;
 using GameServer.Common.Enum;
 using GameServer.Common.SerializeData.RequestData;
+using GameServer.Common.SerializeData.ResponseData;
 using GameServer.Database;
+using GameServer.Database.Controller;
 using GameServer.Server.Operations.Core;
+using MongoDBModel.Enum;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
+using StaticDB.Enum;
 using StaticDB.Models;
 using System.Linq;
 
@@ -15,7 +19,7 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters,
            OperationController controller)
         {
-            ActionCharRequestData requestData = new ActionCharRequestData();
+            UpStarLevelCharRequestData requestData = new UpStarLevelCharRequestData();
             requestData.Deserialize(operationRequest.Parameters);
 
 
@@ -28,37 +32,77 @@ namespace GameServer.Server.Operations.Handler
             if (userCharacter == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 
-            //MUserCharacterSoul userCharSoul =
-            //    player.cacheData.listUserCharSoul.FirstOrDefault
-            //    (
-            //        a =>
-            //            a.static_id == userCharacter.static_id
-            //    );
+            MUserCharacter userCharacterStock =
+                player.cacheData.listUserChar.FirstOrDefault
+                (
+                    a =>
+                        a._id.ToString() == requestData.char_id
+                );
+            if (userCharacterStock == null)
+                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidChar);
 
-            Character character = StaticDatabase.entities.characters.Single(a => a.id == userCharacter.static_id);
-            //int numberSoulRequire = character.GetPieceNeedToUpStar(userCharacter.star_level);
-            //if (userCharSoul.quantity < numberSoulRequire)
-            //    return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
+            if (userCharacter.level != userCharacterStock.level ||
+                userCharacter.powerup_level != userCharacterStock.powerup_level ||
+                userCharacter.star_level != userCharacterStock.star_level)
+                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidChar);
 
-            //if (userCharacter.star_level >= StaticDatabase.entities.configs.characterConfig.maxStarCanUp)
-            //    return CommonFunc.SimpleResponse(operationRequest, ReturnCode.StarLevelIsMax);
+            Character character = StaticDatabase.entities.characters.FirstOrDefault(a => a.id == userCharacter.static_id);
+            if (character == null)
+                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidChar);
 
-            //// process
-            //userCharSoul.quantity -= numberSoulRequire;
-            //userCharacter.star_level++;
+            Character characterStock =
+                StaticDatabase.entities.characters.FirstOrDefault(a => a.id == userCharacterStock.static_id);
+            if (characterStock == null)
+                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidChar);
 
-            //if (player.cacheData.avatar == userCharacter.static_id)
-            //{
-            //    player.cacheData.avatar_star = userCharacter.star_level;
-            //    MongoController.UserDb.Info.UpdateAvatar(player.cacheData);
-            //}
+            // kiểm tra xem char nguyên liệu có phải là nguyên liệu hay không
+            if (characterStock.type != TypeCharacter.Element)
+                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidChar);
 
-            //// update
-            //MongoController.UserDb.CharSoul.UpdateQuantity(userCharSoul);
-            //MongoController.UserDb.Char.UpdateStarLevel(userCharacter);
+            // kiểm tra xem có cùng ngũ hành hay không
+            if (characterStock.element != character.element)
+                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidChar);
 
-            // response
-            return CommonFunc.SimpleResponse(operationRequest, ReturnCode.OK);
+            //kiểm tra xem đã max star chưa
+            if (userCharacter.star_level >= character.highestStarLevel)
+                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxStar);
+
+
+            if (userCharacter.level < StaticDatabase.entities.configs.characterConfig.maxLevel)
+                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
+
+            if (userCharacter.powerup_level < StaticDatabase.entities.configs.characterConfig.maxPowerup)
+                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
+
+            int silverRequire =
+                StaticDatabase.entities.configs.characterConfig.GetSilverNeedToStarUp(userCharacter.star_level);
+            if (player.cacheData.info.silver < silverRequire)
+                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughSliver);
+
+            userCharacter.star_level++;
+            userCharacter.level = StaticDatabase.entities.configs.characterConfig.defaultConfig.levelChar;
+            userCharacter.powerup_level = StaticDatabase.entities.configs.characterConfig.defaultConfig.powerupLevelChar;
+
+            player.cacheData.info.silver -= silverRequire;
+
+            player.cacheData.DeleteUserChar(userCharacterStock);
+
+            MongoController.UserDb.Info.UpdateSilver(player.cacheData, TypeUseSilver.UpStarLevelChar, silverRequire);
+            MongoController.UserDb.Char.UpdateStarLevel(userCharacter);
+            player.cacheData.DeleteUserChar(userCharacterStock);
+
+            RewardResponseData response = new RewardResponseData()
+            {
+                user_silver = player.cacheData.info.silver
+            };
+
+            return new OperationResponse()
+            {
+                OperationCode = operationRequest.OperationCode,
+                DebugMessage = "",
+                Parameters = response.Serialize(),
+                ReturnCode = (short)ReturnCode.OK
+            };
 
 
         }

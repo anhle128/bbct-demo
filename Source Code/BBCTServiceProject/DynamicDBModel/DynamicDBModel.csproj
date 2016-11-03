@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity.cs" />
-    <Compile Include="Enum\EquipPowerupItemStatus.cs" />
     <Compile Include="Enum\TypeLeBaoActivationTime.cs" />
     <Compile Include="Enum\TypeLeBaoBuyTimes.cs" />
     <Compile Include="Enum\OutcomeResult.cs" />

@@ -1,8 +1,6 @@
 ﻿using DynamicDBModel.Models;
-using GameServer.Common;
 using GameServer.Database.Controller;
 using GameServer.Database.Core;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDBModel.SubDatabaseModels;
 using StaticDB.Models;
@@ -37,7 +35,10 @@ namespace GameServer.Database.SubDatataseCollection
         {
             Character character = StaticDatabase.entities.characters.Single(x => x.id == data.static_id);
 
-            data.star_level = character.lowestStarLevel;
+            if (data.star_level == 0)
+            {
+                data.star_level = character.lowestStarLevel;
+            }
 
             if (data.equipments == null)
             {
@@ -90,6 +91,8 @@ namespace GameServer.Database.SubDatataseCollection
         {
             Dictionary<string, object> dictData = new Dictionary<string, object>(1);
             dictData.Add("star_level", data.star_level);
+            dictData.Add("level", data.level);
+            dictData.Add("powerup_level", data.powerup_level);
             UpdateFields(data._id, dictData);
         }
 
@@ -111,6 +114,7 @@ namespace GameServer.Database.SubDatataseCollection
         {
             Dictionary<string, object> dictData = new Dictionary<string, object>(2);
             dictData.Add("powerup_level", data.powerup_level);
+            dictData.Add("exp", data.exp);
             UpdateFields(data._id, dictData);
         }
 

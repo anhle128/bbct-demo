@@ -26,21 +26,15 @@ namespace GameServer.Server.Operations.Handler
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            LevelOpendSlotMainFormation levelOpendSlotMainFormation =
-                formationConfig.levelOpendSlotMainFormation.LastOrDefault(a => a.level <= player.cacheData.info.level);
-            if (levelOpendSlotMainFormation == null)
-            {
-                return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DBError);
-            }
 
             // kiểm tra số lượng char trong đội hình chính
             int countTotalCharInMainFormation = CountTotalCharInMainFormation(requestData);
-            if (countTotalCharInMainFormation > levelOpendSlotMainFormation.slotOpend)
+            if (countTotalCharInMainFormation > formationConfig.GetNumberCharInMainFormation(player.cacheData.info.level))
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidNumCharInMainFormation);
 
             // kiểm tra level mở đội hình phụ
             int countTotalCharInSubFormation = requestData.data_formation.sub.Count(a => a != "-1");
-            if (countTotalCharInSubFormation != 0 ||
+            if (countTotalCharInSubFormation != 0 &&
                 player.cacheData.info.level < formationConfig.levelRequireOpendSubFormation)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 

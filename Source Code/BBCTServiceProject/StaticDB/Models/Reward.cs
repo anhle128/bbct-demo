@@ -15,6 +15,9 @@ namespace StaticDB.Models
         public int amountMax { get; set; }
         [ProtoMember(5)]
         public double proc { get; set; }
+        [ProtoMember(6)]
+        public int star { get; set; }// chỉ dùng cho character
+
 
         public Reward()
         {

@@ -101,6 +101,7 @@
     <Compile Include="Models\ElementBonusAttribute.cs" />
     <Compile Include="Models\Equip2Equip.cs" />
     <Compile Include="Models\EquipLevelUpConfig.cs" />
+    <Compile Include="Models\FusionCharConfig.cs" />
     <Compile Include="Models\LevelOpendSlotMainFormation.cs" />
     <Compile Include="Models\SkillStarLevel.cs" />
     <Compile Include="Models\EquipStarUpConfig.cs" />

@@ -15,13 +15,13 @@ namespace StaticDB.Models
         public int maxPowerup { get; set; }
 
         [ProtoMember(5)]
-        public int[] goldNeedToPowerups { get; set; }
+        public int[] silverNeedToPowerups { get; set; }
 
         [ProtoMember(6)]
-        public int[] goldNeedToStarups { get; set; }
+        public int[] silverNeedToStarups { get; set; }
 
         [ProtoMember(7)]
-        public int[] goldneedToFusions { get; set; }
+        public int[] silverneedToFusions { get; set; }
 
         [ProtoMember(8)]
         public StarLevelExp[] arrCharStarLevelExpConfig { get; set; }
@@ -33,19 +33,22 @@ namespace StaticDB.Models
         [ProtoMember(11)]
         public SkillStarLevel[] skillStarLevels { get; set; }
 
-        public int GetGoldNeedToPowerup(int currentStar)
+        [ProtoMember(12)]
+        public int maxStar { get; set; }
+
+        public int GetSilverNeedToPowerup(int currentStar)
         {
-            return goldNeedToPowerups[currentStar - 1];
+            return silverNeedToPowerups[currentStar - 1];
         }
 
-        public int GetGoldNeedToStarUp(int currentStar)
+        public int GetSilverNeedToStarUp(int currentStar)
         {
-            return goldNeedToStarups[currentStar - 1];
+            return silverNeedToStarups[currentStar - 1];
         }
 
-        public int GetGoldNeedToFusion(int currentStar)
+        public int GetSilverNeedToFusion(int currentStar)
         {
-            return goldNeedToStarups[currentStar - 1];
+            return silverNeedToStarups[currentStar - 1];
         }
 
         public int GetExpReceiveToPowerup(int currentStar, int otherStar)

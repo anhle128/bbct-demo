@@ -1,7 +1,4 @@
 ﻿using ProtoBuf;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DynamicDBModel.Models
 {
@@ -9,7 +6,7 @@ namespace DynamicDBModel.Models
     public class RequestJoinGuild
     {
         [ProtoMember(1)]
-        public string username { get; set; }
+        public string userid { get; set; }
         [ProtoMember(2)]
         public string nickname { get; set; }
         [ProtoMember(3)]

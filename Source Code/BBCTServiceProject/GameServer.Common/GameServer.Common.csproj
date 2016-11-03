@@ -83,6 +83,7 @@
     <Compile Include="SerializeData\RequestData\ExchangeRubyRequestData.cs" />
     <Compile Include="SerializeData\RequestData\FindMarketRequestData.cs" />
     <Compile Include="SerializeData\RequestData\FindWithKeyWorkRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\FusionCharRequestData.cs" />
     <Compile Include="SerializeData\RequestData\GetRewardMailRequestData.cs" />
     <Compile Include="SerializeData\RequestData\GetRewardNhiemVuChinhTuyenRequestData.cs" />
     <Compile Include="SerializeData\RequestData\GetRewardNhiemVuHangNgayRequestData.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="SerializeData\RequestData\UpdateQuantityRequestData.cs" />
     <Compile Include="SerializeData\RequestData\UpSkillRequestData.cs" />
     <Compile Include="SerializeData\RequestData\UpStarEquipRequestData.cs" />
+    <Compile Include="SerializeData\RequestData\UpStarLevelCharRequestData.cs" />
     <Compile Include="SerializeData\RequestData\UsedItemRequestData.cs" />
     <Compile Include="SerializeData\RequestData\UsedItemWithCharRequestData.cs" />
     <Compile Include="SerializeData\RequestData\UseGiftCodeRequestData.cs" />

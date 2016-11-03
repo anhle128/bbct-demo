@@ -48,12 +48,6 @@ namespace GameServer.Database.Controller
 
         public static List<T> GetRandomListData<T>(IMongoCollection<T> collection, Expression<Func<T, bool>> filter, int skip, int take) where T : IMongoModel
         {
-            //List<T> listData = collection
-            //   .Find(filter)
-            //   .SortBy(a => Guid.NewGuid())
-            //   .Skip(skip)
-            //   .Limit(take)
-            //   .ToList();
             List<T> listData =
                 collection.AsQueryable().Where(filter).ToList().OrderBy(a => Guid.NewGuid()).Skip(skip).Take(take).ToList();
             return listData;
@@ -280,6 +274,25 @@ namespace GameServer.Database.Controller
         {
             var filter = Builders<T>.Filter.Eq("_id", _id);
             collection.DeleteOne(filter);
+        }
+
+        public static void DeleteAll<T>(IMongoCollection<T> collection, string fieldData, List<string> listData)
+        {
+            int count = 0;
+            FilterDefinition<T>[] arrfilterDefinition = new FilterDefinition<T>[listData.Count];
+            foreach (var data in listData)
+            {
+                Dictionary<string, object> dictFilter = new Dictionary<string, object>()
+                {
+                    {fieldData, data},
+                };
+                FilterDefinition<T> filterDefinition = new BsonDocumentFilterDefinition<T>(new BsonDocument(dictFilter));
+                arrfilterDefinition[count] = filterDefinition;
+                count++;
+
+            }
+            var filter = Builders<T>.Filter.Or(arrfilterDefinition);
+            collection.DeleteMany(filter);
         }
 
         /// <summary>
