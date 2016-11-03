@@ -13,7 +13,7 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters,
             OperationController controller)
         {
-            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.id);
+            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.info._id);
 
             if (member == null)
             {
@@ -23,7 +23,7 @@ namespace GameServer.Server.Operations.Handler
             var bossLogs = MongoController.LogSubDB.BossGuildLog.GetDatas(member.guild_id);
 
             double totalDmg = bossLogs.Sum(x => x.dmg);
-            var bossLogMember = bossLogs.FirstOrDefault(x => x.user_id.Equals(player.cacheData.id));
+            var bossLogMember = bossLogs.FirstOrDefault(x => x.user_id.Equals(player.cacheData.info._id));
 
             double dmg = 0;
             int attackTimes = 0;

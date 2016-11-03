@@ -19,7 +19,7 @@ namespace GameServer.Server.Operations.Handler
             int indexCanCau = 0;
             int time = 0;
 
-            var uCauCas = MongoController.UserDb.CauCa.GetCurrentCauCa(player.cacheData.id);
+            var uCauCas = MongoController.UserDb.CauCa.GetCurrentCauCa(player.cacheData.info._id);
             if (uCauCas != null )
             {
                 isDoing = true;
@@ -31,7 +31,7 @@ namespace GameServer.Server.Operations.Handler
                 }
             }
 
-            int countTimes = MongoController.UserDb.CauCa.Count(player.cacheData.id);
+            int countTimes = MongoController.UserDb.CauCa.Count(player.cacheData.info._id);
           
 
 

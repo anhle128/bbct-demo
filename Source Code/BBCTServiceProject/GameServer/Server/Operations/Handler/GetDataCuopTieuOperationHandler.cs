@@ -23,14 +23,14 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             MUserCuopTieu userCuopTieu =
-                MongoController.UserDb.CuopTieu.GetData(player.cacheData.id);
+                MongoController.UserDb.CuopTieu.GetData(player.cacheData.info._id);
 
 
             if (userCuopTieu == null)
             {
                 userCuopTieu = new MUserCuopTieu()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     hash_code_time = CommonFunc.GetHashCodeTime()
                 };
                 MongoController.UserDb.CuopTieu.Create(userCuopTieu);
@@ -46,7 +46,7 @@ namespace GameServer.Server.Operations.Handler
             int minLevel = player.cacheData.level - 100 <= 1 ? 1 : player.cacheData.level - 100;
 
             List<MUserVanTieu> userVanTieus =
-                MongoController.UserDb.VanTieu.GetRandomDatas(player.cacheData.id, minLevel, maxLevel);
+                MongoController.UserDb.VanTieu.GetRandomDatas(player.cacheData.info._id, minLevel, maxLevel);
 
             //CommonLog.Instance.PrintLog("userVanTieus: " + userVanTieus.CoundLogInDay);
 

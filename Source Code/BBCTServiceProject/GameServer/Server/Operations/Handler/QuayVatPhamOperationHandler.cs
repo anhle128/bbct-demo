@@ -24,7 +24,7 @@ namespace GameServer.Server.Operations.Handler
             requestData.Deserialize(operationRequest.Parameters);
 
             MUserInfo userInfo =
-                MongoController.UserDb.Info.GetData(player.cacheData.id);
+                MongoController.UserDb.Info.GetData(player.cacheData.info._id);
 
             if (userInfo.gold != player.cacheData.gold)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.DBError);

@@ -26,7 +26,7 @@ namespace GameServer.Server.Operations.Handler
             }
 
 
-            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.id);
+            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.info._id);
 
             if (member == null)
             {
@@ -40,7 +40,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            var log = MongoController.LogSubDB.ContributeLog.GetData(player.cacheData.id);
+            var log = MongoController.LogSubDB.ContributeLog.GetData(player.cacheData.info._id);
 
             bool isCan = true;
             if (log != null)
@@ -83,7 +83,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 MContributeGuildLog nLog = new MContributeGuildLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                 };
                 MongoController.LogSubDB.ContributeLog.Create(nLog);
             }

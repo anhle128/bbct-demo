@@ -50,7 +50,7 @@ namespace GameServer.Server.Operations.Handler
 
                 MUserEquip userEquip =
                     MongoController.UserDb.Equip.GetData(itemOnMarket.id_equipment);
-                userEquip.user_id = player.cacheData.id;
+                userEquip.user_id = player.cacheData.info._id;
                 player.cacheData.AddOwnOwnEquipment(userEquip);
 
                 MongoController.MarketDb.ItemSelling.Delete(itemOnMarket._id);

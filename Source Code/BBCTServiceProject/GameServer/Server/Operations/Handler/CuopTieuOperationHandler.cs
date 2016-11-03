@@ -28,7 +28,7 @@ namespace GameServer.Server.Operations.Handler
                 requestData.Deserialize(operationRequest.Parameters);
 
             MUserCuopTieu userCuopTieu =
-                 MongoController.UserDb.CuopTieu.GetData(player.cacheData.id);
+                 MongoController.UserDb.CuopTieu.GetData(player.cacheData.info._id);
 
             VipConfig vip = StaticDatabase.entities.configs.vipConfigs[player.cacheData.vip];
 
@@ -80,7 +80,7 @@ namespace GameServer.Server.Operations.Handler
                 int silverReward =
                     StaticDatabase.entities.configs.GetSilverCuopTieuReward(userVanTieu.current_vehicle.type);
                 player.cacheData.silver += (int)silverReward;
-                userVanTieu.users_cuop_tieu.Add(player.cacheData.id);
+                userVanTieu.users_cuop_tieu.Add(player.cacheData.info._id);
 
                 // update
                 MongoController.UserDb.VanTieu.UpdateCurrentVehidle_UsersCuopTieu(userVanTieu);

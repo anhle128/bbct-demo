@@ -12,7 +12,7 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters,
             OperationController controller)
         {
-            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.id);
+            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.info._id);
 
 
             if (member == null)
@@ -20,7 +20,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.IsNotMemberInGuild);
             }
 
-            var log = MongoController.LogSubDB.ContributeLog.GetData(player.cacheData.id);
+            var log = MongoController.LogSubDB.ContributeLog.GetData(player.cacheData.info._id);
 
 
             bool isCan = true;

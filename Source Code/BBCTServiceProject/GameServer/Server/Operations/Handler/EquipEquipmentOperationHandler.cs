@@ -19,15 +19,6 @@ namespace GameServer.Server.Operations.Handler
             ActionEquipRequestData requestData = new ActionEquipRequestData();
             requestData.Deserialize(operationRequest.Parameters);
 
-
-            //CommonLog.Instance.PrintLog("--------------- all listUserEquip");
-            //foreach (var equipment in player.cacheData.listUserEquip)
-            //{
-            //    CommonLog.Instance.PrintLog(equipment._id.ToString());
-            //}
-            //CommonLog.Instance.PrintLog("------------------------------");
-            //CommonLog.Instance.PrintLog("requestData.equip_item_id: " + requestData.equip_item_id);
-
             // kiểm tra user equip
             MUserEquip userEquip = player.cacheData.listUserEquip.FirstOrDefault
             (

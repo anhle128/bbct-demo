@@ -26,7 +26,7 @@ namespace GameServer.Server.Operations.Handler
             //CommonLog.Instance.PrintLog("requestData.id: " + requestData.id);
 
             MUserNhiemVuChinhTuyen userNhiemVu =
-                MongoController.UserDb.NhiemVuChinhTuyen.GetData(player.cacheData.id);
+                MongoController.UserDb.NhiemVuChinhTuyen.GetData(player.cacheData.info._id);
 
             NhiemVuChinhTuyenData nhiemVudata = userNhiemVu.datas.FirstOrDefault(a => a.id == requestData.id);
             if (nhiemVudata == null)

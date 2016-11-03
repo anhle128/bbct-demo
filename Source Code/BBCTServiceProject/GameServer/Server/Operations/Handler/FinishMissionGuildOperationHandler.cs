@@ -21,7 +21,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.id);
+            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.info._id);
 
             if (member == null)
             {
@@ -35,7 +35,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            var missionLog = MongoController.LogSubDB.MissionGuildLog.GetAvailableMission(member.guild_id, player.cacheData.id, requestData.indexMission);
+            var missionLog = MongoController.LogSubDB.MissionGuildLog.GetAvailableMission(member.guild_id, player.cacheData.info._id, requestData.indexMission);
 
             if (missionLog == null)
             {

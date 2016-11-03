@@ -2,8 +2,8 @@
 using GameServer.Common;
 using GameServer.Common.Enum;
 using GameServer.Common.SerializeData.RequestData;
-using GameServer.Server.Operations.Core;
 using GameServer.Database.Controller;
+using GameServer.Server.Operations.Core;
 using Photon.SocketServer;
 
 namespace GameServer.Server.Operations.Handler
@@ -21,7 +21,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            var guild = MongoController.GuildDb.Guild.GetDataByUserId(player.cacheData.id);
+            var guild = MongoController.GuildDb.Guild.GetDataByUserId(player.cacheData.info._id);
 
             if (guild == null)
             {

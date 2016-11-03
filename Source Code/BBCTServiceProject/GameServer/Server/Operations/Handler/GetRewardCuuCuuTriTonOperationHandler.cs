@@ -17,7 +17,7 @@ namespace GameServer.Server.Operations.Handler
         public OperationResponse Handler(GamePlayer player, OperationRequest operationRequest, SendParameters sendParameters,
             OperationController controller)
         {
-            MUserCuuCuuTriTon userCuuCuuTriTon = MongoController.UserDb.CuuCuuTriTon.GetData(player.cacheData.id);
+            MUserCuuCuuTriTon userCuuCuuTriTon = MongoController.UserDb.CuuCuuTriTon.GetData(player.cacheData.info._id);
             if (userCuuCuuTriTon == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 

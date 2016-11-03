@@ -3,7 +3,6 @@ using GameServer.Common.Enum;
 using GameServer.Common.SerializeData.RequestData;
 using GameServer.Database.Controller;
 using GameServer.Server.Operations.Core;
-using MongoDB.Bson;
 using Photon.SocketServer;
 
 namespace GameServer.Server.Operations.Handler
@@ -17,11 +16,11 @@ namespace GameServer.Server.Operations.Handler
 
             string otherUserid = (requestData.userid);
 
-            if (player.cacheData.id.Equals(otherUserid))
+            if (player.cacheData.info._id.Equals(otherUserid))
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 
             // kiểm tra đã add friend hay chưa
-            var mUFriend = MongoController.UserDb.Friend.GetData(player.cacheData.id, otherUserid);
+            var mUFriend = MongoController.UserDb.Friend.GetData(player.cacheData.info._id, otherUserid);
             if (mUFriend == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.AccountDoNotExist);
 

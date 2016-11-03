@@ -86,7 +86,7 @@ namespace GameServer.Server.Operations.Handler
                 }
 
                 // check payment
-                List<MTransaction> listNewTrans = MongoController.LogDb.Trans.GetCheckTrans(player.cacheData.id);
+                List<MTransaction> listNewTrans = MongoController.LogDb.Trans.GetCheckTrans(player.cacheData.info._id);
                 MSKx2NapConfig x2Config = MongoController.ConfigDb.Skx2Nap.GetData();
                 if (x2Config == null)
                     SuKienInfo.SetDeactiveSuKien(TypeSuKien.x2Nap);

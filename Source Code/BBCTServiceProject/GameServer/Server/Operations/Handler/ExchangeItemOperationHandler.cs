@@ -27,7 +27,7 @@ namespace GameServer.Server.Operations.Handler
             if (!SuKienDoiDoInfo.Duration)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
 
-            MSKDoiDoLog log = MongoController.LogSubDB.SkDoiDo.GetData(player.cacheData.id, SuKienDoiDoInfo.SuKienId);
+            MSKDoiDoLog log = MongoController.LogSubDB.SkDoiDo.GetData(player.cacheData.info._id, SuKienDoiDoInfo.SuKienId);
 
             if (log.index_exchanged == null)
                 log.index_exchanged = new List<int>();

@@ -18,7 +18,7 @@ namespace GameServer.Server.Operations.Handler
             if (player.cacheData.level < StaticDatabase.entities.configs.levelRequireDoPhuong)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
-            int count = MongoController.LogSubDB.DoPhuong.Count(player.cacheData.id);
+            int count = MongoController.LogSubDB.DoPhuong.Count(player.cacheData.info._id);
           
 
             GetDataDoPhuongResponseData rData = new GetDataDoPhuongResponseData()

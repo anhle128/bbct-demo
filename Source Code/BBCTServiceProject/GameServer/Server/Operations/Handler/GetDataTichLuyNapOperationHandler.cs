@@ -38,7 +38,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 double totalTransGold = MongoController.LogDb.Trans.GetTotalRuby
                 (
-                    player.cacheData.id,
+                    player.cacheData.info._id,
                     sk.start, DateTime.Now
                 );
 
@@ -46,8 +46,8 @@ namespace GameServer.Server.Operations.Handler
 
                 MSKTichLuyNapLog log = MongoController.LogSubDB.SkTichLuyNap.GetData
                (
-                   player.cacheData.id,
-                   sk._id.ToString()
+                   player.cacheData.info._id,
+                   sk._id
                );
 
                 if (log == null)
@@ -85,13 +85,13 @@ namespace GameServer.Server.Operations.Handler
             {
                 MSKTichLuyNapLog log = MongoController.LogSubDB.SkTichLuyNap.GetData
                 (
-                   player.cacheData.id,
-                   sk._id.ToString(),
+                   player.cacheData.info._id,
+                   sk._id,
                    CommonFunc.GetHashCodeTime()
                 );
                 double totalTransGold = MongoController.LogDb.Trans.GetTotalRuby
                 (
-                    player.cacheData.id,
+                    player.cacheData.info._id,
                     CommonFunc.GetStartTimeInDay(),
                     CommonFunc.GetEndTimeInDay()
                 );

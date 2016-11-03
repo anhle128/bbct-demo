@@ -1,8 +1,8 @@
 ﻿using GameServer.Common;
 using GameServer.Common.Enum;
-using GameServer.Server.Operations.Core;
 using GameServer.Database;
 using GameServer.Database.Controller;
+using GameServer.Server.Operations.Core;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
 using StaticDB.Models;
@@ -28,7 +28,7 @@ namespace GameServer.Server.Operations.Handler
 
             // kiểm tra log
             List<MFreeStaminaLog> freeStaminaLog =
-                MongoController.LogSubDB.FreeStamina.GetDatas(player.cacheData.id);
+                MongoController.LogSubDB.FreeStamina.GetDatas(player.cacheData.info._id);
             if (freeStaminaLog.Any(a => freeStaminaTimeConfig.from <= a.created_at.Hour && freeStaminaTimeConfig.to >= a.created_at.Hour))
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.AlreadyDoneBefore);
 

@@ -34,7 +34,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.NotEnoughRuby);
             }
 
-            int countItemSelling = MongoController.MarketDb.ItemSelling.Count(player.cacheData.id);
+            int countItemSelling = MongoController.MarketDb.ItemSelling.Count(player.cacheData.info._id);
 
 
             if (countItemSelling >= StaticDatabase.entities.configs.GetVipConfig(player.cacheData.vip).maxSellMarket)
@@ -79,7 +79,7 @@ namespace GameServer.Server.Operations.Handler
             MItemSellingOnMarket itemSell = new MItemSellingOnMarket()
             {
                 id_equipment = equipment._id,
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
                 price = requestData.price,
                 keyword_search = requestData.keywordSearch,
             };

@@ -42,7 +42,7 @@ namespace GameServer.Server.Operations.Handler
             // kiểm tra số lần mua lễ bao
             int totalTimesCanBuy = CommonFunc.GetTimesCanBuyLeBao(leBao, player.cacheData.vip);
             int totalTimesBought =
-                MongoController.LogSubDB.BuyLeBao.Count(player.cacheData.id, (requestData.id));
+                MongoController.LogSubDB.BuyLeBao.Count(player.cacheData.info._id, (requestData.id));
 
             if (totalTimesCanBuy <= totalTimesBought)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxTimesCanBuy);
@@ -53,7 +53,7 @@ namespace GameServer.Server.Operations.Handler
 
             MBuyLeBaoLog log = new MBuyLeBaoLog()
             {
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
                 rewards = leBao.rewards,
                 gold = leBao.gold,
                 le_bao_id = leBao._id,

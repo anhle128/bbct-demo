@@ -24,7 +24,7 @@ namespace GameServer.Server.Operations.Handler
             requestData.Deserialize(operationRequest.Parameters);
 
             MUserInfo userInfo =
-                MongoController.UserDb.Info.GetData(player.cacheData.id);
+                MongoController.UserDb.Info.GetData(player.cacheData.info._id);
 
             player.cacheData.rankLuanKiem = userInfo.rank_luan_kiem;
 
@@ -43,7 +43,7 @@ namespace GameServer.Server.Operations.Handler
             List<RewardItem> listReward = MongoController.UserDb.UpdateReward(player.cacheData, listSubReward, ReasonActionGold.RewardLuanKiemRank);
 
             userInfo.index_rank_luan_kiem_rewarded.Add(requestData.index);
-            MongoController.UserDb.Info.UpdateRankLuanKieSubRewardItemed(player.cacheData.id, userInfo.index_rank_luan_kiem_rewarded);
+            MongoController.UserDb.Info.UpdateRankLuanKieSubRewardItemed(player.cacheData.info._id, userInfo.index_rank_luan_kiem_rewarded);
 
             RewardResponseData responseData = new RewardResponseData()
             {

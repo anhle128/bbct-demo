@@ -24,7 +24,7 @@ namespace GameServer.Server.Operations.Handler
 
             MSKDoiDoConfig config = MongoController.ConfigDb.SkDoiDo.GetData();
 
-            MSKDoiDoLog log = MongoController.LogSubDB.SkDoiDo.GetData(player.cacheData.id,
+            MSKDoiDoLog log = MongoController.LogSubDB.SkDoiDo.GetData(player.cacheData.info._id,
                 config._id);
             if (log == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);

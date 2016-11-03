@@ -21,7 +21,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             MExchangeGoldToSilverLog log =
-               MongoController.LogSubDB.ExchangeGoldToSilver.GetData(player.cacheData.id,
+               MongoController.LogSubDB.ExchangeGoldToSilver.GetData(player.cacheData.info._id,
                    CommonFunc.GetHashCodeTime());
 
             GetDataExchangeGoldResponseData responseData = new GetDataExchangeGoldResponseData();

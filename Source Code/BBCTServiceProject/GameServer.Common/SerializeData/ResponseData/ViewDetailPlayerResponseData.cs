@@ -6,7 +6,7 @@ namespace GameServer.Common.SerializeData.ResponseData
 {
     public class ViewDetailPlayerResponseData : ISerializeData
     {
-        public StringArray[] formation_rows;
+        public DataFormation[] formations;
         public List<UserCharacter> chars;
         public List<UserEquip> equips;
 
@@ -14,9 +14,9 @@ namespace GameServer.Common.SerializeData.ResponseData
         {
             Dictionary<byte, object> data = new Dictionary<byte, object>(5)
             {
-                {1,ProtoBufSerializerHelper.Handler().Serialize<List<UserCharacter>>(chars)},
-                {2,ProtoBufSerializerHelper.Handler().Serialize<List<UserEquip>>(equips)},
-                {4,ProtoBufSerializerHelper.Handler().Serialize<StringArray[]>(formation_rows)},
+                {1,ProtoBufSerializerHelper.Handler().Serialize(chars)},
+                {2,ProtoBufSerializerHelper.Handler().Serialize(equips)},
+                {3,ProtoBufSerializerHelper.Handler().Serialize(formations)},
             };
             return data;
         }
@@ -25,7 +25,7 @@ namespace GameServer.Common.SerializeData.ResponseData
         {
             chars = ProtoBufSerializerHelper.Handler().Deserialize<List<UserCharacter>>(data[1] as byte[]);
             equips = ProtoBufSerializerHelper.Handler().Deserialize<List<UserEquip>>(data[2] as byte[]);
-            formation_rows = ProtoBufSerializerHelper.Handler().Deserialize<StringArray[]>(data[4] as byte[]);
+            formations = ProtoBufSerializerHelper.Handler().Deserialize<DataFormation[]>(data[3] as byte[]);
         }
     }
 }

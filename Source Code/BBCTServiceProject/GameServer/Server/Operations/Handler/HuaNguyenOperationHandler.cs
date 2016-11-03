@@ -40,7 +40,7 @@ namespace GameServer.Server.Operations.Handler
 
             Character character = StaticDatabase.entities.characters.FirstOrDefault(a => a.id == userChar.static_id);
 
-            MHuaNguyenLog huaNguyen = MongoController.LogSubDB.HuaNguyen.GetData(player.cacheData.id,
+            MHuaNguyenLog huaNguyen = MongoController.LogSubDB.HuaNguyen.GetData(player.cacheData.info._id,
                 CommonFunc.GetHashCodeTime());
 
             bool isCreate = false;
@@ -48,7 +48,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 huaNguyen = new MHuaNguyenLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     count_times = 0,
                     hash_code_time = CommonFunc.GetHashCodeTime()
                 };

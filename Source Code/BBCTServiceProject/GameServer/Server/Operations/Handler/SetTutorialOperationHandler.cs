@@ -16,7 +16,7 @@ namespace GameServer.Server.Operations.Handler
             TutorialRequestData requestData = new TutorialRequestData();
             requestData.Deserialize(operationRequest.Parameters);
 
-                MongoController.UserDb.Info.UpdateTutorial(player.cacheData.id, requestData.tutorial);
+                MongoController.UserDb.Info.UpdateTutorial(player.cacheData.info._id, requestData.tutorial);
 
                 return new OperationResponse()
                 {

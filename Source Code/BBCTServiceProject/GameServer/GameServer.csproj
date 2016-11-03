@@ -301,7 +301,6 @@
     <Compile Include="Server\Operations\Handler\ChangeAvatarOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\ChangeFormationOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\ChangeMasterGuildOperationHandler.cs" />
-    <Compile Include="Server\Operations\Handler\ChangeUsernameOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\ChatGuildOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\ChatServerOperationHandler.cs" />
     <Compile Include="Server\Operations\Handler\CheckGetFreeStaminaOperationHandler.cs" />

@@ -1,8 +1,8 @@
 ﻿using GameServer.Common;
 using GameServer.Common.Enum;
 using GameServer.Common.SerializeData.RequestData;
-using GameServer.Server.Operations.Core;
 using GameServer.Database.Controller;
+using GameServer.Server.Operations.Core;
 using MongoDBModel.SubDatabaseModels;
 using Photon.SocketServer;
 
@@ -16,7 +16,7 @@ namespace GameServer.Server.Operations.Handler
             UpdateQuantityRequestData requestData = new UpdateQuantityRequestData();
             requestData.Deserialize(operationRequest.Parameters);
 
-            MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.id);
+            MUserInfo userInfo = MongoController.UserDb.Info.GetData(player.cacheData.info._id);
 
             if (userInfo == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.AccountDoNotExist);

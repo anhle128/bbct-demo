@@ -21,14 +21,14 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.id);
+            var member = MongoController.GuildDb.GuildMember.GetData(player.cacheData.info._id);
 
             if (member == null)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.IsNotMemberInGuild);
             }
 
-            var bossLog = MongoController.LogSubDB.BossGuildLog.GetData(member.guild_id, player.cacheData.username);
+            var bossLog = MongoController.LogSubDB.BossGuildLog.GetData(member.guild_id, player.cacheData.info._id);
 
             if (bossLog != null)
             {

@@ -49,23 +49,23 @@ namespace GameServer.Server.Operations.Handler
             if (giftCodeCategory.type == GiftCodeType.OnyOne)
             {
                 // kiểm tra gift code đã được sử dụng hay chưa
-                if (!string.IsNullOrEmpty(giftCode.username))
+                if (!string.IsNullOrEmpty(giftCode.user_id))
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.GiftCodeBeUsed);
 
                 // kiểm tra đã dùng gift code nào cùng category chưa
                 if (!CheckCategory(player, operationRequest, giftCodeCategory))
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.CategoryGiftCodeBeUsed);
 
-                giftCode.username = player.cacheData.username;
+                giftCode.user_id = player.cacheData.info._id;
                 MongoController.GiftCodeDb.Code.Update(giftCode);
             }
             else if (giftCodeCategory.type == GiftCodeType.Unlimmit)
             {
                 // kiểm tra gift code đã được sử dụng hay chưa
-                if (!string.IsNullOrEmpty(giftCode.username))
+                if (!string.IsNullOrEmpty(giftCode.user_id))
                     return CommonFunc.SimpleResponse(operationRequest, ReturnCode.GiftCodeBeUsed);
 
-                giftCode.username = player.cacheData.username;
+                giftCode.user_id = player.cacheData.info._id;
                 MongoController.GiftCodeDb.Code.Update(giftCode);
             }
             else if (giftCodeCategory.type == GiftCodeType.AnyoneCanUse)
@@ -79,7 +79,7 @@ namespace GameServer.Server.Operations.Handler
             MGiftCodeLog logUsedGiftCode = new MGiftCodeLog()
             {
                 type = giftCodeCategory.type,
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
                 gift_code = giftCode._id.ToString(),
                 rewards = giftCodeCategory.rewards,
                 category = giftCodeCategory._id
@@ -111,7 +111,7 @@ namespace GameServer.Server.Operations.Handler
         private static bool CheckCategory(GamePlayer player, OperationRequest operationRequest,
             MGiftCodeCategory giftCodeCategory)
         {
-            int countGiftCodeUsedInCategory = MongoController.LogDb.GiftCode.Count(player.cacheData.id, giftCodeCategory._id);
+            int countGiftCodeUsedInCategory = MongoController.LogDb.GiftCode.Count(player.cacheData.info._id, giftCodeCategory._id);
 
             if (countGiftCodeUsedInCategory != 0)
             {

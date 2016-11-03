@@ -24,12 +24,12 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LevelNotEnough);
 
             MUserVanTieu userVanTieu =
-                MongoController.UserDb.VanTieu.GetDataByUserId(player.cacheData.id);
+                MongoController.UserDb.VanTieu.GetDataByUserId(player.cacheData.info._id);
             if (userVanTieu == null)
             {
                 userVanTieu = new MUserVanTieu()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     hash_code_time = CommonFunc.GetHashCodeTime(),
                     level = player.cacheData.level,
                     end = false,

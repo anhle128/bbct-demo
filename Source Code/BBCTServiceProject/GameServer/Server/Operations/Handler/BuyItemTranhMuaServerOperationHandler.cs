@@ -40,7 +40,7 @@ namespace GameServer.Server.Operations.Handler
             item.quantity_sold++;
             player.cacheData.gold -= item.price;
 
-            MSkTranhMuaServerLog log = MongoController.LogSubDB.SkTranhMuaServer.GetData(player.cacheData.id,
+            MSkTranhMuaServerLog log = MongoController.LogSubDB.SkTranhMuaServer.GetData(player.cacheData.info._id,
                 config._id.ToString(), day);
 
             bool isCreate = false;
@@ -49,7 +49,7 @@ namespace GameServer.Server.Operations.Handler
                 isCreate = true;
                 log = new MSkTranhMuaServerLog()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     day = day,
                     index_recieveds = new List<IndexReceived>(),
                     su_kien_id = config._id.ToString()

@@ -22,7 +22,7 @@ namespace GameServer.Server.Operations.Handler
 
 
             VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[player.cacheData.vip];
-            int countThachDau = MongoController.LogSubDB.ThachDau.Count(player.cacheData.id);
+            int countThachDau = MongoController.LogSubDB.ThachDau.Count(player.cacheData.info._id);
             if (countThachDau >= vipConfig.challengeTimes)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxAttackTimes);
 
@@ -35,13 +35,13 @@ namespace GameServer.Server.Operations.Handler
 
             MThachDauLog log = new MThachDauLog()
             {
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
                 hash_code_time = CommonFunc.GetHashCodeTime(),
                 other_user_id = userInfo._id
             };
             MongoController.LogSubDB.ThachDau.Create(log);
 
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.ThachDau);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.ThachDau);
 
             return new OperationResponse()
             {

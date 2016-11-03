@@ -24,7 +24,7 @@ namespace GameServer.Server.Operations.Handler
             IndexRequestData requestData = new IndexRequestData();
             requestData.Deserialize(operationRequest.Parameters);
 
-            MPhucLoiTruongThanhLog log = MongoController.LogSubDB.SkPhucLoiTruongThanh.GetData(player.cacheData.id);
+            MPhucLoiTruongThanhLog log = MongoController.LogSubDB.SkPhucLoiTruongThanh.GetData(player.cacheData.info._id);
             if (log == null)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);

@@ -25,10 +25,10 @@ namespace GameServer.Server.Operations.Handler
             GetRewardVanTieuRequestData requestData = new GetRewardVanTieuRequestData();
             requestData.Deserialize(operationRequest.Parameters);
             MUserVanTieu userVanTieu =
-                    MongoController.UserDb.VanTieu.GetPrevData(player.cacheData.id);
+                    MongoController.UserDb.VanTieu.GetPrevData(player.cacheData.info._id);
             if (userVanTieu == null)
                 userVanTieu =
-                    MongoController.UserDb.VanTieu.GetDataByUserId(player.cacheData.id);
+                    MongoController.UserDb.VanTieu.GetDataByUserId(player.cacheData.info._id);
             if (userVanTieu == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 

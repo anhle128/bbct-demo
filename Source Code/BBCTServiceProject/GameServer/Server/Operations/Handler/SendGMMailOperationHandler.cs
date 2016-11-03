@@ -19,7 +19,7 @@ namespace GameServer.Server.Operations.Handler
 
 
             GMMailConfig config = StaticDatabase.entities.configs.mailGMConfig;
-            int count = MongoController.MailDb.Gm.CountMailSent(player.cacheData.id);
+            int count = MongoController.MailDb.Gm.CountMailSent(player.cacheData.info._id);
 
             if (count >= config.maxMailCanSentPerDay)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxMailCanSend);
@@ -27,7 +27,7 @@ namespace GameServer.Server.Operations.Handler
             if (requestData.mail.title.Length > config.titleLength || requestData.mail.content.Length > config.contentLength)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 
-            MongoController.MailDb.Gm.Create(player.cacheData.id, requestData.mail);
+            MongoController.MailDb.Gm.Create(player.cacheData.info._id, requestData.mail);
             //CommonLog.Instance.PrintLog("Done SendGMMailOperationHandler");
             return CommonFunc.SimpleResponse(operationRequest, ReturnCode.OK);
 

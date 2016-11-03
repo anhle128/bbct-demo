@@ -33,7 +33,7 @@ namespace GameServer.Server.Operations.Handler
             Stage stage = StaticDatabase.entities.maps[requestData.map_index].stages[requestData.stage_index];
 
             // Kiểm tra xem map này đã 3 sao chưa
-            MUserStage userStage = MongoController.UserDb.Stage.GetData(player.cacheData.id, new StageMode()
+            MUserStage userStage = MongoController.UserDb.Stage.GetData(player.cacheData.info._id, new StageMode()
             {
                 level = requestData.level,
                 map_index = requestData.map_index,
@@ -116,12 +116,12 @@ namespace GameServer.Server.Operations.Handler
             int expPlayerReceive = StaticDatabase.entities.GetExpReceiveInStage(userStage.stage_info.stage.map_index, userStage.stage_info.stage.stage_index) * requestData.attack_times;
             CommonFunc.UpLevelPlayer(player.cacheData, expPlayerReceive);
 
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.CanQuet, requestData.attack_times);
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.AttackStage, requestData.attack_times);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.CanQuet, requestData.attack_times);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.AttackStage, requestData.attack_times);
 
             if (oldLevel != player.cacheData.level)
             {
-                MongoController.LogDb.UserLevelUp.Create(player.cacheData.id, player.cacheData.level);
+                MongoController.LogDb.UserLevelUp.Create(player.cacheData.info._id, player.cacheData.level);
                 if (player.cacheData.stamina < StaticDatabase.entities.configs.maxStamina)
                 {
                     player.cacheData.stamina = StaticDatabase.entities.configs.maxStamina;

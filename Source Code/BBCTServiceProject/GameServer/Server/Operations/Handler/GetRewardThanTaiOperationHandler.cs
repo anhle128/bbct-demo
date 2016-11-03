@@ -22,7 +22,7 @@ namespace GameServer.Server.Operations.Handler
             if (config == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
 
-            MSKThanTaiLog log = MongoController.LogSubDB.SkThanTai.GetData(player.cacheData.id,
+            MSKThanTaiLog log = MongoController.LogSubDB.SkThanTai.GetData(player.cacheData.info._id,
                 config._id.ToString());
 
             bool isCreate = false;
@@ -31,8 +31,8 @@ namespace GameServer.Server.Operations.Handler
                 isCreate = true;
                 log = new MSKThanTaiLog()
                 {
-                    user_id = player.cacheData.id,
-                    sk_kien_id = config._id.ToString(),
+                    user_id = player.cacheData.info._id,
+                    sk_kien_id = config._id,
                     current_index_reward = 0
                 };
             }

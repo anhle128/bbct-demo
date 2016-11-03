@@ -15,13 +15,13 @@ namespace GameServer.Server.Operations.Handler
             OperationController controller)
         {
             MUserPhucLoiThang userPhucLoiThang =
-                MongoController.UserDb.PhucLoiThang.GetData(player.cacheData.id);
+                MongoController.UserDb.PhucLoiThang.GetData(player.cacheData.info._id);
 
             DataPhucLoiThangResponseData responseData = null;
 
             if (userPhucLoiThang == null)
             {
-                double gold = MongoController.LogDb.Trans.GetTotalRuby(player.cacheData.id);
+                double gold = MongoController.LogDb.Trans.GetTotalRuby(player.cacheData.info._id);
                 responseData = new DataPhucLoiThangResponseData()
                 {
                     gold = gold,
@@ -33,7 +33,7 @@ namespace GameServer.Server.Operations.Handler
 
                 if (userPhucLoiThang.day_end < DateTime.Now)
                 {
-                    double gold = MongoController.LogDb.Trans.GetTotalRuby(player.cacheData.id, userPhucLoiThang.day_end, DateTime.Now);
+                    double gold = MongoController.LogDb.Trans.GetTotalRuby(player.cacheData.info._id, userPhucLoiThang.day_end, DateTime.Now);
                     responseData = new DataPhucLoiThangResponseData()
                     {
                         gold = gold,

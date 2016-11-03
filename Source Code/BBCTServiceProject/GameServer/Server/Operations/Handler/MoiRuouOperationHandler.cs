@@ -36,7 +36,7 @@ namespace GameServer.Server.Operations.Handler
 
             VipConfig vipConfig = StaticDatabase.entities.configs.vipConfigs[userInfo.vip];
             int countMoiRuouInDay =
-                MongoController.LogSubDB.MoiRuou.Count(userInfo.id);
+                MongoController.LogSubDB.MoiRuou.Count(userInfo.info._id);
 
             if (countMoiRuouInDay >= vipConfig.moiRuouTimes)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.MaxMoiRuouTmies);
@@ -45,13 +45,13 @@ namespace GameServer.Server.Operations.Handler
             string otherUserId = requestData.userid;
 
             MMoiRuouLog log =
-                MongoController.LogSubDB.MoiRuou.GetData(userInfo.id, otherUserId);
+                MongoController.LogSubDB.MoiRuou.GetData(userInfo.info._id, otherUserId);
 
             if (log == null)
             {
                 log = new MMoiRuouLog()
                 {
-                    user_id = userInfo.id,
+                    user_id = userInfo.info._id,
                     other_user_id = otherUserId,
                     hash_code_time = CommonFunc.GetHashCodeTime()
                 };

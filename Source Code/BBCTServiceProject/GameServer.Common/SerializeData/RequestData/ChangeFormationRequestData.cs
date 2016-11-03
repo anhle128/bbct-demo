@@ -9,23 +9,21 @@ namespace GameServer.Common.SerializeData.RequestData
     public class ChangeFormationRequestData : ISerializeData
     {
         public int index_formation;
-        public StringArray[] main;
-        public List<string> sub;
+        public DataFormation data_formation;
+
 
         public Dictionary<byte, object> Serialize()
         {
-            Dictionary<byte, object> data = new Dictionary<byte, object>(3);
-            data.Add(1, ProtoBufSerializerHelper.Handler().Serialize(main));
-            data.Add(2, ProtoBufSerializerHelper.Handler().Serialize(sub));
-            data.Add(3, index_formation);
+            Dictionary<byte, object> data = new Dictionary<byte, object>(2);
+            data.Add(1, ProtoBufSerializerHelper.Handler().Serialize(data_formation));
+            data.Add(2, index_formation);
             return data;
         }
 
         public void Deserialize(Dictionary<byte, object> data)
         {
-            main = ProtoBufSerializerHelper.Handler().Deserialize<StringArray[]>(data[1] as byte[]);
-            sub = ProtoBufSerializerHelper.Handler().Deserialize<List<string>>(data[2] as byte[]);
-            index_formation = Convert.ToInt16(data[3].ToString());
+            data_formation = ProtoBufSerializerHelper.Handler().Deserialize<DataFormation>(data[1] as byte[]);
+            index_formation = Convert.ToInt16(data[2].ToString());
         }
     }
 }

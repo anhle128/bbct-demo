@@ -31,13 +31,13 @@ namespace GameServer.Server.Operations.Handler
             if (requestData.index_reward > starReward.Length - 1)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
 
-            double totalStar = MongoController.UserDb.Stage.SumStar(player.cacheData.id, requestData.index_map, requestData.level);
+            double totalStar = MongoController.UserDb.Stage.SumStar(player.cacheData.info._id, requestData.index_map, requestData.level);
             if (starReward[requestData.index_reward].starRequire > totalStar)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.LackOfRequirement);
 
             MUserStarReward userStarReward = MongoController.UserDb.StarReward.GetData
             (
-                player.cacheData.id,
+                player.cacheData.info._id,
                 requestData.index_map,
                 requestData.level
             );
@@ -46,7 +46,7 @@ namespace GameServer.Server.Operations.Handler
             {
                 userStarReward = new MUserStarReward()
                 {
-                    user_id = player.cacheData.id,
+                    user_id = player.cacheData.info._id,
                     map_index = requestData.index_map,
                     level = requestData.level,
                     index_reveived = new List<int>()

@@ -34,7 +34,7 @@ namespace GameServer.Server.Operations.Handler
             MUserThanThap userThanThap = player.cacheData.thanThapAttacked;
             if (userThanThap == null)
                 userThanThap =
-                MongoController.UserDb.ThanThap.GetData(player.cacheData.id, ThanThapInfo.GetHashTimeEnd());
+                MongoController.UserDb.ThanThap.GetData(player.cacheData.info._id, ThanThapInfo.GetHashTimeEnd());
             if (userThanThap == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.ReloadThanThap);
             if (userThanThap.dead)
@@ -100,7 +100,7 @@ namespace GameServer.Server.Operations.Handler
                 responseData.monsters = userThanThap.monsters;
             }
 
-            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.id, TypeNhiemVuHangNgay.AttackPhuBanThanThap);
+            MongoController.LogSubDB.NhiemVuHangNgay.SaveLogNhiemVu(player.cacheData.info._id, TypeNhiemVuHangNgay.AttackPhuBanThanThap);
             MongoController.UserDb.ThanThap.Update(userThanThap);
 
             // responseData

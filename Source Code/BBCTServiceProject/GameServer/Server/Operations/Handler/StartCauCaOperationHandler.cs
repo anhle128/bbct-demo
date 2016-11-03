@@ -20,14 +20,14 @@ namespace GameServer.Server.Operations.Handler
             StartCauCaRequestData requestData = new StartCauCaRequestData();
             requestData.Deserialize(operationRequest.Parameters);
 
-            var uCauCas = MongoController.UserDb.CauCa.GetCurrentCauCa(player.cacheData.id);
+            var uCauCas = MongoController.UserDb.CauCa.GetCurrentCauCa(player.cacheData.info._id);
 
             if (uCauCas != null)
             {
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
             }
 
-            int countTimes = MongoController.UserDb.CauCa.Count(player.cacheData.id);
+            int countTimes = MongoController.UserDb.CauCa.Count(player.cacheData.info._id);
 
             int maxTimes = StaticDatabase.entities.configs.GetVipConfig(player.cacheData.vip).cauCaTimes;
 
@@ -61,7 +61,7 @@ namespace GameServer.Server.Operations.Handler
 
             MCauCa mCauCa = new MCauCa()
             {
-                user_id = player.cacheData.id,
+                user_id = player.cacheData.info._id,
                 is_open = true,
                 indexCanCau = requestData.indexCanCau,
                 hash_code_time = CommonFunc.GetHashCodeTime(),

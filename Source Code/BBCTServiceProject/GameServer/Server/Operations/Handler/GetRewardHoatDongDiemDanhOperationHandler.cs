@@ -30,7 +30,7 @@ namespace GameServer.Server.Operations.Handler
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidTime);
 
             MUserDienDanhThang userDiemDanh =
-                MongoController.UserDb.DiemDanhThang.GetData(player.cacheData.id, monthReward.month);
+                MongoController.UserDb.DiemDanhThang.GetData(player.cacheData.info._id, monthReward.month);
 
             if (userDiemDanh == null)
                 return CommonFunc.SimpleResponse(operationRequest, ReturnCode.InvalidData);
