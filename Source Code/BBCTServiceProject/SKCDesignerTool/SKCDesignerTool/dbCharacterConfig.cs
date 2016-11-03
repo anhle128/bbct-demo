@@ -23,5 +23,7 @@ namespace BBCTDesignerTool
         public Nullable<double> modStar { get; set; }
         public Nullable<double> procReceivedUpStar { get; set; }
         public Nullable<double> procAmountCharToSoul { get; set; }
+        public Nullable<int> sellPrice { get; set; }
+        public Nullable<double> maxResKH { get; set; }
     }
 }

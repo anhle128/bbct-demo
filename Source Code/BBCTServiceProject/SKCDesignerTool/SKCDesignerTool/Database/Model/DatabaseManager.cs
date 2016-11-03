@@ -2,7 +2,7 @@
 
 using MongoDBModel.MainDatabaseModels;
 using System.Collections.Generic;
-namespace BBCTNPHTool.Database.Model
+namespace BBCTDesignerTool.Database.Model
 {
     public class DatabaseManager
     {

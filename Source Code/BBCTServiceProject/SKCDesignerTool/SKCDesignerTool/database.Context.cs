@@ -169,5 +169,22 @@ namespace BBCTDesignerTool
         public virtual DbSet<dbDoiHinhDuBiRequire> dbDoiHinhDuBiRequires { get; set; }
         public virtual DbSet<dbHuaNguyenConfig> dbHuaNguyenConfigs { get; set; }
         public virtual DbSet<dbTimeAttackBoss> dbTimeAttackBosses { get; set; }
+        public virtual DbSet<dbCharGoldNeedToFusion> dbCharGoldNeedToFusions { get; set; }
+        public virtual DbSet<dbCharGoldNeedToPowerup> dbCharGoldNeedToPowerups { get; set; }
+        public virtual DbSet<dbCharGoldNeedToStarup> dbCharGoldNeedToStarups { get; set; }
+        public virtual DbSet<dbCharSkillStarLevel> dbCharSkillStarLevels { get; set; }
+        public virtual DbSet<dbCharStarLevelExp> dbCharStarLevelExps { get; set; }
+        public virtual DbSet<dbCharStarLevelExpConfig> dbCharStarLevelExpConfigs { get; set; }
+        public virtual DbSet<dbEquipElementSupport> dbEquipElementSupports { get; set; }
+        public virtual DbSet<dbEquipGoldNeedToPowerup> dbEquipGoldNeedToPowerups { get; set; }
+        public virtual DbSet<dbEquipGoldNeedToStarup> dbEquipGoldNeedToStarups { get; set; }
+        public virtual DbSet<dbEquipmentBonusAttribute> dbEquipmentBonusAttributes { get; set; }
+        public virtual DbSet<dbEquipmentElementAttribute> dbEquipmentElementAttributes { get; set; }
+        public virtual DbSet<dbEquipProcElement> dbEquipProcElements { get; set; }
+        public virtual DbSet<dbEquipStarLevelExp> dbEquipStarLevelExps { get; set; }
+        public virtual DbSet<dbEquipStarLevelExpConfig> dbEquipStarLevelExpConfigs { get; set; }
+        public virtual DbSet<dbEquipSupport> dbEquipSupports { get; set; }
+        public virtual DbSet<dbGroupCharacter> dbGroupCharacters { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

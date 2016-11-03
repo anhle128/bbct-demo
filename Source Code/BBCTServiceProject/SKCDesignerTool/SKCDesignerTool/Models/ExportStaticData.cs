@@ -11,6 +11,7 @@ using StaticDB.Models;
 using BattleSimulator;
 using System.Diagnostics;
 using System.Windows.Forms;
+using StaticDB.Enum;
 
 namespace BBCTDesignerTool.Models
 {
@@ -1836,14 +1837,14 @@ namespace BBCTDesignerTool.Models
             var tmpEqui = cs.dbEquipmentConfigs.FirstOrDefault();
             EquipmentConfig equi = new EquipmentConfig()
             {
-                maxStarCanReach = (int)tmpEqui.maxStarCanReach,
-                pieceNeedToImport = HandlerPieceNeedToImport().ToArray(),
-                pieceExportReceive = HandlerPieceExportReceive().ToArray(),
-                defaultConfig = HandlerEquipDefaultConfig((int)tmpEqui.levelDefault, (int)tmpEqui.starLevelDefault),
-                equipLevelUpConfig = HandlerEquipLevelUpConfig((int)tmpEqui.baseGold),
-                equipStarUpConfig = HandlerEquipStarUpConfig().ToArray(),
-                maxEquipToUpStar = (int)tmpEqui.maxEquipToUpStar,
-                modStar = (float)tmpEqui.procReceivedUpStar
+                //maxStarCanReach = (int)tmpEqui.maxStarCanReach,
+                //pieceNeedToImport = HandlerPieceNeedToImport().ToArray(),
+                //pieceExportReceive = HandlerPieceExportReceive().ToArray(),
+                //defaultConfig = HandlerEquipDefaultConfig((int)tmpEqui.levelDefault, (int)tmpEqui.starLevelDefault),
+                //equipLevelUpConfig = HandlerEquipLevelUpConfig((int)tmpEqui.baseGold),
+                //equipStarUpConfig = HandlerEquipStarUpConfig().ToArray(),
+                //maxEquipToUpStar = (int)tmpEqui.maxEquipToUpStar,
+                //modStar = (float)tmpEqui.procReceivedUpStar
             };
             return equi;
         }
@@ -1940,8 +1941,8 @@ namespace BBCTDesignerTool.Models
         {
             EquipDefaultConfig equi = new EquipDefaultConfig()
             {
-                level = level,
-                starLevel = starLevel
+                //level = level,
+                //starLevel = starLevel
             };
             return equi;
         }
@@ -1971,29 +1972,9 @@ namespace BBCTDesignerTool.Models
             {
                 defaultConfig = HandlerCharDefaultConfig(),
                 defaultCharSelections = HandlerCharSelection().ToArray(),
-                maxStarCanUp = (int)tmpBattle.maxStarCanUp,
-                procAmountCharToSoul = (double)tmpBattle.procAmountCharToSoul,
-                powerUpLevelUnlockPassiveSkill = (int)tmpBattle.powerUpLevelUnlockPassiveSkill,
-                levelUnlockPassiveSkill2 = (int)tmpBattle.levelUnlockPassiveSkill2,
-                prefixSilverUpSkill = (int)tmpBattle.prefixSilverUpSkill,
-                modStar = (float)tmpBattle.modStar,
-                levelUnlockMainSkills = HandlerLevelUnlockMainSkill()
+                //arrCharStarLevelExpConfig
             };
             return chr;
-        }
-
-        private int[] HandlerLevelUnlockMainSkill()
-        {
-            List<int> lsInt = new List<int>();
-            var tmpLevel = from tmp in cs.dbLevelUnlockMainSkills
-                           where tmp.status == 1
-                           select tmp;
-
-            foreach (var item in tmpLevel)
-            {
-                lsInt.Add((int)item.value);
-            }
-            return lsInt.ToArray();
         }
 
         private List<CharSelection> HandlerCharSelection()
@@ -2023,8 +2004,7 @@ namespace BBCTDesignerTool.Models
             {
                 levelChar = (int)tmpBattle.levelChar,
                 levelSkill = (int)tmpBattle.levelSkill,
-                powerupLevelChar = (int)tmpBattle.powerupLevelChar,
-                starLevelChar = (int)tmpBattle.starLevelChar
+                powerupLevelChar = (int)tmpBattle.powerupLevelChar
             };
             return chr;
         }
@@ -2115,12 +2095,9 @@ namespace BBCTDesignerTool.Models
                 Equipment newChar = new Equipment()
                 {
                     id = (int)chr.idEquipment,
-                    category = (int)chr.category,
+                    category = (CategoryEquipment)chr.category,
                     description = HandlerKeyLanguage(5, (int)chr.id)[1],
                     name = HandlerKeyLanguage(5, (int)chr.id)[0],
-                    promotion = (short)chr.promotion,
-                    attributes = HandlerAttribute(5, (int)chr.id).ToArray(),
-                    starUpReceipts = HandlerStarUpReceipts((int)chr.id).ToArray(),
                     baseMarketPrice = (int)chr.baseMarketPrice,
                     canSellMarket = HandlerTrueorFalse((int)chr.canSellMarket),
                     icon = (int)chr.icon
@@ -2223,23 +2200,23 @@ namespace BBCTDesignerTool.Models
             foreach (var chr in tmpCharacter)
             {
                 Character newChar = new Character();
-                newChar.id = (int)chr.idCharacter;
-                newChar.name = HandlerKeyLanguage(1, (int)chr.idCharacter)[0];
-                newChar.description = HandlerKeyLanguage(1, (int)chr.idCharacter)[1];
-                newChar.category = (int)chr.category;
-                newChar.promotion = (int)chr.promotion;
-                newChar.classCharacter = (int)chr.classCharacter;
-                newChar.isCreep = HandlerTrueorFalse((int)chr.isCreep);
-                newChar.attributes = HandlerAttribute(1, (int)chr.id).ToArray();
-                newChar.duyenphans = HandlerDuyenPhan((int)chr.id).ToArray();
-                newChar.normalSkill = HandlerSkill(1, (int)chr.id).Count > 0 ? HandlerSkill(1, (int)chr.id)[0] : null;
-                newChar.ultimateSkill = HandlerSkill(2, (int)chr.id).ToArray();
-                newChar.passiveSkill1 = HandlerSkill(3, (int)chr.id).ToArray();
-                newChar.passiveSkill2 = HandlerSkill(4, (int)chr.id).ToArray();
-                newChar.powerupReceipt = HandlerPowerUpReceipt((int)chr.id).ToArray();
-                newChar.isMain = HandlerTrueorFalse((int)chr.isMain);
-                newChar.amountPieceToImport = (int)chr.amountPieceToImport;
-                newChar.idCharHuaNguyen = (int)chr.idCharHuaNguyen;
+                //newChar.id = (int)chr.idCharacter;
+                //newChar.name = HandlerKeyLanguage(1, (int)chr.idCharacter)[0];
+                //newChar.description = HandlerKeyLanguage(1, (int)chr.idCharacter)[1];
+                //newChar.category = (int)chr.category;
+                //newChar.promotion = (int)chr.promotion;
+                //newChar.classCharacter = (int)chr.classCharacter;
+                //newChar.isCreep = HandlerTrueorFalse((int)chr.isCreep);
+                //newChar.attributes = HandlerAttribute(1, (int)chr.id).ToArray();
+                //newChar.duyenphans = HandlerDuyenPhan((int)chr.id).ToArray();
+                //newChar.normalSkill = HandlerSkill(1, (int)chr.id).Count > 0 ? HandlerSkill(1, (int)chr.id)[0] : null;
+                //newChar.ultimateSkill = HandlerSkill(2, (int)chr.id).ToArray();
+                //newChar.passiveSkill1 = HandlerSkill(3, (int)chr.id).ToArray();
+                //newChar.passiveSkill2 = HandlerSkill(4, (int)chr.id).ToArray();
+                //newChar.powerupReceipt = HandlerPowerUpReceipt((int)chr.id).ToArray();
+                //newChar.isMain = HandlerTrueorFalse((int)chr.isMain);
+                //newChar.amountPieceToImport = (int)chr.amountPieceToImport;
+                //newChar.idCharHuaNguyen = (int)chr.idCharHuaNguyen;
                 lsCharacter.Add(newChar);
             }
             return lsCharacter.ToArray();
@@ -2319,17 +2296,16 @@ namespace BBCTDesignerTool.Models
                         description = HandlerKeyLanguage(2, (int)item.id)[1],
                         type = HandlerTypeSkill((int)item.types),
                         slot = (int)item.slot,
-                        category = (int)item.category,
+                        category = (CategoryCharacter)item.category,
                         cooldown = (int)item.cooldown,
-                        target = (int)item.targets,
-                        effect = (int)item.effect,
-                        range = (int)item.ranges,
-                        afflictionSkill = (int)item.afflictionSkill,
+                        target = (TargetSkill)item.targets,
+                        effect = (EffectSkill)item.effect,
+                        range = (RangeSkill)item.ranges,
+                        afflictionSkill = (Affliction)item.afflictionSkill,
                         afflictionAttributes = HandlerAttribute(2, (int)item.id).ToArray(),
                         attributes = HandlerAttribute(3, (int)item.id).ToArray(),
                         countTurn = (int)item.countTurn,
-                        typeSpawnSkill = (int)item.typeSpawnSkill,
-                        manaCost = (int)item.manaCost,
+                        typeSpawnSkill = (TypeSpawnSkill)item.typeSpawnSkill,
                         afflictionDuration = (int)item.afflictionDuration,
                         afflictionProc = (int)item.afflictionProc
                     };
@@ -2391,7 +2367,7 @@ namespace BBCTDesignerTool.Models
                 {
                     mod = (float)item.value,
                     growthMod = (float)item.growthMod,
-                    attribute = (int)item.attribute
+                    attribute = (CharacterAttribute)item.attribute
                 };
                 lsAttribute.Add(main);
             }
@@ -2427,7 +2403,7 @@ namespace BBCTDesignerTool.Models
                 {
                     MainAttribute it = new MainAttribute()
                     {
-                        attribute = (int)item.attribute,
+                        attribute = (CharacterAttribute)item.attribute,
                         growthMod = (float)item.growthMod,
                         mod = (float)item.mods
                     };
@@ -2444,7 +2420,7 @@ namespace BBCTDesignerTool.Models
                 {
                     MainAttribute it = new MainAttribute()
                     {
-                        attribute = (int)item.attribute,
+                        attribute = (CharacterAttribute)item.attribute,
                         growthMod = (float)item.growthMod,
                         mod = (float)item.mods
                     };
@@ -2461,7 +2437,7 @@ namespace BBCTDesignerTool.Models
                 {
                     MainAttribute it = new MainAttribute()
                     {
-                        attribute = (int)item.attribute,
+                        attribute = (CharacterAttribute)item.attribute,
                         growthMod = (float)item.growthMod,
                         mod = (float)item.mods
                     };
@@ -2478,7 +2454,7 @@ namespace BBCTDesignerTool.Models
                 {
                     MainAttribute it = new MainAttribute()
                     {
-                        attribute = (int)item.attribute,
+                        attribute = (CharacterAttribute)item.attribute,
                         growthMod = (float)item.growthMod,
                         mod = (float)item.mods
                     };
@@ -2496,7 +2472,7 @@ namespace BBCTDesignerTool.Models
                 {
                     MainAttribute it = new MainAttribute()
                     {
-                        attribute = (int)item.attribute,
+                        attribute = (CharacterAttribute)item.attribute,
                         growthMod = (float)item.growthMod,
                         mod = (float)item.mods
                     };

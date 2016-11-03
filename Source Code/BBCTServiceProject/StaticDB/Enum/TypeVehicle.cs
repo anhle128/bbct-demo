@@ -3,9 +3,9 @@ namespace StaticDB.Enum
 {
     public enum TypeVehicle
     {
-        Wood,
-        Bronze,
-        Silver,
-        Gold
+        Wood = 1,
+        Bronze = 2,
+        Silver = 3,
+        Gold = 4
     }
 }

@@ -1,14 +1,14 @@
 ﻿
 using MongoDBModel.Implement;
 using MongoDBModel.MainDatabaseModels;
-using BBCTNPHTool.Database.Controller;
-using BBCTNPHTool.Database.Model;
+using BBCTDesignerTool.Database.Controller;
+using BBCTDesignerTool.Database.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace BBCTNPHTool.Database.Core
+namespace BBCTDesignerTool.Database.Core
 {
     public class AbsCollectionController<T> : IDataControlable<T> where T : IMongoModel
     {

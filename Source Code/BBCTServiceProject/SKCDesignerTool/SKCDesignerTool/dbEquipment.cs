@@ -30,6 +30,11 @@ namespace BBCTDesignerTool
         public Nullable<int> baseMarketPrice { get; set; }
         public Nullable<int> canSellMarket { get; set; }
         public Nullable<int> icon { get; set; }
+        public Nullable<int> lowestStarLevel { get; set; }
+        public Nullable<int> highestStarLevel { get; set; }
+        public Nullable<int> attAttribute { get; set; }
+        public Nullable<double> attMods { get; set; }
+        public Nullable<int> attGrowthMod { get; set; }
     
         public virtual ICollection<dbEquipmentAttribute> dbEquipmentAttributes { get; set; }
         public virtual ICollection<dbEquipmentStarUp> dbEquipmentStarUps { get; set; }

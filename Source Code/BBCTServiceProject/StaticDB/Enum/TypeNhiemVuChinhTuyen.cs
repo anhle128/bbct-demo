@@ -3,11 +3,11 @@ namespace StaticDB.Enum
 {
     public enum TypeNhiemVuChinhTuyen : int
     {
-        UpLevelPlayer,
-        GetChar, // sưu tập hiệp khách 
-        GetEquip, // sưu tập trang bị
-        UpLevelEquip, // cường hóa trang bị
-        UpLevelSkill, // khổ luyện võ công
-        AttachStage, // hành hiệp trượng nghĩa
+        UpLevelPlayer = 1,
+        GetChar = 2, // sưu tập hiệp khách 
+        GetEquip = 3, // sưu tập trang bị
+        UpLevelEquip = 4, // cường hóa trang bị
+        UpLevelSkill = 5, // khổ luyện võ công
+        AttachStage = 6, // hành hiệp trượng nghĩa
     }
 }

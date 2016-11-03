@@ -2,7 +2,7 @@
 {
     public enum TypeCharacter
     {
-        Hero,
-        Element
+        Hero = 1,
+        Element = 2
     }
 }

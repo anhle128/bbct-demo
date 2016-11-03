@@ -40,6 +40,7 @@ namespace BBCTDesignerTool
         public Nullable<int> afflictionDuration { get; set; }
         public Nullable<double> afflictionProc { get; set; }
         public Nullable<int> categoryMain { get; set; }
+        public Nullable<int> startCooldown { get; set; }
     
         public virtual dbCharacter dbCharacter { get; set; }
         public virtual ICollection<dbCharSkillAfflictionAttribute> dbCharSkillAfflictionAttributes { get; set; }

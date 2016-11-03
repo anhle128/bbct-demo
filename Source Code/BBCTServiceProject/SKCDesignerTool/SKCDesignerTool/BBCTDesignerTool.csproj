@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>ftp://103.48.80.234/KDQHDesignerTool/</PublishUrl>
+    <PublishUrl>ftp://103.48.80.234/BBCTDesignerTool/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,15 +22,15 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://lungemine.com:9192/</InstallUrl>
-    <ProductName>KDQH Designer Tool - Game Version 1.0.0.4</ProductName>
+    <InstallUrl>http://lungemine.com:9195/</InstallUrl>
+    <ProductName>BBCT Designer Tool</ProductName>
     <PublisherName>Lunge Mine JSC</PublisherName>
     <SuiteName>Designer Tool</SuiteName>
     <MinimumRequiredVersion>1.0.0.41</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>152</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -212,6 +212,15 @@
     <Compile Include="dbCharDuyenPhanID.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
+    <Compile Include="dbCharGoldNeedToFusion.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharGoldNeedToPowerup.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharGoldNeedToStarup.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
     <Compile Include="dbCharPowerUpReceipt.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
@@ -225,6 +234,15 @@
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
     <Compile Include="dbCharSkillAttribute.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharSkillStarLevel.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharStarLevelExp.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbCharStarLevelExpConfig.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
     <Compile Include="dbChucPhucConfig.cs">
@@ -326,13 +344,28 @@
     <Compile Include="dbDoiHinhDuBiRequire.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
+    <Compile Include="dbEquipElementSupport.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipGoldNeedToPowerup.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipGoldNeedToStarup.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
     <Compile Include="dbEquipment.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipmentAttribute.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
+    <Compile Include="dbEquipmentBonusAttribute.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
     <Compile Include="dbEquipmentConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipmentElementAttribute.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipmentReceipt.cs">
@@ -341,10 +374,22 @@
     <Compile Include="dbEquipmentStarUp.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
+    <Compile Include="dbEquipProcElement.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipStarLevelExp.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipStarLevelExpConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
     <Compile Include="dbEquipStarUpConfig.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
     <Compile Include="dbEquipStarUpDetail.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEquipSupport.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
     <Compile Include="dbExchangeGoldToSilverConfig.cs">
@@ -363,6 +408,9 @@
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGMMailConfig.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbGroupCharacter.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
     <Compile Include="dbGuildBoss.cs">
@@ -811,6 +859,9 @@
     <Compile Include="Models\TotalReward.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>database.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserController\ucBattleConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>

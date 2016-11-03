@@ -24,20 +24,27 @@
           <Property Name="centerBattleY" Type="float" />
           <Property Name="distanceFrontTarget" Type="float" />
           <Property Name="manaPool" Type="int" />
-          <Property Name="manaRegen" Type="int" />
+          <Property Name="manaRegenNormal" Type="int" />
           <Property Name="manaRegenUltimate" Type="int" />
-          <Property Name="idBachgroundThachDau" Type="int" />
-          <Property Name="idBossWorld" Type="int" />
-          <Property Name="idBachgroundThanThap" Type="int" />
-          <Property Name="idBachgroundBoss" Type="int" />
+          <Property Name="manaRegenAttacked" Type="int" />
+          <Property Name="idBackgroundThanThap" Type="int" />
+          <Property Name="idBackgroundBoss" Type="int" />
           <Property Name="idBackgroundCuopTieu" Type="int" />
           <Property Name="idBackgroundLuanKiem" Type="int" />
           <Property Name="idBackgroundBangChien" Type="int" />
-          <Property Name="manaRegenAttacked" Type="int" />
+          <Property Name="idBackgroundThachDau" Type="int" />
           <Property Name="levelSpeed" Type="int" />
           <Property Name="vipAuto" Type="int" />
-          <Property Name="vipSpeed" Type="int" />
+          <Property Name="levelAuto" Type="int" />
           <Property Name="rangeRandomDamage" Type="int" />
+          <Property Name="vipSkip" Type="int" />
+          <Property Name="modX" Type="float" />
+          <Property Name="modY" Type="float" />
+          <Property Name="modZ" Type="float" />
+          <Property Name="modF" Type="float" />
+          <Property Name="modU" Type="float" />
+          <Property Name="modKH" Type="float" />
+          <Property Name="idBossWorld" Type="int" />
         </EntityType>
         <EntityType Name="dbBattlePoint2ArrayConfig">
           <Key>
@@ -100,28 +107,26 @@
           <Property Name="name" Type="nvarchar" MaxLength="200" />
           <Property Name="descriptions" Type="nvarchar" MaxLength="1000" />
           <Property Name="category" Type="int" />
-          <Property Name="promotion" Type="int" />
           <Property Name="classCharacter" Type="int" />
-          <Property Name="isMain" Type="int" />
-          <Property Name="orders" Type="int" />
-          <Property Name="status" Type="int" />
-          <Property Name="amountPieceToImport" Type="int" />
           <Property Name="isCreep" Type="int" />
           <Property Name="idCharHuaNguyen" Type="int" />
+          <Property Name="isMale" Type="int" />
+          <Property Name="element" Type="int" />
+          <Property Name="idGroup" Type="int" />
+          <Property Name="quote" Type="nvarchar" MaxLength="500" />
+          <Property Name="typeCharacter" Type="int" />
+          <Property Name="lowestStarLevel" Type="int" />
+          <Property Name="highestStarLevel" Type="int" />
+          <Property Name="orders" Type="int" />
+          <Property Name="status" Type="int" />
         </EntityType>
         <EntityType Name="dbCharacterConfig">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="maxStarCanUp" Type="int" />
-          <Property Name="amountCharToSoul" Type="int" />
-          <Property Name="powerUpLevelUnlockPassiveSkill" Type="int" />
-          <Property Name="levelUnlockPassiveSkill2" Type="int" />
-          <Property Name="prefixSilverUpSkill" Type="int" />
-          <Property Name="modStar" Type="float" />
-          <Property Name="procReceivedUpStar" Type="float" />
-          <Property Name="procAmountCharToSoul" Type="float" />
+          <Property Name="sellPrice" Type="int" />
+          <Property Name="maxResKH" Type="float" />
         </EntityType>
         <EntityType Name="dbCharacterLevelExp">
           <Key>
@@ -148,22 +153,9 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idChrConfig" Type="int" />
           <Property Name="levelSkill" Type="int" />
           <Property Name="levelChar" Type="int" />
-          <Property Name="promotionLevelChar" Type="int" />
           <Property Name="powerupLevelChar" Type="int" />
-          <Property Name="starLevelChar" Type="int" />
-        </EntityType>
-        <EntityType Name="dbCharDetailPowerUpReceipt">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idReceipt" Type="int" />
-          <Property Name="idItem" Type="int" />
-          <Property Name="amount" Type="int" />
-          <Property Name="status" Type="int" />
         </EntityType>
         <EntityType Name="dbCharDuyenPhan">
           <Key>
@@ -184,8 +176,6 @@
           <Property Name="idDuyen" Type="int" />
           <Property Name="value" Type="float" />
           <Property Name="status" Type="int" />
-          <Property Name="attribute" Type="int" />
-          <Property Name="growthMod" Type="float" />
         </EntityType>
         <EntityType Name="dbCharDuyenPhanIDS">
           <Key>
@@ -196,13 +186,28 @@
           <Property Name="value" Type="int" />
           <Property Name="status" Type="int" />
         </EntityType>
-        <EntityType Name="dbCharPowerUpReceipt">
+        <EntityType Name="dbCharGoldNeedToFusions">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idCharacter" Type="int" />
-          <Property Name="gen" Type="int" />
+          <Property Name="value" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="dbCharGoldNeedToPowerups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="value" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="dbCharGoldNeedToStarups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="value" Type="int" />
           <Property Name="status" Type="int" />
         </EntityType>
         <EntityType Name="dbCharSelection">
@@ -226,18 +231,17 @@
           <Property Name="slot" Type="int" />
           <Property Name="category" Type="int" />
           <Property Name="cooldown" Type="int" />
+          <Property Name="startCooldown" Type="int" />
           <Property Name="targets" Type="int" />
           <Property Name="effect" Type="int" />
           <Property Name="ranges" Type="int" />
           <Property Name="afflictionSkill" Type="int" />
-          <Property Name="orders" Type="int" />
-          <Property Name="status" Type="int" />
           <Property Name="countTurn" Type="int" />
           <Property Name="typeSpawnSkill" Type="int" />
-          <Property Name="manaCost" Type="int" />
           <Property Name="afflictionDuration" Type="int" />
           <Property Name="afflictionProc" Type="float" />
-          <Property Name="categoryMain" Type="int" />
+          <Property Name="orders" Type="int" />
+          <Property Name="status" Type="int" />
         </EntityType>
         <EntityType Name="dbCharSkillAfflictionAttribute">
           <Key>
@@ -259,6 +263,33 @@
           <Property Name="attribute" Type="int" />
           <Property Name="mods" Type="float" />
           <Property Name="growthMod" Type="float" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="dbCharSkillStarLevels">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="star" Type="int" />
+          <Property Name="numberItemRequire" Type="int" />
+          <Property Name="silverRequire" Type="int" />
+          <Property Name="maxLevel" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="dbCharStarLevelExp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCharStar" Type="int" />
+          <Property Name="value" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="dbCharStarLevelExpConfig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="status" Type="int" />
         </EntityType>
         <EntityType Name="dbChucPhucConfig">
@@ -542,30 +573,62 @@
           <Property Name="levels" Type="int" />
           <Property Name="status" Type="int" />
         </EntityType>
+        <EntityType Name="dbEquipElementSupports">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="element" Type="int" />
+          <Property Name="elementSupport" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="dbEquipGoldNeedToPowerups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="value" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="dbEquipGoldNeedToStarups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="value" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
         <EntityType Name="dbEquipment">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idEquipment" Type="int" />
+          <Property Name="icon" Type="int" />
           <Property Name="name" Type="nvarchar" MaxLength="200" />
           <Property Name="descriptions" Type="nvarchar" MaxLength="200" />
           <Property Name="category" Type="int" />
-          <Property Name="promotion" Type="int" />
-          <Property Name="status" Type="int" />
           <Property Name="baseMarketPrice" Type="int" />
           <Property Name="canSellMarket" Type="int" />
-          <Property Name="icon" Type="int" />
+          <Property Name="lowestStarLevel" Type="int" />
+          <Property Name="highestStarLevel" Type="int" />
+          <Property Name="attAttribute" Type="int" />
+          <Property Name="attMods" Type="float" />
+          <Property Name="attGrowthMod" Type="int" />
+          <Property Name="status" Type="int" />
         </EntityType>
-        <EntityType Name="dbEquipmentAttribute">
+        <EntityType Name="dbEquipmentBonusAttribute">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idEquipment" Type="int" />
+          <Property Name="idElement" Type="int" />
           <Property Name="attribute" Type="int" />
-          <Property Name="mods" Type="float" />
-          <Property Name="growthMod" Type="float" />
+          <Property Name="minMod" Type="float" />
+          <Property Name="maxMod" Type="float" />
+          <Property Name="minGrowMod" Type="float" />
+          <Property Name="maxGrowMod" Type="float" />
+          <Property Name="procs" Type="float" />
           <Property Name="status" Type="int" />
         </EntityType>
         <EntityType Name="dbEquipmentConfig">
@@ -573,54 +636,49 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="goldSilverToLevelUp" Type="int" />
-          <Property Name="maxStarCanReach" Type="int" />
-          <Property Name="levelDefault" Type="int" />
-          <Property Name="starLevelDefault" Type="int" />
-          <Property Name="maxEquipToUpStar" Type="int" />
-          <Property Name="procReceivedUpStar" Type="float" />
-          <Property Name="baseGold" Type="int" />
+          <Property Name="sellPrice" Type="int" />
+          <Property Name="dePowerup" Type="int" />
         </EntityType>
-        <EntityType Name="dbEquipmentReceipt">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idStarUp" Type="int" />
-          <Property Name="idItem" Type="int" />
-          <Property Name="amount" Type="int" />
-          <Property Name="status" Type="int" />
-        </EntityType>
-        <EntityType Name="dbEquipmentStarUp">
+        <EntityType Name="dbEquipmentElementAttribute">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idEquipment" Type="int" />
-          <Property Name="value" Type="int" />
+          <Property Name="element" Type="int" />
           <Property Name="status" Type="int" />
         </EntityType>
-        <EntityType Name="dbEquipStarUpConfig">
+        <EntityType Name="dbEquipProcElements">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idEquipmentConfig" Type="int" />
-          <Property Name="value" Type="int" />
-          <Property Name="status" Type="int" />
-          <Property Name="amountItemNeed" Type="int" />
-          <Property Name="modifierAttribute" Type="float" />
-          <Property Name="amountExtendAttributeBeOpened" Type="int" />
-          <Property Name="equipStockStar" Type="int" />
-          <Property Name="promotion" Type="int" />
-        </EntityType>
-        <EntityType Name="dbEquipStarUpDetail">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idStarUp" Type="int" />
           <Property Name="value" Type="float" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="dbEquipStarLevelExp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEquipStar" Type="int" />
+          <Property Name="value" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="dbEquipStarLevelExpConfig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="dbEquipSupport">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="equip" Type="int" />
+          <Property Name="equipSupport" Type="int" />
           <Property Name="status" Type="int" />
         </EntityType>
         <EntityType Name="dbExchangeGoldToSilverConfig">
@@ -692,6 +750,16 @@
           <Property Name="maxMailCanSentPerDay" Type="int" />
           <Property Name="titleLength" Type="int" />
           <Property Name="contentLength" Type="int" />
+        </EntityType>
+        <EntityType Name="dbGroupCharacter">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idGroup" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="200" />
+          <Property Name="descriptions" Type="nvarchar" MaxLength="1000" />
+          <Property Name="status" Type="int" />
         </EntityType>
         <EntityType Name="dbGuildBoss">
           <Key>
@@ -1231,24 +1299,6 @@
           <Property Name="procs" Type="float" />
           <Property Name="status" Type="int" />
         </EntityType>
-        <EntityType Name="dbpieceExportReceive">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idEquipmentConfig" Type="int" />
-          <Property Name="value" Type="int" />
-          <Property Name="status" Type="int" />
-        </EntityType>
-        <EntityType Name="dbPieceNeedToImport">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idEquipmentConfig" Type="int" />
-          <Property Name="value" Type="int" />
-          <Property Name="status" Type="int" />
-        </EntityType>
         <EntityType Name="dbPlayerDefaultConfig">
           <Key>
             <PropertyRef Name="id" />
@@ -1589,19 +1639,17 @@
           <Property Name="huaNguyenTimes" Type="int" />
           <Property Name="buyPointSkillTimes" Type="int" />
         </EntityType>
-        <Association Name="FK__dbBattleP__idPoi__17C286CF">
-          <End Role="dbBattlePoint2ArrayConfig" Type="Self.dbBattlePoint2ArrayConfig" Multiplicity="0..1" />
-          <End Role="dbBattlePoint2Config" Type="Self.dbBattlePoint2Config" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbBattlePoint2ArrayConfig">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbBattlePoint2Config">
-              <PropertyRef Name="idPoint2Array" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbCauCaCo__idCon__18B6AB08">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__dbCauCaCo__idCon__22401542">
           <End Role="dbConfig" Type="Self.dbConfig" Multiplicity="0..1" />
           <End Role="dbCauCaConfig" Type="Self.dbCauCaConfig" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1613,7 +1661,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbCauCaRe__idCau__19AACF41">
+        <Association Name="FK__dbCauCaRe__idCau__2334397B">
           <End Role="dbCauCaConfig" Type="Self.dbCauCaConfig" Multiplicity="0..1" />
           <End Role="dbCauCaReward" Type="Self.dbCauCaReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1625,115 +1673,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbCharAtt__idCha__1A9EF37A">
-          <End Role="dbCharacter" Type="Self.dbCharacter" Multiplicity="0..1" />
-          <End Role="dbCharAttribute" Type="Self.dbCharAttribute" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbCharacter">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbCharAttribute">
-              <PropertyRef Name="idCharacter" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbCharDet__idRec__1B9317B3">
-          <End Role="dbCharPowerUpReceipt" Type="Self.dbCharPowerUpReceipt" Multiplicity="0..1" />
-          <End Role="dbCharDetailPowerUpReceipt" Type="Self.dbCharDetailPowerUpReceipt" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbCharPowerUpReceipt">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbCharDetailPowerUpReceipt">
-              <PropertyRef Name="idReceipt" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbCharDuy__idCha__1C873BEC">
-          <End Role="dbCharacter" Type="Self.dbCharacter" Multiplicity="0..1" />
-          <End Role="dbCharDuyenPhan" Type="Self.dbCharDuyenPhan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbCharacter">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbCharDuyenPhan">
-              <PropertyRef Name="idCharacter" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbCharDuy__idDuy__1D7B6025">
-          <End Role="dbCharDuyenPhan" Type="Self.dbCharDuyenPhan" Multiplicity="0..1" />
-          <End Role="dbCharDuyenPhanAttribute" Type="Self.dbCharDuyenPhanAttribute" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbCharDuyenPhan">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbCharDuyenPhanAttribute">
-              <PropertyRef Name="idDuyen" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbCharDuy__idDuy__1E6F845E">
-          <End Role="dbCharDuyenPhan" Type="Self.dbCharDuyenPhan" Multiplicity="0..1" />
-          <End Role="dbCharDuyenPhanIDS" Type="Self.dbCharDuyenPhanIDS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbCharDuyenPhan">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbCharDuyenPhanIDS">
-              <PropertyRef Name="idDuyen" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbCharPow__idCha__1F63A897">
-          <End Role="dbCharacter" Type="Self.dbCharacter" Multiplicity="0..1" />
-          <End Role="dbCharPowerUpReceipt" Type="Self.dbCharPowerUpReceipt" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbCharacter">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbCharPowerUpReceipt">
-              <PropertyRef Name="idCharacter" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbCharSki__idCha__2057CCD0">
-          <End Role="dbCharacter" Type="Self.dbCharacter" Multiplicity="0..1" />
-          <End Role="dbCharSkill" Type="Self.dbCharSkill" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbCharacter">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbCharSkill">
-              <PropertyRef Name="idCharacter" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbCharSki__idSki__214BF109">
-          <End Role="dbCharSkill" Type="Self.dbCharSkill" Multiplicity="0..1" />
-          <End Role="dbCharSkillAfflictionAttribute" Type="Self.dbCharSkillAfflictionAttribute" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbCharSkill">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbCharSkillAfflictionAttribute">
-              <PropertyRef Name="idSkill" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbCharSki__idSki__22401542">
-          <End Role="dbCharSkill" Type="Self.dbCharSkill" Multiplicity="0..1" />
-          <End Role="dbCharSkillAttribute" Type="Self.dbCharSkillAttribute" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbCharSkill">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbCharSkillAttribute">
-              <PropertyRef Name="idSkill" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbChucPhu__idCon__2334397B">
+        <Association Name="FK__dbChucPhu__idCon__2CBDA3B5">
           <End Role="dbConfig" Type="Self.dbConfig" Multiplicity="0..1" />
           <End Role="dbChucPhucConfig" Type="Self.dbChucPhucConfig" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1745,7 +1685,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbCuuCuuT__idCuu__24285DB4">
+        <Association Name="FK__dbCuuCuuT__idCuu__2DB1C7EE">
           <End Role="dbCuuCuuTriTonConfig" Type="Self.dbCuuCuuTriTonConfig" Multiplicity="0..1" />
           <End Role="dbCuuCuuTriTonConfigReward" Type="Self.dbCuuCuuTriTonConfigReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1757,67 +1697,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbEquipme__idEqu__251C81ED">
-          <End Role="dbEquipment" Type="Self.dbEquipment" Multiplicity="0..1" />
-          <End Role="dbEquipmentAttribute" Type="Self.dbEquipmentAttribute" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbEquipment">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbEquipmentAttribute">
-              <PropertyRef Name="idEquipment" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbEquipme__idEqu__2704CA5F">
-          <End Role="dbEquipment" Type="Self.dbEquipment" Multiplicity="0..1" />
-          <End Role="dbEquipmentStarUp" Type="Self.dbEquipmentStarUp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbEquipment">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbEquipmentStarUp">
-              <PropertyRef Name="idEquipment" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbEquipme__idSta__2610A626">
-          <End Role="dbEquipmentStarUp" Type="Self.dbEquipmentStarUp" Multiplicity="0..1" />
-          <End Role="dbEquipmentReceipt" Type="Self.dbEquipmentReceipt" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbEquipmentStarUp">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbEquipmentReceipt">
-              <PropertyRef Name="idStarUp" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbEquipSt__idEqu__27F8EE98">
-          <End Role="dbEquipmentConfig" Type="Self.dbEquipmentConfig" Multiplicity="0..1" />
-          <End Role="dbEquipStarUpConfig" Type="Self.dbEquipStarUpConfig" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbEquipmentConfig">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbEquipStarUpConfig">
-              <PropertyRef Name="idEquipmentConfig" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbEquipSt__idSta__28ED12D1">
-          <End Role="dbEquipStarUpConfig" Type="Self.dbEquipStarUpConfig" Multiplicity="0..1" />
-          <End Role="dbEquipStarUpDetail" Type="Self.dbEquipStarUpDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbEquipStarUpConfig">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbEquipStarUpDetail">
-              <PropertyRef Name="idStarUp" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbGlobalA__idGlo__29E1370A">
+        <Association Name="FK__dbGlobalA__idGlo__336AA144">
           <End Role="dbGlobalBossConfig" Type="Self.dbGlobalBossConfig" Multiplicity="0..1" />
           <End Role="dbGlobalAttackConfig" Type="Self.dbGlobalAttackConfig" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1829,7 +1709,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbGlobalB__idCon__2BC97F7C">
+        <Association Name="FK__dbGlobalB__idCon__3552E9B6">
           <End Role="dbConfig" Type="Self.dbConfig" Multiplicity="0..1" />
           <End Role="dbGlobalBossConfig" Type="Self.dbGlobalBossConfig" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1841,7 +1721,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbGlobalB__idGlo__2AD55B43">
+        <Association Name="FK__dbGlobalB__idGlo__345EC57D">
           <End Role="dbGlobalBossConfig" Type="Self.dbGlobalBossConfig" Multiplicity="0..1" />
           <End Role="dbGlobalBonusRewardConfig" Type="Self.dbGlobalBonusRewardConfig" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1853,7 +1733,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbGuildBo__idBos__2DB1C7EE">
+        <Association Name="FK__dbGuildBo__idBos__373B3228">
           <End Role="dbGuildBoss" Type="Self.dbGuildBoss" Multiplicity="0..1" />
           <End Role="dbGuildBossReward" Type="Self.dbGuildBossReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1865,7 +1745,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbGuildBo__idGui__2CBDA3B5">
+        <Association Name="FK__dbGuildBo__idGui__36470DEF">
           <End Role="dbGuildConfig" Type="Self.dbGuildConfig" Multiplicity="0..1" />
           <End Role="dbGuildBoss" Type="Self.dbGuildBoss" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1877,7 +1757,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbGuildCo__idCon__2EA5EC27">
+        <Association Name="FK__dbGuildCo__idCon__382F5661">
           <End Role="dbConfig" Type="Self.dbConfig" Multiplicity="0..1" />
           <End Role="dbGuildConfig" Type="Self.dbGuildConfig" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1889,7 +1769,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbGuildLe__idGui__2F9A1060">
+        <Association Name="FK__dbGuildLe__idGui__39237A9A">
           <End Role="dbGuildConfig" Type="Self.dbGuildConfig" Multiplicity="0..1" />
           <End Role="dbGuildLevelContribution" Type="Self.dbGuildLevelContribution" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1901,7 +1781,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbGuildMi__idGui__308E3499">
+        <Association Name="FK__dbGuildMi__idGui__3A179ED3">
           <End Role="dbGuildConfig" Type="Self.dbGuildConfig" Multiplicity="0..1" />
           <End Role="dbGuildMission" Type="Self.dbGuildMission" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1913,7 +1793,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbGuildRe__idGui__318258D2">
+        <Association Name="FK__dbGuildRe__idGui__3B0BC30C">
           <End Role="dbGuildConfig" Type="Self.dbGuildConfig" Multiplicity="0..1" />
           <End Role="dbGuildRewardBangChien" Type="Self.dbGuildRewardBangChien" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1925,7 +1805,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbGuildRe__idGui__32767D0B">
+        <Association Name="FK__dbGuildRe__idGui__3BFFE745">
           <End Role="dbGuildConfig" Type="Self.dbGuildConfig" Multiplicity="0..1" />
           <End Role="dbGuildRewardsLuaTrai" Type="Self.dbGuildRewardsLuaTrai" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1937,7 +1817,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbHoatDon__idCon__336AA144">
+        <Association Name="FK__dbHoatDon__idCon__3CF40B7E">
           <End Role="dbConfig" Type="Self.dbConfig" Multiplicity="0..1" />
           <End Role="dbHoatDongDiemDanhConfig" Type="Self.dbHoatDongDiemDanhConfig" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1949,7 +1829,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbHoatDon__idDie__345EC57D">
+        <Association Name="FK__dbHoatDon__idDie__3DE82FB7">
           <End Role="dbHoatDongDiemDanhConfig" Type="Self.dbHoatDongDiemDanhConfig" Multiplicity="0..1" />
           <End Role="dbHoatDongDiemDanhMonth" Type="Self.dbHoatDongDiemDanhMonth" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1961,7 +1841,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbHoatDon__idMon__3552E9B6">
+        <Association Name="FK__dbHoatDon__idMon__3EDC53F0">
           <End Role="dbHoatDongDiemDanhMonth" Type="Self.dbHoatDongDiemDanhMonth" Multiplicity="0..1" />
           <End Role="dbHoatDongDiemDanhMonthReward" Type="Self.dbHoatDongDiemDanhMonthReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1973,7 +1853,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbInviteF__idInv__36470DEF">
+        <Association Name="FK__dbInviteF__idInv__3FD07829">
           <End Role="dbInviteFriendConfig" Type="Self.dbInviteFriendConfig" Multiplicity="0..1" />
           <End Role="dbInviteFriendReward" Type="Self.dbInviteFriendReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1985,7 +1865,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbItemAtt__idIte__373B3228">
+        <Association Name="FK__dbItemAtt__idIte__40C49C62">
           <End Role="dbItem" Type="Self.dbItem" Multiplicity="0..1" />
           <End Role="dbItemAttribute" Type="Self.dbItemAttribute" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1997,7 +1877,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbLevelRe__idLev__382F5661">
+        <Association Name="FK__dbLevelRe__idLev__41B8C09B">
           <End Role="dbLevelRewardConfig" Type="Self.dbLevelRewardConfig" Multiplicity="0..1" />
           <End Role="dbLevelReward_Reward" Type="Self.dbLevelReward_Reward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2009,7 +1889,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbLuanKie__idCon__39237A9A">
+        <Association Name="FK__dbLuanKie__idCon__42ACE4D4">
           <End Role="dbConfig" Type="Self.dbConfig" Multiplicity="0..1" />
           <End Role="dbLuanKiemConfig" Type="Self.dbLuanKiemConfig" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2021,7 +1901,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbLuanKie__idLua__3A179ED3">
+        <Association Name="FK__dbLuanKie__idLua__43A1090D">
           <End Role="dbLuanKiemConfig" Type="Self.dbLuanKiemConfig" Multiplicity="0..1" />
           <End Role="dbLuanKiemPoint" Type="Self.dbLuanKiemPoint" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2033,7 +1913,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbLuanKie__idLua__3B0BC30C">
+        <Association Name="FK__dbLuanKie__idLua__44952D46">
           <End Role="dbLuanKiemConfig" Type="Self.dbLuanKiemConfig" Multiplicity="0..1" />
           <End Role="dbLuanKiemRange" Type="Self.dbLuanKiemRange" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2045,7 +1925,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbLuanKie__idLua__3CF40B7E">
+        <Association Name="FK__dbLuanKie__idLua__467D75B8">
           <End Role="dbLuanKiemConfig" Type="Self.dbLuanKiemConfig" Multiplicity="0..1" />
           <End Role="dbLuanKiemRank" Type="Self.dbLuanKiemRank" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2057,7 +1937,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbLuanKie__idRan__3BFFE745">
+        <Association Name="FK__dbLuanKie__idRan__4589517F">
           <End Role="dbLuanKiemRange" Type="Self.dbLuanKiemRange" Multiplicity="0..1" />
           <End Role="dbLuanKiemRangeOpponent" Type="Self.dbLuanKiemRangeOpponent" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2069,7 +1949,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbLuanKie__idRan__3DE82FB7">
+        <Association Name="FK__dbLuanKie__idRan__477199F1">
           <End Role="dbLuanKiemRank" Type="Self.dbLuanKiemRank" Multiplicity="0..1" />
           <End Role="dbLuanKiemRankReward" Type="Self.dbLuanKiemRankReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2081,7 +1961,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbMapStag__idMap__3EDC53F0">
+        <Association Name="FK__dbMapStag__idMap__4865BE2A">
           <End Role="dbMap" Type="Self.dbMap" Multiplicity="0..1" />
           <End Role="dbMapStage" Type="Self.dbMapStage" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2093,7 +1973,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbMapStag__idSta__3FD07829">
+        <Association Name="FK__dbMapStag__idSta__4959E263">
           <End Role="dbMapStage" Type="Self.dbMapStage" Multiplicity="0..1" />
           <End Role="dbMapStageMonter" Type="Self.dbMapStageMonter" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2105,7 +1985,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbMapStag__idSta__40C49C62">
+        <Association Name="FK__dbMapStag__idSta__4A4E069C">
           <End Role="dbMapStage" Type="Self.dbMapStage" Multiplicity="0..1" />
           <End Role="dbMapStageMonterSupper" Type="Self.dbMapStageMonterSupper" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2117,7 +1997,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbMapStag__idSta__41B8C09B">
+        <Association Name="FK__dbMapStag__idSta__4B422AD5">
           <End Role="dbMapStage" Type="Self.dbMapStage" Multiplicity="0..1" />
           <End Role="dbMapStagePath" Type="Self.dbMapStagePath" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2129,7 +2009,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbMapStag__idSta__42ACE4D4">
+        <Association Name="FK__dbMapStag__idSta__4C364F0E">
           <End Role="dbMapStage" Type="Self.dbMapStage" Multiplicity="0..1" />
           <End Role="dbMapStageReward" Type="Self.dbMapStageReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2141,7 +2021,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbMapStag__idSta__43A1090D">
+        <Association Name="FK__dbMapStag__idSta__4D2A7347">
           <End Role="dbMapStage" Type="Self.dbMapStage" Multiplicity="0..1" />
           <End Role="dbMapStageSupper" Type="Self.dbMapStageSupper" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2153,7 +2033,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbNhiemVu__idChi__44952D46">
+        <Association Name="FK__dbNhiemVu__idChi__4E1E9780">
           <End Role="dbNhiemVuChinhTuyenConfig" Type="Self.dbNhiemVuChinhTuyenConfig" Multiplicity="0..1" />
           <End Role="dbNhiemVuChinhTuyen" Type="Self.dbNhiemVuChinhTuyen" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2165,7 +2045,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbNhiemVu__idChi__477199F1">
+        <Association Name="FK__dbNhiemVu__idChi__50FB042B">
           <End Role="dbNhiemVuHangNgayConfig" Type="Self.dbNhiemVuHangNgayConfig" Multiplicity="0..1" />
           <End Role="dbNhiemVuHangNgay" Type="Self.dbNhiemVuHangNgay" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2177,7 +2057,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbNhiemVu__idCon__4589517F">
+        <Association Name="FK__dbNhiemVu__idCon__4F12BBB9">
           <End Role="dbConfig" Type="Self.dbConfig" Multiplicity="0..1" />
           <End Role="dbNhiemVuChinhTuyenConfig" Type="Self.dbNhiemVuChinhTuyenConfig" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2189,7 +2069,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbNhiemVu__idCon__4865BE2A">
+        <Association Name="FK__dbNhiemVu__idCon__51EF2864">
           <End Role="dbConfig" Type="Self.dbConfig" Multiplicity="0..1" />
           <End Role="dbNhiemVuHangNgayConfig" Type="Self.dbNhiemVuHangNgayConfig" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2213,7 +2093,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbNhiemVu__idNhi__467D75B8">
+        <Association Name="FK__dbNhiemVu__idNhi__5006DFF2">
           <End Role="dbNhiemVuChinhTuyen" Type="Self.dbNhiemVuChinhTuyen" Multiplicity="0..1" />
           <End Role="dbNhiemVuChinhTuyenReward" Type="Self.dbNhiemVuChinhTuyenReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2225,7 +2105,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbPhucLoi__idLev__4A4E069C">
+        <Association Name="FK__dbPhucLoi__idLev__53D770D6">
           <End Role="dbPhucLoiTruongThanhLevel" Type="Self.dbPhucLoiTruongThanhLevel" Multiplicity="0..1" />
           <End Role="dbPhucLoiTruongThanhLevelReward" Type="Self.dbPhucLoiTruongThanhLevelReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2237,31 +2117,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbpieceEx__idEqu__4B422AD5">
-          <End Role="dbEquipmentConfig" Type="Self.dbEquipmentConfig" Multiplicity="0..1" />
-          <End Role="dbpieceExportReceive" Type="Self.dbpieceExportReceive" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbEquipmentConfig">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbpieceExportReceive">
-              <PropertyRef Name="idEquipmentConfig" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbPieceNe__idEqu__4C364F0E">
-          <End Role="dbEquipmentConfig" Type="Self.dbEquipmentConfig" Multiplicity="0..1" />
-          <End Role="dbPieceNeedToImport" Type="Self.dbPieceNeedToImport" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="dbEquipmentConfig">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="dbPieceNeedToImport">
-              <PropertyRef Name="idEquipmentConfig" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__dbPowerUp__idPow__4D2A7347">
+        <Association Name="FK__dbPowerUp__idPow__56B3DD81">
           <End Role="dbPowerUpItems" Type="Self.dbPowerUpItems" Multiplicity="0..1" />
           <End Role="dbPowerUpItemsAttribute" Type="Self.dbPowerUpItemsAttribute" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2273,7 +2129,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbPowerUp__idPow__4E1E9780">
+        <Association Name="FK__dbPowerUp__idPow__57A801BA">
           <End Role="dbPowerUpItems" Type="Self.dbPowerUpItems" Multiplicity="0..1" />
           <End Role="dbPowerUpItemsReceipt" Type="Self.dbPowerUpItemsReceipt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2285,7 +2141,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbPucLoiT__idPhu__4F12BBB9">
+        <Association Name="FK__dbPucLoiT__idPhu__589C25F3">
           <End Role="dbPucLoiThangConfig" Type="Self.dbPucLoiThangConfig" Multiplicity="0..1" />
           <End Role="dbPucLoiThangReward" Type="Self.dbPucLoiThangReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2297,7 +2153,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbRuongBa__idRuo__5006DFF2">
+        <Association Name="FK__dbRuongBa__idRuo__59904A2C">
           <End Role="dbRuongBauConfig" Type="Self.dbRuongBauConfig" Multiplicity="0..1" />
           <End Role="dbRuongBauReward" Type="Self.dbRuongBauReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2309,7 +2165,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbStarRew__idSta__50FB042B">
+        <Association Name="FK__dbStarRew__idSta__5A846E65">
           <End Role="dbStarReward" Type="Self.dbStarReward" Multiplicity="0..1" />
           <End Role="dbStarRewardReward" Type="Self.dbStarRewardReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2321,7 +2177,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbThanTha__idCon__51EF2864">
+        <Association Name="FK__dbThanTha__idCon__5B78929E">
           <End Role="dbConfig" Type="Self.dbConfig" Multiplicity="0..1" />
           <End Role="dbThanThap" Type="Self.dbThanThap" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2333,7 +2189,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbThanTha__idTha__52E34C9D">
+        <Association Name="FK__dbThanTha__idTha__5C6CB6D7">
           <End Role="dbThanThap" Type="Self.dbThanThap" Multiplicity="0..1" />
           <End Role="dbThanThapAttributes" Type="Self.dbThanThapAttributes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2345,7 +2201,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbThanTha__idTha__53D770D6">
+        <Association Name="FK__dbThanTha__idTha__5D60DB10">
           <End Role="dbThanThapMonsters" Type="Self.dbThanThapMonsters" Multiplicity="0..1" />
           <End Role="dbThanThapDetailMonsters" Type="Self.dbThanThapDetailMonsters" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2357,7 +2213,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbThanTha__idTha__54CB950F">
+        <Association Name="FK__dbThanTha__idTha__5E54FF49">
           <End Role="dbThanThap" Type="Self.dbThanThap" Multiplicity="0..1" />
           <End Role="dbThanThapFloorRewards" Type="Self.dbThanThapFloorRewards" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2369,7 +2225,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbThanTha__idTha__55BFB948">
+        <Association Name="FK__dbThanTha__idTha__5F492382">
           <End Role="dbThanThap" Type="Self.dbThanThap" Multiplicity="0..1" />
           <End Role="dbThanThapMoneyReset" Type="Self.dbThanThapMoneyReset" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2381,7 +2237,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbThanTha__idTha__56B3DD81">
+        <Association Name="FK__dbThanTha__idTha__603D47BB">
           <End Role="dbThanThap" Type="Self.dbThanThap" Multiplicity="0..1" />
           <End Role="dbThanThapMonsters" Type="Self.dbThanThapMonsters" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2393,7 +2249,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbThanTha__idTha__57A801BA">
+        <Association Name="FK__dbThanTha__idTha__61316BF4">
           <End Role="dbThanThap" Type="Self.dbThanThap" Multiplicity="0..1" />
           <End Role="dbThanThapPlusAttributeRequire" Type="Self.dbThanThapPlusAttributeRequire" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2405,7 +2261,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbThanTha__idTha__589C25F3">
+        <Association Name="FK__dbThanTha__idTha__6225902D">
           <End Role="dbThanThap" Type="Self.dbThanThap" Multiplicity="0..1" />
           <End Role="dbThanThapStarRewards" Type="Self.dbThanThapStarRewards" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2417,7 +2273,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbVanTieu__idCon__59904A2C">
+        <Association Name="FK__dbVanTieu__idCon__6319B466">
           <End Role="dbConfig" Type="Self.dbConfig" Multiplicity="0..1" />
           <End Role="dbVanTieu" Type="Self.dbVanTieu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2429,7 +2285,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbVanTieu__idVan__5A846E65">
+        <Association Name="FK__dbVanTieu__idVan__640DD89F">
           <End Role="dbVanTieu" Type="Self.dbVanTieu" Multiplicity="0..1" />
           <End Role="dbVanTieuProtectReward" Type="Self.dbVanTieuProtectReward" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2441,7 +2297,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dbVanTieu__idVan__5B78929E">
+        <Association Name="FK__dbVanTieu__idVan__6501FCD8">
           <End Role="dbVanTieu" Type="Self.dbVanTieu" Multiplicity="0..1" />
           <End Role="dbVanTieuRobRewards" Type="Self.dbVanTieuRobRewards" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2466,15 +2322,19 @@
           <EntitySet Name="dbCharacterLevelExp" EntityType="Self.dbCharacterLevelExp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbCharAttribute" EntityType="Self.dbCharAttribute" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbCharDefaultConfig" EntityType="Self.dbCharDefaultConfig" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="dbCharDetailPowerUpReceipt" EntityType="Self.dbCharDetailPowerUpReceipt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbCharDuyenPhan" EntityType="Self.dbCharDuyenPhan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbCharDuyenPhanAttribute" EntityType="Self.dbCharDuyenPhanAttribute" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbCharDuyenPhanIDS" EntityType="Self.dbCharDuyenPhanIDS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="dbCharPowerUpReceipt" EntityType="Self.dbCharPowerUpReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbCharGoldNeedToFusions" EntityType="Self.dbCharGoldNeedToFusions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbCharGoldNeedToPowerups" EntityType="Self.dbCharGoldNeedToPowerups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbCharGoldNeedToStarups" EntityType="Self.dbCharGoldNeedToStarups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbCharSelection" EntityType="Self.dbCharSelection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbCharSkill" EntityType="Self.dbCharSkill" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbCharSkillAfflictionAttribute" EntityType="Self.dbCharSkillAfflictionAttribute" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbCharSkillAttribute" EntityType="Self.dbCharSkillAttribute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbCharSkillStarLevels" EntityType="Self.dbCharSkillStarLevels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbCharStarLevelExp" EntityType="Self.dbCharStarLevelExp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbCharStarLevelExpConfig" EntityType="Self.dbCharStarLevelExpConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbChucPhucConfig" EntityType="Self.dbChucPhucConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbConfig" EntityType="Self.dbConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbCTAffliction" EntityType="Self.dbCTAffliction" Schema="dbo" store:Type="Tables" />
@@ -2508,19 +2368,24 @@
           <EntitySet Name="dbCuuCuuTriTonConfig" EntityType="Self.dbCuuCuuTriTonConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbCuuCuuTriTonConfigReward" EntityType="Self.dbCuuCuuTriTonConfigReward" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbDoiHinhDuBiRequire" EntityType="Self.dbDoiHinhDuBiRequire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbEquipElementSupports" EntityType="Self.dbEquipElementSupports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbEquipGoldNeedToPowerups" EntityType="Self.dbEquipGoldNeedToPowerups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbEquipGoldNeedToStarups" EntityType="Self.dbEquipGoldNeedToStarups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbEquipment" EntityType="Self.dbEquipment" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="dbEquipmentAttribute" EntityType="Self.dbEquipmentAttribute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbEquipmentBonusAttribute" EntityType="Self.dbEquipmentBonusAttribute" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbEquipmentConfig" EntityType="Self.dbEquipmentConfig" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="dbEquipmentReceipt" EntityType="Self.dbEquipmentReceipt" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="dbEquipmentStarUp" EntityType="Self.dbEquipmentStarUp" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="dbEquipStarUpConfig" EntityType="Self.dbEquipStarUpConfig" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="dbEquipStarUpDetail" EntityType="Self.dbEquipStarUpDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbEquipmentElementAttribute" EntityType="Self.dbEquipmentElementAttribute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbEquipProcElements" EntityType="Self.dbEquipProcElements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbEquipStarLevelExp" EntityType="Self.dbEquipStarLevelExp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbEquipStarLevelExpConfig" EntityType="Self.dbEquipStarLevelExpConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbEquipSupport" EntityType="Self.dbEquipSupport" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbExchangeGoldToSilverConfig" EntityType="Self.dbExchangeGoldToSilverConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbFreeStaminaConfig" EntityType="Self.dbFreeStaminaConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbGlobalAttackConfig" EntityType="Self.dbGlobalAttackConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbGlobalBonusRewardConfig" EntityType="Self.dbGlobalBonusRewardConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbGlobalBossConfig" EntityType="Self.dbGlobalBossConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbGMMailConfig" EntityType="Self.dbGMMailConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbGroupCharacter" EntityType="Self.dbGroupCharacter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbGuildBoss" EntityType="Self.dbGuildBoss" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbGuildBossReward" EntityType="Self.dbGuildBossReward" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbGuildConfig" EntityType="Self.dbGuildConfig" Schema="dbo" store:Type="Tables" />
@@ -2566,8 +2431,6 @@
           <EntitySet Name="dbPhucLoiTruongThanhConfig" EntityType="Self.dbPhucLoiTruongThanhConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbPhucLoiTruongThanhLevel" EntityType="Self.dbPhucLoiTruongThanhLevel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbPhucLoiTruongThanhLevelReward" EntityType="Self.dbPhucLoiTruongThanhLevelReward" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="dbpieceExportReceive" EntityType="Self.dbpieceExportReceive" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="dbPieceNeedToImport" EntityType="Self.dbPieceNeedToImport" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbPlayerDefaultConfig" EntityType="Self.dbPlayerDefaultConfig" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbPlayerLevelExp" EntityType="Self.dbPlayerLevelExp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbPowerUpItems" EntityType="Self.dbPowerUpItems" Schema="dbo" store:Type="Tables" />
@@ -2598,207 +2461,148 @@
           <EntitySet Name="dbVanTieuProtectReward" EntityType="Self.dbVanTieuProtectReward" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbVanTieuRobRewards" EntityType="Self.dbVanTieuRobRewards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dbVipConfig" EntityType="Self.dbVipConfig" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__dbBattleP__idPoi__17C286CF" Association="Self.FK__dbBattleP__idPoi__17C286CF">
-            <End Role="dbBattlePoint2ArrayConfig" EntitySet="dbBattlePoint2ArrayConfig" />
-            <End Role="dbBattlePoint2Config" EntitySet="dbBattlePoint2Config" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbCauCaCo__idCon__18B6AB08" Association="Self.FK__dbCauCaCo__idCon__18B6AB08">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__dbCauCaCo__idCon__22401542" Association="Self.FK__dbCauCaCo__idCon__22401542">
             <End Role="dbConfig" EntitySet="dbConfig" />
             <End Role="dbCauCaConfig" EntitySet="dbCauCaConfig" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbCauCaRe__idCau__19AACF41" Association="Self.FK__dbCauCaRe__idCau__19AACF41">
+          <AssociationSet Name="FK__dbCauCaRe__idCau__2334397B" Association="Self.FK__dbCauCaRe__idCau__2334397B">
             <End Role="dbCauCaConfig" EntitySet="dbCauCaConfig" />
             <End Role="dbCauCaReward" EntitySet="dbCauCaReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbCharAtt__idCha__1A9EF37A" Association="Self.FK__dbCharAtt__idCha__1A9EF37A">
-            <End Role="dbCharacter" EntitySet="dbCharacter" />
-            <End Role="dbCharAttribute" EntitySet="dbCharAttribute" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbCharDet__idRec__1B9317B3" Association="Self.FK__dbCharDet__idRec__1B9317B3">
-            <End Role="dbCharPowerUpReceipt" EntitySet="dbCharPowerUpReceipt" />
-            <End Role="dbCharDetailPowerUpReceipt" EntitySet="dbCharDetailPowerUpReceipt" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbCharDuy__idCha__1C873BEC" Association="Self.FK__dbCharDuy__idCha__1C873BEC">
-            <End Role="dbCharacter" EntitySet="dbCharacter" />
-            <End Role="dbCharDuyenPhan" EntitySet="dbCharDuyenPhan" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbCharDuy__idDuy__1D7B6025" Association="Self.FK__dbCharDuy__idDuy__1D7B6025">
-            <End Role="dbCharDuyenPhan" EntitySet="dbCharDuyenPhan" />
-            <End Role="dbCharDuyenPhanAttribute" EntitySet="dbCharDuyenPhanAttribute" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbCharDuy__idDuy__1E6F845E" Association="Self.FK__dbCharDuy__idDuy__1E6F845E">
-            <End Role="dbCharDuyenPhan" EntitySet="dbCharDuyenPhan" />
-            <End Role="dbCharDuyenPhanIDS" EntitySet="dbCharDuyenPhanIDS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbCharPow__idCha__1F63A897" Association="Self.FK__dbCharPow__idCha__1F63A897">
-            <End Role="dbCharacter" EntitySet="dbCharacter" />
-            <End Role="dbCharPowerUpReceipt" EntitySet="dbCharPowerUpReceipt" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbCharSki__idCha__2057CCD0" Association="Self.FK__dbCharSki__idCha__2057CCD0">
-            <End Role="dbCharacter" EntitySet="dbCharacter" />
-            <End Role="dbCharSkill" EntitySet="dbCharSkill" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbCharSki__idSki__214BF109" Association="Self.FK__dbCharSki__idSki__214BF109">
-            <End Role="dbCharSkill" EntitySet="dbCharSkill" />
-            <End Role="dbCharSkillAfflictionAttribute" EntitySet="dbCharSkillAfflictionAttribute" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbCharSki__idSki__22401542" Association="Self.FK__dbCharSki__idSki__22401542">
-            <End Role="dbCharSkill" EntitySet="dbCharSkill" />
-            <End Role="dbCharSkillAttribute" EntitySet="dbCharSkillAttribute" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbChucPhu__idCon__2334397B" Association="Self.FK__dbChucPhu__idCon__2334397B">
+          <AssociationSet Name="FK__dbChucPhu__idCon__2CBDA3B5" Association="Self.FK__dbChucPhu__idCon__2CBDA3B5">
             <End Role="dbConfig" EntitySet="dbConfig" />
             <End Role="dbChucPhucConfig" EntitySet="dbChucPhucConfig" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbCuuCuuT__idCuu__24285DB4" Association="Self.FK__dbCuuCuuT__idCuu__24285DB4">
+          <AssociationSet Name="FK__dbCuuCuuT__idCuu__2DB1C7EE" Association="Self.FK__dbCuuCuuT__idCuu__2DB1C7EE">
             <End Role="dbCuuCuuTriTonConfig" EntitySet="dbCuuCuuTriTonConfig" />
             <End Role="dbCuuCuuTriTonConfigReward" EntitySet="dbCuuCuuTriTonConfigReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbEquipme__idEqu__251C81ED" Association="Self.FK__dbEquipme__idEqu__251C81ED">
-            <End Role="dbEquipment" EntitySet="dbEquipment" />
-            <End Role="dbEquipmentAttribute" EntitySet="dbEquipmentAttribute" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbEquipme__idEqu__2704CA5F" Association="Self.FK__dbEquipme__idEqu__2704CA5F">
-            <End Role="dbEquipment" EntitySet="dbEquipment" />
-            <End Role="dbEquipmentStarUp" EntitySet="dbEquipmentStarUp" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbEquipme__idSta__2610A626" Association="Self.FK__dbEquipme__idSta__2610A626">
-            <End Role="dbEquipmentStarUp" EntitySet="dbEquipmentStarUp" />
-            <End Role="dbEquipmentReceipt" EntitySet="dbEquipmentReceipt" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbEquipSt__idEqu__27F8EE98" Association="Self.FK__dbEquipSt__idEqu__27F8EE98">
-            <End Role="dbEquipmentConfig" EntitySet="dbEquipmentConfig" />
-            <End Role="dbEquipStarUpConfig" EntitySet="dbEquipStarUpConfig" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbEquipSt__idSta__28ED12D1" Association="Self.FK__dbEquipSt__idSta__28ED12D1">
-            <End Role="dbEquipStarUpConfig" EntitySet="dbEquipStarUpConfig" />
-            <End Role="dbEquipStarUpDetail" EntitySet="dbEquipStarUpDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbGlobalA__idGlo__29E1370A" Association="Self.FK__dbGlobalA__idGlo__29E1370A">
+          <AssociationSet Name="FK__dbGlobalA__idGlo__336AA144" Association="Self.FK__dbGlobalA__idGlo__336AA144">
             <End Role="dbGlobalBossConfig" EntitySet="dbGlobalBossConfig" />
             <End Role="dbGlobalAttackConfig" EntitySet="dbGlobalAttackConfig" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbGlobalB__idCon__2BC97F7C" Association="Self.FK__dbGlobalB__idCon__2BC97F7C">
+          <AssociationSet Name="FK__dbGlobalB__idCon__3552E9B6" Association="Self.FK__dbGlobalB__idCon__3552E9B6">
             <End Role="dbConfig" EntitySet="dbConfig" />
             <End Role="dbGlobalBossConfig" EntitySet="dbGlobalBossConfig" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbGlobalB__idGlo__2AD55B43" Association="Self.FK__dbGlobalB__idGlo__2AD55B43">
+          <AssociationSet Name="FK__dbGlobalB__idGlo__345EC57D" Association="Self.FK__dbGlobalB__idGlo__345EC57D">
             <End Role="dbGlobalBossConfig" EntitySet="dbGlobalBossConfig" />
             <End Role="dbGlobalBonusRewardConfig" EntitySet="dbGlobalBonusRewardConfig" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbGuildBo__idBos__2DB1C7EE" Association="Self.FK__dbGuildBo__idBos__2DB1C7EE">
+          <AssociationSet Name="FK__dbGuildBo__idBos__373B3228" Association="Self.FK__dbGuildBo__idBos__373B3228">
             <End Role="dbGuildBoss" EntitySet="dbGuildBoss" />
             <End Role="dbGuildBossReward" EntitySet="dbGuildBossReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbGuildBo__idGui__2CBDA3B5" Association="Self.FK__dbGuildBo__idGui__2CBDA3B5">
+          <AssociationSet Name="FK__dbGuildBo__idGui__36470DEF" Association="Self.FK__dbGuildBo__idGui__36470DEF">
             <End Role="dbGuildConfig" EntitySet="dbGuildConfig" />
             <End Role="dbGuildBoss" EntitySet="dbGuildBoss" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbGuildCo__idCon__2EA5EC27" Association="Self.FK__dbGuildCo__idCon__2EA5EC27">
+          <AssociationSet Name="FK__dbGuildCo__idCon__382F5661" Association="Self.FK__dbGuildCo__idCon__382F5661">
             <End Role="dbConfig" EntitySet="dbConfig" />
             <End Role="dbGuildConfig" EntitySet="dbGuildConfig" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbGuildLe__idGui__2F9A1060" Association="Self.FK__dbGuildLe__idGui__2F9A1060">
+          <AssociationSet Name="FK__dbGuildLe__idGui__39237A9A" Association="Self.FK__dbGuildLe__idGui__39237A9A">
             <End Role="dbGuildConfig" EntitySet="dbGuildConfig" />
             <End Role="dbGuildLevelContribution" EntitySet="dbGuildLevelContribution" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbGuildMi__idGui__308E3499" Association="Self.FK__dbGuildMi__idGui__308E3499">
+          <AssociationSet Name="FK__dbGuildMi__idGui__3A179ED3" Association="Self.FK__dbGuildMi__idGui__3A179ED3">
             <End Role="dbGuildConfig" EntitySet="dbGuildConfig" />
             <End Role="dbGuildMission" EntitySet="dbGuildMission" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbGuildRe__idGui__318258D2" Association="Self.FK__dbGuildRe__idGui__318258D2">
+          <AssociationSet Name="FK__dbGuildRe__idGui__3B0BC30C" Association="Self.FK__dbGuildRe__idGui__3B0BC30C">
             <End Role="dbGuildConfig" EntitySet="dbGuildConfig" />
             <End Role="dbGuildRewardBangChien" EntitySet="dbGuildRewardBangChien" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbGuildRe__idGui__32767D0B" Association="Self.FK__dbGuildRe__idGui__32767D0B">
+          <AssociationSet Name="FK__dbGuildRe__idGui__3BFFE745" Association="Self.FK__dbGuildRe__idGui__3BFFE745">
             <End Role="dbGuildConfig" EntitySet="dbGuildConfig" />
             <End Role="dbGuildRewardsLuaTrai" EntitySet="dbGuildRewardsLuaTrai" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbHoatDon__idCon__336AA144" Association="Self.FK__dbHoatDon__idCon__336AA144">
+          <AssociationSet Name="FK__dbHoatDon__idCon__3CF40B7E" Association="Self.FK__dbHoatDon__idCon__3CF40B7E">
             <End Role="dbConfig" EntitySet="dbConfig" />
             <End Role="dbHoatDongDiemDanhConfig" EntitySet="dbHoatDongDiemDanhConfig" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbHoatDon__idDie__345EC57D" Association="Self.FK__dbHoatDon__idDie__345EC57D">
+          <AssociationSet Name="FK__dbHoatDon__idDie__3DE82FB7" Association="Self.FK__dbHoatDon__idDie__3DE82FB7">
             <End Role="dbHoatDongDiemDanhConfig" EntitySet="dbHoatDongDiemDanhConfig" />
             <End Role="dbHoatDongDiemDanhMonth" EntitySet="dbHoatDongDiemDanhMonth" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbHoatDon__idMon__3552E9B6" Association="Self.FK__dbHoatDon__idMon__3552E9B6">
+          <AssociationSet Name="FK__dbHoatDon__idMon__3EDC53F0" Association="Self.FK__dbHoatDon__idMon__3EDC53F0">
             <End Role="dbHoatDongDiemDanhMonth" EntitySet="dbHoatDongDiemDanhMonth" />
             <End Role="dbHoatDongDiemDanhMonthReward" EntitySet="dbHoatDongDiemDanhMonthReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbInviteF__idInv__36470DEF" Association="Self.FK__dbInviteF__idInv__36470DEF">
+          <AssociationSet Name="FK__dbInviteF__idInv__3FD07829" Association="Self.FK__dbInviteF__idInv__3FD07829">
             <End Role="dbInviteFriendConfig" EntitySet="dbInviteFriendConfig" />
             <End Role="dbInviteFriendReward" EntitySet="dbInviteFriendReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbItemAtt__idIte__373B3228" Association="Self.FK__dbItemAtt__idIte__373B3228">
+          <AssociationSet Name="FK__dbItemAtt__idIte__40C49C62" Association="Self.FK__dbItemAtt__idIte__40C49C62">
             <End Role="dbItem" EntitySet="dbItem" />
             <End Role="dbItemAttribute" EntitySet="dbItemAttribute" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbLevelRe__idLev__382F5661" Association="Self.FK__dbLevelRe__idLev__382F5661">
+          <AssociationSet Name="FK__dbLevelRe__idLev__41B8C09B" Association="Self.FK__dbLevelRe__idLev__41B8C09B">
             <End Role="dbLevelRewardConfig" EntitySet="dbLevelRewardConfig" />
             <End Role="dbLevelReward_Reward" EntitySet="dbLevelReward_Reward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbLuanKie__idCon__39237A9A" Association="Self.FK__dbLuanKie__idCon__39237A9A">
+          <AssociationSet Name="FK__dbLuanKie__idCon__42ACE4D4" Association="Self.FK__dbLuanKie__idCon__42ACE4D4">
             <End Role="dbConfig" EntitySet="dbConfig" />
             <End Role="dbLuanKiemConfig" EntitySet="dbLuanKiemConfig" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbLuanKie__idLua__3A179ED3" Association="Self.FK__dbLuanKie__idLua__3A179ED3">
+          <AssociationSet Name="FK__dbLuanKie__idLua__43A1090D" Association="Self.FK__dbLuanKie__idLua__43A1090D">
             <End Role="dbLuanKiemConfig" EntitySet="dbLuanKiemConfig" />
             <End Role="dbLuanKiemPoint" EntitySet="dbLuanKiemPoint" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbLuanKie__idLua__3B0BC30C" Association="Self.FK__dbLuanKie__idLua__3B0BC30C">
+          <AssociationSet Name="FK__dbLuanKie__idLua__44952D46" Association="Self.FK__dbLuanKie__idLua__44952D46">
             <End Role="dbLuanKiemConfig" EntitySet="dbLuanKiemConfig" />
             <End Role="dbLuanKiemRange" EntitySet="dbLuanKiemRange" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbLuanKie__idLua__3CF40B7E" Association="Self.FK__dbLuanKie__idLua__3CF40B7E">
+          <AssociationSet Name="FK__dbLuanKie__idLua__467D75B8" Association="Self.FK__dbLuanKie__idLua__467D75B8">
             <End Role="dbLuanKiemConfig" EntitySet="dbLuanKiemConfig" />
             <End Role="dbLuanKiemRank" EntitySet="dbLuanKiemRank" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbLuanKie__idRan__3BFFE745" Association="Self.FK__dbLuanKie__idRan__3BFFE745">
+          <AssociationSet Name="FK__dbLuanKie__idRan__4589517F" Association="Self.FK__dbLuanKie__idRan__4589517F">
             <End Role="dbLuanKiemRange" EntitySet="dbLuanKiemRange" />
             <End Role="dbLuanKiemRangeOpponent" EntitySet="dbLuanKiemRangeOpponent" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbLuanKie__idRan__3DE82FB7" Association="Self.FK__dbLuanKie__idRan__3DE82FB7">
+          <AssociationSet Name="FK__dbLuanKie__idRan__477199F1" Association="Self.FK__dbLuanKie__idRan__477199F1">
             <End Role="dbLuanKiemRank" EntitySet="dbLuanKiemRank" />
             <End Role="dbLuanKiemRankReward" EntitySet="dbLuanKiemRankReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbMapStag__idMap__3EDC53F0" Association="Self.FK__dbMapStag__idMap__3EDC53F0">
+          <AssociationSet Name="FK__dbMapStag__idMap__4865BE2A" Association="Self.FK__dbMapStag__idMap__4865BE2A">
             <End Role="dbMap" EntitySet="dbMap" />
             <End Role="dbMapStage" EntitySet="dbMapStage" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbMapStag__idSta__3FD07829" Association="Self.FK__dbMapStag__idSta__3FD07829">
+          <AssociationSet Name="FK__dbMapStag__idSta__4959E263" Association="Self.FK__dbMapStag__idSta__4959E263">
             <End Role="dbMapStage" EntitySet="dbMapStage" />
             <End Role="dbMapStageMonter" EntitySet="dbMapStageMonter" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbMapStag__idSta__40C49C62" Association="Self.FK__dbMapStag__idSta__40C49C62">
+          <AssociationSet Name="FK__dbMapStag__idSta__4A4E069C" Association="Self.FK__dbMapStag__idSta__4A4E069C">
             <End Role="dbMapStage" EntitySet="dbMapStage" />
             <End Role="dbMapStageMonterSupper" EntitySet="dbMapStageMonterSupper" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbMapStag__idSta__41B8C09B" Association="Self.FK__dbMapStag__idSta__41B8C09B">
+          <AssociationSet Name="FK__dbMapStag__idSta__4B422AD5" Association="Self.FK__dbMapStag__idSta__4B422AD5">
             <End Role="dbMapStage" EntitySet="dbMapStage" />
             <End Role="dbMapStagePath" EntitySet="dbMapStagePath" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbMapStag__idSta__42ACE4D4" Association="Self.FK__dbMapStag__idSta__42ACE4D4">
+          <AssociationSet Name="FK__dbMapStag__idSta__4C364F0E" Association="Self.FK__dbMapStag__idSta__4C364F0E">
             <End Role="dbMapStage" EntitySet="dbMapStage" />
             <End Role="dbMapStageReward" EntitySet="dbMapStageReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbMapStag__idSta__43A1090D" Association="Self.FK__dbMapStag__idSta__43A1090D">
+          <AssociationSet Name="FK__dbMapStag__idSta__4D2A7347" Association="Self.FK__dbMapStag__idSta__4D2A7347">
             <End Role="dbMapStage" EntitySet="dbMapStage" />
             <End Role="dbMapStageSupper" EntitySet="dbMapStageSupper" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbNhiemVu__idChi__44952D46" Association="Self.FK__dbNhiemVu__idChi__44952D46">
+          <AssociationSet Name="FK__dbNhiemVu__idChi__4E1E9780" Association="Self.FK__dbNhiemVu__idChi__4E1E9780">
             <End Role="dbNhiemVuChinhTuyenConfig" EntitySet="dbNhiemVuChinhTuyenConfig" />
             <End Role="dbNhiemVuChinhTuyen" EntitySet="dbNhiemVuChinhTuyen" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbNhiemVu__idChi__477199F1" Association="Self.FK__dbNhiemVu__idChi__477199F1">
+          <AssociationSet Name="FK__dbNhiemVu__idChi__50FB042B" Association="Self.FK__dbNhiemVu__idChi__50FB042B">
             <End Role="dbNhiemVuHangNgayConfig" EntitySet="dbNhiemVuHangNgayConfig" />
             <End Role="dbNhiemVuHangNgay" EntitySet="dbNhiemVuHangNgay" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbNhiemVu__idCon__4589517F" Association="Self.FK__dbNhiemVu__idCon__4589517F">
+          <AssociationSet Name="FK__dbNhiemVu__idCon__4F12BBB9" Association="Self.FK__dbNhiemVu__idCon__4F12BBB9">
             <End Role="dbConfig" EntitySet="dbConfig" />
             <End Role="dbNhiemVuChinhTuyenConfig" EntitySet="dbNhiemVuChinhTuyenConfig" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbNhiemVu__idCon__4865BE2A" Association="Self.FK__dbNhiemVu__idCon__4865BE2A">
+          <AssociationSet Name="FK__dbNhiemVu__idCon__51EF2864" Association="Self.FK__dbNhiemVu__idCon__51EF2864">
             <End Role="dbConfig" EntitySet="dbConfig" />
             <End Role="dbNhiemVuHangNgayConfig" EntitySet="dbNhiemVuHangNgayConfig" />
           </AssociationSet>
@@ -2806,83 +2610,75 @@
             <End Role="dbNhiemVuHangNgay" EntitySet="dbNhiemVuHangNgay" />
             <End Role="dbNhiemVuHangNgayReward" EntitySet="dbNhiemVuHangNgayReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbNhiemVu__idNhi__467D75B8" Association="Self.FK__dbNhiemVu__idNhi__467D75B8">
+          <AssociationSet Name="FK__dbNhiemVu__idNhi__5006DFF2" Association="Self.FK__dbNhiemVu__idNhi__5006DFF2">
             <End Role="dbNhiemVuChinhTuyen" EntitySet="dbNhiemVuChinhTuyen" />
             <End Role="dbNhiemVuChinhTuyenReward" EntitySet="dbNhiemVuChinhTuyenReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbPhucLoi__idLev__4A4E069C" Association="Self.FK__dbPhucLoi__idLev__4A4E069C">
+          <AssociationSet Name="FK__dbPhucLoi__idLev__53D770D6" Association="Self.FK__dbPhucLoi__idLev__53D770D6">
             <End Role="dbPhucLoiTruongThanhLevel" EntitySet="dbPhucLoiTruongThanhLevel" />
             <End Role="dbPhucLoiTruongThanhLevelReward" EntitySet="dbPhucLoiTruongThanhLevelReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbpieceEx__idEqu__4B422AD5" Association="Self.FK__dbpieceEx__idEqu__4B422AD5">
-            <End Role="dbEquipmentConfig" EntitySet="dbEquipmentConfig" />
-            <End Role="dbpieceExportReceive" EntitySet="dbpieceExportReceive" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbPieceNe__idEqu__4C364F0E" Association="Self.FK__dbPieceNe__idEqu__4C364F0E">
-            <End Role="dbEquipmentConfig" EntitySet="dbEquipmentConfig" />
-            <End Role="dbPieceNeedToImport" EntitySet="dbPieceNeedToImport" />
-          </AssociationSet>
-          <AssociationSet Name="FK__dbPowerUp__idPow__4D2A7347" Association="Self.FK__dbPowerUp__idPow__4D2A7347">
+          <AssociationSet Name="FK__dbPowerUp__idPow__56B3DD81" Association="Self.FK__dbPowerUp__idPow__56B3DD81">
             <End Role="dbPowerUpItems" EntitySet="dbPowerUpItems" />
             <End Role="dbPowerUpItemsAttribute" EntitySet="dbPowerUpItemsAttribute" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbPowerUp__idPow__4E1E9780" Association="Self.FK__dbPowerUp__idPow__4E1E9780">
+          <AssociationSet Name="FK__dbPowerUp__idPow__57A801BA" Association="Self.FK__dbPowerUp__idPow__57A801BA">
             <End Role="dbPowerUpItems" EntitySet="dbPowerUpItems" />
             <End Role="dbPowerUpItemsReceipt" EntitySet="dbPowerUpItemsReceipt" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbPucLoiT__idPhu__4F12BBB9" Association="Self.FK__dbPucLoiT__idPhu__4F12BBB9">
+          <AssociationSet Name="FK__dbPucLoiT__idPhu__589C25F3" Association="Self.FK__dbPucLoiT__idPhu__589C25F3">
             <End Role="dbPucLoiThangConfig" EntitySet="dbPucLoiThangConfig" />
             <End Role="dbPucLoiThangReward" EntitySet="dbPucLoiThangReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbRuongBa__idRuo__5006DFF2" Association="Self.FK__dbRuongBa__idRuo__5006DFF2">
+          <AssociationSet Name="FK__dbRuongBa__idRuo__59904A2C" Association="Self.FK__dbRuongBa__idRuo__59904A2C">
             <End Role="dbRuongBauConfig" EntitySet="dbRuongBauConfig" />
             <End Role="dbRuongBauReward" EntitySet="dbRuongBauReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbStarRew__idSta__50FB042B" Association="Self.FK__dbStarRew__idSta__50FB042B">
+          <AssociationSet Name="FK__dbStarRew__idSta__5A846E65" Association="Self.FK__dbStarRew__idSta__5A846E65">
             <End Role="dbStarReward" EntitySet="dbStarReward" />
             <End Role="dbStarRewardReward" EntitySet="dbStarRewardReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbThanTha__idCon__51EF2864" Association="Self.FK__dbThanTha__idCon__51EF2864">
+          <AssociationSet Name="FK__dbThanTha__idCon__5B78929E" Association="Self.FK__dbThanTha__idCon__5B78929E">
             <End Role="dbConfig" EntitySet="dbConfig" />
             <End Role="dbThanThap" EntitySet="dbThanThap" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbThanTha__idTha__52E34C9D" Association="Self.FK__dbThanTha__idTha__52E34C9D">
+          <AssociationSet Name="FK__dbThanTha__idTha__5C6CB6D7" Association="Self.FK__dbThanTha__idTha__5C6CB6D7">
             <End Role="dbThanThap" EntitySet="dbThanThap" />
             <End Role="dbThanThapAttributes" EntitySet="dbThanThapAttributes" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbThanTha__idTha__53D770D6" Association="Self.FK__dbThanTha__idTha__53D770D6">
+          <AssociationSet Name="FK__dbThanTha__idTha__5D60DB10" Association="Self.FK__dbThanTha__idTha__5D60DB10">
             <End Role="dbThanThapMonsters" EntitySet="dbThanThapMonsters" />
             <End Role="dbThanThapDetailMonsters" EntitySet="dbThanThapDetailMonsters" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbThanTha__idTha__54CB950F" Association="Self.FK__dbThanTha__idTha__54CB950F">
+          <AssociationSet Name="FK__dbThanTha__idTha__5E54FF49" Association="Self.FK__dbThanTha__idTha__5E54FF49">
             <End Role="dbThanThap" EntitySet="dbThanThap" />
             <End Role="dbThanThapFloorRewards" EntitySet="dbThanThapFloorRewards" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbThanTha__idTha__55BFB948" Association="Self.FK__dbThanTha__idTha__55BFB948">
+          <AssociationSet Name="FK__dbThanTha__idTha__5F492382" Association="Self.FK__dbThanTha__idTha__5F492382">
             <End Role="dbThanThap" EntitySet="dbThanThap" />
             <End Role="dbThanThapMoneyReset" EntitySet="dbThanThapMoneyReset" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbThanTha__idTha__56B3DD81" Association="Self.FK__dbThanTha__idTha__56B3DD81">
+          <AssociationSet Name="FK__dbThanTha__idTha__603D47BB" Association="Self.FK__dbThanTha__idTha__603D47BB">
             <End Role="dbThanThap" EntitySet="dbThanThap" />
             <End Role="dbThanThapMonsters" EntitySet="dbThanThapMonsters" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbThanTha__idTha__57A801BA" Association="Self.FK__dbThanTha__idTha__57A801BA">
+          <AssociationSet Name="FK__dbThanTha__idTha__61316BF4" Association="Self.FK__dbThanTha__idTha__61316BF4">
             <End Role="dbThanThap" EntitySet="dbThanThap" />
             <End Role="dbThanThapPlusAttributeRequire" EntitySet="dbThanThapPlusAttributeRequire" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbThanTha__idTha__589C25F3" Association="Self.FK__dbThanTha__idTha__589C25F3">
+          <AssociationSet Name="FK__dbThanTha__idTha__6225902D" Association="Self.FK__dbThanTha__idTha__6225902D">
             <End Role="dbThanThap" EntitySet="dbThanThap" />
             <End Role="dbThanThapStarRewards" EntitySet="dbThanThapStarRewards" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbVanTieu__idCon__59904A2C" Association="Self.FK__dbVanTieu__idCon__59904A2C">
+          <AssociationSet Name="FK__dbVanTieu__idCon__6319B466" Association="Self.FK__dbVanTieu__idCon__6319B466">
             <End Role="dbConfig" EntitySet="dbConfig" />
             <End Role="dbVanTieu" EntitySet="dbVanTieu" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbVanTieu__idVan__5A846E65" Association="Self.FK__dbVanTieu__idVan__5A846E65">
+          <AssociationSet Name="FK__dbVanTieu__idVan__640DD89F" Association="Self.FK__dbVanTieu__idVan__640DD89F">
             <End Role="dbVanTieu" EntitySet="dbVanTieu" />
             <End Role="dbVanTieuProtectReward" EntitySet="dbVanTieuProtectReward" />
           </AssociationSet>
-          <AssociationSet Name="FK__dbVanTieu__idVan__5B78929E" Association="Self.FK__dbVanTieu__idVan__5B78929E">
+          <AssociationSet Name="FK__dbVanTieu__idVan__6501FCD8" Association="Self.FK__dbVanTieu__idVan__6501FCD8">
             <End Role="dbVanTieu" EntitySet="dbVanTieu" />
             <End Role="dbVanTieuRobRewards" EntitySet="dbVanTieuRobRewards" />
           </AssociationSet>
@@ -3324,6 +3120,23 @@
           <EntitySet Name="dbDoiHinhDuBiRequires" EntityType="BBCTdesignertoolv1Model.dbDoiHinhDuBiRequire" />
           <EntitySet Name="dbHuaNguyenConfigs" EntityType="BBCTdesignertoolv1Model.dbHuaNguyenConfig" />
           <EntitySet Name="dbTimeAttackBosses" EntityType="BBCTdesignertoolv1Model.dbTimeAttackBoss" />
+          <EntitySet Name="dbCharGoldNeedToFusions" EntityType="BBCTdesignertoolv1Model.dbCharGoldNeedToFusion" />
+          <EntitySet Name="dbCharGoldNeedToPowerups" EntityType="BBCTdesignertoolv1Model.dbCharGoldNeedToPowerup" />
+          <EntitySet Name="dbCharGoldNeedToStarups" EntityType="BBCTdesignertoolv1Model.dbCharGoldNeedToStarup" />
+          <EntitySet Name="dbCharSkillStarLevels" EntityType="BBCTdesignertoolv1Model.dbCharSkillStarLevel" />
+          <EntitySet Name="dbCharStarLevelExps" EntityType="BBCTdesignertoolv1Model.dbCharStarLevelExp" />
+          <EntitySet Name="dbCharStarLevelExpConfigs" EntityType="BBCTdesignertoolv1Model.dbCharStarLevelExpConfig" />
+          <EntitySet Name="dbEquipElementSupports" EntityType="BBCTdesignertoolv1Model.dbEquipElementSupport" />
+          <EntitySet Name="dbEquipGoldNeedToPowerups" EntityType="BBCTdesignertoolv1Model.dbEquipGoldNeedToPowerup" />
+          <EntitySet Name="dbEquipGoldNeedToStarups" EntityType="BBCTdesignertoolv1Model.dbEquipGoldNeedToStarup" />
+          <EntitySet Name="dbEquipmentBonusAttributes" EntityType="BBCTdesignertoolv1Model.dbEquipmentBonusAttribute" />
+          <EntitySet Name="dbEquipmentElementAttributes" EntityType="BBCTdesignertoolv1Model.dbEquipmentElementAttribute" />
+          <EntitySet Name="dbEquipProcElements" EntityType="BBCTdesignertoolv1Model.dbEquipProcElement" />
+          <EntitySet Name="dbEquipStarLevelExps" EntityType="BBCTdesignertoolv1Model.dbEquipStarLevelExp" />
+          <EntitySet Name="dbEquipStarLevelExpConfigs" EntityType="BBCTdesignertoolv1Model.dbEquipStarLevelExpConfig" />
+          <EntitySet Name="dbEquipSupports" EntityType="BBCTdesignertoolv1Model.dbEquipSupport" />
+          <EntitySet Name="dbGroupCharacters" EntityType="BBCTdesignertoolv1Model.dbGroupCharacter" />
+          <EntitySet Name="sysdiagrams" EntityType="BBCTdesignertoolv1Model.sysdiagram" />
         </EntityContainer>
         <EntityType Name="dbBadWord">
           <Key>
@@ -3358,6 +3171,18 @@
           <Property Name="vipAuto" Type="Int32" />
           <Property Name="vipSpeed" Type="Int32" />
           <Property Name="rangeRandomDamage" Type="Int32" />
+          <Property Name="manaRegenNormal" Type="Int32" />
+          <Property Name="idBackgroundThanThap" Type="Int32" />
+          <Property Name="idBackgroundBoss" Type="Int32" />
+          <Property Name="idBackgroundThachDau" Type="Int32" />
+          <Property Name="levelAuto" Type="Int32" />
+          <Property Name="vipSkip" Type="Int32" />
+          <Property Name="modX" Type="Double" />
+          <Property Name="modY" Type="Double" />
+          <Property Name="modZ" Type="Double" />
+          <Property Name="modF" Type="Double" />
+          <Property Name="modU" Type="Double" />
+          <Property Name="modKH" Type="Double" />
         </EntityType>
         <EntityType Name="dbBattlePoint2ArrayConfig">
           <Key>
@@ -3437,6 +3262,13 @@
           <NavigationProperty Name="dbCharPowerUpReceipts" Relationship="BBCTdesignertoolv1Model.FK__dbCharPow__idCha__1F63A897" FromRole="dbCharacter" ToRole="dbCharPowerUpReceipt" />
           <NavigationProperty Name="dbCharSkills" Relationship="BBCTdesignertoolv1Model.FK__dbCharSki__idCha__2057CCD0" FromRole="dbCharacter" ToRole="dbCharSkill" />
           <Property Name="idCharHuaNguyen" Type="Int32" />
+          <Property Name="isMale" Type="Int32" />
+          <Property Name="element" Type="Int32" />
+          <Property Name="idGroup" Type="Int32" />
+          <Property Name="quote" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="typeCharacter" Type="Int32" />
+          <Property Name="lowestStarLevel" Type="Int32" />
+          <Property Name="highestStarLevel" Type="Int32" />
         </EntityType>
         <EntityType Name="dbCharacterConfig">
           <Key>
@@ -3451,6 +3283,8 @@
           <Property Name="modStar" Type="Double" />
           <Property Name="procReceivedUpStar" Type="Double" />
           <Property Name="procAmountCharToSoul" Type="Double" />
+          <Property Name="sellPrice" Type="Int32" />
+          <Property Name="maxResKH" Type="Double" />
         </EntityType>
         <EntityType Name="dbCharacterLevelExp">
           <Key>
@@ -3579,6 +3413,7 @@
           <NavigationProperty Name="dbCharacter" Relationship="BBCTdesignertoolv1Model.FK__dbCharSki__idCha__2057CCD0" FromRole="dbCharSkill" ToRole="dbCharacter" />
           <NavigationProperty Name="dbCharSkillAfflictionAttributes" Relationship="BBCTdesignertoolv1Model.FK__dbCharSki__idSki__214BF109" FromRole="dbCharSkill" ToRole="dbCharSkillAfflictionAttribute" />
           <NavigationProperty Name="dbCharSkillAttributes" Relationship="BBCTdesignertoolv1Model.FK__dbCharSki__idSki__22401542" FromRole="dbCharSkill" ToRole="dbCharSkillAttribute" />
+          <Property Name="startCooldown" Type="Int32" />
         </EntityType>
         <EntityType Name="dbCharSkillAfflictionAttribute">
           <Key>
@@ -3905,6 +3740,11 @@
           <Property Name="icon" Type="Int32" />
           <NavigationProperty Name="dbEquipmentAttributes" Relationship="BBCTdesignertoolv1Model.FK__dbEquipme__idEqu__251C81ED" FromRole="dbEquipment" ToRole="dbEquipmentAttribute" />
           <NavigationProperty Name="dbEquipmentStarUps" Relationship="BBCTdesignertoolv1Model.FK__dbEquipme__idEqu__2704CA5F" FromRole="dbEquipment" ToRole="dbEquipmentStarUp" />
+          <Property Name="lowestStarLevel" Type="Int32" />
+          <Property Name="highestStarLevel" Type="Int32" />
+          <Property Name="attAttribute" Type="Int32" />
+          <Property Name="attMods" Type="Double" />
+          <Property Name="attGrowthMod" Type="Int32" />
         </EntityType>
         <EntityType Name="dbEquipmentAttribute">
           <Key>
@@ -3933,6 +3773,8 @@
           <NavigationProperty Name="dbEquipStarUpConfigs" Relationship="BBCTdesignertoolv1Model.FK__dbEquipSt__idEqu__27F8EE98" FromRole="dbEquipmentConfig" ToRole="dbEquipStarUpConfig" />
           <NavigationProperty Name="dbpieceExportReceives" Relationship="BBCTdesignertoolv1Model.FK__dbpieceEx__idEqu__4B422AD5" FromRole="dbEquipmentConfig" ToRole="dbpieceExportReceive" />
           <NavigationProperty Name="dbPieceNeedToImports" Relationship="BBCTdesignertoolv1Model.FK__dbPieceNe__idEqu__4C364F0E" FromRole="dbEquipmentConfig" ToRole="dbPieceNeedToImport" />
+          <Property Name="sellPrice" Type="Int32" />
+          <Property Name="dePowerup" Type="Int32" />
         </EntityType>
         <EntityType Name="dbEquipmentReceipt">
           <Key>
@@ -5917,6 +5759,158 @@
           <Property Name="minuteEnd" Type="Int32" />
           <Property Name="status" Type="Int32" />
         </EntityType>
+        <EntityType Name="dbCharGoldNeedToFusion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbCharGoldNeedToPowerup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbCharGoldNeedToStarup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbCharSkillStarLevel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="star" Type="Int32" />
+          <Property Name="numberItemRequire" Type="Int32" />
+          <Property Name="silverRequire" Type="Int32" />
+          <Property Name="maxLevel" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbCharStarLevelExp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCharStar" Type="Int32" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbCharStarLevelExpConfig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbEquipElementSupport">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="element" Type="Int32" />
+          <Property Name="elementSupport" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbEquipGoldNeedToPowerup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbEquipGoldNeedToStarup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbEquipmentBonusAttribute">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idElement" Type="Int32" />
+          <Property Name="attribute" Type="Int32" />
+          <Property Name="minMod" Type="Double" />
+          <Property Name="maxMod" Type="Double" />
+          <Property Name="minGrowMod" Type="Double" />
+          <Property Name="maxGrowMod" Type="Double" />
+          <Property Name="procs" Type="Double" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbEquipmentElementAttribute">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEquipment" Type="Int32" />
+          <Property Name="element" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbEquipProcElement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="Double" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbEquipStarLevelExp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEquipStar" Type="Int32" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbEquipStarLevelExpConfig">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbEquipSupport">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="equip" Type="Int32" />
+          <Property Name="equipSupport" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbGroupCharacter">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idGroup" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="descriptions" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5936,20 +5930,27 @@
           <EntitySetMapping Name="dbBattleConfigs">
             <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbBattleConfig">
               <MappingFragment StoreEntitySet="dbBattleConfig">
+                <ScalarProperty Name="modKH" ColumnName="modKH" />
+                <ScalarProperty Name="modU" ColumnName="modU" />
+                <ScalarProperty Name="modF" ColumnName="modF" />
+                <ScalarProperty Name="modZ" ColumnName="modZ" />
+                <ScalarProperty Name="modY" ColumnName="modY" />
+                <ScalarProperty Name="modX" ColumnName="modX" />
+                <ScalarProperty Name="vipSkip" ColumnName="vipSkip" />
+                <ScalarProperty Name="levelAuto" ColumnName="levelAuto" />
+                <ScalarProperty Name="idBackgroundThachDau" ColumnName="idBackgroundThachDau" />
+                <ScalarProperty Name="idBackgroundBoss" ColumnName="idBackgroundBoss" />
+                <ScalarProperty Name="idBackgroundThanThap" ColumnName="idBackgroundThanThap" />
+                <ScalarProperty Name="manaRegenNormal" ColumnName="manaRegenNormal" />
                 <ScalarProperty Name="rangeRandomDamage" ColumnName="rangeRandomDamage" />
-                <ScalarProperty Name="vipSpeed" ColumnName="vipSpeed" />
                 <ScalarProperty Name="vipAuto" ColumnName="vipAuto" />
                 <ScalarProperty Name="levelSpeed" ColumnName="levelSpeed" />
                 <ScalarProperty Name="manaRegenAttacked" ColumnName="manaRegenAttacked" />
                 <ScalarProperty Name="idBackgroundBangChien" ColumnName="idBackgroundBangChien" />
                 <ScalarProperty Name="idBackgroundLuanKiem" ColumnName="idBackgroundLuanKiem" />
                 <ScalarProperty Name="idBackgroundCuopTieu" ColumnName="idBackgroundCuopTieu" />
-                <ScalarProperty Name="idBachgroundBoss" ColumnName="idBachgroundBoss" />
-                <ScalarProperty Name="idBachgroundThanThap" ColumnName="idBachgroundThanThap" />
                 <ScalarProperty Name="idBossWorld" ColumnName="idBossWorld" />
-                <ScalarProperty Name="idBachgroundThachDau" ColumnName="idBachgroundThachDau" />
                 <ScalarProperty Name="manaRegenUltimate" ColumnName="manaRegenUltimate" />
-                <ScalarProperty Name="manaRegen" ColumnName="manaRegen" />
                 <ScalarProperty Name="manaPool" ColumnName="manaPool" />
                 <ScalarProperty Name="distanceFrontTarget" ColumnName="distanceFrontTarget" />
                 <ScalarProperty Name="centerBattleY" ColumnName="centerBattleY" />
@@ -6019,14 +6020,18 @@
           <EntitySetMapping Name="dbCharacters">
             <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharacter">
               <MappingFragment StoreEntitySet="dbCharacter">
+                <ScalarProperty Name="highestStarLevel" ColumnName="highestStarLevel" />
+                <ScalarProperty Name="lowestStarLevel" ColumnName="lowestStarLevel" />
+                <ScalarProperty Name="typeCharacter" ColumnName="typeCharacter" />
+                <ScalarProperty Name="quote" ColumnName="quote" />
+                <ScalarProperty Name="idGroup" ColumnName="idGroup" />
+                <ScalarProperty Name="element" ColumnName="element" />
+                <ScalarProperty Name="isMale" ColumnName="isMale" />
                 <ScalarProperty Name="idCharHuaNguyen" ColumnName="idCharHuaNguyen" />
                 <ScalarProperty Name="isCreep" ColumnName="isCreep" />
-                <ScalarProperty Name="amountPieceToImport" ColumnName="amountPieceToImport" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="orders" ColumnName="orders" />
-                <ScalarProperty Name="isMain" ColumnName="isMain" />
                 <ScalarProperty Name="classCharacter" ColumnName="classCharacter" />
-                <ScalarProperty Name="promotion" ColumnName="promotion" />
                 <ScalarProperty Name="category" ColumnName="category" />
                 <ScalarProperty Name="descriptions" ColumnName="descriptions" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -6038,14 +6043,8 @@
           <EntitySetMapping Name="dbCharacterConfigs">
             <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharacterConfig">
               <MappingFragment StoreEntitySet="dbCharacterConfig">
-                <ScalarProperty Name="procAmountCharToSoul" ColumnName="procAmountCharToSoul" />
-                <ScalarProperty Name="procReceivedUpStar" ColumnName="procReceivedUpStar" />
-                <ScalarProperty Name="modStar" ColumnName="modStar" />
-                <ScalarProperty Name="prefixSilverUpSkill" ColumnName="prefixSilverUpSkill" />
-                <ScalarProperty Name="levelUnlockPassiveSkill2" ColumnName="levelUnlockPassiveSkill2" />
-                <ScalarProperty Name="powerUpLevelUnlockPassiveSkill" ColumnName="powerUpLevelUnlockPassiveSkill" />
-                <ScalarProperty Name="amountCharToSoul" ColumnName="amountCharToSoul" />
-                <ScalarProperty Name="maxStarCanUp" ColumnName="maxStarCanUp" />
+                <ScalarProperty Name="maxResKH" ColumnName="maxResKH" />
+                <ScalarProperty Name="sellPrice" ColumnName="sellPrice" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -6075,23 +6074,9 @@
           <EntitySetMapping Name="dbCharDefaultConfigs">
             <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharDefaultConfig">
               <MappingFragment StoreEntitySet="dbCharDefaultConfig">
-                <ScalarProperty Name="starLevelChar" ColumnName="starLevelChar" />
                 <ScalarProperty Name="powerupLevelChar" ColumnName="powerupLevelChar" />
-                <ScalarProperty Name="promotionLevelChar" ColumnName="promotionLevelChar" />
                 <ScalarProperty Name="levelChar" ColumnName="levelChar" />
                 <ScalarProperty Name="levelSkill" ColumnName="levelSkill" />
-                <ScalarProperty Name="idChrConfig" ColumnName="idChrConfig" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="dbCharDetailPowerUpReceipts">
-            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharDetailPowerUpReceipt">
-              <MappingFragment StoreEntitySet="dbCharDetailPowerUpReceipt">
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="amount" ColumnName="amount" />
-                <ScalarProperty Name="idItem" ColumnName="idItem" />
-                <ScalarProperty Name="idReceipt" ColumnName="idReceipt" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -6111,8 +6096,6 @@
           <EntitySetMapping Name="dbCharDuyenPhanAttributes">
             <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharDuyenPhanAttribute">
               <MappingFragment StoreEntitySet="dbCharDuyenPhanAttribute">
-                <ScalarProperty Name="growthMod" ColumnName="growthMod" />
-                <ScalarProperty Name="attribute" ColumnName="attribute" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="value" ColumnName="value" />
                 <ScalarProperty Name="idDuyen" ColumnName="idDuyen" />
@@ -6130,16 +6113,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="dbCharPowerUpReceipts">
-            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharPowerUpReceipt">
-              <MappingFragment StoreEntitySet="dbCharPowerUpReceipt">
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="gen" ColumnName="gen" />
-                <ScalarProperty Name="idCharacter" ColumnName="idCharacter" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="dbCharSelections">
             <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharSelection">
               <MappingFragment StoreEntitySet="dbCharSelection">
@@ -6153,10 +6126,9 @@
           <EntitySetMapping Name="dbCharSkills">
             <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharSkill">
               <MappingFragment StoreEntitySet="dbCharSkill">
-                <ScalarProperty Name="categoryMain" ColumnName="categoryMain" />
+                <ScalarProperty Name="startCooldown" ColumnName="startCooldown" />
                 <ScalarProperty Name="afflictionProc" ColumnName="afflictionProc" />
                 <ScalarProperty Name="afflictionDuration" ColumnName="afflictionDuration" />
-                <ScalarProperty Name="manaCost" ColumnName="manaCost" />
                 <ScalarProperty Name="typeSpawnSkill" ColumnName="typeSpawnSkill" />
                 <ScalarProperty Name="countTurn" ColumnName="countTurn" />
                 <ScalarProperty Name="status" ColumnName="status" />
@@ -6507,11 +6479,15 @@
           <EntitySetMapping Name="dbEquipments">
             <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipment">
               <MappingFragment StoreEntitySet="dbEquipment">
+                <ScalarProperty Name="attGrowthMod" ColumnName="attGrowthMod" />
+                <ScalarProperty Name="attMods" ColumnName="attMods" />
+                <ScalarProperty Name="attAttribute" ColumnName="attAttribute" />
+                <ScalarProperty Name="highestStarLevel" ColumnName="highestStarLevel" />
+                <ScalarProperty Name="lowestStarLevel" ColumnName="lowestStarLevel" />
                 <ScalarProperty Name="icon" ColumnName="icon" />
                 <ScalarProperty Name="canSellMarket" ColumnName="canSellMarket" />
                 <ScalarProperty Name="baseMarketPrice" ColumnName="baseMarketPrice" />
                 <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="promotion" ColumnName="promotion" />
                 <ScalarProperty Name="category" ColumnName="category" />
                 <ScalarProperty Name="descriptions" ColumnName="descriptions" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -6520,74 +6496,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="dbEquipmentAttributes">
-            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipmentAttribute">
-              <MappingFragment StoreEntitySet="dbEquipmentAttribute">
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="growthMod" ColumnName="growthMod" />
-                <ScalarProperty Name="mods" ColumnName="mods" />
-                <ScalarProperty Name="attribute" ColumnName="attribute" />
-                <ScalarProperty Name="idEquipment" ColumnName="idEquipment" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="dbEquipmentConfigs">
             <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipmentConfig">
               <MappingFragment StoreEntitySet="dbEquipmentConfig">
-                <ScalarProperty Name="baseGold" ColumnName="baseGold" />
-                <ScalarProperty Name="procReceivedUpStar" ColumnName="procReceivedUpStar" />
-                <ScalarProperty Name="maxEquipToUpStar" ColumnName="maxEquipToUpStar" />
-                <ScalarProperty Name="starLevelDefault" ColumnName="starLevelDefault" />
-                <ScalarProperty Name="levelDefault" ColumnName="levelDefault" />
-                <ScalarProperty Name="maxStarCanReach" ColumnName="maxStarCanReach" />
-                <ScalarProperty Name="goldSilverToLevelUp" ColumnName="goldSilverToLevelUp" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="dbEquipmentReceipts">
-            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipmentReceipt">
-              <MappingFragment StoreEntitySet="dbEquipmentReceipt">
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="amount" ColumnName="amount" />
-                <ScalarProperty Name="idItem" ColumnName="idItem" />
-                <ScalarProperty Name="idStarUp" ColumnName="idStarUp" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="dbEquipmentStarUps">
-            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipmentStarUp">
-              <MappingFragment StoreEntitySet="dbEquipmentStarUp">
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="value" ColumnName="value" />
-                <ScalarProperty Name="idEquipment" ColumnName="idEquipment" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="dbEquipStarUpConfigs">
-            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipStarUpConfig">
-              <MappingFragment StoreEntitySet="dbEquipStarUpConfig">
-                <ScalarProperty Name="promotion" ColumnName="promotion" />
-                <ScalarProperty Name="equipStockStar" ColumnName="equipStockStar" />
-                <ScalarProperty Name="amountExtendAttributeBeOpened" ColumnName="amountExtendAttributeBeOpened" />
-                <ScalarProperty Name="modifierAttribute" ColumnName="modifierAttribute" />
-                <ScalarProperty Name="amountItemNeed" ColumnName="amountItemNeed" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="value" ColumnName="value" />
-                <ScalarProperty Name="idEquipmentConfig" ColumnName="idEquipmentConfig" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="dbEquipStarUpDetails">
-            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipStarUpDetail">
-              <MappingFragment StoreEntitySet="dbEquipStarUpDetail">
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="value" ColumnName="value" />
-                <ScalarProperty Name="idStarUp" ColumnName="idStarUp" />
+                <ScalarProperty Name="dePowerup" ColumnName="dePowerup" />
+                <ScalarProperty Name="sellPrice" ColumnName="sellPrice" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -7240,26 +7153,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="dbpieceExportReceives">
-            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbpieceExportReceive">
-              <MappingFragment StoreEntitySet="dbpieceExportReceive">
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="value" ColumnName="value" />
-                <ScalarProperty Name="idEquipmentConfig" ColumnName="idEquipmentConfig" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="dbPieceNeedToImports">
-            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbPieceNeedToImport">
-              <MappingFragment StoreEntitySet="dbPieceNeedToImport">
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="value" ColumnName="value" />
-                <ScalarProperty Name="idEquipmentConfig" ColumnName="idEquipmentConfig" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="dbPlayerDefaultConfigs">
             <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbPlayerDefaultConfig">
               <MappingFragment StoreEntitySet="dbPlayerDefaultConfig">
@@ -7648,6 +7541,175 @@
                 <ScalarProperty Name="minuteStart" ColumnName="minuteStart" />
                 <ScalarProperty Name="hoursStart" ColumnName="hoursStart" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbCharGoldNeedToFusions">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharGoldNeedToFusion">
+              <MappingFragment StoreEntitySet="dbCharGoldNeedToFusions">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbCharGoldNeedToPowerups">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharGoldNeedToPowerup">
+              <MappingFragment StoreEntitySet="dbCharGoldNeedToPowerups">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbCharGoldNeedToStarups">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharGoldNeedToStarup">
+              <MappingFragment StoreEntitySet="dbCharGoldNeedToStarups">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbCharSkillStarLevels">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharSkillStarLevel">
+              <MappingFragment StoreEntitySet="dbCharSkillStarLevels">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="maxLevel" ColumnName="maxLevel" />
+                <ScalarProperty Name="silverRequire" ColumnName="silverRequire" />
+                <ScalarProperty Name="numberItemRequire" ColumnName="numberItemRequire" />
+                <ScalarProperty Name="star" ColumnName="star" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbCharStarLevelExps">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharStarLevelExp">
+              <MappingFragment StoreEntitySet="dbCharStarLevelExp">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="idCharStar" ColumnName="idCharStar" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbCharStarLevelExpConfigs">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbCharStarLevelExpConfig">
+              <MappingFragment StoreEntitySet="dbCharStarLevelExpConfig">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbEquipElementSupports">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipElementSupport">
+              <MappingFragment StoreEntitySet="dbEquipElementSupports">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="elementSupport" ColumnName="elementSupport" />
+                <ScalarProperty Name="element" ColumnName="element" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbEquipGoldNeedToPowerups">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipGoldNeedToPowerup">
+              <MappingFragment StoreEntitySet="dbEquipGoldNeedToPowerups">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbEquipGoldNeedToStarups">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipGoldNeedToStarup">
+              <MappingFragment StoreEntitySet="dbEquipGoldNeedToStarups">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbEquipmentBonusAttributes">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipmentBonusAttribute">
+              <MappingFragment StoreEntitySet="dbEquipmentBonusAttribute">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="procs" ColumnName="procs" />
+                <ScalarProperty Name="maxGrowMod" ColumnName="maxGrowMod" />
+                <ScalarProperty Name="minGrowMod" ColumnName="minGrowMod" />
+                <ScalarProperty Name="maxMod" ColumnName="maxMod" />
+                <ScalarProperty Name="minMod" ColumnName="minMod" />
+                <ScalarProperty Name="attribute" ColumnName="attribute" />
+                <ScalarProperty Name="idElement" ColumnName="idElement" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbEquipmentElementAttributes">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipmentElementAttribute">
+              <MappingFragment StoreEntitySet="dbEquipmentElementAttribute">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="element" ColumnName="element" />
+                <ScalarProperty Name="idEquipment" ColumnName="idEquipment" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbEquipProcElements">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipProcElement">
+              <MappingFragment StoreEntitySet="dbEquipProcElements">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbEquipStarLevelExps">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipStarLevelExp">
+              <MappingFragment StoreEntitySet="dbEquipStarLevelExp">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="idEquipStar" ColumnName="idEquipStar" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbEquipStarLevelExpConfigs">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipStarLevelExpConfig">
+              <MappingFragment StoreEntitySet="dbEquipStarLevelExpConfig">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbEquipSupports">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbEquipSupport">
+              <MappingFragment StoreEntitySet="dbEquipSupport">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="equipSupport" ColumnName="equipSupport" />
+                <ScalarProperty Name="equip" ColumnName="equip" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbGroupCharacters">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.dbGroupCharacter">
+              <MappingFragment StoreEntitySet="dbGroupCharacter">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="descriptions" ColumnName="descriptions" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="idGroup" ColumnName="idGroup" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BBCTdesignertoolv1Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

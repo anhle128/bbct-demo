@@ -627,12 +627,18 @@ namespace BBCTDesignerTool.Models
                     id = item.id,
                     idCharacter = item.idCharacter,
                     isCreep = item.isCreep,
-                    isMain = item.isMain,
                     name = item.name,
                     orders = item.orders,
                     promotion = item.promotion,
                     status = item.status,
-                    idCharHuaNguyen = item.idCharHuaNguyen
+                    idCharHuaNguyen = item.idCharHuaNguyen,
+                    element = item.element,
+                    highestStarLevel = item.highestStarLevel,
+                    idGroup = item.idGroup,
+                    isMale = item.isMale,
+                    lowestStarLevel = item.lowestStarLevel,
+                    typeCharacter = item.typeCharacter,
+                    
                 };
                 lsdbCharacter.Add(db);
             }

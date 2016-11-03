@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace KDQHDesignerTool.FormBase
+namespace BBCTDesignerTool.FormBase
 {
     public partial class frmFormChange : DevExpress.XtraEditors.XtraForm
     {

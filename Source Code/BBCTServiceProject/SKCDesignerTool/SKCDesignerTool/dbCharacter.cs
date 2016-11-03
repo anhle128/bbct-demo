@@ -35,6 +35,13 @@ namespace BBCTDesignerTool
         public Nullable<int> amountPieceToImport { get; set; }
         public Nullable<int> isCreep { get; set; }
         public Nullable<int> idCharHuaNguyen { get; set; }
+        public Nullable<int> isMale { get; set; }
+        public Nullable<int> element { get; set; }
+        public Nullable<int> idGroup { get; set; }
+        public string quote { get; set; }
+        public Nullable<int> typeCharacter { get; set; }
+        public Nullable<int> lowestStarLevel { get; set; }
+        public Nullable<int> highestStarLevel { get; set; }
     
         public virtual ICollection<dbCharAttribute> dbCharAttributes { get; set; }
         public virtual ICollection<dbCharDuyenPhan> dbCharDuyenPhans { get; set; }
