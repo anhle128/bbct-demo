@@ -244,6 +244,7 @@
           <Property Name="afflictionProc" Type="float" />
           <Property Name="orders" Type="int" />
           <Property Name="status" Type="int" />
+          <Property Name="typePassive" Type="int" />
         </EntityType>
         <EntityType Name="dbCharSkillAfflictionAttribute">
           <Key>
@@ -607,7 +608,7 @@
           <Property Name="highestStarLevel" Type="int" />
           <Property Name="attAttribute" Type="int" />
           <Property Name="attMods" Type="float" />
-          <Property Name="attGrowthMod" Type="int" />
+          <Property Name="attGrowthMod" Type="float" />
           <Property Name="status" Type="int" />
         </EntityType>
         <EntityType Name="dbEquipmentBonusAttribute">
@@ -3284,6 +3285,7 @@
           <Property Name="afflictionProc" Type="Double" />
           <Property Name="orders" Type="Int32" />
           <Property Name="status" Type="Int32" />
+          <Property Name="typePassive" Type="Int32" />
         </EntityType>
         <EntityType Name="dbCharSkillAfflictionAttribute">
           <Key>
@@ -3660,7 +3662,7 @@
           <Property Name="highestStarLevel" Type="Int32" />
           <Property Name="attAttribute" Type="Int32" />
           <Property Name="attMods" Type="Double" />
-          <Property Name="attGrowthMod" Type="Int32" />
+          <Property Name="attGrowthMod" Type="Double" />
           <Property Name="status" Type="Int32" />
         </EntityType>
         <EntityType Name="dbEquipmentBonusAttribute">
@@ -5441,7 +5443,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -5685,6 +5687,7 @@
           <EntitySetMapping Name="dbCharSkills">
             <EntityTypeMapping TypeName="bbctdesignertoolv1Model.dbCharSkill">
               <MappingFragment StoreEntitySet="dbCharSkill">
+                <ScalarProperty Name="typePassive" ColumnName="typePassive" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="orders" ColumnName="orders" />
                 <ScalarProperty Name="afflictionProc" ColumnName="afflictionProc" />

@@ -2051,11 +2051,61 @@ namespace BBCTDesignerTool.Models
                     name = HandlerKeyLanguage(5, (int)chr.id)[0],
                     baseMarketPrice = (int)chr.baseMarketPrice,
                     canSellMarket = HandlerTrueorFalse((int)chr.canSellMarket),
-                    icon = (int)chr.icon
+                    icon = (int)chr.icon,
+                    lowestStarLevel = (int)chr.lowestStarLevel,
+                    highestStarLevel = (int)chr.highestStarLevel,
+                    attribute = HandlerEquipmentAttribute((int)chr.attAttribute, (float)chr.attGrowthMod, (float)chr.attMods),
+                    bonusAttributes = HandlerEquipBonusAttribute((int)chr.id)
                 };
                 lsEquip.Add(newChar);
             }
             return lsEquip.ToArray();
+        }
+
+        private ElementBonusAttribute[] HandlerEquipBonusAttribute(int idEuip)
+        {
+            List<ElementBonusAttribute> lsElement = new List<ElementBonusAttribute>();
+            foreach (var item in css.lsdbEquipmentElementAttributes.Where(x => x.idEquipment == idEuip))
+            {
+                ElementBonusAttribute elemt = new ElementBonusAttribute()
+                {
+                    element = (TypeElement)item.element,
+                    bonusAttributes = HandlerBonusEquipment((int)item.id)
+                };
+                lsElement.Add(elemt);
+            }
+            return lsElement.ToArray();
+        }
+
+        private BonusAttribute[] HandlerBonusEquipment(int idElement)
+        {
+            List<BonusAttribute> lsBonus = new List<BonusAttribute>();
+
+            foreach (var item in css.lsdbEquipmentBonusAttribute.Where(x => x.idElement == idElement))
+            {
+                BonusAttribute bonus = new BonusAttribute()
+                {
+                    attribute = (CharacterAttribute)item.attribute,
+                    maxGrowMod = (float)item.minGrowMod,
+                    maxMod = (float)item.maxMod,
+                    minGrowMod = (float)item.minGrowMod,
+                    minMod = (float)item.minMod,
+                    proc = (float)item.procs
+                };
+                lsBonus.Add(bonus);
+            }
+            return lsBonus.ToArray();
+        }
+
+        private MainAttribute HandlerEquipmentAttribute(int x, float y, float z)
+        {
+            MainAttribute main = new MainAttribute()
+            {
+                attribute = (CharacterAttribute)x,
+                growthMod = y,
+                mod = z
+            };
+            return main;
         }
 
         public Item[] GetItem()
@@ -2082,24 +2132,6 @@ namespace BBCTDesignerTool.Models
                 lsItem.Add(newChar);
             }
             return lsItem.ToArray();
-        }
-
-        private List<StarUpReceipt> HandlerStarUpReceipts(int idEquip)
-        {
-            List<StarUpReceipt> lsStar = new List<StarUpReceipt>();
-            //var tmpStar = from tmp in css.lsdbEquipmentStarUp
-            //              where tmp.status == 1 && tmp.idEquipment == idEquip
-            //              select tmp;
-
-            //foreach (var item in tmpStar)
-            //{
-            //    StarUpReceipt up = new StarUpReceipt()
-            //    {
-            //        items = HandlerReceipt(3, (int)item.id).ToArray()
-            //    };
-            //    lsStar.Add(up);
-            //}
-            return lsStar;
         }
 
         private List<float> HandlerAttributeItem(int idItem)
@@ -2165,67 +2197,10 @@ namespace BBCTDesignerTool.Models
                 newChar.type = (TypeCharacter)chr.typeCharacter;
                 newChar.normalSkill = HandlerSkill(1, (int)chr.id).Count > 0 ? HandlerSkill(1, (int)chr.id)[0] : null;
                 newChar.ultimateSkill = HandlerSkill(2, (int)chr.id).ToArray();
-                newChar.passiveSkill = HandlerSkill(3, (int)chr.id).ToArray();
+                newChar.passiveSkill = HandlerSkill(3, (int)chr.id).Count > 0 ? HandlerSkill(3, (int)chr.id)[0] : null;
                 lsCharacter.Add(newChar);
             }
             return lsCharacter.ToArray();
-        }
-
-        private List<PowerUpReceipt> HandlerPowerUpReceipt(int idGen)
-        {
-            List<PowerUpReceipt> lsPowerUp = new List<PowerUpReceipt>();
-            //var tmpPow = from pow in css.lsdbCharPowerUpReceipt
-            //             where pow.status == 1 && pow.idCharacter == idGen
-            //             select pow;
-
-            //foreach (var item in tmpPow)
-            //{
-            //    PowerUpReceipt po = new PowerUpReceipt()
-            //    {
-            //        items = HandlerReceipt(1, (int)item.id).ToArray()
-            //    };
-            //    lsPowerUp.Add(po);
-            //}
-
-            return lsPowerUp;
-        }
-
-        private List<Receipt> HandlerReceipt(int type, int idGen)
-        {
-            List<Receipt> lsReceipt = new List<Receipt>();
-            //if (type == 1)
-            //{
-            //    var tmpRe = from tm in css.lsdbCharDetailPowerUpReceipt
-            //                where tm.status == 1 && tm.idReceipt == idGen
-            //                select tm;
-
-            //    foreach (var item in tmpRe)
-            //    {
-            //        Receipt re = new Receipt()
-            //        {
-            //            amount = (int)item.amount,
-            //            idItem = (int)item.idItem
-            //        };
-            //        lsReceipt.Add(re);
-            //    }
-            //}
-            //else if (type == 3)
-            //{
-            //    var tmpRe = from tm in css.lsdbEquipmentReceipt
-            //                where tm.status == 1 && tm.idStarUp == idGen
-            //                select tm;
-
-            //    foreach (var item in tmpRe)
-            //    {
-            //        Receipt re = new Receipt()
-            //        {
-            //            amount = (int)item.amount,
-            //            idItem = (int)item.idItem
-            //        };
-            //    }
-            //}
-
-            return lsReceipt;
         }
 
         private List<Skill> HandlerSkill(int type, int idChr)
@@ -2256,7 +2231,9 @@ namespace BBCTDesignerTool.Models
                         countTurn = (int)item.countTurn,
                         typeSpawnSkill = (TypeSpawnSkill)item.typeSpawnSkill,
                         afflictionDuration = (int)item.afflictionDuration,
-                        afflictionProc = (int)item.afflictionProc
+                        afflictionProc = (int)item.afflictionProc,
+                        startCooldown = (int)item.startCooldown,
+                        typePassive = (TypePassiveSpawnSkill)item.typePassive
                     };
                     lsSkill.Add(sk);
                 }
@@ -2285,7 +2262,7 @@ namespace BBCTDesignerTool.Models
         {
             List<DuyenPhan> tmpDuyenPhan = new List<DuyenPhan>();
 
-            foreach (var item in css.lsdbCharDuyenPhan.Where(x=>x.idCharacter == idChr))
+            foreach (var item in css.lsdbCharDuyenPhan.Where(x => x.idCharacter == idChr))
             {
                 DuyenPhan dp = new DuyenPhan()
                 {
@@ -2293,7 +2270,7 @@ namespace BBCTDesignerTool.Models
                     category = (short)item.category,
                     isOne = HandlerTrueorFalse((int)item.isOne),
                     name = HandlerKeyLanguage(3, (int)item.id)[0],
-                    ids = HandlerDuyenIDS((int)item.id).ToArray(),                    
+                    ids = HandlerDuyenIDS((int)item.id).ToArray(),
                 };
                 tmpDuyenPhan.Add(dp);
             }
@@ -2304,13 +2281,13 @@ namespace BBCTDesignerTool.Models
         {
             List<MainAttribute> lsAttribute = new List<MainAttribute>();
 
-            foreach (var item in css.lsdbCharDuyenPhanAttribute.Where(x=>x.idDuyen == idDuyen))
+            foreach (var item in css.lsdbCharDuyenPhanAttribute.Where(x => x.idDuyen == idDuyen))
             {
                 MainAttribute main = new MainAttribute()
                 {
-                    mod = (float)item.value,
-                    growthMod = (float)item.,
-                    //attribute = (CharacterAttribute)item.attribute
+                    mod = (float)item.mods,
+                    growthMod = (float)item.growthMod,
+                    attribute = (CharacterAttribute)item.attribute
                 };
                 lsAttribute.Add(main);
             }

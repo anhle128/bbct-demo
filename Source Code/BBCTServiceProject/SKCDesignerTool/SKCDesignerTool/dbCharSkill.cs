@@ -33,5 +33,6 @@ namespace BBCTDesignerTool
         public Nullable<double> afflictionProc { get; set; }
         public Nullable<int> orders { get; set; }
         public Nullable<int> status { get; set; }
+        public Nullable<int> typePassive { get; set; }
     }
 }

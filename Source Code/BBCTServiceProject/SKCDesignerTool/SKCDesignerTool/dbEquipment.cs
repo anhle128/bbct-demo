@@ -26,7 +26,7 @@ namespace BBCTDesignerTool
         public Nullable<int> highestStarLevel { get; set; }
         public Nullable<int> attAttribute { get; set; }
         public Nullable<double> attMods { get; set; }
-        public Nullable<int> attGrowthMod { get; set; }
+        public Nullable<double> attGrowthMod { get; set; }
         public Nullable<int> status { get; set; }
     }
 }
