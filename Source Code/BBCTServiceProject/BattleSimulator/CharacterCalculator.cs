@@ -51,15 +51,13 @@ namespace BattleSimulator
 
             for (int i = 0; i < attributes.Length; i++)
             {
-                if (i <= 6)
-                {
-                    attributes[i] = info.attributes[i].mod + (info.attributes[i].growthMod *
-                        ((1 + 0.5f * levelPowerUp) * (level - 1) * (0.9f + 0.1f * star)));
-                }
-                else
-                {
-                    attributes[i] = (info.attributes[i].mod + (level - 1) * info.attributes[i].growthMod);
-                }
+                //                float modStar = 1f;
+                //                if (i <= 4)
+                //                {
+                //                    modStar = (1f + (staticDB.configs.characterConfig.modStar * star));
+                //                }
+                //                attributes[i] = (info.attributes[i].mod + (level - 1) * info.attributes[i].growthMod) * modStar;
+                attributes[i] = (info.attributes[i].mod + (level - 1) * info.attributes[i].growthMod);
                 equipmentAttributes[i] = 0f;
             }
 
