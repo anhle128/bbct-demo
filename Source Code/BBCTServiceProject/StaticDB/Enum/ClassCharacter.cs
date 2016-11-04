@@ -3,9 +3,9 @@ namespace StaticDB.Enum
 {
     public enum ClassCharacter : int
     {
-        Tanker = 1,
-        Nuker = 2,
-        Buff = 3,
-        KhongChe = 4
+        Defensive = 1,
+        Offensive = 2,
+        Support = 3,
+        Universal = 4
     }
 }
