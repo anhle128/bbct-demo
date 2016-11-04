@@ -42,6 +42,8 @@ namespace BBCTDesignerTool.Models
         public List<dbCauCaReward> lsdbCauCaReward = new List<dbCauCaReward>();
         public List<dbInviteFriendConfig> lsdbInviteFriendConfigs = new List<dbInviteFriendConfig>();
         public List<dbInviteFriendReward> lsdbInviteFriendRewards = new List<dbInviteFriendReward>();
+        public List<dbEquipmentElementAttribute> lsdbEquipmentElementAttributes = new List<dbEquipmentElementAttribute>();
+        public List<dbEquipmentBonusAttribute> lsdbEquipmentBonusAttribute = new List<dbEquipmentBonusAttribute>();
 
         public Database()
         {
@@ -309,6 +311,45 @@ namespace BBCTDesignerTool.Models
                 lsdbStarReward.Add(db);
             }
 
+            ///////////////
+            var tmpdbEquipmentElementAttributes = from tmp in cs.dbEquipmentElementAttributes
+                                                  where tmp.status == 1
+                                                  select tmp;
+
+            foreach (var item in tmpdbEquipmentElementAttributes)
+            {
+                dbEquipmentElementAttribute Equi = new dbEquipmentElementAttribute()
+                {
+                    element = item.element,
+                    id = item.id,
+                    idEquipment = item.idEquipment,
+                    status = item.status
+                };
+                lsdbEquipmentElementAttributes.Add(Equi);
+            }
+
+            ///////
+            var tmpdbEquipmentBonusAttribute = from tmp in cs.dbEquipmentBonusAttributes
+                                               where tmp.status == 1
+                                               select tmp;
+
+            foreach (var item in tmpdbEquipmentBonusAttribute)
+            {
+                dbEquipmentBonusAttribute db = new dbEquipmentBonusAttribute()
+                {
+                    attribute = item.attribute,
+                    id = item.id,
+                    idElement = item.idElement,
+                    maxGrowMod = item.maxGrowMod,
+                    maxMod = item.maxMod,
+                    minGrowMod = item.minGrowMod,
+                    minMod = item.minMod,
+                    procs = item.procs,
+                    status = item.status
+                };
+                lsdbEquipmentBonusAttribute.Add(db);
+            }
+
 
             ///////////////
             var tmpdbEquipment = from tmp in cs.dbEquipments
@@ -327,8 +368,12 @@ namespace BBCTDesignerTool.Models
                     id = item.id,
                     idEquipment = item.idEquipment,
                     name = item.name,
-                    //promotion = item.promotion,
-                    status = item.status
+                    status = item.status,
+                    attAttribute = item.attAttribute,
+                    attGrowthMod = item.attGrowthMod,
+                    attMods = item.attMods,
+                    highestStarLevel = item.highestStarLevel,
+                    lowestStarLevel = item.lowestStarLevel
                 };
                 lsdbEquipment.Add(db);
             }
@@ -435,7 +480,9 @@ namespace BBCTDesignerTool.Models
                     status = item.status,
                     targets = item.targets,
                     types = item.types,
-                    typeSpawnSkill = item.typeSpawnSkill
+                    typeSpawnSkill = item.typeSpawnSkill,
+                    startCooldown = item.startCooldown,
+                    typePassive = item.typePassive
                 };
                 lsdbCharSkill.Add(db);
             }
@@ -469,7 +516,9 @@ namespace BBCTDesignerTool.Models
                     id = item.id,
                     idDuyen = item.idDuyen,
                     status = item.status,
-                    value = item.value,
+                    attribute = item.attribute,
+                    growthMod = item.growthMod,
+                    mods = item.mods
                 };
                 lsdbCharDuyenPhanAttribute.Add(db);
             }
