@@ -101,6 +101,11 @@ namespace BattleSimulator
             {
                 ch.ProcessInit();
             }
+
+            //Check Player đủ hay không
+            InitSubCharAffterCreated(levelCharA, true);
+            InitSubCharAffterCreated(levelCharB, false);
+
             characters = characters.OrderByDescending(x => x.calculator.GetAttribute(CharacterAttribute.Agi)).ToList();
             turns = new List<BCharacter>(characters);
 
@@ -1232,18 +1237,41 @@ namespace BattleSimulator
 
         void InitSubCharAffterCreated(int level, bool isTeamA)
         {
-            if (charactersA.Count < staticDB.configs.formationConfig.GetNumberCharInMainFormation(level) - 1)
-                for (int i = 0; i < staticDB.configs.formationConfig.GetNumberCharInMainFormation(level) - charactersA.Count - 1; i++)
-                {
-                    int[] rowCol = SetRowCol(charactersA);
-                    BCharacter charInit = charactersAS[curCharSubA];
-                    charInit.row = rowCol[0];
-                    charInit.col = rowCol[1];
-                    charactersA.Add(charInit);
-                    characters.Add(charInit);
-                    charactersA.Last().ProcessInit();
+            if (isTeamA)
+            {
+                if (charactersA.Count < staticDB.configs.formationConfig.GetNumberCharInMainFormation(level) - 1)
+                    for (int i = 0;
+                        i < staticDB.configs.formationConfig.GetNumberCharInMainFormation(level) - charactersA.Count - 1;
+                        i++)
+                    {
+                        int[] rowCol = SetRowCol(charactersA);
+                        BCharacter charInit = charactersAS[curCharSubA];
+                        charInit.row = rowCol[0];
+                        charInit.col = rowCol[1];
+                        charactersA.Add(charInit);
+                        characters.Add(charInit);
+                        charactersA.Last().ProcessInit();
 
-                }
+                    }
+            }
+            else
+            {
+                if (charactersB.Count < staticDB.configs.formationConfig.GetNumberCharInMainFormation(level) - 1)
+                    for (int i = 0;
+                        i < staticDB.configs.formationConfig.GetNumberCharInMainFormation(level) - charactersB.Count - 1;
+                        i++)
+                    {
+                        int[] rowCol = SetRowCol(charactersB);
+                        BCharacter charInit = charactersBS[curCharSubB];
+                        charInit.row = rowCol[0];
+                        charInit.col = rowCol[1];
+                        charactersB.Add(charInit);
+                        characters.Add(charInit);
+                        charactersB.Last().ProcessInit();
+
+                    }
+            }
+
         }
         #endregion
 
