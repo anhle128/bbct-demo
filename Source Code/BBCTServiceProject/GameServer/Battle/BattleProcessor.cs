@@ -12,6 +12,7 @@ namespace GameServer.Battle
 {
     public class BattleProcessor
     {
+        private int user_level;
         public BattleProcessor()
         {
 
@@ -21,7 +22,7 @@ namespace GameServer.Battle
         {
             BattleSimulator.Battle battleSim = new BattleSimulator.Battle(StaticDatabase.entities,
                     GetDataInputThanThap(cacheData, indexMonster, floor, difficult),
-                    true, true, new BattleLogger(), true);
+                    true, true, new BattleLogger(), true, cacheData.info.level, user_level);
             battleSim.StartBattle();
             return battleSim;
         }
@@ -30,7 +31,7 @@ namespace GameServer.Battle
         {
             BattleSimulator.Battle battleSim = new BattleSimulator.Battle(StaticDatabase.entities,
                     GetDataInputGHK(cacheData, stage, level),
-                    true, true, new BattleLogger(), true);
+                    true, true, new BattleLogger(), true, cacheData.info.level, user_level);
             battleSim.StartBattle();
             return battleSim;
         }
@@ -39,7 +40,7 @@ namespace GameServer.Battle
         {
             BattleSimulator.Battle battleSim = new BattleSimulator.Battle(StaticDatabase.entities,
                    GetDataInputGlobalBoss(cacheData, level),
-                   true, true, new BattleLogger(), true);
+                   true, true, new BattleLogger(), true, cacheData.info.level, user_level);
             battleSim.StartBattle();
             return battleSim;
         }
@@ -48,7 +49,7 @@ namespace GameServer.Battle
         {
             BattleSimulator.Battle battleSim = new BattleSimulator.Battle(StaticDatabase.entities,
                     GetDataInput(cacheData, userIdB),
-                    true, true, new BattleLogger(), true);
+                    true, true, new BattleLogger(), true, cacheData.info.level, user_level);
             battleSim.StartBattle();
             return battleSim;
         }
@@ -96,6 +97,8 @@ namespace GameServer.Battle
         {
             TeamParameter team = new TeamParameter();
             team.mainChars = new List<CharacterParameter>();
+            team.level = 100;
+            this.user_level = team.level;
 
             Character info = StaticDatabase.entities.characters.Single(a => a.id == StaticDatabase.entities.configs.battleConfig.idBossWorld);
 
@@ -139,6 +142,8 @@ namespace GameServer.Battle
         {
             TeamParameter team = new TeamParameter();
             team.mainChars = new List<CharacterParameter>();
+            team.level = 100;
+            this.user_level = team.level;
 
             foreach (var mon in monsters)
             {
@@ -173,6 +178,8 @@ namespace GameServer.Battle
         {
             TeamParameter team = new TeamParameter();
             team.mainChars = new List<CharacterParameter>();
+            team.level = 100;
+            this.user_level = team.level;
 
             foreach (var mon in monsters)
             {
@@ -214,7 +221,8 @@ namespace GameServer.Battle
             var formation = dataFormation.main;
             var doiHinhDuBi = dataFormation.sub;
 
-            var team = GetTeamParameter(characters, equipments, formation, doiHinhDuBi);
+            user_level = userInfo.level;
+            var team = GetTeamParameter(characters, equipments, formation, doiHinhDuBi, userInfo.level);
             return team;
         }
 
@@ -226,16 +234,17 @@ namespace GameServer.Battle
             var formation = dataFormation.main;
             var doiHinhDuBi = dataFormation.sub;
 
-            var team = GetTeamParameter(characters, equipments, formation, doiHinhDuBi);
+            var team = GetTeamParameter(characters, equipments, formation, doiHinhDuBi, cacheData.info.level);
             return team;
         }
 
         private static TeamParameter GetTeamParameter(List<MUserCharacter> characters, List<MUserEquip> equipments, StringArray[] formation,
-            List<string> doiHinhDuBi)
+            List<string> doiHinhDuBi, int level)
         {
             TeamParameter team = new TeamParameter();
             team.mainChars = new List<CharacterParameter>();
             team.subChars = new List<CharacterParameter>();
+            team.level = level;
 
             if (doiHinhDuBi == null)
                 doiHinhDuBi = new List<string>();

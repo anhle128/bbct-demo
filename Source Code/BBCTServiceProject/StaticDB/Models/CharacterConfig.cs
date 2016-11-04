@@ -32,6 +32,12 @@ namespace StaticDB.Models
         public float maxResKH { get; set; } // max % kháng hệ
         [ProtoMember(11)]
         public SkillStarLevel[] skillStarLevels { get; set; }
+        [ProtoMember(12)]
+        public float maxCriRate { get; set; } // max % cri rate
+        [ProtoMember(12)]
+        public float maxBlockRate { get; set; } // max % block rate
+        [ProtoMember(12)]
+        public float maxBlockDame { get; set; } // max % block dame
 
         [ProtoMember(12)]
         public int maxStar { get; set; }

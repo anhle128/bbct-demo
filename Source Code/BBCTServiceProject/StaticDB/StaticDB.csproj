@@ -97,6 +97,7 @@
     <Compile Include="Models\CuopTieuConfig.cs" />
     <Compile Include="Models\CuuCuuTriTonConfig.cs" />
     <Compile Include="Models\FormationConfig.cs" />
+    <Compile Include="Models\DoiHinhDuBiConfig.cs" />
     <Compile Include="Models\DoiHinhDuBiRequire.cs" />
     <Compile Include="Models\Element2Element.cs" />
     <Compile Include="Models\ElementBonusAttribute.cs" />
